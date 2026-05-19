@@ -17,9 +17,6 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
-      '@fontsource-variable/nunito':
-        specifier: ^5.2.7
-        version: 5.2.7
       '@fontsource/be-vietnam-pro':
         specifier: ^5.2.8
         version: 5.2.8
@@ -561,9 +558,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@fontsource-variable/nunito@5.2.7':
-    resolution: {integrity: sha512-2N8QhatkyKgSUbAGZO2FYLioxA32+RyI1EplVLawbpkGjUeui9Qg9VMrpkCaik1ydjFjfLV+kzQ0cGEsMrMenQ==}
 
   '@fontsource/be-vietnam-pro@5.2.8':
     resolution: {integrity: sha512-lqTtfpkAy0GdFH0fqwR0sW4VP+3CNGaQV6SpW2TSZaNmixZMlou+2dp5ErGidrS1MPiDDPfPbfW2i358PVFLZA==}
@@ -3879,8 +3873,6 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.7':
     optional: true
-
-  '@fontsource-variable/nunito@5.2.7': {}
 
   '@fontsource/be-vietnam-pro@5.2.8': {}
 

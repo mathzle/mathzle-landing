@@ -1,13 +1,14 @@
 @import 'tailwindcss';
-/* Nunito (variable) for display/headings — full Vietnamese diacritic
-   support (đ, ă, ơ, ư, stacked tones) and the same rounded geometric
-   character as Fredoka. Fredoka was dropped because its VI coverage
-   is incomplete — diacritics render as tofu/broken in vi.json copy. */
-@import '@fontsource-variable/nunito';
+/* Single-font design system — Be Vietnam Pro only.
+   - Designed for Vietnamese first; diacritics always render perfectly
+   - Weight 800 (ExtraBold) carries display character at hero sizes
+   - One family, one bundle, one source of truth
+   - Matches the mathzle-ui Flutter app, which also ships only BVP */
 @import '@fontsource/be-vietnam-pro/400.css';
 @import '@fontsource/be-vietnam-pro/500.css';
 @import '@fontsource/be-vietnam-pro/600.css';
 @import '@fontsource/be-vietnam-pro/700.css';
+@import '@fontsource/be-vietnam-pro/800.css';
 
 /* ============================================================
    Design tokens — mirrored from mathzle-ui/DESIGN.md.
@@ -17,7 +18,9 @@
 
 @theme {
   /* Fonts */
-  --font-display: 'Nunito Variable', system-ui, sans-serif;
+  /* Same family for display and body — weight + size + tracking do
+     the differentiation. See @layer base h1/h2/h3 below. */
+  --font-display: 'Be Vietnam Pro', system-ui, sans-serif;
   --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
 
   /* Brand */
@@ -89,10 +92,18 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2, h3, .display {
+  /* Display character at headline sizes comes from weight 800 + tight
+     tracking, not a different family. Section h2/h3 stay at 700; only
+     the largest display headings push to 800. */
+  h1, .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+  }
+  h2, h3 {
     font-family: var(--font-display);
     font-weight: 700;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
   }
 
   body {

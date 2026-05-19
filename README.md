@@ -9,9 +9,9 @@ The public-facing marketing site for [Mathzle](https://mathzle.com) — math mad
 - **[Preact](https://preactjs.com/)** — for the two interactive islands (FAQ accordion, signup form)
 - **[Cloudflare Pages](https://pages.cloudflare.com/)** — edge deploy + Pages Functions for `/api/signup`
 
-Design system mirrors [mathzle-ui's DESIGN.md](https://github.com/mathzle/mathzle-ui) — Nunito (display) + Be Vietnam Pro (body), sky-violet primary, world-color palette, pushable interaction.
+Design system mirrors [mathzle-ui's DESIGN.md](https://github.com/mathzle/mathzle-ui) — **single-font Be Vietnam Pro** (weights 400–800), sky-violet primary, world-color palette, pushable interaction.
 
-> Note: Nunito replaces Fredoka here. Fredoka's Vietnamese diacritic coverage is incomplete (`đ ă ơ ư` and stacked tones render broken). Nunito has the same rounded geometric character with full VI support. The mathzle-ui Flutter app likely has the same issue and should switch too — see `docs/features/16-landing-page/README.md` decisions log.
+> Font rationale: BVP is designed for Vietnamese first; diacritics always render perfectly. Weight 800 at hero sizes carries display character without needing a second family. Smaller bundle, simpler discipline, matches the Flutter app which also ships only BVP. Earlier iterations used Fredoka (broken VI) and Nunito (worked but redundant).
 
 ## Development
 
