@@ -1,0 +1,176 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/fredoka';
+@import '@fontsource/be-vietnam-pro/400.css';
+@import '@fontsource/be-vietnam-pro/500.css';
+@import '@fontsource/be-vietnam-pro/600.css';
+@import '@fontsource/be-vietnam-pro/700.css';
+
+/* ============================================================
+   Design tokens — mirrored from mathzle-ui/DESIGN.md.
+   Keep in sync manually; log every change in
+   docs/features/16-landing-page/README.md decisions log.
+   ============================================================ */
+
+@theme {
+  /* Fonts */
+  --font-display: 'Fredoka Variable', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+
+  /* Brand */
+  --color-primary: #5b6cff;
+  --color-primary-light: #e8ebff;
+  --color-primary-dark: #3f4ccc;
+  --color-secondary: #22c9d9;
+  --color-tertiary: #ff7849;
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* Reward */
+  --color-reward: #ffc93c;
+  --color-reward-diamond: #a855f7;
+  --color-streak: #ff7849;
+
+  /* World palette */
+  --color-world-ocean: #22c9d9;
+  --color-world-forest: #4ade80;
+  --color-world-sky: #5b6cff;
+  --color-world-sunset: #ff7849;
+  --color-world-berry: #ec4899;
+  --color-world-mint: #10b981;
+
+  /* Surface & background */
+  --color-bg: #fff8f0;
+  --color-bg-alt: #ffeedd;
+  --color-surface: #ffffff;
+  --color-surface-variant: #fbf4eb;
+  --color-text-primary: #2d2a4a;
+  --color-text-secondary: #6b6892;
+  --color-text-tertiary: #a8a4c5;
+  --color-text-on-primary: #ffffff;
+  --color-border: #f0e4d0;
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-input: 14px;
+  --radius-button: 16px;
+  --radius-chip: 14px;
+  --radius-card: 20px;
+  --radius-card-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* Spacing extras (Tailwind handles standard scale) */
+  --spacing-push-depth: 4px;
+  --spacing-push-depth-small: 2px;
+  --spacing-kid-touch: 64px;
+
+  /* Motion */
+  --duration-fast: 80ms;
+  --duration-normal: 200ms;
+  --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+/* ============================================================
+   Components — the pushable mechanic ports from mathzle-ui's
+   AppButton widget. Same translateY + border-bottom collapse.
+   ============================================================ */
+
+@layer components {
+  .btn-push {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--color-text-on-primary);
+    background: var(--color-primary);
+    border-radius: var(--radius-button);
+    border: 0;
+    border-bottom: var(--spacing-push-depth) solid var(--color-primary-dark);
+    padding: 0.875rem 1.75rem;
+    min-height: var(--spacing-kid-touch);
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      transform var(--duration-fast) var(--easing-spring),
+      border-bottom-width var(--duration-fast) var(--easing-spring);
+  }
+  .btn-push:hover {
+    filter: brightness(1.05);
+  }
+  .btn-push:active {
+    transform: translateY(var(--spacing-push-depth));
+    border-bottom-width: 0;
+  }
+  .btn-push:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    transition: opacity var(--duration-fast) ease;
+  }
+  .btn-text:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .btn-text:active {
+    opacity: 0.7;
+  }
+
+  /* Reduced-motion override — respect the system flag */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-push {
+      transition: none;
+    }
+    .btn-push:active {
+      transform: none;
+    }
+  }
+}

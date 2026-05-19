@@ -1,0 +1,95 @@
+{
+  "_note": "DRAFT — needs review by a native Vietnamese speaker before launch. Register: friendly 'mình/bạn', not formal 'tôi'. Tone: warm, parent-respectful, not babyish.",
+  "nav": {
+    "howItWorks": "Cách hoạt động",
+    "worlds": "Thế giới",
+    "pricing": "Bảng giá",
+    "faq": "Hỏi đáp",
+    "signIn": "Đăng nhập",
+    "playFree": "Chơi miễn phí"
+  },
+  "hero": {
+    "headline": "Biến toán học thành cuộc phiêu lưu",
+    "subhead": "Toán học cho trẻ 6–11 tuổi. Chơi ngay trên trình duyệt — không cần tải, không tốn bộ nhớ.",
+    "ctaPlay": "Chơi miễn phí ngay",
+    "ctaSecondary": "Xem cách hoạt động",
+    "supportNote": "Miễn phí mãi mãi với 2 thế giới. Bản Premium mở khoá cả 6 thế giới."
+  },
+  "howItWorks": {
+    "title": "Cách hoạt động",
+    "step1": {
+      "title": "Chọn thế giới",
+      "body": "Sáu thế giới với chủ đề khác nhau — chọn nơi bé muốn bắt đầu."
+    },
+    "step2": {
+      "title": "Chơi bài học",
+      "body": "Các bài học ngắn, tập trung, được thiết kế cùng giáo viên tiểu học."
+    },
+    "step3": {
+      "title": "Nhận phần thưởng",
+      "body": "Coin, streak, và huy hiệu giúp bé duy trì thói quen."
+    }
+  },
+  "worlds": {
+    "title": "Sáu thế giới, sáu cách chơi",
+    "ocean":  { "name": "Vịnh Đếm Số",     "subtitle": "Số đếm & giá trị vị trí",     "badges": ["Lớp 1", "Lớp 2"] },
+    "forest": { "name": "Rừng Nhân Chia",   "subtitle": "Bảng cửu chương",            "badges": ["Lớp 2", "Lớp 3"] },
+    "sky":    { "name": "Trời Tư Duy",      "subtitle": "Giải quyết vấn đề",          "badges": ["Lớp 3", "Lớp 4"] },
+    "sunset": { "name": "Đỉnh Hình Học",    "subtitle": "Hình học & hình khối",       "badges": ["Lớp 2", "Lớp 4"] },
+    "berry":  { "name": "Đồng Phân Số",    "subtitle": "Một nửa, một phần ba, một phần tư", "badges": ["Lớp 3", "Lớp 5"] },
+    "mint":   { "name": "Đồng Cỏ Đo Lường", "subtitle": "Đơn vị, thời gian, tiền tệ", "badges": ["Lớp 1", "Lớp 3"] }
+  },
+  "trust": {
+    "title": "Phụ huynh tin tưởng Mathzle",
+    "safe":         { "title": "An toàn mặc định",     "body": "Không quảng cáo. Không chat. Không bán dữ liệu." },
+    "educator":     { "title": "Thiết kế bởi giáo viên", "body": "Xây dựng cùng giáo viên tiểu học và rà soát theo chuẩn lớp học." },
+    "multilingual": { "title": "Tiếng Việt + Anh",     "body": "Đổi ngôn ngữ bất kỳ lúc nào. Con số đọc tự nhiên ở cả hai." }
+  },
+  "screenshots": {
+    "title": "Xem trực tiếp",
+    "subtitle": "Cùng nền kem ấm áp, cùng nút bấm có hiệu ứng, cùng linh vật blob — trên mọi màn hình."
+  },
+  "testimonials": {
+    "title": "Phụ huynh nói gì",
+    "items": [
+      { "quote": "Con gái mình bây giờ tự xin được học toán.",         "author": "Linh, mẹ hai con — Hà Nội" },
+      { "quote": "Đã thay thế hai ứng dụng học toán khác. Đáng đổi.",  "author": "Anh, bố ở TP.HCM" },
+      { "quote": "Mình đã thử với lớp. Nhịp học rất giống lớp thật.", "author": "Cô Phạm, giáo viên tiểu học" }
+    ]
+  },
+  "pricing": {
+    "title": "Miễn phí mãi mãi. Premium khi bạn sẵn sàng.",
+    "freeTitle": "Miễn phí",
+    "freePrice": "0đ",
+    "freeBullets": ["Hai thế giới đầy đủ", "Streak hàng ngày", "Tiếng Việt + Anh"],
+    "freeCta": "Bắt đầu chơi",
+    "premiumTitle": "Premium",
+    "premiumPrice": "119k/tháng",
+    "premiumBullets": ["Cả sáu thế giới", "Chia sẻ gia đình (tới 4 bé)", "Hỗ trợ ưu tiên"],
+    "premiumCta": "Dùng thử Premium",
+    "premiumNote": "Hủy bất kỳ lúc nào. Thanh toán chưa khả dụng — giá tạm thời, sẽ chốt khi ra mắt."
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp"
+  },
+  "cta": {
+    "title": "Đăng ký nhận tin",
+    "subtitle": "Mỗi tháng một email. Tips từ giáo viên, thế giới mới, sớm có quyền truy cập app native.",
+    "placeholder": "email@cua-ban.com",
+    "button": "Đăng ký",
+    "success": "Cảm ơn! Hãy kiểm tra email của bạn.",
+    "error": "Có lỗi xảy ra. Bạn thử lại nhé?"
+  },
+  "footer": {
+    "tagline": "Toán học dành cho trẻ em.",
+    "copyright": "© 2026 Mathzle.",
+    "links": {
+      "about": "Giới thiệu",
+      "pricing": "Bảng giá",
+      "faq": "Hỏi đáp",
+      "privacy": "Bảo mật",
+      "terms": "Điều khoản",
+      "contact": "Liên hệ"
+    }
+  }
+}

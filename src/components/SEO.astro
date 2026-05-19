@@ -1,0 +1,79 @@
+---
+/**
+ * Per-page SEO chunk: meta + canonical + hreflang + Open Graph +
+ * Twitter Card + JSON-LD (EducationalOrganization + WebApplication).
+ *
+ * Schema choice: WebApplication, not SoftwareApplication. The product
+ * runs in the browser; we deliberately don't claim iOS/Android.
+ */
+interface Props {
+  title: string;
+  description: string;
+  locale: 'en' | 'vi';
+  path: string;
+  ogImage?: string;
+  type?: 'website' | 'article';
+}
+
+const {
+  title,
+  description,
+  locale,
+  path,
+  ogImage = '/og-default.png',
+  type = 'website',
+} = Astro.props;
+
+const site = 'https://mathzle.com';
+const url = `${site}${path}`;
+const altLocale = locale === 'en' ? 'vi' : 'en';
+const altPath = path.replace(/^\/(en|vi)/, `/${altLocale}`);
+const enPath = path.replace(/^\/(en|vi)/, '/en');
+
+// TODO(launch): replace with real Mathzle web-app URL.
+const webAppUrl = 'https://app.mathzle.com';
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: 'Mathzle',
+  url: site,
+  logo: `${site}/favicon.svg`,
+  // Add sameAs entries here once social accounts exist.
+};
+
+const appSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'Mathzle',
+  description,
+  applicationCategory: 'EducationalApplication',
+  audience: { '@type': 'PeopleAudience', suggestedMinAge: 6, suggestedMaxAge: 11 },
+  browserRequirements: 'Requires a modern browser with JavaScript enabled',
+  url: webAppUrl,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+};
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<link rel="canonical" href={url} />
+<link rel="alternate" hreflang={locale} href={url} />
+<link rel="alternate" hreflang={altLocale} href={`${site}${altPath}`} />
+<link rel="alternate" hreflang="x-default" href={`${site}${enPath}`} />
+
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={`${site}${ogImage}`} />
+<meta property="og:locale" content={locale === 'en' ? 'en_US' : 'vi_VN'} />
+<meta property="og:site_name" content="Mathzle" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={`${site}${ogImage}`} />
+
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(appSchema)} />

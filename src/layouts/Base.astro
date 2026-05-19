@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+import SEO from '../components/SEO.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  locale: 'en' | 'vi';
+  path: string;            // canonical path e.g. '/en/' or '/vi/about'
+  ogImage?: string;
+}
+const { title, description, locale, path, ogImage } = Astro.props;
+---
+<!doctype html>
+<html lang={locale === 'vi' ? 'vi' : 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEO
+      title={title}
+      description={description}
+      locale={locale}
+      path={path}
+      ogImage={ogImage}
+    />
+  </head>
+  <body class="min-h-dvh">
+    <slot />
+    <!-- Cloudflare Web Analytics — token pasted before launch (Task 12) -->
+    <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"REPLACE_ME"}'></script> -->
+  </body>
+</html>

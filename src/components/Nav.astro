@@ -1,0 +1,114 @@
+---
+import { t, type Locale } from '../utils/i18n';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  locale: Locale;
+  path: string;
+}
+const { locale, path } = Astro.props;
+const i = t(locale);
+const home = `/${locale}/`;
+---
+<header class="nav-shell">
+  <nav class="nav" aria-label="Primary">
+    <a href={home} class="nav-logo">
+      <span class="nav-logo-mark">M</span>
+      <span class="nav-logo-text">Mathzle</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href={`${home}#how-it-works`}>{i.nav.howItWorks}</a></li>
+      <li><a href={`${home}#worlds`}>{i.nav.worlds}</a></li>
+      <li><a href={`${home}pricing`}>{i.nav.pricing}</a></li>
+      <li><a href={`${home}faq`}>{i.nav.faq}</a></li>
+    </ul>
+    <div class="nav-actions">
+      <LangSwitch locale={locale} path={path} class="nav-lang" />
+      <a
+        href="https://app.mathzle.com"
+        class="btn-push nav-cta"
+        data-track="nav-cta"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ▶ {i.nav.playFree}
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .nav-shell {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.875rem 1.5rem;
+  }
+  .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .nav-logo-mark {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+  }
+  .nav-links a:hover {
+    color: var(--color-text-primary);
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .nav-cta {
+    padding: 0.625rem 1.125rem;
+    min-height: auto;
+    font-size: 0.9rem;
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-lang { display: none; }
+  }
+</style>

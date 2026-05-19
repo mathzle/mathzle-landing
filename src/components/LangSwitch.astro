@@ -1,0 +1,38 @@
+---
+import { altPathForLocale, localeLabel, type Locale } from '../utils/i18n';
+
+interface Props {
+  locale: Locale;
+  path: string;
+  class?: string;
+}
+const { locale, path, class: className } = Astro.props;
+const other: Locale = locale === 'en' ? 'vi' : 'en';
+const altHref = altPathForLocale(path, other);
+---
+<a
+  href={altHref}
+  class={['lang-switch', className].filter(Boolean).join(' ')}
+  hreflang={other}
+  aria-label={`Switch to ${localeLabel(other)}`}
+>
+  <span aria-hidden="true">🌐</span>
+  <span>{localeLabel(other)}</span>
+</a>
+
+<style>
+  .lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    padding: 0.375rem 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+  .lang-switch:hover {
+    color: var(--color-text-primary);
+    background: var(--color-surface-variant);
+  }
+</style>

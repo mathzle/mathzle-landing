@@ -1,0 +1,46 @@
+---
+/**
+ * The Mathzle blob mascot. Loads one of five SVG states from public/mascot/.
+ * - decorative=true (default): role=presentation, no semantic label
+ * - decorative=false: alt text is set per state (for non-decorative usage)
+ * Cheer state adds a subtle bounce; reduced-motion overrides it to static.
+ */
+interface Props {
+  state?: 'idle' | 'cheer' | 'think' | 'sad' | 'wave';
+  size?: number;
+  decorative?: boolean;
+  class?: string;
+}
+
+const { state = 'idle', size = 96, decorative = true, class: className } = Astro.props;
+
+const labels = {
+  idle: 'Mathzle mascot, waiting',
+  cheer: 'Mathzle mascot, cheering',
+  think: 'Mathzle mascot, thinking',
+  sad: 'Mathzle mascot, looking sad',
+  wave: 'Mathzle mascot, waving hello',
+};
+---
+<img
+  src={`/mascot/blob-${state}.svg`}
+  width={size}
+  height={size}
+  alt={decorative ? '' : labels[state]}
+  role={decorative ? 'presentation' : undefined}
+  class={[state === 'cheer' ? 'mascot-bounce' : '', className].filter(Boolean).join(' ')}
+/>
+
+<style>
+  @keyframes mascot-bounce {
+    0%, 100% { transform: translateY(-3px); }
+    50%      { transform: translateY(3px); }
+  }
+  .mascot-bounce {
+    animation: mascot-bounce 1.2s ease-in-out infinite;
+    will-change: transform;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mascot-bounce { animation: none; }
+  }
+</style>

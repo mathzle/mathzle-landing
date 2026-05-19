@@ -1,0 +1,94 @@
+{
+  "nav": {
+    "howItWorks": "How it works",
+    "worlds": "Worlds",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "signIn": "Sign in",
+    "playFree": "Play free"
+  },
+  "hero": {
+    "headline": "Make math an adventure",
+    "subhead": "Math made for ages 6–11. Works in any browser. No install, no storage, no app store.",
+    "ctaPlay": "Start playing — free",
+    "ctaSecondary": "See how it works",
+    "supportNote": "Free forever for two worlds. Premium unlocks all six."
+  },
+  "howItWorks": {
+    "title": "How it works",
+    "step1": {
+      "title": "Pick a world",
+      "body": "Six themed worlds — pick where your kid wants to start."
+    },
+    "step2": {
+      "title": "Play a lesson",
+      "body": "Short, focused lessons designed with classroom teachers."
+    },
+    "step3": {
+      "title": "Earn rewards",
+      "body": "Coins, streaks, and badges keep the streak going."
+    }
+  },
+  "worlds": {
+    "title": "Six worlds, six ways to play",
+    "ocean":  { "name": "Counting Cove",       "subtitle": "Numbers & place value",  "badges": ["1st grade", "2nd grade"] },
+    "forest": { "name": "Number Forest",       "subtitle": "Times tables",           "badges": ["2nd grade", "3rd grade"] },
+    "sky":    { "name": "Logic Sky",           "subtitle": "Problem solving",        "badges": ["3rd grade", "4th grade"] },
+    "sunset": { "name": "Pattern Peaks",       "subtitle": "Geometry & shapes",      "badges": ["2nd grade", "4th grade"] },
+    "berry":  { "name": "Fraction Fields",     "subtitle": "Halves, thirds, quarters", "badges": ["3rd grade", "5th grade"] },
+    "mint":   { "name": "Measurement Meadow",  "subtitle": "Units, time, money",     "badges": ["1st grade", "3rd grade"] }
+  },
+  "trust": {
+    "title": "Parents trust Mathzle",
+    "safe":         { "title": "Safe by default",     "body": "No ads. No chat. No data sold." },
+    "educator":     { "title": "Educator-designed",   "body": "Built with classroom teachers and reviewed against grade-level standards." },
+    "multilingual": { "title": "Vietnamese + English", "body": "Switch language any time. Numbers feel native in both." }
+  },
+  "screenshots": {
+    "title": "See it in action",
+    "subtitle": "Same warm cream, same pushable buttons, same blob mascot — on every screen."
+  },
+  "testimonials": {
+    "title": "What parents say",
+    "items": [
+      { "quote": "My daughter actually asks to do math now.",                  "author": "Linh, mom of two — Hanoi" },
+      { "quote": "Replaced two other math apps. Worth the switch.",            "author": "Anh, dad in HCMC" },
+      { "quote": "Tested with my class. The pacing is real classroom pacing.", "author": "Ms. Pham, primary teacher" }
+    ]
+  },
+  "pricing": {
+    "title": "Free forever. Premium when you're ready.",
+    "freeTitle": "Free",
+    "freePrice": "$0",
+    "freeBullets": ["Two full worlds", "Daily streaks", "Vietnamese + English"],
+    "freeCta": "Start playing",
+    "premiumTitle": "Premium",
+    "premiumPrice": "$4.99/mo",
+    "premiumBullets": ["All six worlds", "Family sharing (up to 4 kids)", "Priority support"],
+    "premiumCta": "Try premium",
+    "premiumNote": "Cancel any time. Billing isn't live yet — placeholder pricing pending launch."
+  },
+  "faq": {
+    "title": "Frequently asked questions"
+  },
+  "cta": {
+    "title": "Stay in the loop",
+    "subtitle": "One email a month. Tips from teachers, new worlds, early access to native apps.",
+    "placeholder": "your@email.com",
+    "button": "Subscribe",
+    "success": "Welcome! Check your inbox.",
+    "error": "Something went wrong. Try again?"
+  },
+  "footer": {
+    "tagline": "Math made for kids.",
+    "copyright": "© 2026 Mathzle.",
+    "links": {
+      "about": "About",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact"
+    }
+  }
+}

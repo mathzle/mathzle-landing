@@ -1,0 +1,93 @@
+---
+/**
+ * Pushable button — mirrors the AppButton mechanic from mathzle-ui.
+ * Three variants:
+ *   - primary: solid fill + 4px darker bottom border + translateY on :active
+ *   - outline: transparent fill + colored bottom border
+ *   - text:    no fill, no border, opacity dip on :active
+ * Renders <a> if href is provided, otherwise <button>.
+ */
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'outline' | 'text';
+  color?: string;
+  ariaLabel?: string;
+  track?: string;
+  class?: string;
+  type?: 'button' | 'submit';
+  external?: boolean;
+}
+
+const {
+  href,
+  variant = 'primary',
+  color,
+  ariaLabel,
+  track,
+  class: className,
+  type = 'button',
+  external = false,
+} = Astro.props;
+
+const baseClass = variant === 'primary' ? 'btn-push' : variant === 'text' ? 'btn-text' : 'btn-outline';
+const styleOverride = color
+  ? `--color-primary: ${color}; --color-primary-dark: color-mix(in srgb, ${color} 75%, black);`
+  : undefined;
+---
+{
+  href ? (
+    <a
+      href={href}
+      class={[baseClass, className].filter(Boolean).join(' ')}
+      style={styleOverride}
+      aria-label={ariaLabel}
+      data-track={track}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={[baseClass, className].filter(Boolean).join(' ')}
+      style={styleOverride}
+      aria-label={ariaLabel}
+      data-track={track}
+    >
+      <slot />
+    </button>
+  )
+}
+
+<style>
+  /* .btn-push + .btn-text live in global.css. Outline is local. */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-primary);
+    background: transparent;
+    border: 1.5px solid var(--color-primary);
+    border-bottom-width: calc(1.5px + var(--spacing-push-depth-small));
+    border-radius: var(--radius-button);
+    padding: 0.75rem 1.5rem;
+    min-height: var(--spacing-kid-touch);
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+      transform var(--duration-fast) var(--easing-spring),
+      border-bottom-width var(--duration-fast) var(--easing-spring);
+  }
+  .btn-outline:active {
+    transform: translateY(var(--spacing-push-depth-small));
+    border-bottom-width: 1.5px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-outline { transition: none; }
+    .btn-outline:active { transform: none; }
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import { t, type Locale } from '../utils/i18n';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  locale: Locale;
+  path: string;
+}
+const { locale, path } = Astro.props;
+const i = t(locale);
+const home = `/${locale}/`;
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <span class="footer-logo-mark">M</span>
+        <span class="footer-logo-text">Mathzle</span>
+      </div>
+      <p class="footer-tagline">{i.footer.tagline}</p>
+      <p class="footer-copy">{year !== 2026 ? `© ${year} Mathzle.` : i.footer.copyright}</p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <a href={`${home}about`}>{i.footer.links.about}</a>
+      <a href={`${home}pricing`}>{i.footer.links.pricing}</a>
+      <a href={`${home}faq`}>{i.footer.links.faq}</a>
+      <a href={`${home}privacy`}>{i.footer.links.privacy}</a>
+      <a href={`${home}terms`}>{i.footer.links.terms}</a>
+    </nav>
+
+    <div class="footer-utility">
+      <LangSwitch locale={locale} path={path} />
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-bg-alt);
+    margin-top: 6rem;
+    padding: 3rem 1.5rem 2.5rem;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr auto;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .footer-logo-mark {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--color-primary);
+    color: var(--color-text-on-primary);
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+  .footer-logo-text {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .footer-tagline {
+    margin-top: 0.75rem;
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+  }
+  .footer-copy {
+    margin-top: 0.5rem;
+    color: var(--color-text-tertiary);
+    font-size: 0.85rem;
+  }
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .footer-nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .footer-nav a:hover {
+    color: var(--color-text-primary);
+  }
+</style>
