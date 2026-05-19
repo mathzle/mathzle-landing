@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const locale = 'vi' as const;
+const path = '/vi/terms';
+---
+<Base
+  title="Điều khoản sử dụng — Mathzle"
+  description="Các điều khoản khi bạn sử dụng Mathzle. Rõ ràng, công bằng, tôn trọng trẻ em."
+  locale={locale}
+  path={path}
+>
+  <Nav locale={locale} path={path} />
+  <main class="prose-page">
+    <header class="prose-hero">
+      <h1>Điều khoản sử dụng</h1>
+      <p class="lead">Cập nhật lần cuối: 19/05/2026</p>
+    </header>
+    <section class="prose">
+      <p><strong>TODO(legal):</strong> bản tạm. Cần luật sư rà soát trước khi ra mắt. Ý định bên dưới mô tả những gì điều khoản chính thức phải đạt được.</p>
+      <h2>Ai có thể dùng Mathzle</h2>
+      <p>Mathzle dành cho trẻ 6–11 tuổi. Phụ huynh hoặc người giám hộ phải tạo tài khoản. Chúng mình không quảng cáo trực tiếp đến trẻ em.</p>
+      <h2>Bạn có thể làm gì</h2>
+      <p>Chơi, học, chia sẻ tiến độ với các thành viên trong gia đình, hủy bất kỳ lúc nào. Bản miễn phí là miễn phí mãi mãi — không có phí bất ngờ.</p>
+      <h2>Chúng mình cam kết gì</h2>
+      <p>Dịch vụ hoạt động như đã mô tả. Chúng mình thông báo trước khi có thay đổi quan trọng. Chúng mình không bán dữ liệu của bạn.</p>
+      <h2>Chúng mình yêu cầu gì</h2>
+      <p>Đừng cố phá hoại dịch vụ, cào bài học, hay chia sẻ tài khoản Premium ngoài gia đình bạn.</p>
+      <h2>Liên hệ</h2>
+      <p>Câu hỏi: <a href="mailto:hello@mathzle.com">hello@mathzle.com</a></p>
+    </section>
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>
+
+<style is:global>
+  .prose-page { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+  .prose-hero { margin-bottom: 2rem; }
+  .prose-hero h1 { font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; }
+  .prose-hero .lead { color: var(--color-text-tertiary); font-size: 0.9rem; }
+  .prose h2 { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.5rem; }
+  .prose p { color: var(--color-text-primary); line-height: 1.65; margin-bottom: 1rem; }
+  .prose a { color: var(--color-primary); }
+</style>

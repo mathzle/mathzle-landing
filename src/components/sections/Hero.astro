@@ -1,0 +1,121 @@
+---
+import { t, type Locale } from '../../utils/i18n';
+import Mascot from '../Mascot.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const i = t(locale).hero;
+const webAppUrl = 'https://app.mathzle.com'; // TODO(launch): final URL
+---
+<section id="hero" class="hero">
+  <div class="hero-decoration" aria-hidden="true">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+  </div>
+  <div class="hero-inner">
+    <Mascot state="cheer" size={180} decorative={false} />
+    <h1 class="hero-headline">{i.headline}</h1>
+    <p class="hero-subhead">{i.subhead}</p>
+    <div class="hero-ctas" id="play">
+      <a
+        href={webAppUrl}
+        class="btn-push hero-cta-primary"
+        data-track="cta-play-hero"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span aria-hidden="true">▶</span> {i.ctaPlay}
+      </a>
+      <a href="#how-it-works" class="btn-text" data-track="cta-learn-hero">
+        {i.ctaSecondary} <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+    <p class="hero-support">{i.supportNote}</p>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding: 4rem 1.5rem 6rem;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-top: 0.5rem;
+  }
+  .hero-subhead {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    line-height: 1.5;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.75rem;
+  }
+  .hero-cta-primary {
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+  }
+  .hero-support {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-top: 0.25rem;
+  }
+
+  /* Decorative world-color blobs — subtle, behind the content */
+  .hero-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .hero-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(40px);
+    opacity: 0.35;
+  }
+  .hero-blob-1 {
+    top: -80px;
+    left: -60px;
+    width: 240px;
+    height: 240px;
+    background: var(--color-world-sunset);
+  }
+  .hero-blob-2 {
+    top: 80px;
+    right: -80px;
+    width: 280px;
+    height: 280px;
+    background: var(--color-world-sky);
+  }
+  .hero-blob-3 {
+    bottom: -60px;
+    left: 30%;
+    width: 220px;
+    height: 220px;
+    background: var(--color-world-berry);
+  }
+</style>

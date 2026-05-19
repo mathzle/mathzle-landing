@@ -1,0 +1,55 @@
+---
+import { t, type Locale } from '../../utils/i18n';
+import WorldCard from '../WorldCard.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const w = t(locale).worlds;
+
+// Worlds in display order. Each owns one token from the world palette.
+const worlds = [
+  { color: 'var(--color-world-ocean)',  emoji: '🌊', data: w.ocean  },
+  { color: 'var(--color-world-forest)', emoji: '🌲', data: w.forest },
+  { color: 'var(--color-world-sky)',    emoji: '☁️', data: w.sky    },
+  { color: 'var(--color-world-sunset)', emoji: '⛰️', data: w.sunset },
+  { color: 'var(--color-world-berry)',  emoji: '🍓', data: w.berry  },
+  { color: 'var(--color-world-mint)',   emoji: '🍃', data: w.mint   },
+];
+---
+<section id="worlds" class="worlds">
+  <h2 class="section-title">{w.title}</h2>
+  <div class="worlds-grid">
+    {worlds.map((world) => (
+      <WorldCard
+        worldColor={world.color}
+        emoji={world.emoji}
+        title={world.data.name}
+        subtitle={world.data.subtitle}
+        badges={world.data.badges}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .worlds {
+    padding: 5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+  }
+  .worlds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+</style>

@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "question": "Mathzle có thực sự miễn phí không?",
+      "answer": "Có. Hai thế giới miễn phí mãi mãi. Bản Premium mở khoá cả sáu thế giới, loại bỏ quảng cáo và cho phép chia sẻ gia đình."
+    },
+    {
+      "question": "Dành cho lứa tuổi nào?",
+      "answer": "Dành cho trẻ 6–11 tuổi. Bài học tự điều chỉnh theo trình độ của bé, nên cả trẻ 6 tuổi và 11 tuổi đều tìm được nhịp riêng."
+    },
+    {
+      "question": "Có cần cài đặt gì không?",
+      "answer": "Không. Mathzle chạy trên mọi trình duyệt hiện đại — điện thoại, máy tính bảng, máy tính. Không cần tải app, không tốn bộ nhớ."
+    },
+    {
+      "question": "Có app cho iOS và Android không?",
+      "answer": "App native đang trong kế hoạch. Hiện tại bản web đã đầy đủ tính năng — và cập nhật ngay lập tức, không cần chờ app store duyệt."
+    },
+    {
+      "question": "Có an toàn cho trẻ không?",
+      "answer": "Không quảng cáo. Không có chat với người lạ. Không bán dữ liệu. Bố mẹ kiểm soát mọi thứ từ trang quản lý gia đình."
+    },
+    {
+      "question": "Có hoạt động offline không?",
+      "answer": "Cần internet để tải bài học. Khi bài học đã tải, đa số hoạt động tiếp tục chạy không cần kết nối."
+    },
+    {
+      "question": "Hỗ trợ ngôn ngữ nào?",
+      "answer": "Tiếng Việt và tiếng Anh. Đổi bất kỳ lúc nào trong cài đặt — con số đọc tự nhiên ở cả hai."
+    },
+    {
+      "question": "Khác gì Khan Academy Kids hay Prodigy?",
+      "answer": "Ba điểm: chạy trực tiếp trên trình duyệt (không cần cài), thiết kế đặc biệt cho độ tuổi 6–11, và có tiếng Việt ngay từ đầu."
+    }
+  ]
+}

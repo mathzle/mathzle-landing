@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Hero from '../../components/sections/Hero.astro';
+import HowItWorks from '../../components/sections/HowItWorks.astro';
+import WorldsGrid from '../../components/sections/WorldsGrid.astro';
+import TrustSignals from '../../components/sections/TrustSignals.astro';
+import Screenshots from '../../components/sections/Screenshots.astro';
+import Testimonials from '../../components/sections/Testimonials.astro';
+import Pricing from '../../components/sections/Pricing.astro';
+import FAQ from '../../components/sections/FAQ.astro';
+import CtaCapture from '../../components/sections/CtaCapture.astro';
+
+const locale = 'vi' as const;
+const path = '/vi/';
+---
+<Base
+  title="Mathzle — Toán học dành cho trẻ 6–11 tuổi"
+  description="Biến toán học thành cuộc phiêu lưu. Sáu thế giới, hàng trăm bài học. Miễn phí để bắt đầu, chạy trên mọi trình duyệt — không cần tải, không cần app store."
+  locale={locale}
+  path={path}
+>
+  <Nav locale={locale} path={path} />
+  <main>
+    <Hero locale={locale} />
+    <HowItWorks locale={locale} />
+    <WorldsGrid locale={locale} />
+    <TrustSignals locale={locale} />
+    <Screenshots locale={locale} />
+    <Testimonials locale={locale} />
+    <Pricing locale={locale} />
+    <FAQ locale={locale} />
+    <CtaCapture locale={locale} />
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>

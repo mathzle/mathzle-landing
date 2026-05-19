@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "question": "Is Mathzle really free?",
+      "answer": "Yes. Two worlds are free forever. Premium unlocks all six worlds plus ad-free and family sharing."
+    },
+    {
+      "question": "What ages is it for?",
+      "answer": "Built for ages 6 to 11. Lessons adapt to your kid's level, so a 6-year-old and an 11-year-old can both find their pace."
+    },
+    {
+      "question": "Do I need to install anything?",
+      "answer": "No. Mathzle runs in any modern browser on phones, tablets, and computers. No app store, no install, no storage used on the device."
+    },
+    {
+      "question": "Will there be iOS and Android apps?",
+      "answer": "Native apps are on the roadmap. For now the browser version delivers the full experience — and updates ship instantly without app-store review delays."
+    },
+    {
+      "question": "Is it safe for kids?",
+      "answer": "No ads. No chat with strangers. No data sold. Parents control everything from the family dashboard."
+    },
+    {
+      "question": "Does it work offline?",
+      "answer": "Mathzle needs internet to load lessons. Once a lesson is loaded, most activities continue without connection."
+    },
+    {
+      "question": "What language is it in?",
+      "answer": "Vietnamese and English. You can switch any time in settings — the numbers feel native in both."
+    },
+    {
+      "question": "How is it different from Khan Academy Kids or Prodigy?",
+      "answer": "Three things: it runs in any browser (no install), it's designed for the 6–11 sweet spot specifically, and it ships in Vietnamese first."
+    }
+  ]
+}

@@ -1,17 +1,30 @@
 ---
-
+/**
+ * Root redirect. Astro produces a static HTML page that uses
+ * meta refresh + JS fallback to send users to the appropriate locale.
+ *
+ * Cloudflare Pages can do this server-side via _redirects too — see
+ * public/_redirects in Task 12 for the edge-level Accept-Language
+ * sniffing. This page is the in-build fallback.
+ */
 ---
-
+<!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="0; url=/en/" />
+    <link rel="canonical" href="https://mathzle.com/en/" />
+    <title>Mathzle</title>
+  </head>
+  <body>
+    <script>
+      // Prefer Vietnamese if any of the browser's languages start with 'vi'.
+      const langs = navigator.languages ?? [navigator.language];
+      const preferVi = langs.some((l) => l.toLowerCase().startsWith('vi'));
+      window.location.replace(preferVi ? '/vi/' : '/en/');
+    </script>
+    <noscript>
+      <p>Redirecting to <a href="/en/">Mathzle</a>.</p>
+    </noscript>
+  </body>
 </html>

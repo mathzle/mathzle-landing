@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Pricing from '../../components/sections/Pricing.astro';
+import FAQ from '../../components/sections/FAQ.astro';
+
+const locale = 'en' as const;
+const path = '/en/pricing';
+---
+<Base
+  title="Pricing — Mathzle"
+  description="Mathzle is free forever for two worlds. Premium unlocks all six worlds, family sharing, and priority support. Cancel any time."
+  locale={locale}
+  path={path}
+>
+  <Nav locale={locale} path={path} />
+  <main>
+    <Pricing locale={locale} />
+    <FAQ locale={locale} />
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>

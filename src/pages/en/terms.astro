@@ -1,0 +1,46 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+
+const locale = 'en' as const;
+const path = '/en/terms';
+---
+<Base
+  title="Terms of Service — Mathzle"
+  description="The terms under which you use Mathzle. Clear, fair, kid-respectful."
+  locale={locale}
+  path={path}
+>
+  <Nav locale={locale} path={path} />
+  <main class="prose-page">
+    <header class="prose-hero">
+      <h1>Terms of Service</h1>
+      <p class="lead">Last updated: 2026-05-19</p>
+    </header>
+    <section class="prose">
+      <p><strong>TODO(legal):</strong> placeholder. Lawyer review required before launch. The intent below tells the lawyer what the terms must accomplish.</p>
+      <h2>Who can use Mathzle</h2>
+      <p>Mathzle is built for kids ages 6–11. A parent or guardian must create the account. We don't market to children directly.</p>
+      <h2>What you can do</h2>
+      <p>Play, learn, share progress with family members, cancel any time. The free tier is free forever — no surprise charges.</p>
+      <h2>What we promise</h2>
+      <p>The service works as described. We notify you in advance of material changes. We don't sell your data.</p>
+      <h2>What we ask</h2>
+      <p>Don't try to break the service, scrape lessons, or share premium accounts beyond your family.</p>
+      <h2>Contact</h2>
+      <p>Questions: <a href="mailto:hello@mathzle.com">hello@mathzle.com</a></p>
+    </section>
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>
+
+<style is:global>
+  .prose-page { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+  .prose-hero { margin-bottom: 2rem; }
+  .prose-hero h1 { font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; }
+  .prose-hero .lead { color: var(--color-text-tertiary); font-size: 0.9rem; }
+  .prose h2 { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.5rem; }
+  .prose p { color: var(--color-text-primary); line-height: 1.65; margin-bottom: 1rem; }
+  .prose a { color: var(--color-primary); }
+</style>

@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Mascot from '../../components/Mascot.astro';
+
+const locale = 'vi' as const;
+const path = '/vi/about';
+---
+<Base
+  title="Giới thiệu Mathzle — Toán học cho trẻ em"
+  description="Mathzle là cuộc phiêu lưu toán học chạy trên trình duyệt, dành cho trẻ 6–11 tuổi. Thiết kế cùng giáo viên tiểu học. Tiếng Việt và tiếng Anh."
+  locale={locale}
+  path={path}
+>
+  <Nav locale={locale} path={path} />
+  <main class="prose-page">
+    <header class="prose-hero">
+      <Mascot state="wave" size={120} decorative={false} />
+      <h1>Giới thiệu Mathzle</h1>
+      <p class="lead">Toán học dành cho trẻ 6–11 tuổi. Thiết kế cùng giáo viên tiểu học. Tiếng Việt và tiếng Anh.</p>
+    </header>
+    <section class="prose">
+      <h2>Tại sao chúng mình xây Mathzle</h2>
+      <p>Đa số ứng dụng học toán mặc định bé sẽ cài đặt, ngồi yên, và theo đúng giáo trình. Chúng mình mặc định bé muốn chơi. Mathzle là sáu thế giới, hàng trăm bài học ngắn, và một linh vật reo lên mỗi khi bé làm đúng.</p>
+      <h2>Cách chúng mình nghĩ về an toàn</h2>
+      <p>Không quảng cáo. Không chat với người lạ. Không bán dữ liệu. Phụ huynh kiểm soát mọi thứ từ trang quản lý gia đình. Chúng mình muốn là thứ phụ huynh vui khi bé dành 20 phút mỗi ngày.</p>
+      <h2>Cách chúng mình nghĩ về giảng dạy</h2>
+      <p>Nhịp học đến từ các giáo viên tiểu học đang đứng lớp. Mỗi thế giới nhắm vào một nhóm kỹ năng theo lớp — đếm, nhân chia, hình học, phân số, đo lường, tư duy. Bé tiến độ theo nhịp của riêng mình; chúng mình tự điều chỉnh độ khó khi bé sẵn sàng.</p>
+      <h2>Chúng mình đến từ đâu</h2>
+      <p>Tiếng Việt được ưu tiên ngay từ đầu. Con số đọc tự nhiên ở cả tiếng Việt và tiếng Anh. Đội ngũ nhỏ, lộ trình minh bạch, và cập nhật ngay khi sẵn sàng — không phải chờ app store duyệt.</p>
+    </section>
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>
+
+<style is:global>
+  .prose-page { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
+  .prose-hero { text-align: center; margin-bottom: 3rem; }
+  .prose-hero h1 { font-family: var(--font-display); font-size: clamp(2.25rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.02em; margin-top: 1rem; }
+  .prose-hero .lead { color: var(--color-text-secondary); font-size: 1.125rem; line-height: 1.5; max-width: 540px; margin: 0.75rem auto 0; }
+  .prose h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 0.75rem; }
+  .prose p { color: var(--color-text-primary); line-height: 1.65; margin-bottom: 1rem; }
+</style>

@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import FAQ from '../../components/sections/FAQ.astro';
+import CtaCapture from '../../components/sections/CtaCapture.astro';
+
+const locale = 'en' as const;
+const path = '/en/faq';
+---
+<Base
+  title="FAQ — Mathzle"
+  description="Common questions about Mathzle: pricing, ages, safety, browser support, and the iOS/Android roadmap."
+  locale={locale}
+  path={path}
+>
+  <Nav locale={locale} path={path} />
+  <main>
+    <FAQ locale={locale} />
+    <CtaCapture locale={locale} />
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>

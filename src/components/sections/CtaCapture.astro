@@ -1,0 +1,100 @@
+---
+import { t, type Locale } from '../../utils/i18n';
+import SignupForm from '../islands/SignupForm';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const i = t(locale).cta;
+---
+<section id="signup" class="cta">
+  <div class="cta-decoration" aria-hidden="true"></div>
+  <div class="cta-inner">
+    <h2 class="cta-title">{i.title}</h2>
+    <p class="cta-sub">{i.subtitle}</p>
+    <SignupForm
+      locale={locale}
+      placeholder={i.placeholder}
+      button={i.button}
+      success={i.success}
+      error={i.error}
+      client:load
+    />
+  </div>
+</section>
+
+<style is:global>
+  .cta {
+    position: relative;
+    padding: 5rem 1.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+  }
+  .cta-decoration {
+    position: absolute;
+    inset: 1rem;
+    border-radius: var(--radius-card-lg);
+    background: linear-gradient(135deg,
+      color-mix(in srgb, var(--color-world-sky) 12%, transparent),
+      color-mix(in srgb, var(--color-world-berry) 12%, transparent));
+    z-index: -1;
+  }
+  .cta-inner {
+    padding: 2rem 1rem;
+  }
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .cta-sub {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  .cta-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 480px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+  }
+  .cta-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.875rem 1rem;
+    border-radius: var(--radius-input);
+    border: 1.5px solid var(--color-border);
+    background: var(--color-surface);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text-primary);
+  }
+  .cta-form input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+  .cta-form .btn-push {
+    padding: 0.875rem 1.5rem;
+    min-height: auto;
+  }
+  .cta-success {
+    font-size: 1.125rem;
+    color: var(--color-success);
+    font-weight: 600;
+  }
+  .cta-error {
+    width: 100%;
+    color: var(--color-error);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  @media (max-width: 540px) {
+    .cta-form { flex-direction: column; }
+    .cta-form input, .cta-form .btn-push { width: 100%; }
+  }
+</style>
