@@ -1,0 +1,5 @@
+# Cloudflare Pages edge redirects.
+# Accept-Language sniff happens at the edge — much faster than the
+# JS fallback in src/pages/index.astro.
+/    /vi/    302  Language=vi
+/    /en/    302
