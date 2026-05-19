@@ -1,0 +1,73 @@
+src/pages/en/terms.astro
+  s_4e464afa819fdb::t_ed09f2d87c56b4 1-46
+src/pages/index.astro
+  s_4e464afa819fdb::t_b9ba9409823524 2-9,11,13-29
+src/pages/en/pricing.astro
+  s_4e464afa819fdb::t_e243270458aa02 1-23
+src/components/sections/Pricing.astro
+  s_4e464afa819fdb::t_1ac4607a9e0915 1-129
+src/pages/api/signup.ts
+  s_4e464afa819fdb::t_68cd578427cac5 1-60
+src/components/sections/Testimonials.astro
+  s_4e464afa819fdb::t_3016f242ab94c5 1-67
+src/content/faq/vi.json
+  s_4e464afa819fdb::t_f67194562d655e 1-36
+src/pages/vi/pricing.astro
+  s_4e464afa819fdb::t_32933b88ee1c2e 1-23
+src/content/faq/en.json
+  s_4e464afa819fdb::t_0436febd9abf22 1-36
+src/pages/vi/about.astro
+  s_4e464afa819fdb::t_db1e99fe8b99c2 1-44
+src/components/sections/TrustSignals.astro
+  s_4e464afa819fdb::t_0264d6baa2ebe3 1-76
+src/components/sections/HowItWorks.astro
+  s_4e464afa819fdb::t_e54d089e58604c 1-89
+src/pages/en/about.astro
+  s_4e464afa819fdb::t_0de35a37995100 1-73
+src/components/sections/Hero.astro
+  s_4e464afa819fdb::t_358e207a1a955b 1-121
+src/pages/en/faq.astro
+  s_4e464afa819fdb::t_e630557503b1a0 1-23
+src/components/sections/FAQ.astro
+  s_4e464afa819fdb::t_2cdb2bc2100536 27
+  s_4e464afa819fdb::t_1d17ae24dbf0c7 1-26,28-85
+src/components/islands/FaqAccordion.tsx
+  s_4e464afa819fdb::t_71e45196f7caec 1-41
+src/components/islands/SignupForm.tsx
+  s_4e464afa819fdb::t_52f6e3cc2d9c33 1-58
+src/components/sections/CtaCapture.astro
+  s_4e464afa819fdb::t_c493bf8d12a76f 1-21,23-100
+  s_4e464afa819fdb::t_97b257a7f99dd7 22
+src/pages/vi/terms.astro
+  s_4e464afa819fdb::t_58c24322b9575d 1-46
+src/pages/en/index.astro
+  s_4e464afa819fdb::t_4ce194829280d1 1-37
+src/components/sections/WorldsGrid.astro
+  s_4e464afa819fdb::t_cbb4c00108060d 1-55
+src/pages/vi/index.astro
+  s_4e464afa819fdb::t_c3ed497a786c99 1-37
+src/pages/vi/faq.astro
+  s_4e464afa819fdb::t_4a098356ddda07 1-23
+src/pages/vi/privacy.astro
+  s_4e464afa819fdb::t_365467fc22e0c6 1-61
+src/pages/en/privacy.astro
+  s_4e464afa819fdb::t_cfcdf02573a3fa 1-66
+src/components/sections/Screenshots.astro
+  s_4e464afa819fdb::t_8ddb3befab2936 1-126
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.9",
+  "base_commit_sha": "657abfa5a5200aaeec85aa287ba16cb8e3628409",
+  "prompts": {},
+  "sessions": {
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
