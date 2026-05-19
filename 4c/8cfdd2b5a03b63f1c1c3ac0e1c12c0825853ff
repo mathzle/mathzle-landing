@@ -1,0 +1,37 @@
+public/_redirects
+  s_4e464afa819fdb::t_605d64838aaf10 1-5
+.github/workflows/lighthouse.yml
+  s_4e464afa819fdb::t_c05d117511715e 1-31
+public/robots.txt
+  s_4e464afa819fdb::t_7c79c569dbc374 1-4
+playwright.config.ts
+  s_4e464afa819fdb::t_28bff50919b5f1 1-23
+tests/lighthouse/lighthouserc.cjs
+  s_4e464afa819fdb::t_584a26fc324883 1-36
+tests/e2e/i18n.spec.ts
+  s_4e464afa819fdb::t_491677c4c53f6c 1-27
+tests/e2e/hero.spec.ts
+  s_4e464afa819fdb::t_89f867aff9a7c6 1-22
+tests/e2e/cta.spec.ts
+  s_4e464afa819fdb::t_91ef334f343923 1-38
+.github/workflows/deploy.yml
+  s_4e464afa819fdb::t_4b074820f3fefe 1-38
+public/_headers
+  s_4e464afa819fdb::t_a5be0c0ac2094d 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.9",
+  "base_commit_sha": "4c8cfdd2b5a03b63f1c1c3ac0e1c12c0825853ff",
+  "prompts": {},
+  "sessions": {
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
