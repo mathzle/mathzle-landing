@@ -17,9 +17,9 @@ importers:
       '@astrojs/sitemap':
         specifier: ^3.7.2
         version: 3.7.2
-      '@fontsource-variable/fredoka':
-        specifier: ^5.2.10
-        version: 5.2.10
+      '@fontsource-variable/nunito':
+        specifier: ^5.2.7
+        version: 5.2.7
       '@fontsource/be-vietnam-pro':
         specifier: ^5.2.8
         version: 5.2.8
@@ -562,8 +562,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@fontsource-variable/fredoka@5.2.10':
-    resolution: {integrity: sha512-W25a41EivYh8111C9x34ShRg+2kKGXnefg1Z9Zax5E0jOgOtGXn7UhoqVBvNLrJnWGv3hy8New0UiKDc/cYzPg==}
+  '@fontsource-variable/nunito@5.2.7':
+    resolution: {integrity: sha512-2N8QhatkyKgSUbAGZO2FYLioxA32+RyI1EplVLawbpkGjUeui9Qg9VMrpkCaik1ydjFjfLV+kzQ0cGEsMrMenQ==}
 
   '@fontsource/be-vietnam-pro@5.2.8':
     resolution: {integrity: sha512-lqTtfpkAy0GdFH0fqwR0sW4VP+3CNGaQV6SpW2TSZaNmixZMlou+2dp5ErGidrS1MPiDDPfPbfW2i358PVFLZA==}
@@ -3880,7 +3880,7 @@ snapshots:
   '@esbuild/win32-x64@0.27.7':
     optional: true
 
-  '@fontsource-variable/fredoka@5.2.10': {}
+  '@fontsource-variable/nunito@5.2.7': {}
 
   '@fontsource/be-vietnam-pro@5.2.8': {}
 

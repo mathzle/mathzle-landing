@@ -1,5 +1,9 @@
 @import 'tailwindcss';
-@import '@fontsource-variable/fredoka';
+/* Nunito (variable) for display/headings — full Vietnamese diacritic
+   support (đ, ă, ơ, ư, stacked tones) and the same rounded geometric
+   character as Fredoka. Fredoka was dropped because its VI coverage
+   is incomplete — diacritics render as tofu/broken in vi.json copy. */
+@import '@fontsource-variable/nunito';
 @import '@fontsource/be-vietnam-pro/400.css';
 @import '@fontsource/be-vietnam-pro/500.css';
 @import '@fontsource/be-vietnam-pro/600.css';
@@ -13,7 +17,7 @@
 
 @theme {
   /* Fonts */
-  --font-display: 'Fredoka Variable', system-ui, sans-serif;
+  --font-display: 'Nunito Variable', system-ui, sans-serif;
   --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
 
   /* Brand */
