@@ -39,7 +39,7 @@ The `/api/signup` endpoint needs a KV binding called `SIGNUPS`. Two equivalent p
 
 ### Option B — via Wrangler CLI
 ```bash
-cd ~/box/mathzle-landing
+cd ~/box/t3zle/mathzle-landing
 pnpm wrangler login
 pnpm wrangler kv namespace create SIGNUPS --preview false
 ```
