@@ -1,0 +1,21 @@
+src/components/sections/CtaCapture.astro
+  s_4e464afa819fdb::t_01d935eb18d04c 22
+src/components/sections/FAQ.astro
+  s_4e464afa819fdb::t_9f910761d6d94a 27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.9",
+  "base_commit_sha": "9dea16d9cec87c9ac05a2cfe45a89e40f38682ba",
+  "prompts": {},
+  "sessions": {
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
