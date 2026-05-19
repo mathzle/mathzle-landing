@@ -1,0 +1,25 @@
+src/components/sections/Hero.astro
+  s_4e464afa819fdb::t_bf7d0a0fb51b8e 59,61
+README.md
+  s_4e464afa819fdb::t_d51411c3912951 12,14
+src/styles/global.css
+  s_4e464afa819fdb::t_bc0b44ff9d173d 21-23
+  s_4e464afa819fdb::t_fb4a7feee7769d 2-6,11
+  s_4e464afa819fdb::t_d243b11bc7f852 95-103,106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.9",
+  "base_commit_sha": "5ed91ee1066b710cc243acfcf114ead813d76764",
+  "prompts": {},
+  "sessions": {
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
