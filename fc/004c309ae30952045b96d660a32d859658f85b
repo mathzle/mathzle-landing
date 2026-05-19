@@ -1,0 +1,26 @@
+pnpm-lock.yaml
+  ai_agent 20-22,565-566,3883
+README.md
+  s_4e464afa819fdb::t_a4699c2555d71e 12-14
+src/styles/global.css
+  s_4e464afa819fdb::t_5bcfc7c14d2ba1 20
+  s_4e464afa819fdb::t_99e2908a2653f8 2-6
+package.json
+  s_4e464afa819fdb::t_606cd75a9e4381 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.9",
+  "base_commit_sha": "fc004c309ae30952045b96d660a32d859658f85b",
+  "prompts": {},
+  "sessions": {
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
