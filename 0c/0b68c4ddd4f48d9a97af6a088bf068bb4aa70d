@@ -1,0 +1,41 @@
+src/components/Nav.astro
+  s_4e464afa819fdb::t_070b8d1200c123 1-114
+src/components/Button.astro
+  s_4e464afa819fdb::t_e8cd0e8fd705c3 1-93
+src/components/SEO.astro
+  s_4e464afa819fdb::t_83bef13b379c82 1-79
+src/i18n/vi.json
+  s_4e464afa819fdb::t_78a1db1c0bd2b8 1-95
+src/layouts/Base.astro
+  s_4e464afa819fdb::t_36220975f6a37d 1-34
+src/i18n/en.json
+  s_4e464afa819fdb::t_c7c2f48338cd02 1-94
+src/styles/global.css
+  s_4e464afa819fdb::t_204028e24398b0 1-176
+src/components/Footer.astro
+  s_4e464afa819fdb::t_6621aa842f7074 1-101
+src/utils/i18n.ts
+  s_4e464afa819fdb::t_8d9000fa43ed0f 1-31
+src/components/WorldCard.astro
+  s_4e464afa819fdb::t_1dba8eb395b27e 1-109
+src/components/Mascot.astro
+  s_4e464afa819fdb::t_afc72dc0018657 1-46
+src/components/LangSwitch.astro
+  s_4e464afa819fdb::t_8f6241a120867b 1-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.9",
+  "base_commit_sha": "0c0b68c4ddd4f48d9a97af6a088bf068bb4aa70d",
+  "prompts": {},
+  "sessions": {
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
