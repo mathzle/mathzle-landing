@@ -24,7 +24,7 @@ const faqSchema = {
 ---
 <section id="faq" class="faq">
   <h2 class="section-title">{i.title}</h2>
-  <FaqAccordion items={items} client:load />
+  <FaqAccordion items={items} client:only="preact" />
 </section>
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
