@@ -1,0 +1,19 @@
+DEPLOY.md
+  s_4e464afa819fdb::t_89a90037ecd0a9 42
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.9",
+  "base_commit_sha": "1688920b1e7f6ac1df81e27ed52c84365df7d507",
+  "prompts": {},
+  "sessions": {
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
