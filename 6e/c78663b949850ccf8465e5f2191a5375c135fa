@@ -1,0 +1,87 @@
+src/pages/en/index.astro
+  s_329feebae5c120::t_113e6859ea8a4e 5
+  s_329feebae5c120::t_22fc94c279d89d 28,31,35
+src/components/Footer.astro
+  s_329feebae5c120::t_c43088b27b599b 17-26,28
+  s_329feebae5c120::t_14480ba1ff266f 68,71-74
+src/components/sections/HowItWorks.astro
+  s_329feebae5c120::t_0b566204161095 3,10-12,14-16,25-27,92-93
+  s_329feebae5c120::t_77bffa48f35c81 64-74
+src/components/OpChip.astro
+  s_329feebae5c120::t_3c6b424f6f3409 1-71
+src/components/sections/Pricing.astro
+  s_329feebae5c120::t_66468296dd9196 75,83,96-97,99,103-111
+  s_329feebae5c120::t_0874f6bc456af9 27-36
+  s_329feebae5c120::t_2d387ca8373bde 84-86,88-95,112
+src/components/sections/Screenshots.astro
+  s_329feebae5c120::t_152848598675b0 3,12-15,18-20,28-43,46-47,76-78,80-82,84,86-91,93-94,96-108,110-115,117-121,123-129,131-134
+src/i18n/en.json
+  s_329feebae5c120::t_16c8ba771035f4 61
+  s_329feebae5c120::t_08a81e35590a22 81
+  s_329feebae5c120::t_658fc0ff795030 88
+  s_329feebae5c120::t_b744bee4da645f 33,37,41
+  s_329feebae5c120::t_a8605127c22523 56
+  s_329feebae5c120::t_5fa9443b7216a1 11,13,16-27
+  s_329feebae5c120::t_62ddb5050f86a0 60
+src/pages/vi/index.astro
+  s_329feebae5c120::t_322f1759a679cf 28,31,35
+  s_329feebae5c120::t_e6dab9e03eded3 5
+src/components/sections/TrustSignals.astro
+  s_329feebae5c120::t_811cbf402e5132 3,11-12,14-16,23-25,59-62,64-72,84-86
+  s_329feebae5c120::t_a9439f2251415b 87
+src/components/sections/Hero.astro
+  s_329feebae5c120::t_38347649d7e577 12-69,77-78,80-90,93,95-108,110,113,115,117,119,121,123,125-147,149-156,162,165-182,184-187,189-201,204-232,234-235,237-238,240-287
+src/i18n/vi.json
+  s_329feebae5c120::t_78c0262903a1ca 62
+  s_329feebae5c120::t_e447a5228da934 12,14,17-28
+  s_329feebae5c120::t_2535555e324115 82
+  s_329feebae5c120::t_91dc2c668c3b20 89
+  s_329feebae5c120::t_1c99609de412cd 57-58
+  s_329feebae5c120::t_ceefecbf132bfb 34,38,42
+  s_329feebae5c120::t_ae2fd5572267fd 61
+src/components/Nav.astro
+  s_329feebae5c120::t_cebad70acedcff 15-23
+  s_329feebae5c120::t_93ca91df41825b 73-76
+src/components/sections/CtaCapture.astro
+  s_329feebae5c120::t_cf41642665ad2b 36-37,42-44
+src/components/sections/Testimonials.astro
+  s_329feebae5c120::t_64001f4b1a0cc8 53-65
+src/components/WorldCard.astro
+  s_329feebae5c120::t_874f696faad3e0 18-19,26-35,38,40-45,48-52,55,57,60,70,101,106-110,112-115,117,127-128,137-138,144-145
+  s_329feebae5c120::t_2cbf3ca44de03e 2-3,17,54,90-91,140,199
+  s_329feebae5c120::t_c0d1983affbcf7 5-13,36-37,46-47,53,58,61-69,76-77,79-80,82,84-85,87-89,92-95,98,102-105,111,116,118-126,129-134,139,141-143,146-148,152-165,168,170-171,173,181,184-185,187,189-190,192,194-198,200-211
+src/components/SectionDivider.astro
+  s_329feebae5c120::t_7ed5772353afc0 1-84
+src/components/sections/WorldsGrid.astro
+  s_329feebae5c120::t_19bb50d3cc2471 30-31
+  s_329feebae5c120::t_e94608898539a5 29
+  s_329feebae5c120::t_4dd98d6e6643a9 11-13,15-20
+  s_4e464afa819fdb::t_704d6db52d87d7 54-57,60-67
+tests/e2e/hero.spec.ts
+  s_329feebae5c120::t_50a8ea4cb41f31 3,6-9,26-30
+  s_329feebae5c120::t_c82bae97227ca3 31
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6ec78663b949850ccf8465e5f2191a5375c135fa",
+  "prompts": {},
+  "sessions": {
+    "s_329feebae5c120": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eaf442df-6761-4d9e-95d2-e0d1e8824997",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    },
+    "s_4e464afa819fdb": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "c51621f1-ea0d-4828-8270-9d8dddb883c1",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
