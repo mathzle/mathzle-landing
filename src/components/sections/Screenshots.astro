@@ -1,6 +1,6 @@
 ---
 import { t, type Locale } from '../../utils/i18n';
-import Mascot from '../Mascot.astro';
+import OpChip from '../OpChip.astro';
 
 interface Props {
   locale: Locale;
@@ -9,13 +9,15 @@ const { locale } = Astro.props;
 const i = t(locale).screenshots;
 
 /**
- * Browser-frame mockups, not phone mockups — the product is a web app.
- * Real screenshots replace the placeholder gradients post-launch.
+ * Pre-launch "world preview" cards — chunky tilted stickers, not browser
+ * mockups. Each card hints at a real screen (lesson / quiz / family) using
+ * the cube logo as the recurring brand object. When real screenshots ship,
+ * the cube image swaps out for the screen capture inside the same frame.
  */
 const frames = [
-  { accent: 'var(--color-world-ocean)',  label: 'Lesson view',      emoji: '🌊', mascot: 'idle'  as const },
-  { accent: 'var(--color-world-sunset)', label: 'Quiz feedback',    emoji: '⛰️', mascot: 'cheer' as const },
-  { accent: 'var(--color-world-berry)',  label: 'Family dashboard', emoji: '🍓', mascot: 'wave'  as const },
+  { accent: 'var(--color-world-ocean)',  label: 'Lesson view',      symbol: '+', tilt: -3 },
+  { accent: 'var(--color-world-sunset)', label: 'Quiz feedback',    symbol: '✓', tilt:  2 },
+  { accent: 'var(--color-world-berry)',  label: 'Family dashboard', symbol: '★', tilt: -2 },
 ];
 ---
 <section id="screenshots" class="screenshots">
@@ -23,21 +25,26 @@ const frames = [
   <p class="section-sub">{i.subtitle}</p>
   <div class="screenshots-row">
     {frames.map((f) => (
-      <div class="browser-frame" style={`--accent: ${f.accent}`}>
-        <div class="browser-chrome">
-          <span class="browser-dot" aria-hidden="true"></span>
-          <span class="browser-dot" aria-hidden="true"></span>
-          <span class="browser-dot" aria-hidden="true"></span>
-          <span class="browser-url">app.mathzle.com</span>
-        </div>
-        <div class="browser-body">
-          <div class="browser-placeholder">
-            <span class="browser-emoji" aria-hidden="true">{f.emoji}</span>
-            <Mascot state={f.mascot} size={64} />
-            <p class="browser-label">{f.label}</p>
+      <figure
+        class="preview-card"
+        style={`--accent: ${f.accent}; --card-tilt: ${f.tilt}deg`}
+      >
+        <div class="preview-stage">
+          <img
+            src="/brand/logo.png"
+            alt=""
+            width="220"
+            height="220"
+            class="preview-cube"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="preview-chip">
+            <OpChip symbol={f.symbol} color={f.accent} size={48} tilt={-6} />
           </div>
         </div>
-      </div>
+        <figcaption class="preview-label">{f.label}</figcaption>
+      </figure>
     ))}
   </div>
 </section>
@@ -66,61 +73,64 @@ const frames = [
   }
   .screenshots-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+    padding-top: 0.5rem;
   }
-  .browser-frame {
+
+  .preview-card {
+    margin: 0;
     background: var(--color-surface);
-    border-radius: var(--radius-card);
-    overflow: hidden;
+    border-radius: var(--radius-card-lg);
     border-bottom: var(--spacing-push-depth) solid var(--accent);
-    box-shadow: 0 8px 24px rgb(45 42 74 / 0.08);
+    padding: 1.25rem 1rem 1.25rem;
+    transform: rotate(var(--card-tilt));
+    box-shadow:
+      0 14px 28px rgb(45 42 74 / 0.08),
+      0 4px 8px rgb(45 42 74 / 0.04);
+    transition: transform var(--duration-normal) var(--easing-spring);
   }
-  .browser-chrome {
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.625rem 0.875rem;
-    background: var(--color-surface-variant);
-    border-bottom: 1px solid var(--color-border);
+  .preview-card:hover {
+    transform: rotate(0deg) translateY(-4px);
   }
-  .browser-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 9999px;
-    background: var(--color-text-tertiary);
-    opacity: 0.5;
+
+  .preview-stage {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background:
+      radial-gradient(circle at 30% 25%,
+        color-mix(in srgb, var(--accent) 18%, var(--color-bg)) 0%,
+        color-mix(in srgb, var(--accent)  6%, var(--color-bg)) 60%,
+        var(--color-bg) 100%);
+    border-radius: var(--radius-card);
+    display: grid;
+    place-items: center;
+    overflow: hidden;
   }
-  .browser-dot:nth-child(1) { background: #ff5f57; }
-  .browser-dot:nth-child(2) { background: #ffbd2e; }
-  .browser-dot:nth-child(3) { background: #28c840; }
-  .browser-url {
-    margin-left: auto;
-    font-size: 0.75rem;
-    color: var(--color-text-tertiary);
-    font-family: ui-monospace, monospace;
+
+  .preview-cube {
+    width: 62%;
+    height: auto;
+    filter: drop-shadow(0 10px 18px rgb(45 42 74 / 0.12));
+    transform: rotate(calc(var(--card-tilt) * -1));
   }
-  .browser-body {
-    aspect-ratio: 16 / 10;
-    background: linear-gradient(160deg,
-      color-mix(in srgb, var(--accent) 10%, var(--color-bg)),
-      color-mix(in srgb, var(--accent) 4%, var(--color-bg)));
-    padding: 1.5rem;
+
+  .preview-chip {
+    position: absolute;
+    top: 12px;
+    right: 12px;
   }
-  .browser-placeholder {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
+
+  .preview-label {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-top: 1rem;
+    font-size: 0.95rem;
   }
-  .browser-emoji {
-    font-size: 3rem;
-  }
-  .browser-label {
-    color: var(--color-text-secondary);
-    font-weight: 500;
-    font-size: 0.875rem;
+
+  @media (prefers-reduced-motion: reduce) {
+    .preview-card { transition: none; }
+    .preview-card:hover { transform: rotate(var(--card-tilt)); }
   }
 </style>

@@ -14,10 +14,18 @@ const year = new Date().getFullYear();
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo">
-        <span class="footer-logo-mark">M</span>
+      <a href={home} class="footer-logo" aria-label="Mathzle home">
+        <img
+          src="/brand/logo.png"
+          alt=""
+          width="32"
+          height="32"
+          class="footer-logo-mark"
+          loading="lazy"
+          decoding="async"
+        />
         <span class="footer-logo-text">Mathzle</span>
-      </div>
+      </a>
       <p class="footer-tagline">{i.footer.tagline}</p>
       <p class="footer-copy">{year !== 2026 ? `© ${year} Mathzle.` : i.footer.copyright}</p>
     </div>
@@ -57,17 +65,13 @@ const year = new Date().getFullYear();
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
   }
   .footer-logo-mark {
-    display: grid;
-    place-items: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: var(--color-primary);
-    color: var(--color-text-on-primary);
-    font-family: var(--font-display);
-    font-weight: 700;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
   }
   .footer-logo-text {
     font-family: var(--font-display);

@@ -1,0 +1,84 @@
+---
+/**
+ * Wavy section transition. Sits between sections as a brand-signature
+ * decoration — rejects the AI-slop "flat horizontal padding" look. A soft
+ * S-curve in a world color, with floating math glyphs that bob gently.
+ *
+ * - color:  the wave's stroke/fill tint (defaults to soft sky-violet)
+ * - flip:   mirror vertically (use to make the curve symmetric across sections)
+ */
+interface Props {
+  color?: string;
+  flip?: boolean;
+}
+const {
+  color = 'var(--color-primary)',
+  flip = false,
+} = Astro.props;
+---
+<div class={['section-divider', flip ? 'is-flipped' : ''].filter(Boolean).join(' ')} aria-hidden="true">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="divider-wave">
+    <path
+      d="M0,30 C240,5 480,55 720,30 C960,5 1200,55 1440,30"
+      fill="none"
+      stroke={color}
+      stroke-width="2.5"
+      stroke-linecap="round"
+      opacity="0.4"
+    />
+  </svg>
+
+  <span class="divider-spark divider-spark-a" style={`color: var(--color-world-sunset)`}>+</span>
+  <span class="divider-spark divider-spark-b" style={`color: var(--color-world-ocean)`}>×</span>
+  <span class="divider-spark divider-spark-c" style={`color: var(--color-world-berry)`}>=</span>
+  <span class="divider-spark divider-spark-d" style={`color: var(--color-world-forest)`}>÷</span>
+</div>
+
+<style>
+  .section-divider {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .section-divider.is-flipped {
+    transform: scaleY(-1);
+  }
+  .divider-wave {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .divider-spark {
+    position: absolute;
+    font-family: var(--font-display);
+    font-weight: 800;
+    user-select: none;
+    will-change: transform;
+  }
+  .divider-spark-a { top: 6px;  left: 14%; font-size: 1.5rem;  animation: divider-bob 5.0s ease-in-out infinite; }
+  .divider-spark-b { top: 24px; left: 36%; font-size: 1.25rem; animation: divider-bob 4.5s ease-in-out infinite -1.5s; }
+  .divider-spark-c { top: 8px;  left: 60%; font-size: 1.5rem;  animation: divider-bob 5.2s ease-in-out infinite -2.6s; }
+  .divider-spark-d { top: 22px; left: 82%; font-size: 1.3rem;  animation: divider-bob 4.8s ease-in-out infinite -0.9s; }
+
+  @keyframes divider-bob {
+    0%, 100% { transform: translateY(0) rotate(-4deg); }
+    50%      { transform: translateY(-6px) rotate(4deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .divider-spark-a,
+    .divider-spark-b,
+    .divider-spark-c,
+    .divider-spark-d { animation: none; }
+  }
+
+  @media (max-width: 640px) {
+    /* Tighter rhythm + fewer sparks on small screens */
+    .section-divider { height: 44px; }
+    .divider-spark-b { display: none; }
+    .divider-spark-d { display: none; }
+  }
+</style>

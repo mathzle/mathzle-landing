@@ -8,14 +8,16 @@ interface Props {
 const { locale } = Astro.props;
 const w = t(locale).worlds;
 
-// Worlds in display order. Each owns one token from the world palette.
+// Each world owns one token from the world palette, one math glyph that
+// hints at its content (the recurring brand mark), and an illustration
+// of the world scene that fills the card viewport.
 const worlds = [
-  { color: 'var(--color-world-ocean)',  emoji: '🌊', data: w.ocean  },
-  { color: 'var(--color-world-forest)', emoji: '🌲', data: w.forest },
-  { color: 'var(--color-world-sky)',    emoji: '☁️', data: w.sky    },
-  { color: 'var(--color-world-sunset)', emoji: '⛰️', data: w.sunset },
-  { color: 'var(--color-world-berry)',  emoji: '🍓', data: w.berry  },
-  { color: 'var(--color-world-mint)',   emoji: '🍃', data: w.mint   },
+  { color: 'var(--color-world-ocean)',  symbol: '+', image: '/brand/worlds/CountingCove.png',       data: w.ocean  },
+  { color: 'var(--color-world-forest)', symbol: '×', image: '/brand/worlds/NumberForest.png',       data: w.forest },
+  { color: 'var(--color-world-sky)',    symbol: '?', image: '/brand/worlds/LogicSky.png',           data: w.sky    },
+  { color: 'var(--color-world-sunset)', symbol: '△', image: '/brand/worlds/PatternPeaks.png',       data: w.sunset },
+  { color: 'var(--color-world-berry)',  symbol: '½', image: '/brand/worlds/FractionFields.png',     data: w.berry  },
+  { color: 'var(--color-world-mint)',   symbol: '⏱', image: '/brand/worlds/MeasurementMeadow.png',  data: w.mint   },
 ];
 ---
 <section id="worlds" class="worlds">
@@ -24,7 +26,9 @@ const worlds = [
     {worlds.map((world) => (
       <WorldCard
         worldColor={world.color}
-        emoji={world.emoji}
+        symbol={world.symbol}
+        image={world.image}
+        imageAlt={`${world.data.name} — ${world.data.subtitle}`}
         title={world.data.name}
         subtitle={world.data.subtitle}
         badges={world.data.badges}
@@ -47,9 +51,19 @@ const worlds = [
     margin-bottom: 3rem;
     letter-spacing: -0.02em;
   }
+  /* 6 worlds → 3 columns × 2 rows on desktop, 2 columns × 3 rows
+     on tablet, single column on mobile. Explicit columns beat
+     auto-fit here because we want the 2-row rhythm to read as
+     "six worlds, six ways" — not a chaotic auto-flowed strip. */
   .worlds-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  @media (max-width: 900px) {
+    .worlds-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .worlds-grid { grid-template-columns: 1fr; }
   }
 </style>

@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../../utils/i18n';
+import OpChip from '../OpChip.astro';
 
 interface Props {
   locale: Locale;
@@ -7,19 +8,21 @@ interface Props {
 const { locale } = Astro.props;
 const i = t(locale).trust;
 
+// Same cube-face brand language used elsewhere — three trust pillars,
+// each glyph hints at its meaning: ✓ safety, ✎ educator-built, ☼ language.
 const signals = [
-  { emoji: '🛡️', accent: 'var(--color-success)',     ...i.safe },
-  { emoji: '📚', accent: 'var(--color-primary)',     ...i.educator },
-  { emoji: '🌏', accent: 'var(--color-world-ocean)', ...i.multilingual },
+  { symbol: '✓', accent: 'var(--color-success)',     ...i.safe },
+  { symbol: '✎', accent: 'var(--color-primary)',     ...i.educator },
+  { symbol: '☼', accent: 'var(--color-world-ocean)', ...i.multilingual },
 ];
 ---
 <section id="trust" class="trust">
   <h2 class="section-title">{i.title}</h2>
   <div class="trust-grid">
     {signals.map((s) => (
-      <div class="trust-card">
-        <div class="trust-emoji" style={`background: color-mix(in srgb, ${s.accent} 12%, transparent); color: ${s.accent};`} aria-hidden="true">
-          {s.emoji}
+      <div class="trust-card" style={`--accent: ${s.accent}`}>
+        <div class="trust-chip-wrap">
+          <OpChip symbol={s.symbol} color={s.accent} size={64} tilt={-5} />
         </div>
         <h3 class="trust-card-title">{s.title}</h3>
         <p class="trust-card-body">{s.body}</p>
@@ -53,15 +56,20 @@ const signals = [
     background: var(--color-surface);
     border-radius: var(--radius-card);
     border-bottom: var(--spacing-push-depth-small) solid var(--color-border);
+    transition:
+      transform var(--duration-normal) var(--easing-spring),
+      border-bottom-color var(--duration-normal) var(--easing-spring),
+      border-bottom-width var(--duration-normal) var(--easing-spring);
   }
-  .trust-emoji {
-    width: 64px;
-    height: 64px;
-    border-radius: 9999px;
-    display: grid;
-    place-items: center;
-    font-size: 1.75rem;
-    margin: 0 auto 1rem;
+  .trust-card:hover {
+    transform: translateY(-2px);
+    border-bottom-color: var(--accent);
+    border-bottom-width: var(--spacing-push-depth);
+  }
+  .trust-chip-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
   .trust-card-title {
     font-family: var(--font-display);
@@ -72,5 +80,9 @@ const signals = [
   .trust-card-body {
     color: var(--color-text-secondary);
     line-height: 1.5;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .trust-card { transition: none; }
+    .trust-card:hover { transform: none; }
   }
 </style>

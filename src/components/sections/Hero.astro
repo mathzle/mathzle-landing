@@ -1,6 +1,5 @@
 ---
 import { t, type Locale } from '../../utils/i18n';
-import Mascot from '../Mascot.astro';
 
 interface Props {
   locale: Locale;
@@ -10,112 +9,281 @@ const i = t(locale).hero;
 const webAppUrl = 'https://app.mathzle.com'; // TODO(launch): final URL
 ---
 <section id="hero" class="hero">
-  <div class="hero-decoration" aria-hidden="true">
-    <div class="hero-blob hero-blob-1"></div>
-    <div class="hero-blob hero-blob-2"></div>
-    <div class="hero-blob hero-blob-3"></div>
-  </div>
-  <div class="hero-inner">
-    <Mascot state="cheer" size={180} decorative={false} />
-    <h1 class="hero-headline">{i.headline}</h1>
-    <p class="hero-subhead">{i.subhead}</p>
-    <div class="hero-ctas" id="play">
-      <a
-        href={webAppUrl}
-        class="btn-push hero-cta-primary"
-        data-track="cta-play-hero"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span aria-hidden="true">▶</span> {i.ctaPlay}
-      </a>
-      <a href="#how-it-works" class="btn-text" data-track="cta-learn-hero">
-        {i.ctaSecondary} <span aria-hidden="true">↓</span>
-      </a>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <span class="hero-eyebrow">{i.eyebrow}</span>
+      <h1 class="hero-headline">{i.headline}</h1>
+      <p class="hero-subhead">{i.subhead}</p>
+
+      <ul class="hero-stats" aria-label="At a glance">
+        {i.stats.map((s) => (
+          <li class="hero-stat">
+            <span class="hero-stat-value">{s.value}</span>
+            <span class="hero-stat-label">{s.label}</span>
+          </li>
+        ))}
+      </ul>
+
+      <div class="hero-ctas" id="play">
+        <a
+          href={webAppUrl}
+          class="btn-push hero-cta-primary"
+          data-track="cta-play-hero"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {i.ctaPlay}
+          <span aria-hidden="true" class="hero-cta-arrow">→</span>
+        </a>
+        <a href="#how-it-works" class="btn-text hero-cta-secondary" data-track="cta-learn-hero">
+          {i.ctaSecondary} <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <ul class="hero-trust" aria-label="What you get">
+        {i.trustRail.map((item) => (
+          <li class="hero-trust-item">
+            <span aria-hidden="true" class="hero-trust-tick">✓</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
     </div>
-    <p class="hero-support">{i.supportNote}</p>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-cube-stage">
+        <span class="hero-spark hero-spark-a">✦</span>
+        <span class="hero-spark hero-spark-b">✦</span>
+        <span class="hero-spark hero-spark-c">✦</span>
+        <span class="hero-spark hero-spark-d">+</span>
+        <span class="hero-spark hero-spark-e">×</span>
+        <img
+          src="/brand/logo.png"
+          alt=""
+          width="480"
+          height="480"
+          class="hero-cube"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   .hero {
     position: relative;
-    padding: 4rem 1.5rem 6rem;
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero-inner {
-    position: relative;
-    max-width: 720px;
+    padding: 3.5rem 1.5rem 5rem;
+    max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  /* Left column ---------------------------------------------------- */
+  .hero-copy {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 1.25rem;
+    text-align: left;
   }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    border-radius: var(--radius-pill);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
   .hero-headline {
     font-family: var(--font-display);
-    font-size: clamp(2.5rem, 6vw, 4.25rem);
+    font-size: clamp(2.25rem, 5.5vw, 4rem);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.04;
     letter-spacing: -0.03em;
-    margin-top: 0.5rem;
+    margin: 0;
   }
+
   .hero-subhead {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
     color: var(--color-text-secondary);
-    max-width: 560px;
+    max-width: 30rem;
     line-height: 1.5;
+    margin: 0;
   }
+
+  /* Concrete numbers — replaces the vague pitch above the fold */
+  .hero-stats {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0 0;
+  }
+  .hero-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+  .hero-stat-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.875rem;
+    line-height: 1;
+    color: var(--color-text-primary);
+    font-variant-numeric: tabular-nums;
+  }
+  .hero-stat-label {
+    font-size: 0.8125rem;
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
   .hero-ctas {
     display: flex;
     gap: 0.75rem;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    margin-top: 0.75rem;
-  }
-  .hero-cta-primary {
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
-  }
-  .hero-support {
-    font-size: 0.875rem;
-    color: var(--color-text-tertiary);
     margin-top: 0.25rem;
   }
+  .hero-cta-primary {
+    font-size: 1.0625rem;
+    padding: 1rem 1.75rem;
+  }
+  .hero-cta-arrow {
+    transition: transform var(--duration-normal) var(--easing-spring);
+  }
+  .hero-cta-primary:hover .hero-cta-arrow {
+    transform: translateX(3px);
+  }
 
-  /* Decorative world-color blobs — subtle, behind the content */
-  .hero-decoration {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+  /* Trust rail — answers parental anxiety in viewport 1 */
+  .hero-trust {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
   }
-  .hero-blob {
-    position: absolute;
+  .hero-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+  .hero-trust-tick {
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
     border-radius: 9999px;
-    filter: blur(40px);
-    opacity: 0.35;
+    background: color-mix(in srgb, var(--color-success) 18%, transparent);
+    color: var(--color-success);
+    font-size: 0.75rem;
+    font-weight: 800;
   }
-  .hero-blob-1 {
-    top: -80px;
-    left: -60px;
-    width: 240px;
-    height: 240px;
-    background: var(--color-world-sunset);
+
+  /* Right column — cube as the brand character ---------------------- */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .hero-blob-2 {
-    top: 80px;
-    right: -80px;
-    width: 280px;
-    height: 280px;
-    background: var(--color-world-sky);
+  .hero-cube-stage {
+    position: relative;
+    width: min(100%, 480px);
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
   }
-  .hero-blob-3 {
-    bottom: -60px;
-    left: 30%;
-    width: 220px;
-    height: 220px;
-    background: var(--color-world-berry);
+  .hero-cube {
+    width: 100%;
+    height: auto;
+    transform-origin: center;
+    animation: cube-sway 5.5s ease-in-out infinite;
+    will-change: transform;
+    filter: drop-shadow(0 20px 36px rgb(91 108 255 / 0.18))
+            drop-shadow(0 8px 12px rgb(45 42 74 / 0.08));
+  }
+  @keyframes cube-sway {
+    0%, 100% { transform: rotate(-2.5deg) translateY(0); }
+    50%      { transform: rotate(2.5deg)  translateY(-6px); }
+  }
+
+  /* Floating math sparks — proprietary brand motion, not blur blobs */
+  .hero-spark {
+    position: absolute;
+    font-family: var(--font-display);
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+    will-change: transform;
+  }
+  .hero-spark-a { top: 8%;  left: 6%;  font-size: 1.5rem; color: var(--color-world-sunset); animation: spark-float 4.2s ease-in-out infinite; }
+  .hero-spark-b { top: 18%; right: 4%; font-size: 1.25rem; color: var(--color-world-ocean);  animation: spark-float 5.1s ease-in-out infinite -1.2s; }
+  .hero-spark-c { bottom: 14%; left: 2%; font-size: 1rem;   color: var(--color-world-berry);  animation: spark-float 4.8s ease-in-out infinite -2.4s; }
+  .hero-spark-d { bottom: 8%;  right: 10%; font-size: 1.75rem; color: var(--color-world-forest); animation: spark-float 5.4s ease-in-out infinite -0.6s; font-weight: 800; }
+  .hero-spark-e { top: 42%;   right: -2%; font-size: 1.5rem;   color: var(--color-world-sky);    animation: spark-float 4.5s ease-in-out infinite -3.0s; font-weight: 800; }
+
+  @keyframes spark-float {
+    0%, 100% { transform: translateY(0) rotate(0deg);   opacity: 0.85; }
+    50%      { transform: translateY(-10px) rotate(8deg); opacity: 1;    }
+  }
+
+  /* Reduced motion — kill the sway and the sparks */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-cube,
+    .hero-spark-a, .hero-spark-b, .hero-spark-c, .hero-spark-d, .hero-spark-e {
+      animation: none;
+    }
+  }
+
+  /* Responsive ----------------------------------------------------- */
+  @media (max-width: 880px) {
+    .hero {
+      padding: 2.5rem 1.5rem 3.5rem;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      text-align: center;
+    }
+    .hero-copy {
+      align-items: center;
+      text-align: center;
+      order: 2;
+    }
+    .hero-visual {
+      order: 1;
+    }
+    .hero-cube-stage {
+      width: min(80%, 340px);
+    }
+    .hero-subhead {
+      max-width: none;
+    }
+    .hero-stats,
+    .hero-trust,
+    .hero-ctas {
+      justify-content: center;
+    }
   }
 </style>

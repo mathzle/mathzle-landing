@@ -50,6 +50,19 @@ const i = t(locale).testimonials;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    transition:
+      transform var(--duration-normal) var(--easing-spring),
+      border-bottom-color var(--duration-normal) var(--easing-spring),
+      box-shadow var(--duration-normal) var(--easing-spring);
+  }
+  .t-card:hover {
+    transform: translateY(-3px);
+    border-bottom-color: var(--color-primary);
+    box-shadow: 0 12px 24px rgb(45 42 74 / 0.06);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .t-card { transition: none; }
+    .t-card:hover { transform: none; box-shadow: none; }
   }
   .t-quote {
     font-size: 1.0625rem;

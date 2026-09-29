@@ -24,6 +24,16 @@ const webAppUrl = 'https://app.mathzle.com'; // TODO(launch): final URL
       </a>
     </div>
     <div class="price-card price-card-premium">
+      <img
+        src="/brand/logo.png"
+        alt=""
+        width="120"
+        height="120"
+        class="price-cube-decoration"
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
       <div class="price-card-header">
         <h3 class="price-title">{i.premiumTitle}</h3>
         <p class="price-amount">{i.premiumPrice}</p>
@@ -62,6 +72,7 @@ const webAppUrl = 'https://app.mathzle.com'; // TODO(launch): final URL
     .pricing-grid { grid-template-columns: 1fr; }
   }
   .price-card {
+    position: relative;
     background: var(--color-surface);
     padding: 2rem;
     border-radius: var(--radius-card-lg);
@@ -69,11 +80,35 @@ const webAppUrl = 'https://app.mathzle.com'; // TODO(launch): final URL
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
+    overflow: hidden;
+    transition:
+      transform var(--duration-normal) var(--easing-spring),
+      box-shadow var(--duration-normal) var(--easing-spring);
   }
+  .price-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgb(45 42 74 / 0.08);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .price-card { transition: none; }
+    .price-card:hover { transform: none; box-shadow: none; }
+  }
+  /* Premium card — solid brand color, not a gradient (DESIGN.md anti-pattern).
+     The cube logo decorates the corner instead of the gradient sweep. */
   .price-card-premium {
-    background: linear-gradient(150deg, var(--color-primary), var(--color-secondary));
+    background: var(--color-primary);
     color: var(--color-text-on-primary);
     border-bottom-color: var(--color-primary-dark);
+  }
+  .price-cube-decoration {
+    position: absolute;
+    top: -18px;
+    right: -22px;
+    width: 120px;
+    height: 120px;
+    opacity: 0.22;
+    transform: rotate(14deg);
+    pointer-events: none;
   }
   .price-card-header {
     text-align: center;

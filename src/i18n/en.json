@@ -8,25 +8,37 @@
     "playFree": "Play free"
   },
   "hero": {
+    "eyebrow": "Math for ages 6–11",
     "headline": "Make math an adventure",
-    "subhead": "Math made for ages 6–11. Works in any browser. No install, no storage, no app store.",
+    "subhead": "Six worlds. Hundreds of lessons. Built with classroom teachers.",
     "ctaPlay": "Start playing — free",
     "ctaSecondary": "See how it works",
-    "supportNote": "Free forever for two worlds. Premium unlocks all six."
+    "supportNote": "Free forever for two worlds. Premium unlocks all six.",
+    "stats": [
+      { "value": "6", "label": "Worlds" },
+      { "value": "200+", "label": "Lessons" },
+      { "value": "2", "label": "Languages" }
+    ],
+    "trustRail": [
+      "No ads, ever",
+      "Tiếng Việt + English",
+      "Runs in any browser",
+      "Free to start"
+    ]
   },
   "howItWorks": {
     "title": "How it works",
     "step1": {
       "title": "Pick a world",
-      "body": "Six themed worlds — pick where your kid wants to start."
+      "body": "Six themed worlds. Your kid picks where to start."
     },
     "step2": {
       "title": "Play a lesson",
-      "body": "Short, focused lessons designed with classroom teachers."
+      "body": "Short lessons. Designed with classroom teachers."
     },
     "step3": {
       "title": "Earn rewards",
-      "body": "Coins, streaks, and badges keep the streak going."
+      "body": "Coins, badges, and daily streaks build the habit."
     }
   },
   "worlds": {
@@ -41,12 +53,12 @@
   "trust": {
     "title": "Parents trust Mathzle",
     "safe":         { "title": "Safe by default",     "body": "No ads. No chat. No data sold." },
-    "educator":     { "title": "Educator-designed",   "body": "Built with classroom teachers and reviewed against grade-level standards." },
+    "educator":     { "title": "Educator-designed",   "body": "Built with classroom teachers. Aligned to grade-level standards." },
     "multilingual": { "title": "Vietnamese + English", "body": "Switch language any time. Numbers feel native in both." }
   },
   "screenshots": {
-    "title": "See it in action",
-    "subtitle": "Same warm cream, same pushable buttons, same blob mascot — on every screen."
+    "title": "Peek inside a world",
+    "subtitle": "Warm cream, pushable buttons, the math cube — on every screen."
   },
   "testimonials": {
     "title": "What parents say",
@@ -66,14 +78,14 @@
     "premiumPrice": "$4.99/mo",
     "premiumBullets": ["All six worlds", "Family sharing (up to 4 kids)", "Priority support"],
     "premiumCta": "Try premium",
-    "premiumNote": "Cancel any time. Billing isn't live yet — placeholder pricing pending launch."
+    "premiumNote": "Cancel any time. Premium launches soon."
   },
   "faq": {
     "title": "Frequently asked questions"
   },
   "cta": {
     "title": "Stay in the loop",
-    "subtitle": "One email a month. Tips from teachers, new worlds, early access to native apps.",
+    "subtitle": "One email a month. New worlds, teacher tips, native-app early access.",
     "placeholder": "your@email.com",
     "button": "Subscribe",
     "success": "Welcome! Check your inbox.",

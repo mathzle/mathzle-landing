@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import SectionDivider from '../../components/SectionDivider.astro';
 import Hero from '../../components/sections/Hero.astro';
 import HowItWorks from '../../components/sections/HowItWorks.astro';
 import WorldsGrid from '../../components/sections/WorldsGrid.astro';
@@ -24,11 +25,14 @@ const path = '/vi/';
   <Nav locale={locale} path={path} />
   <main>
     <Hero locale={locale} />
+    <SectionDivider />
     <HowItWorks locale={locale} />
     <WorldsGrid locale={locale} />
+    <SectionDivider flip />
     <TrustSignals locale={locale} />
     <Screenshots locale={locale} />
     <Testimonials locale={locale} />
+    <SectionDivider />
     <Pricing locale={locale} />
     <FAQ locale={locale} />
     <CtaCapture locale={locale} />

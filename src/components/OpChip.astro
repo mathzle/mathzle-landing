@@ -1,0 +1,71 @@
+---
+/**
+ * OpChip — small tilted operator tile, the recurring brand mark.
+ * Echoes the operator faces on the Mathzle logo cube. Used in place of
+ * emoji as section icons (HowItWorks, WorldsGrid, Screenshots).
+ *
+ * - symbol: the character on the chip (operators, ?, ★, ▶, ½, …)
+ * - color: chip fill (usually a world-color or accent token)
+ * - size: edge length in px (default 64)
+ * - tilt: degrees of static rotation, default -4
+ * - tone: 'on-light' (dark glyph on bright fill — for cream backgrounds)
+ *         | 'on-dark'  (light glyph + softer border — for world-color backgrounds)
+ */
+interface Props {
+  symbol: string;
+  color: string;
+  size?: number;
+  tilt?: number;
+  tone?: 'on-light' | 'on-dark';
+  class?: string;
+}
+
+const {
+  symbol,
+  color,
+  size = 64,
+  tilt = -4,
+  tone = 'on-light',
+  class: className,
+} = Astro.props;
+
+const style = [
+  `--chip-color: ${color}`,
+  `--chip-size: ${size}px`,
+  `--chip-tilt: ${tilt}deg`,
+].join(';');
+---
+<span
+  class={['op-chip', `op-chip--${tone}`, className].filter(Boolean).join(' ')}
+  style={style}
+  aria-hidden="true"
+>{symbol}</span>
+
+<style>
+  .op-chip {
+    display: inline-grid;
+    place-items: center;
+    width: var(--chip-size);
+    height: var(--chip-size);
+    background: var(--chip-color);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: calc(var(--chip-size) * 0.52);
+    line-height: 1;
+    border-radius: calc(var(--chip-size) * 0.22);
+    transform: rotate(var(--chip-tilt));
+    user-select: none;
+    transition: transform var(--duration-normal) var(--easing-spring);
+  }
+  .op-chip--on-light {
+    color: #1f1d35;
+    border-bottom: 4px solid color-mix(in srgb, var(--chip-color) 55%, #1f1d35);
+  }
+  .op-chip--on-dark {
+    color: var(--color-text-on-primary);
+    border-bottom: 4px solid rgb(0 0 0 / 0.18);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .op-chip { transition: none; }
+  }
+</style>

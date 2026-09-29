@@ -33,13 +33,15 @@ const i = t(locale).cta;
     text-align: center;
     overflow: hidden;
   }
+  /* Solid pastel card — replaces the diagonal gradient (DESIGN.md anti-pattern).
+     Same warm pop without the AI-slop signal. */
   .cta-decoration {
     position: absolute;
     inset: 1rem;
     border-radius: var(--radius-card-lg);
-    background: linear-gradient(135deg,
-      color-mix(in srgb, var(--color-world-sky) 12%, transparent),
-      color-mix(in srgb, var(--color-world-berry) 12%, transparent));
+    background: var(--color-primary-light);
+    border-bottom: var(--spacing-push-depth) solid
+      color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
     z-index: -1;
   }
   .cta-inner {

@@ -1,15 +1,19 @@
 ---
 import { t, type Locale } from '../../utils/i18n';
+import OpChip from '../OpChip.astro';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const i = t(locale).howItWorks;
+
+// Each step gets a world-color accent + a cube-face operator that visually
+// rhymes with the logo. ? for "pick", ▶ for "play", ★ for "earn".
 const steps = [
-  { emoji: '🗺️', accent: 'var(--color-world-ocean)',  ...i.step1 },
-  { emoji: '🎮', accent: 'var(--color-world-sunset)', ...i.step2 },
-  { emoji: '🏆', accent: 'var(--color-reward)',       ...i.step3 },
+  { symbol: '?', accent: 'var(--color-world-ocean)',  ...i.step1 },
+  { symbol: '▶', accent: 'var(--color-world-sunset)', ...i.step2 },
+  { symbol: '★', accent: 'var(--color-reward)',       ...i.step3 },
 ];
 ---
 <section id="how-it-works" class="how">
@@ -18,7 +22,9 @@ const steps = [
     {steps.map((s, idx) => (
       <li class="how-step" style={`--accent: ${s.accent}`}>
         <div class="how-num">{idx + 1}</div>
-        <div class="how-emoji" aria-hidden="true">{s.emoji}</div>
+        <div class="how-chip-wrap">
+          <OpChip symbol={s.symbol} color={s.accent} size={80} tilt={-5} />
+        </div>
         <h3 class="how-step-title">{s.title}</h3>
         <p class="how-step-body">{s.body}</p>
       </li>
@@ -55,6 +61,17 @@ const steps = [
     background: var(--color-surface);
     border-radius: var(--radius-card);
     border-bottom: var(--spacing-push-depth) solid var(--accent, var(--color-border));
+    transition:
+      transform var(--duration-normal) var(--easing-spring),
+      box-shadow var(--duration-normal) var(--easing-spring);
+  }
+  .how-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgb(45 42 74 / 0.08);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .how-step { transition: none; }
+    .how-step:hover { transform: none; box-shadow: none; }
   }
   .how-num {
     position: absolute;
@@ -72,9 +89,8 @@ const steps = [
     font-weight: 700;
     font-size: 0.95rem;
   }
-  .how-emoji {
-    font-size: 3rem;
-    margin: 0.5rem 0 1rem;
+  .how-chip-wrap {
+    margin: 0.75rem 0 1.25rem;
   }
   .how-step-title {
     font-family: var(--font-display);

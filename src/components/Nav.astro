@@ -12,8 +12,15 @@ const home = `/${locale}/`;
 ---
 <header class="nav-shell">
   <nav class="nav" aria-label="Primary">
-    <a href={home} class="nav-logo">
-      <span class="nav-logo-mark">M</span>
+    <a href={home} class="nav-logo" aria-label="Mathzle home">
+      <img
+        src="/brand/logo.png"
+        alt=""
+        width="36"
+        height="36"
+        class="nav-logo-mark"
+        decoding="async"
+      />
       <span class="nav-logo-text">Mathzle</span>
     </a>
     <ul class="nav-links">
@@ -63,16 +70,10 @@ const home = `/${locale}/`;
     text-decoration: none;
   }
   .nav-logo-mark {
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-    background: var(--color-primary);
-    color: var(--color-text-on-primary);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.125rem;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
   }
   .nav-logo-text {
     font-family: var(--font-display);

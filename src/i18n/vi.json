@@ -9,25 +9,37 @@
     "playFree": "Chơi miễn phí"
   },
   "hero": {
+    "eyebrow": "Toán cho trẻ 6–11 tuổi",
     "headline": "Biến toán học thành cuộc phiêu lưu",
-    "subhead": "Toán học cho trẻ 6–11 tuổi. Chơi ngay trên trình duyệt — không cần tải, không tốn bộ nhớ.",
+    "subhead": "Sáu thế giới. Hàng trăm bài học. Cùng giáo viên tiểu học thiết kế.",
     "ctaPlay": "Chơi miễn phí ngay",
     "ctaSecondary": "Xem cách hoạt động",
-    "supportNote": "Miễn phí mãi mãi với 2 thế giới. Bản Premium mở khoá cả 6 thế giới."
+    "supportNote": "Miễn phí mãi mãi với 2 thế giới. Bản Premium mở khoá cả 6 thế giới.",
+    "stats": [
+      { "value": "6", "label": "Thế giới" },
+      { "value": "200+", "label": "Bài học" },
+      { "value": "2", "label": "Ngôn ngữ" }
+    ],
+    "trustRail": [
+      "Không quảng cáo",
+      "Tiếng Việt + English",
+      "Chạy trên mọi trình duyệt",
+      "Miễn phí khởi đầu"
+    ]
   },
   "howItWorks": {
     "title": "Cách hoạt động",
     "step1": {
       "title": "Chọn thế giới",
-      "body": "Sáu thế giới với chủ đề khác nhau — chọn nơi bé muốn bắt đầu."
+      "body": "Sáu thế giới khác nhau. Bé tự chọn nơi bắt đầu."
     },
     "step2": {
       "title": "Chơi bài học",
-      "body": "Các bài học ngắn, tập trung, được thiết kế cùng giáo viên tiểu học."
+      "body": "Bài học ngắn. Thiết kế cùng giáo viên tiểu học."
     },
     "step3": {
       "title": "Nhận phần thưởng",
-      "body": "Coin, streak, và huy hiệu giúp bé duy trì thói quen."
+      "body": "Xu, huy hiệu, và streak hằng ngày tạo thói quen."
     }
   },
   "worlds": {
@@ -42,12 +54,12 @@
   "trust": {
     "title": "Phụ huynh tin tưởng Mathzle",
     "safe":         { "title": "An toàn mặc định",     "body": "Không quảng cáo. Không chat. Không bán dữ liệu." },
-    "educator":     { "title": "Thiết kế bởi giáo viên", "body": "Xây dựng cùng giáo viên tiểu học và rà soát theo chuẩn lớp học." },
-    "multilingual": { "title": "Tiếng Việt + Anh",     "body": "Đổi ngôn ngữ bất kỳ lúc nào. Con số đọc tự nhiên ở cả hai." }
+    "educator":     { "title": "Thiết kế bởi giáo viên", "body": "Xây dựng cùng giáo viên tiểu học. Bám sát chuẩn lớp học." },
+    "multilingual": { "title": "Tiếng Việt + English", "body": "Đổi ngôn ngữ bất kỳ lúc nào. Số đọc tự nhiên cả hai." }
   },
   "screenshots": {
-    "title": "Xem trực tiếp",
-    "subtitle": "Cùng nền kem ấm áp, cùng nút bấm có hiệu ứng, cùng linh vật blob — trên mọi màn hình."
+    "title": "Nhìn vào một thế giới",
+    "subtitle": "Nền kem ấm, nút bấm có hiệu ứng, cube toán học — trên mọi màn hình."
   },
   "testimonials": {
     "title": "Phụ huynh nói gì",
@@ -67,14 +79,14 @@
     "premiumPrice": "119k/tháng",
     "premiumBullets": ["Cả sáu thế giới", "Chia sẻ gia đình (tới 4 bé)", "Hỗ trợ ưu tiên"],
     "premiumCta": "Dùng thử Premium",
-    "premiumNote": "Hủy bất kỳ lúc nào. Thanh toán chưa khả dụng — giá tạm thời, sẽ chốt khi ra mắt."
+    "premiumNote": "Hủy bất kỳ lúc nào. Premium sắp ra mắt."
   },
   "faq": {
     "title": "Câu hỏi thường gặp"
   },
   "cta": {
     "title": "Đăng ký nhận tin",
-    "subtitle": "Mỗi tháng một email. Tips từ giáo viên, thế giới mới, sớm có quyền truy cập app native.",
+    "subtitle": "Mỗi tháng một email. Thế giới mới, tips giáo viên, ưu tiên app native.",
     "placeholder": "email@cua-ban.com",
     "button": "Đăng ký",
     "success": "Cảm ơn! Hãy kiểm tra email của bạn.",

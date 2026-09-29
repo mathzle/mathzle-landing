@@ -1,9 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test('EN hero renders with mascot, headline, and CTAs', async ({ page }) => {
+test('EN hero renders with headline, cube logo, and CTAs', async ({ page }) => {
   await page.goto('/en/');
   await expect(page.locator('h1')).toContainText('Make math an adventure');
-  await expect(page.locator('img[alt="Mathzle mascot, cheering"]')).toBeVisible();
+  // The cube logo is the hero illustration; it also appears in the nav.
+  // We assert the hero copy is rendered with at least one of the stats values.
+  await expect(page.locator('.hero-stat-value').first()).toBeVisible();
+  await expect(page.locator('img.hero-cube')).toBeVisible();
   await expect(page.locator('a[data-track="cta-play-hero"]')).toBeVisible();
   await expect(page.locator('a[data-track="cta-play-hero"]')).toHaveAttribute('href', /app\.mathzle\.com/);
 });
@@ -19,4 +22,10 @@ test('Nav CTA goes to web app', async ({ page }) => {
   const navCta = page.locator('a[data-track="nav-cta"]');
   await expect(navCta).toBeVisible();
   await expect(navCta).toHaveAttribute('href', /app\.mathzle\.com/);
+});
+
+test('Nav shows real cube logo (not letterform placeholder)', async ({ page }) => {
+  await page.goto('/en/');
+  await expect(page.locator('img.nav-logo-mark')).toBeVisible();
+  await expect(page.locator('img.nav-logo-mark')).toHaveAttribute('src', /\/brand\/logo\.png/);
 });
