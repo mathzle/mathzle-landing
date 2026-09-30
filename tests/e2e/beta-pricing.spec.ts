@@ -6,6 +6,9 @@ import { site } from '../../src/data/site';
 // Every public route (matches seo.spec.ts's ROUTES; /pricing/ is a
 // redirect while pricing isn't public).
 const ROUTES = ['', 'about', 'faq', 'contact', 'privacy', 'terms', 'pricing'];
+// Premium, prices, currency and billing cadence, or a launch reward — keep in
+// sync with BETA_LEAK in scripts/check-dist-copy.mjs.
+const BETA_LEAK = /premium|119|990\.000|4\.99|₫|\/tháng|\/năm|per month|per year|khi mở bán|at launch/i;
 
 test.describe('beta: pricing hidden', () => {
   test.skip(site.pricing.public, 'pricing is public');
@@ -79,7 +82,7 @@ test.describe('beta: pricing hidden', () => {
         const path = `/${locale}/${r ? `${r}/` : ''}`;
         await page.goto(path);
         const text = await page.locator('body').innerText();
-        expect(text, `${path} leaks pricing/Premium copy`).not.toMatch(/Premium|119|4\.99|\/tháng|per month/);
+        expect(text, `${path} leaks pricing/Premium copy`).not.toMatch(BETA_LEAK);
       }
     }
   });
