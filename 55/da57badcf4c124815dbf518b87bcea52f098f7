@@ -1,0 +1,79 @@
+src/components/sections/Hero.astro
+  s_6a8dd77299ee2b::t_3f36e62991e27f 44
+  s_6a8dd77299ee2b::t_c25f4ccfdb9081 19
+src/components/LangSwitch.astro
+  s_6a8dd77299ee2b::t_192a253f147f0f 2,12,18
+src/pages/en/index.astro
+  s_6a8dd77299ee2b::t_9d351c0ba3c730 19
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_265f765da57423 71-72,77
+  s_6a8dd77299ee2b::t_8a85b141db64fc 12,14,18-19,22-23
+  s_6a8dd77299ee2b::t_d391cfae282072 40
+  s_6a8dd77299ee2b::t_f21f66507a3f56 57-60
+src/pages/vi/pricing.astro
+  s_6a8dd77299ee2b::t_9094f5cefd6e07 7
+  s_6a8dd77299ee2b::t_dbc1d43839f42f 22
+src/pages/vi/about.astro
+  s_6a8dd77299ee2b::t_7e237b93bf9c11 21,25,27,29
+  s_6a8dd77299ee2b::t_9c547f32543e52 12
+src/pages/en/privacy.astro
+  s_6a8dd77299ee2b::t_36898b4f96070f 23
+  s_6a8dd77299ee2b::t_f01eef9d2537c0 49-54
+  s_6a8dd77299ee2b::t_f4e493b86ad4b8 5
+src/components/sections/Pricing.astro
+  s_6a8dd77299ee2b::t_d950844f68a5b9 46-51
+  s_6a8dd77299ee2b::t_88d9831440862c 11
+tests/e2e/cta.spec.ts
+  s_6a8dd77299ee2b::t_4b43b5d18cdffb 32,34-38
+src/pages/vi/terms.astro
+  s_6a8dd77299ee2b::t_8820bbb91523af 32-37
+  s_6a8dd77299ee2b::t_53b64cc0d8facc 5
+  s_6a8dd77299ee2b::t_43c09735d83cd1 23
+src/pages/en/pricing.astro
+  s_6a8dd77299ee2b::t_985dc8ec7542b6 7
+  s_6a8dd77299ee2b::t_e51a1f73e70fa2 22
+src/content/faq/vi.json
+  s_6a8dd77299ee2b::t_07f39ca8234dac 5
+  s_6a8dd77299ee2b::t_60071fe3c97c8d 9
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_702a8325b92600 70-71,76
+  s_6a8dd77299ee2b::t_0d3da0b6c52360 56-59
+  s_6a8dd77299ee2b::t_22b4d1bb1dffde 13,17-18,21-22
+  s_6a8dd77299ee2b::t_7b2e7f747ed86a 39
+src/pages/en/terms.astro
+  s_6a8dd77299ee2b::t_c64543664610fa 5
+  s_6a8dd77299ee2b::t_a0840c9690f651 23
+  s_6a8dd77299ee2b::t_a32a17490fbaba 32-37
+src/pages/vi/privacy.astro
+  s_6a8dd77299ee2b::t_e881f574a669a8 44-49
+  s_6a8dd77299ee2b::t_e3f6f1f1d4f86a 5
+  s_6a8dd77299ee2b::t_5bcdede0da7a0d 23
+src/pages/en/about.astro
+  s_6a8dd77299ee2b::t_de7182bbd49469 12
+  s_6a8dd77299ee2b::t_50f1d069f6cb93 21,25,27,29
+src/content/faq/en.json
+  s_6a8dd77299ee2b::t_84f7ff45ff46ec 5
+  s_6a8dd77299ee2b::t_edf4b888cd2917 9
+tests/e2e/no-fake-content.spec.ts
+  s_6a8dd77299ee2b::t_072af69ec8c24b 1-32
+src/pages/vi/index.astro
+  s_6a8dd77299ee2b::t_3c6d00e6413b8e 19
+src/components/sections/TrustSignals.astro
+  s_6a8dd77299ee2b::t_946efc6f8cbf87 12,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "55da57badcf4c124815dbf518b87bcea52f098f7",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
