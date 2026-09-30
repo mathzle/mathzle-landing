@@ -17,7 +17,7 @@ Trang giới thiệu và Ứng dụng được gọi chung là “Dịch vụ”
 
 **Giai đoạn thử nghiệm.** Mathzle hiện đang trong giai đoạn thử nghiệm (beta) và được cung cấp miễn phí. Một số tính năng nêu trong Chính sách này có thể chưa được bật cho mọi tài khoản, hoặc có thể thay đổi. Khi chúng tôi thay đổi cách xử lý dữ liệu, chúng tôi sẽ cập nhật Chính sách theo mục 14.
 
-Chính sách này được xây dựng trên cơ sở Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân, Luật Bảo vệ dữ liệu cá nhân năm 2025 và các văn bản hướng dẫn, Luật An ninh mạng 2018, Luật Bảo vệ quyền lợi người tiêu dùng 2023 và Nghị định 52/2013/NĐ-CP về thương mại điện tử (được sửa đổi, bổ sung bởi Nghị định 85/2021/NĐ-CP). Các thuật ngữ như “dữ liệu cá nhân”, “xử lý dữ liệu cá nhân”, “chủ thể dữ liệu” được hiểu theo các văn bản này.
+Chính sách này được xây dựng trên cơ sở Luật Bảo vệ dữ liệu cá nhân 2025 và các văn bản hướng dẫn thi hành, Luật An ninh mạng 2018, Luật Bảo vệ quyền lợi người tiêu dùng 2023 và Nghị định 52/2013/NĐ-CP về thương mại điện tử (được sửa đổi, bổ sung bởi Nghị định 85/2021/NĐ-CP). Các thuật ngữ như “dữ liệu cá nhân”, “xử lý dữ liệu cá nhân”, “chủ thể dữ liệu” được hiểu theo các văn bản này.
 
 Chính sách này là một phần không tách rời của [Điều khoản sử dụng](/vi/terms/).
 
@@ -88,7 +88,7 @@ Việc điều chỉnh độ khó dựa trên kết quả học tập của con 
 Mathzle được thiết kế cho trẻ em, vì vậy chúng tôi áp dụng các nguyên tắc sau:
 
 - **Phụ huynh là người đăng ký.** Chỉ người từ đủ 18 tuổi là cha mẹ hoặc người giám hộ hợp pháp mới được tạo tài khoản và hồ sơ cho trẻ. Trẻ không tự đăng ký.
-- **Sự đồng ý theo Điều 20 Nghị định 13/2023/NĐ-CP.** Việc xử lý dữ liệu cá nhân của trẻ em cần có sự đồng ý của cha mẹ hoặc người giám hộ; với trẻ từ đủ 7 tuổi, cần có thêm sự đồng ý của chính trẻ. Khi tạo hồ sơ cho con từ đủ 7 tuổi trở lên, bạn xác nhận đã giải thích cho con một cách phù hợp với lứa tuổi rằng Mathzle lưu lại những gì và con đồng ý sử dụng.
+- **Sự đồng ý theo quy định pháp luật về bảo vệ dữ liệu cá nhân.** Việc xử lý dữ liệu cá nhân của trẻ em cần có sự đồng ý của cha mẹ hoặc người giám hộ; với trẻ từ đủ 7 tuổi, cần có thêm sự đồng ý của chính trẻ. Khi tạo hồ sơ cho con từ đủ 7 tuổi trở lên, bạn xác nhận đã giải thích cho con một cách phù hợp với lứa tuổi rằng Mathzle lưu lại những gì và con đồng ý sử dụng.
 - **Cách ghi nhận sự đồng ý.** Trong giai đoạn thử nghiệm, sự đồng ý được ghi nhận khi phụ huynh đăng nhập, chấp nhận Điều khoản sử dụng và Chính sách này, rồi tạo hồ sơ cho con. Trước khi ra mắt chính thức, Ứng dụng sẽ có bước xác nhận đồng ý riêng cho từng hồ sơ trẻ, và bước đồng ý riêng trước khi bật tính năng luyện đọc.
 - **Tối thiểu hoá dữ liệu.** Chúng tôi chỉ yêu cầu biệt danh và tuổi để tạo hồ sơ. Bạn không cần cung cấp họ tên thật hay ảnh thật của con.
 - **Không quảng cáo, không tiếp thị cho trẻ.** Chúng tôi không hiển thị quảng cáo cho trẻ, không dùng dữ liệu của trẻ để tạo hồ sơ tiếp thị và không gửi email tiếp thị cho trẻ.
@@ -124,7 +124,7 @@ Một số nhà cung cấp nêu tại mục 6 (Google, MailerSend, Cloudflare) c
 
 Khi chuyển dữ liệu ra nước ngoài, chúng tôi cam kết:
 
-- lập, lưu giữ và gửi hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài đến Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao (Bộ Công an) theo Điều 25 Nghị định 13/2023/NĐ-CP và quy định hiện hành;
+- lập, lưu giữ và gửi hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài đến Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao (Bộ Công an) theo quy định pháp luật về bảo vệ dữ liệu cá nhân hiện hành;
 - chỉ chuyển những dữ liệu cần thiết cho mục đích tương ứng;
 - chọn nhà cung cấp có cam kết bảo vệ dữ liệu bằng văn bản và biện pháp bảo mật phù hợp.
 
@@ -163,7 +163,7 @@ Không có hệ thống nào an toàn tuyệt đối. Bạn có thể góp phầ
 
 ## 10. Quyền của bạn và của con
 
-Theo Điều 9 Nghị định 13/2023/NĐ-CP, bạn (và con, thông qua bạn) có các quyền sau đối với dữ liệu cá nhân:
+Theo quy định pháp luật về bảo vệ dữ liệu cá nhân, bạn (và con, thông qua bạn) có các quyền sau đối với dữ liệu cá nhân:
 
 1. **Quyền được biết** về việc xử lý dữ liệu cá nhân.
 2. **Quyền đồng ý** hoặc không đồng ý cho xử lý dữ liệu.
@@ -204,7 +204,7 @@ Email giao dịch cần thiết cho tài khoản (như lời mời thành viên 
 Nếu phát hiện sự cố vi phạm quy định bảo vệ dữ liệu cá nhân (ví dụ dữ liệu bị truy cập trái phép, bị lộ hoặc bị mất), chúng tôi sẽ:
 
 - ngay lập tức áp dụng biện pháp ngăn chặn và giảm thiểu thiệt hại;
-- thông báo cho Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao (Bộ Công an) chậm nhất 72 giờ sau khi xảy ra vi phạm, theo Điều 23 Nghị định 13/2023/NĐ-CP; trường hợp thông báo sau 72 giờ, chúng tôi nêu rõ lý do chậm trễ;
+- thông báo cho Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao (Bộ Công an) chậm nhất 72 giờ sau khi xảy ra vi phạm, theo quy định pháp luật về bảo vệ dữ liệu cá nhân; trường hợp thông báo sau 72 giờ, chúng tôi nêu rõ lý do chậm trễ;
 - thông báo không chậm trễ cho phụ huynh bị ảnh hưởng qua email tài khoản khi sự cố có thể gây ảnh hưởng đến bạn hoặc con, gồm mô tả sự cố, loại dữ liệu liên quan, biện pháp chúng tôi đã thực hiện và điều bạn nên làm;
 - lập biên bản và lưu hồ sơ về sự cố.
 

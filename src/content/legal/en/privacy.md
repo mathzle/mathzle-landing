@@ -17,7 +17,7 @@ The Website and the App together are the “Service”.
 
 **Beta phase.** Mathzle is currently in a free beta. Some features described in this Policy may not yet be enabled for every account, or may change. When we change how we process data, we will update this Policy as described in section 14.
 
-This Policy is based on Decree 13/2023/ND-CP on personal data protection, the 2025 Law on Personal Data Protection and its implementing regulations, the 2018 Law on Cybersecurity, the 2023 Law on Protection of Consumer Rights, and Decree 52/2013/ND-CP on e-commerce (as amended by Decree 85/2021/ND-CP). Terms such as “personal data”, “processing of personal data” and “data subject” have the meanings given in those instruments.
+This Policy is based on the 2025 Law on Personal Data Protection and its implementing regulations, the 2018 Law on Cybersecurity, the 2023 Law on Protection of Consumer Rights, and Decree 52/2013/ND-CP on e-commerce (as amended by Decree 85/2021/ND-CP). Terms such as “personal data”, “processing of personal data” and “data subject” have the meanings given in those instruments.
 
 This Policy forms an integral part of our [Terms of Use](/en/terms/).
 
@@ -88,7 +88,7 @@ Difficulty adaptation is based on your child's learning results and runs inside 
 Mathzle is designed for children, so we apply the following principles:
 
 - **Parents register.** Only a person aged 18 or over who is the child's parent or legal guardian may create an account and child profiles. Children do not register themselves.
-- **Consent under Article 20 of Decree 13/2023/ND-CP.** Processing a child's personal data requires the consent of a parent or guardian; for a child aged 7 or older, the child's own consent is also required. When you create a profile for a child aged 7 or older, you confirm that you have explained to your child, in an age-appropriate way, what Mathzle keeps, and that your child agrees to use it.
+- **Consent under applicable personal data protection law.** Processing a child's personal data requires the consent of a parent or guardian; for a child aged 7 or older, the child's own consent is also required. When you create a profile for a child aged 7 or older, you confirm that you have explained to your child, in an age-appropriate way, what Mathzle keeps, and that your child agrees to use it.
 - **How consent is recorded.** During the beta, consent is recorded when a parent signs in, accepts the Terms of Use and this Policy, and creates a profile for their child. Before the public launch, the App will add a separate consent step for each child profile, and a separate consent step before the reading practice feature is turned on.
 - **Data minimisation.** We only require a nickname and an age to create a profile. You do not need to give your child's real name or photo.
 - **No ads, no marketing to children.** We do not show ads to children, do not use children's data to build marketing profiles, and do not send marketing emails to children.
@@ -124,7 +124,7 @@ Some providers listed in section 6 (Google, MailerSend, Cloudflare) are based ab
 
 When we transfer data abroad, we commit to:
 
-- prepare, keep and submit a cross-border personal data transfer impact assessment to the Department of Cybersecurity and High-Tech Crime Prevention (Ministry of Public Security) under Article 25 of Decree 13/2023/ND-CP and the regulations in force;
+- prepare, keep and submit a cross-border personal data transfer impact assessment to the Department of Cybersecurity and High-Tech Crime Prevention (Ministry of Public Security) under applicable personal data protection law and the regulations in force;
 - transfer only the data needed for the relevant purpose;
 - choose providers with written data protection commitments and appropriate security measures.
 
@@ -163,7 +163,7 @@ No system is completely secure. You can help by keeping your Google account safe
 
 ## 10. Your and your child's rights
 
-Under Article 9 of Decree 13/2023/ND-CP, you (and your child, through you) have the following rights over personal data:
+Under applicable personal data protection law, you (and your child, through you) have the following rights over personal data:
 
 1. **The right to be informed** about the processing of personal data.
 2. **The right to give or refuse consent** to processing.
@@ -204,7 +204,7 @@ Transactional emails needed for your account (such as family invitations or noti
 If we discover a breach of personal data protection rules (for example, data accessed without authorisation, disclosed or lost), we will:
 
 - immediately take steps to contain it and limit the harm;
-- notify the Department of Cybersecurity and High-Tech Crime Prevention (Ministry of Public Security) no later than 72 hours after the breach occurs, under Article 23 of Decree 13/2023/ND-CP, and explain the reason for any delay beyond 72 hours;
+- notify the Department of Cybersecurity and High-Tech Crime Prevention (Ministry of Public Security) no later than 72 hours after the breach occurs, under applicable personal data protection law, and explain the reason for any delay beyond 72 hours;
 - notify affected parents without undue delay by account email when the incident may affect you or your child, describing the incident, the types of data involved, the steps we have taken and what you should do;
 - record and keep documentation of the incident.
 
