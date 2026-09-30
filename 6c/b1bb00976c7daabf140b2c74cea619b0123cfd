@@ -1,0 +1,38 @@
+tests/unit/helpers/strings.ts
+  s_6a8dd77299ee2b::t_d65987c08bd579 26-28
+tests/e2e/faq.spec.ts
+  s_6a8dd77299ee2b::t_094f24325bde3a 1-16
+src/content/faq/vi.json
+  s_6a8dd77299ee2b::t_1e1bfb755811af 3-12
+src/components/islands/FaqAccordion.tsx
+  s_6a8dd77299ee2b::t_2be7c8691a5d15 2,4-5,8-21,25-26,28-30,34
+src/components/sections/FAQ.astro
+  s_6a8dd77299ee2b::t_ae2ab7df616a77 3-4,6-7,10-12,14-15,22,26-37,41-51
+src/content.config.ts
+  s_6a8dd77299ee2b::t_957bb79fdcb640 7-13
+tests/unit/copy-lint.test.ts
+  s_6a8dd77299ee2b::t_667c3428ead38d 6,15-17
+  s_6a8dd77299ee2b::t_781132dbc1a27d 18
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_eb5024e634305e 113-122
+src/content/faq/en.json
+  s_6a8dd77299ee2b::t_a37674c72402f5 3-12
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_6bbee32cb72e5f 114-123
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6cb1bb00976c7daabf140b2c74cea619b0123cfd",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
