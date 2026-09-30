@@ -1,0 +1,41 @@
+tests/unit/media.test.ts
+  s_6a8dd77299ee2b::t_df3487dd01df7b 1-34
+src/data/media.ts
+  s_6a8dd77299ee2b::t_37120c4a9819d1 1-37
+tests/e2e/kit.spec.ts
+  s_6a8dd77299ee2b::t_828415ac514541 52-57
+tests/unit/autoplay.test.ts
+  s_6a8dd77299ee2b::t_d18691c59f9684 1-10
+src/lib/autoplay.ts
+  s_6a8dd77299ee2b::t_4b745f611518fe 1-3
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_828415ac514541 102-105
+src/components/ProductVideo.astro
+  s_6a8dd77299ee2b::t_e81d66b37f55ee 1-52
+public/_headers
+  s_6a8dd77299ee2b::t_828415ac514541 7-12
+src/components/BrowserFrame.astro
+  s_6a8dd77299ee2b::t_600a6dfed2c56b 1-20
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_828415ac514541 101-104
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_828415ac514541 7-10,52-65,69-71
+src/components/TabletFrame.astro
+  s_6a8dd77299ee2b::t_817e4e88e1933d 1-10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "8488bd2d955077909d1e27db6961a9a5fc5edea4",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
