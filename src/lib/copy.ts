@@ -54,6 +54,11 @@ export function copyText(src: string, locale: Locale, strict: boolean = STRICT):
     .replace(/\*\*(.+?)\*\*/g, '$1');
 }
 
+/** Filter list items carrying an `if` claim key ('' = always shown). */
+export function visible<T extends { if: string }>(items: readonly T[], strict: boolean = STRICT): T[] {
+  return items.filter((it) => it.if === '' || resolveClaim(it.if as ClaimKey, strict).show);
+}
+
 /** Render one claim's value with a custom formatter (prices, units). null = hide the element. */
 export function claimHtml(
   key: ClaimKey,

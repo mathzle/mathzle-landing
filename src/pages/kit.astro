@@ -7,6 +7,8 @@ import Icon from '../components/Icon.astro';
 import BrowserFrame from '../components/BrowserFrame.astro';
 import TabletFrame from '../components/TabletFrame.astro';
 import HeroV2 from '../components/sections/HeroV2.astro';
+import ProofStrip from '../components/sections/ProofStrip.astro';
+import PainPromise from '../components/sections/PainPromise.astro';
 import { Image } from 'astro:assets';
 import { screen } from '../data/media';
 import { copy } from '../lib/copy';
@@ -15,6 +17,8 @@ const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
 <Base title="Mathzle kit" description="Internal component kit" locale="vi" path="/vi/" noindex>
   <main>
     <HeroV2 locale="vi" />
+    <ProofStrip locale="vi" />
+    <PainPromise locale="vi" />
     {tones.map((tone) => (
       <Section id={`kit-tone-${tone}`} tone={tone}>
         <SectionHeader

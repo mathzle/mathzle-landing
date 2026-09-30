@@ -17,7 +17,7 @@ vi.mock('../../src/data/claims', async (orig) => {
   };
 });
 
-const { copy, copyText, formatNumber, claimHtml } = await import('../../src/lib/copy');
+const { copy, copyText, formatNumber, claimHtml, visible } = await import('../../src/lib/copy');
 
 describe('copy()', () => {
   it('escapes HTML in source text', () => {
@@ -95,5 +95,15 @@ describe('formatNumber()', () => {
   it('groups by locale', () => {
     expect(formatNumber(119000, 'vi')).toBe('119.000');
     expect(formatNumber(119000, 'en')).toBe('119,000');
+  });
+});
+
+describe('visible()', () => {
+  it('keeps unconditional items and items whose claim shows', () => {
+    const items = [{ if: '', n: 1 }, { if: 'flag', n: 2 }, { if: 'gone', n: 3 }, { if: 'pending', n: 4 }];
+    expect(visible(items).map((i) => i.n)).toEqual([1, 2, 4]);
+  });
+  it('throws in strict builds on an unverified condition', () => {
+    expect(() => visible([{ if: 'pending' }], true)).toThrow(/Unverified/);
   });
 });

@@ -1,0 +1,35 @@
+---
+import Section from '../Section.astro';
+import { copy, visible } from '../../lib/copy';
+import { t, type Locale } from '../../utils/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const i = t(locale).proof;
+---
+<Section id="proof" tone="canvas" class="proof">
+  <h2 class="sr-only">{i.label}</h2>
+  <dl class="proof-grid">
+    {visible(i.items).map((it) => (
+      <div class="proof-item reveal">
+        <dt class="mk-caption proof-label" set:html={copy(it.label, locale)} />
+        <dd class="mk-stat" set:html={copy(it.value, locale)} />
+      </div>
+    ))}
+  </dl>
+  <p class="mk-caption proof-foot" set:html={copy(i.footnote, locale)} />
+</Section>
+<style>
+  :global(.proof) { padding-block: 2.5rem; }
+  .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin: 0;
+    border-block: 1px solid var(--color-mk-hairline); }
+  .proof-item { display: flex; flex-direction: column-reverse; gap: 0.5rem; padding: 1.75rem 1.5rem; }
+  .proof-item + .proof-item { border-left: 1px solid var(--color-mk-hairline); }
+  .proof-label { font-size: 0.9375rem; color: var(--color-text-secondary); }
+  .proof-item dd { margin: 0; }
+  .proof-foot { margin: 1rem 0 0; }
+  @media (max-width: 640px) {
+    .proof-grid { grid-template-columns: 1fr 1fr; }
+    .proof-item:nth-child(odd) { border-left: 0; }
+    .proof-item:nth-child(n + 3) { border-top: 1px solid var(--color-mk-hairline); }
+  }
+</style>

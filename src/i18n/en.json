@@ -116,6 +116,30 @@
     "lead": "Mathzle is a math game that runs right in the browser{if:curriculumGdpt2018}, aligned with Vietnam's GDPT 2018 curriculum{/if}. Your child plays through {claim:worlds} worlds{if:skillReport}; you see their progress skill by skill{/if}.",
     "frameLabel": "Video: a child playing their first Mathzle level"
   },
+  "proof": {
+    "label": "Mathzle in numbers",
+    "items": [
+      { "if": "", "value": "{claim:worlds}", "label": "worlds" },
+      { "if": "", "value": "{claim:levels}", "label": "levels" },
+      { "if": "", "value": "{claim:skills}", "label": "grade {claim:gradeRange} skills" },
+      { "if": "noAds", "value": "0", "label": "ads" }
+    ],
+    "footnote": "Content numbers as of {claim:contentAsOf}.{if:curriculumGdpt2018} Content follows Vietnam's GDPT 2018 curriculum.{/if}"
+  },
+  "pain": {
+    "eyebrow": "If math feels hard right now",
+    "title": "Your child isn't bad at math. ==They just haven't met the right way to learn it.==",
+    "lead": "Three things parents tell us — and what Mathzle does about each.",
+    "ifLabel": "If your child…",
+    "thenLabel": "Mathzle…",
+    "rows": [
+      { "if": "", "pain": "Cries or snaps over math homework", "promise": "Breaks it into {claim:lessonMinutes}-minute levels. A mistake means another try — no scolding, no lost points." },
+      { "if": "parentTimeLimit", "pain": "Gets stuck on videos for hours", "promise": "Turns {claim:sessionMinutes} minutes of screen time into {claim:sessionMinutes} minutes of thinking. You set the time limit." },
+      { "if": "spacedReview", "pain": "Learns it today, forgets it next week", "promise": "Skills they miss come back over the following days until they stick." }
+    ],
+    "mascotSays": "I'll play along with you!",
+    "mascotSaysNamed": "I'm {name}. I'll play along with you!"
+  },
   "try": {
     "title": "Try one",
     "prompt": "Pick the right answer",

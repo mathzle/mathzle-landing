@@ -117,6 +117,30 @@
     "lead": "Mathzle là trò chơi toán chạy ngay trên trình duyệt{if:curriculumGdpt2018}, bám chương trình GDPT 2018{/if}. Con chơi qua {claim:worlds} thế giới{if:skillReport}; bố mẹ thấy con tiến bộ ở từng kỹ năng{/if}.",
     "frameLabel": "Video: một bé đang chơi màn đầu tiên trong Mathzle"
   },
+  "proof": {
+    "label": "Mathzle bằng con số",
+    "items": [
+      { "if": "", "value": "{claim:worlds}", "label": "thế giới" },
+      { "if": "", "value": "{claim:levels}", "label": "màn chơi" },
+      { "if": "", "value": "{claim:skills}", "label": "kỹ năng lớp {claim:gradeRange}" },
+      { "if": "noAds", "value": "0", "label": "quảng cáo" }
+    ],
+    "footnote": "Số liệu nội dung tính đến {claim:contentAsOf}.{if:curriculumGdpt2018} Nội dung bám chương trình GDPT 2018.{/if}"
+  },
+  "pain": {
+    "eyebrow": "Nếu con đang ngại toán",
+    "title": "Con không dở toán. ==Con chỉ chưa gặp cách học hợp với mình.==",
+    "lead": "Ba điều bố mẹ hay kể với chúng mình — và Mathzle làm gì với từng điều.",
+    "ifLabel": "Nếu con…",
+    "thenLabel": "Mathzle…",
+    "rows": [
+      { "if": "", "pain": "Khóc hoặc cáu mỗi lần làm bài tập toán", "promise": "Chia nhỏ thành những màn chơi {claim:lessonMinutes} phút. Sai thì thử lại — không bị chê, không bị trừ điểm." },
+      { "if": "parentTimeLimit", "pain": "Dán mắt vào video hàng giờ", "promise": "Đổi {claim:sessionMinutes} phút màn hình thành {claim:sessionMinutes} phút tư duy. Bố mẹ đặt giới hạn thời gian cho con." },
+      { "if": "spacedReview", "pain": "Học hôm nay, tuần sau đã quên", "promise": "Kỹ năng con hay sai sẽ quay lại vào những ngày sau, cho đến khi con làm chắc tay." }
+    ],
+    "mascotSays": "Mình sẽ chơi cùng con!",
+    "mascotSaysNamed": "Mình là {name}. Mình sẽ chơi cùng con!"
+  },
   "try": {
     "title": "Thử một câu",
     "prompt": "Chọn đáp án đúng",

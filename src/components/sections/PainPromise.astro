@@ -1,0 +1,50 @@
+---
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Mascot from '../Mascot.astro';
+import { copy, visible } from '../../lib/copy';
+import { site } from '../../data/site';
+import { t, type Locale } from '../../utils/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const i = t(locale).pain;
+const says = site.mascot.name ? i.mascotSaysNamed.replace('{name}', site.mascot.name) : i.mascotSays;
+---
+<Section id="pain" tone="canvas" labelledby="pain-title">
+  <SectionHeader id="pain-title" locale={locale} eyebrow={i.eyebrow} title={i.title} lead={i.lead} accent="var(--color-world-sunset)" />
+  <div class="pp">
+    <div class="pp-mascot" aria-hidden="true">
+      <Mascot state="think" size={96} />
+      <p class="pp-bubble">{says}</p>
+    </div>
+    <div class="pp-table mk-card" role="table">
+      <div class="pp-row pp-head" role="row">
+        <span role="columnheader">{i.ifLabel}</span><span role="columnheader">{i.thenLabel}</span>
+      </div>
+      {visible(i.rows).map((r) => (
+        <div class="pp-row reveal" role="row">
+          <p class="pp-pain" role="cell">{r.pain}</p>
+          <p class="pp-promise" role="cell" set:html={copy(r.promise, locale)} />
+        </div>
+      ))}
+    </div>
+  </div>
+</Section>
+<style>
+  .pp { position: relative; }
+  .pp-mascot { position: absolute; right: 1.5rem; top: -4.5rem; display: flex; align-items: flex-end; gap: 0.5rem; }
+  .pp-bubble { margin: 0 0 3.5rem; background: var(--color-surface); border: 1px solid var(--color-mk-hairline); border-radius: 16px 16px 16px 4px;
+    padding: 0.5rem 0.875rem; font-weight: 700; font-size: 0.9375rem; box-shadow: var(--shadow-mk-sm); order: -1; }
+  .pp-table { padding: 0.5rem 2rem; }
+  .pp-row { display: grid; grid-template-columns: 5fr 7fr; gap: 2rem; padding: 1.5rem 0; }
+  .pp-row + .pp-row { border-top: 1px solid var(--color-mk-hairline); }
+  .pp-head { padding-block: 1rem 0.5rem; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-mk-text-tertiary); }
+  .pp-pain { margin: 0; font-size: 1.125rem; font-weight: 600; color: var(--color-text-secondary); }
+  .pp-promise { margin: 0; font-size: 1.125rem; font-weight: 600; color: var(--color-text-primary); line-height: 1.5; }
+  @media (max-width: 760px) {
+    .pp-mascot { position: static; margin-bottom: 1rem; }
+    .pp-table { padding: 0.25rem 1.25rem; }
+    .pp-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .pp-head { display: none; }
+  }
+</style>
