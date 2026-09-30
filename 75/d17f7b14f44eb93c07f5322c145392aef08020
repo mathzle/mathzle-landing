@@ -1,0 +1,25 @@
+tests/e2e/sections-proof-pain.spec.ts
+  s_6a8dd77299ee2b::t_e3000327ac2b2d 7-8
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_e3000327ac2b2d 96,101,164
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_e3000327ac2b2d 97,102,165
+tests/e2e/beta-pricing.spec.ts
+  s_6a8dd77299ee2b::t_eaf997121d5658 38-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "75d17f7b14f44eb93c07f5322c145392aef08020",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
