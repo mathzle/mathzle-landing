@@ -170,5 +170,37 @@
       { "key": "hint",   "screen": "lesson-hint", "if": "stepHints",   "title": "Hiểu", "body": "Khi con kẹt, gợi ý hiện ra từng bước. Con tự tìm ra đáp án, không bị đọc sẵn.", "why": "Gợi ý vừa đủ giữ con ở mức hơi khó nhưng làm được." },
       { "key": "review", "screen": "review",      "if": "spacedReview", "title": "Nhớ",  "body": "Kỹ năng con hay sai quay lại vào những ngày sau cho đến khi thành thạo.", "why": "Ôn lại giãn cách giúp não giữ kiến thức lâu dài." }
     ]
+  },
+  "parents": {
+    "eyebrow": "Cho bố mẹ",
+    "title": "Biết con giỏi gì, đang kẹt ở đâu — ==không cần đoán.==",
+    "lead": "Mathzle ghi lại từng kỹ năng con đã chơi, để bố mẹ đồng hành đúng chỗ.",
+    "kidTitle": "Con nhận được",
+    "kid": [
+      { "if": "", "text": "Học vui mỗi ngày, không áp lực điểm số" },
+      { "if": "", "text": "Tự tin hơn sau mỗi lần làm sai" },
+      { "if": "", "text": "Xu, huy hiệu và chuỗi ngày chơi liên tiếp" }
+    ],
+    "parentTitle": "Bố mẹ nhận được",
+    "parent": [
+      { "if": "skillReport", "text": "Báo cáo tiến bộ theo từng kỹ năng" },
+      { "if": "parentTimeLimit", "text": "Tự đặt giới hạn thời gian chơi" },
+      { "if": "maxChildProfiles", "text": "Tối đa {claim:maxChildProfiles} hồ sơ con trong một tài khoản" }
+    ],
+    "screenAlt": "Màn hình báo cáo tiến bộ dành cho phụ huynh trong Mathzle"
+  },
+  "safety": {
+    "eyebrow": "An toàn",
+    "title": "Một nơi bố mẹ ==yên tâm== để con chơi một mình.",
+    "lead": "Những cam kết dưới đây nằm trong chính sách bảo mật của chúng mình — không chỉ là khẩu hiệu.",
+    "items": [
+      { "if": "noAds", "icon": "Ban", "title": "Không quảng cáo", "body": "Không banner, không video quảng cáo, kể cả ở bản miễn phí." },
+      { "if": "noChat", "icon": "MessageCircleOff", "title": "Không chat với người lạ", "body": "Không có tin nhắn giữa người dùng. Con chỉ chơi với bài toán." },
+      { "if": "noDataSale", "icon": "Lock", "title": "Không bán dữ liệu", "body": "Dữ liệu của con chỉ dùng để con học tốt hơn, không chia sẻ cho bên quảng cáo." },
+      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "Không mua hàng trong game", "body": "Con không thể tự tiêu tiền. Mọi thanh toán do bố mẹ thực hiện." },
+      { "if": "dataResidency", "icon": "Server", "title": "Dữ liệu lưu tại {claim:dataResidency}", "body": "Xử lý theo Nghị định 13/2023 về bảo vệ dữ liệu cá nhân." },
+      { "if": "parentDataDeletion", "icon": "Trash2", "title": "Bố mẹ xoá dữ liệu bất kỳ lúc nào", "body": "Một thao tác trong phần cài đặt tài khoản." }
+    ],
+    "privacyLink": "Đọc chính sách bảo mật"
   }
 }

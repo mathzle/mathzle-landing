@@ -169,5 +169,37 @@
       { "key": "hint",   "screen": "lesson-hint", "if": "stepHints",   "title": "Understand", "body": "When they're stuck, hints appear one step at a time. They find the answer themselves.", "why": "Just-enough help keeps them at hard-but-doable." },
       { "key": "review", "screen": "review",      "if": "spacedReview", "title": "Remember",   "body": "Skills they miss come back over the next days until they're mastered.", "why": "Spaced review is how the brain keeps knowledge for the long run." }
     ]
+  },
+  "parents": {
+    "eyebrow": "For parents",
+    "title": "Know what they're good at and where they're stuck — ==no guessing.==",
+    "lead": "Mathzle records every skill your child plays, so you can help in the right place.",
+    "kidTitle": "Your child gets",
+    "kid": [
+      { "if": "", "text": "Fun practice every day, no grade pressure" },
+      { "if": "", "text": "More confidence after every mistake" },
+      { "if": "", "text": "Coins, badges and daily streaks" }
+    ],
+    "parentTitle": "You get",
+    "parent": [
+      { "if": "skillReport", "text": "Progress reports skill by skill" },
+      { "if": "parentTimeLimit", "text": "Your own daily time limit" },
+      { "if": "maxChildProfiles", "text": "Up to {claim:maxChildProfiles} child profiles per account" }
+    ],
+    "screenAlt": "Mathzle's parent progress report screen"
+  },
+  "safety": {
+    "eyebrow": "Safety",
+    "title": "A place you can ==trust== your child to play alone.",
+    "lead": "These commitments are written into our privacy policy — not just slogans.",
+    "items": [
+      { "if": "noAds", "icon": "Ban", "title": "No ads", "body": "No banners, no video ads — not even on the free plan." },
+      { "if": "noChat", "icon": "MessageCircleOff", "title": "No chatting with strangers", "body": "There's no messaging between users. Your child only plays with the math." },
+      { "if": "noDataSale", "icon": "Lock", "title": "No selling data", "body": "Your child's data is used to help them learn — never shared with advertisers." },
+      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "No in-game purchases", "body": "Kids can't spend money. Every payment is made by a parent." },
+      { "if": "dataResidency", "icon": "Server", "title": "Data stored in {claim:dataResidency}", "body": "Handled under Vietnam's Decree 13/2023 on personal data protection." },
+      { "if": "parentDataDeletion", "icon": "Trash2", "title": "Delete data any time", "body": "One action in your account settings." }
+    ],
+    "privacyLink": "Read our privacy policy"
   }
 }
