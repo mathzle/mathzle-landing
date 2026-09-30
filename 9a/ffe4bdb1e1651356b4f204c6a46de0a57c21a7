@@ -1,0 +1,30 @@
+src/pages/vi/pricing.astro
+  s_6a8dd77299ee2b::t_4732031028c96a 6,9-10,13,15,18,20-21
+src/pages/en/pricing.astro
+  s_6a8dd77299ee2b::t_1fa77159a8d32f 6,9-10,13,15,18,20-21
+tests/e2e/pricing-page.spec.ts
+  s_6a8dd77299ee2b::t_a7249e8295b928 1-8,12-16
+  s_6a8dd77299ee2b::t_16fb2441cdbf23 9-11
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_9f74607bdd1afe 70-82
+src/components/sections/CompareTable.astro
+  s_6a8dd77299ee2b::t_f2e36c2a837c3f 1-31
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_b031afea67defd 69-81
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9affe4bdb1e1651356b4f204c6a46de0a57c21a7",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
