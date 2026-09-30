@@ -41,8 +41,8 @@ const faqSchema = {
             return group.length > 0 && (
               <section class="faq-group" aria-labelledby={`faq-g-${c}`}>
                 <h2 id={`faq-g-${c}`} class="mk-h3">{i.categories[c]}</h2>
-                <div class="faq-group-body" style={`min-height: ${group.length * 3.75}rem`}>
-                  <FaqAccordion items={group.map((q) => ({ id: q.id, question: q.question, answerHtml: copy(q.answer, locale) }))} client:only="preact" />
+                <div class="faq-group-body" style={`--faq-n: ${group.length}`}>
+                  <FaqAccordion items={group.map((q) => ({ id: q.id, question: q.question, answerHtml: copy(q.answer, locale) }))} initialOpen={null} client:only="preact" />
                 </div>
               </section>
             );
@@ -63,6 +63,10 @@ const faqSchema = {
   .faq-main { min-height: 24rem; }
   .faq-group + .faq-group { margin-top: 2.5rem; }
   .faq-group .faq-list { min-height: 0; }
+  /* Reserve the collapsed group before the client:only island mounts (CLS 0):
+     one row = question padding + one line (desktop) or two lines (narrow). */
+  .faq-group-body { --faq-row: 4.5rem; min-height: calc(var(--faq-n) * var(--faq-row)); }
+  @media (max-width: 1100px) { .faq-group-body { --faq-row: 6.25rem; } }
   .faq-list { list-style: none; padding: 0; margin: 0; }
   .faq-item { border-bottom: 1px solid var(--color-mk-hairline-strong); scroll-margin-top: 6rem; }
   .faq-q { width: 100%; padding: 1.375rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem;

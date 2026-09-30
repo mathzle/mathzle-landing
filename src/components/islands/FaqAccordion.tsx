@@ -2,10 +2,15 @@
 import { useEffect, useState } from 'preact/hooks';
 
 interface Item { id: string; question: string; answerHtml: string }
-interface Props { items: Item[] }
+interface Props {
+  items: Item[];
+  /** Item open on load; defaults to the first. `null` = all collapsed (grouped
+   *  pages, where opening one per group would shift layout on hydration). */
+  initialOpen?: string | null;
+}
 
-export default function FaqAccordion({ items }: Props) {
-  const [open, setOpen] = useState<string | null>(items[0]?.id ?? null);
+export default function FaqAccordion({ items, initialOpen }: Props) {
+  const [open, setOpen] = useState<string | null>(initialOpen === undefined ? items[0]?.id ?? null : initialOpen);
 
   useEffect(() => {
     const fromHash = () => {
