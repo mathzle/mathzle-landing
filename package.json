@@ -16,6 +16,7 @@
     "test:e2e": "playwright test",
     "check:js": "node scripts/check-js-budget.mjs",
     "check:media": "node scripts/check-media.mjs",
+    "og": "node scripts/og.mjs",
     "lhci:run": "lhci autorun --config=tests/lighthouse/lighthouserc.cjs",
     "wrangler": "wrangler",
     "launch:check": "LAUNCH_CHECK=1 vitest run tests/unit/launch-readiness.test.ts"

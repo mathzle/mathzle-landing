@@ -161,6 +161,7 @@ Walk through this once before flipping `mathzle.com` from "showing the Pages dev
 
 ### Distribution
 - [ ] **Open Graph preview** looks right when you paste `https://mathzle.com/en/` into Slack / Facebook / Twitter — image, title, description all render
+- [ ] **OG images regenerated:** `public/og/{vi,en}.png` were generated before claim verification (P3 Task 22) — rerun `pnpm preview` + `pnpm og` afterward so the headline no longer carries the yellow unverified-claim highlight
 - [ ] **Google Search Console** — both `https://mathzle.com/en/` and `https://mathzle.com/vi/` added as properties, ownership verified via DNS TXT, sitemap submitted
 - [ ] **Bing Webmaster Tools** — same
 - [ ] **First production deploy commit tagged:** `git tag v1.0.0 && git push --tags`
