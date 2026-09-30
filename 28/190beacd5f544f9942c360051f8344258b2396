@@ -1,0 +1,45 @@
+src/data/curriculum.ts
+  s_6a8dd77299ee2b::t_a024f3aad0287e 1-4
+tests/unit/curriculum.test.ts
+  s_6a8dd77299ee2b::t_1655dfdf759212 1-21
+src/components/sections/CurriculumTable.astro
+  s_6a8dd77299ee2b::t_f9ec508a992bc1 1-43
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_10bc2ed7b34824 49-62
+tests/e2e/worlds.spec.ts
+  s_6a8dd77299ee2b::t_fa559e6d423200 1-24
+src/components/sections/Worlds.astro
+  s_6a8dd77299ee2b::t_1c90a41b69386e 1-39
+src/content.config.ts
+  s_6a8dd77299ee2b::t_b49ba8d3ba12ec 16-27
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_b2b3e258cc260e 50-63
+src/content/curriculum/en.json
+  s_6a8dd77299ee2b::t_5426f8ec51fcb2 1-9
+src/pages/vi/index.astro
+  s_6a8dd77299ee2b::t_c7a4ab8c54eafe 8
+  s_6a8dd77299ee2b::t_14e28d38bbedb5 28
+src/components/WorldCard.astro
+  s_6a8dd77299ee2b::t_0ed190214d00c4 3-5,7-12,14-19,21-35
+src/content/curriculum/vi.json
+  s_6a8dd77299ee2b::t_aacdf224d9a602 1-9
+src/pages/en/index.astro
+  s_6a8dd77299ee2b::t_c6595b67acf95a 28
+  s_6a8dd77299ee2b::t_8640b7556b79a9 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "28190beacd5f544f9942c360051f8344258b2396",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
