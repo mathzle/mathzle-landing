@@ -68,16 +68,46 @@
     "multilingual": { "title": "Vietnamese + English",  "body": "Switch language any time. Numbers feel native in both." }
   },
   "pricing": {
-    "title": "Free forever. Premium when you're ready.",
-    "freeTitle": "Free",
-    "freePrice": "$0",
-    "freeBullets": ["Two full worlds", "Daily streaks", "Vietnamese + English"],
-    "freeCta": "Start playing",
-    "premiumTitle": "Premium",
-    "premiumPrice": "$4.99/mo",
-    "premiumBullets": ["All six worlds", "Family sharing (up to 4 kids)", "Priority support"],
-    "premiumCta": "Hold my launch price",
-    "premiumNote": "Premium is almost ready. Leave your email to lock in the launch price."
+    "eyebrow": "Pricing",
+    "title": "Free to start. ==Premium when they want more.==",
+    "billingLabel": "Billing period",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save {pct}%",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "perDay": "≈ {price} a day",
+    "free": {
+      "title": "Free",
+      "price": "$0",
+      "note": "Forever",
+      "bullets": [
+        { "if": "", "text": "{claim:freeWorlds} full worlds" },
+        { "if": "", "text": "Daily streaks, coins and badges" },
+        { "if": "noAds", "text": "No ads" }
+      ]
+    },
+    "premium": {
+      "title": "Premium",
+      "badge": "Most popular",
+      "bullets": [
+        { "if": "", "text": "All {claim:worlds} worlds" },
+        { "if": "skillReport", "text": "Skill-by-skill progress reports" },
+        { "if": "maxChildProfiles", "text": "Up to {claim:maxChildProfiles} child profiles" }
+      ],
+      "cta": "Choose Premium",
+      "waitlistCta": "Hold my launch price",
+      "waitlistNote": "Premium is almost ready. Leave your email to lock in the launch price."
+    },
+    "anchor": "{if:tutorAnchor}A month of Premium costs less than one tutoring session.{/if}",
+    "refund": "{if:refundDays}Full refund within {claim:refundDays} days if your child doesn't love it.{/if}",
+    "waitlist": {
+      "placeholder": "your@email.com",
+      "button": "Hold my price",
+      "success": "You're on the list! We'll email you when Premium opens.",
+      "error": "Something went wrong. Try again?",
+      "invalid": "That email doesn't look right. Mind checking it?"
+    }
   },
   "faq": {
     "title": "Frequently asked questions"

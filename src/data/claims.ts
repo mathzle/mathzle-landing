@@ -47,6 +47,7 @@ export const claims = {
   premiumMonthlyUsd:  { value: 4.99,    source: 'pricing decision',                                verifiedBy: null },
   premiumYearlyUsd:   { value: 39.99,   source: 'proposal 36 §4.10',                                verifiedBy: null },
   refundDays:         { value: 14,      source: 'refund policy (D-016)',                            verifiedBy: null },
+  tutorAnchor:        { value: true,    source: 'monthly Premium < one primary tutoring session (price survey)', verifiedBy: null },
   // Beta program
   betaSeats:          { value: 100,     source: 'beta program plan (D-008)',                        verifiedBy: null },
   betaRewardMonths:   { value: 6,       source: 'beta program plan (D-008)',                        verifiedBy: null },

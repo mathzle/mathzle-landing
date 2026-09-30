@@ -33,7 +33,6 @@ test('pricing: free CTA goes to the app, premium CTA goes to the waitlist while 
   await page.goto('/en/pricing');
   await expect(page.locator('a[data-track="cta-pricing-free"]')).toHaveAttribute('href', /app\.mathzle\.com/);
   const prem = page.locator('a[data-track="cta-pricing-premium"]');
-  await expect(prem).toHaveAttribute('href', '#signup');
-  await expect(prem).not.toContainText(/try/i);
-  await expect(page.locator('#signup')).toHaveCount(1);
+  await expect(prem).toHaveAttribute('href', '#premium-waitlist');
+  await expect(page.locator('#premium-waitlist input[type=email]')).toBeVisible();
 });

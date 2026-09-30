@@ -69,16 +69,46 @@
     "multilingual": { "title": "Tiếng Việt + English",   "body": "Đổi ngôn ngữ bất kỳ lúc nào. Số đọc tự nhiên cả hai." }
   },
   "pricing": {
-    "title": "Miễn phí mãi mãi. Premium khi bạn sẵn sàng.",
-    "freeTitle": "Miễn phí",
-    "freePrice": "0đ",
-    "freeBullets": ["Hai thế giới đầy đủ", "Streak hàng ngày", "Tiếng Việt + Anh"],
-    "freeCta": "Bắt đầu chơi",
-    "premiumTitle": "Premium",
-    "premiumPrice": "119k/tháng",
-    "premiumBullets": ["Cả sáu thế giới", "Chia sẻ gia đình (tới 4 bé)", "Hỗ trợ ưu tiên"],
-    "premiumCta": "Giữ giá ưu đãi",
-    "premiumNote": "Premium đang hoàn thiện. Để lại email — bạn được giữ giá ưu đãi khi mở bán."
+    "eyebrow": "Bảng giá",
+    "title": "Miễn phí để bắt đầu. ==Premium khi con muốn nhiều hơn.==",
+    "billingLabel": "Chu kỳ thanh toán",
+    "monthly": "Theo tháng",
+    "yearly": "Theo năm",
+    "save": "Tiết kiệm {pct}%",
+    "perMonth": "/tháng",
+    "perYear": "/năm",
+    "perDay": "≈ {price} mỗi ngày",
+    "free": {
+      "title": "Miễn phí",
+      "price": "0đ",
+      "note": "Mãi mãi",
+      "bullets": [
+        { "if": "", "text": "{claim:freeWorlds} thế giới đầy đủ" },
+        { "if": "", "text": "Chuỗi ngày chơi, xu và huy hiệu" },
+        { "if": "noAds", "text": "Không quảng cáo" }
+      ]
+    },
+    "premium": {
+      "title": "Premium",
+      "badge": "Phổ biến",
+      "bullets": [
+        { "if": "", "text": "Cả {claim:worlds} thế giới" },
+        { "if": "skillReport", "text": "Báo cáo tiến bộ theo kỹ năng" },
+        { "if": "maxChildProfiles", "text": "Tối đa {claim:maxChildProfiles} hồ sơ con" }
+      ],
+      "cta": "Chọn Premium",
+      "waitlistCta": "Giữ giá ưu đãi",
+      "waitlistNote": "Premium đang hoàn thiện. Để lại email — bạn được giữ giá ưu đãi khi mở bán."
+    },
+    "anchor": "{if:tutorAnchor}Một tháng Premium rẻ hơn một buổi gia sư.{/if}",
+    "refund": "{if:refundDays}Hoàn tiền trong {claim:refundDays} ngày nếu con không thích.{/if}",
+    "waitlist": {
+      "placeholder": "email@cua-ban.com",
+      "button": "Giữ giá cho tôi",
+      "success": "Đã giữ chỗ! Chúng mình sẽ email khi Premium mở bán.",
+      "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
+      "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
+    }
   },
   "faq": {
     "title": "Câu hỏi thường gặp"
