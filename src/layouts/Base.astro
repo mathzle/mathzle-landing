@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SEO from '../components/SEO.astro';
+import { site } from '../data/site';
 
 interface Props {
   title: string;
@@ -28,7 +29,13 @@ const { title, description, locale, path, ogImage } = Astro.props;
   </head>
   <body class="min-h-dvh">
     <slot />
-    <!-- Cloudflare Web Analytics — token pasted before launch (Task 12) -->
-    <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"REPLACE_ME"}'></script> -->
+    {site.analytics.cfBeaconToken && (
+      <script
+        is:inline
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={JSON.stringify({ token: site.analytics.cfBeaconToken })}
+      ></script>
+    )}
   </body>
 </html>

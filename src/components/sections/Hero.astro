@@ -1,12 +1,13 @@
 ---
 import { t, type Locale } from '../../utils/i18n';
+import { site } from '../../data/site';
 
 interface Props {
   locale: Locale;
 }
 const { locale } = Astro.props;
 const i = t(locale).hero;
-const webAppUrl = 'https://app.mathzle.com'; // TODO(launch): final URL
+const webAppUrl = site.appUrl;
 ---
 <section id="hero" class="hero">
   <div class="hero-grid">

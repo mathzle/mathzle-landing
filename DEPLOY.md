@@ -1,27 +1,44 @@
 # Deploy Guide — mathzle-landing
 
-Everything code-side is done. This file is the manual checklist for getting the site live on Cloudflare Pages. The whole thing takes ~15 minutes if your Cloudflare account is already set up.
+Everything code-side is done. This file is the manual checklist for getting the site live on Cloudflare. The whole thing takes ~15 minutes if your Cloudflare account is already set up.
 
 ---
 
-## 1. Create the Cloudflare Pages project (5 min)
+## 1. Build output and deploy target
 
-1. **Cloudflare Dashboard** → Workers & Pages → **Create** → **Pages** → **Connect to Git**
-2. Authorize the **`mathzle`** GitHub org if you haven't already.
-3. Select **`mathzle/mathzle-landing`**.
-4. **Set up builds and deployments:**
-   - Project name: `mathzle-landing`
-   - Production branch: `main`
-   - Framework preset: **Astro**
-   - Build command: `pnpm build`
-   - Build output directory: `dist`
-   - Root directory: `/`
-5. **Environment variables (Production AND Preview):**
-   - `NODE_VERSION` = `20`
-   - `PNPM_VERSION` = `10`
-6. Click **Save and Deploy.** First build takes ~2 minutes.
+This is a Cloudflare **Worker + static assets** build (via `@astrojs/cloudflare`), not a plain Cloudflare Pages static-file deploy. `pnpm build` produces:
+- `dist/client` — static assets (HTML, CSS, JS, images)
+- `dist/server` — the Worker entrypoint and a generated `wrangler.json` (redirected config; `wrangler.jsonc` at the repo root is the source config the adapter merges into it)
 
-After it deploys, the site is live at **`https://mathzle-landing.pages.dev/`**. Open it. Click around. The mascot should cheer, the worlds should glow, the CTAs should land on `app.mathzle.com` (which doesn't exist yet — they'll 404 until §5).
+Deploy with **`wrangler deploy`** (Workers deploy), not `wrangler pages deploy`:
+
+```bash
+pnpm build
+pnpm wrangler deploy
+```
+
+`wrangler` auto-detects and uses the generated `dist/server/wrangler.json` config over the root `wrangler.jsonc` when both exist (it prints "Using redirected Wrangler configuration").
+
+First-time setup, in order:
+
+1. **Cloudflare Dashboard** → Workers & Pages → **Create** → **Workers** (or run `pnpm wrangler deploy` from the CLI, which creates the Worker on first deploy if it doesn't exist).
+2. Authorize the **`mathzle`** GitHub org for CI if you haven't already (see §6).
+3. Set the environment variables from §"Env vars" below (Production AND Preview, or via `.env` for local builds).
+4. Run `pnpm build && pnpm wrangler deploy` (see §2 for the KV namespace it needs first).
+
+After it deploys, the site is live at the `*.workers.dev` URL Wrangler prints. Open it. Click around. The mascot should cheer, the worlds should glow, the CTAs should land on `app.mathzle.com` (which doesn't exist yet — they'll 404 until §5).
+
+---
+
+## Env vars
+
+Set these wherever the build runs (local `.env`, Cloudflare dashboard, or GitHub Actions repo/environment variables — see `.env.example`):
+
+| Variable | Purpose | Default if unset |
+|---|---|---|
+| `PUBLIC_APP_URL` | Where the "Start playing" CTAs point | `https://app.mathzle.com` |
+| `PUBLIC_APP_URL_CONFIRMED` | Set to `1` once that URL actually serves the app (gates `pnpm launch:check`) | `0` (unconfirmed) |
+| `PUBLIC_CF_BEACON_TOKEN` | Cloudflare Web Analytics site token (see §4); when unset, the beacon script is omitted entirely | unset |
 
 ---
 
@@ -78,18 +95,9 @@ curl -sI https://mathzle.com/en/ | head -5
 
 1. Cloudflare Dashboard → **Web Analytics** → **Add a site** → `mathzle.com`
 2. Copy the site token (looks like `abc123def456...`)
-3. In `src/layouts/Base.astro`, uncomment the analytics line and paste the token:
-   ```html
-   <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
-     data-cf-beacon='{"token":"PASTE-YOUR-TOKEN-HERE"}'></script>
-   ```
-4. Commit and push:
-   ```bash
-   git add src/layouts/Base.astro
-   git commit -m "chore: wire Cloudflare Web Analytics token"
-   git push
-   ```
-5. Wait for the auto-deploy. Visit the page. Within ~30 seconds the dashboard shows your visit.
+3. Set `PUBLIC_CF_BEACON_TOKEN` to that token wherever the build runs — the GitHub Actions repo/environment variables (for CI builds) and/or your local `.env` (see §"Env vars"). No code change needed: `src/layouts/Base.astro` reads it from `src/data/site.ts` and only renders the beacon script when the token is set.
+4. Trigger a build (push a commit, or re-run the `Deploy` workflow).
+5. Visit the page. Within ~30 seconds the dashboard shows your visit.
 
 ---
 
@@ -104,8 +112,8 @@ When you're ready:
 4. The landing page CTAs Just Work — no change required here.
 
 If you want to change the URL (e.g., to `play.mathzle.com`):
-- Find: `'https://app.mathzle.com'` in `src/components/sections/Hero.astro`, `Pricing.astro`, `Nav.astro`, `SEO.astro`
-- Replace with the new URL, commit, push
+- Set `PUBLIC_APP_URL` (build env var, see §"Env vars") to the new URL — every CTA reads it from `src/data/site.ts`, no code change needed.
+- Once that URL actually serves the app, also set `PUBLIC_APP_URL_CONFIRMED=1` so `pnpm launch:check` passes.
 
 ---
 

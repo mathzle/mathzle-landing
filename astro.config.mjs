@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://mathzle.com',
   output: 'static',
-  adapter: cloudflare({ mode: 'directory' }),
+  adapter: cloudflare({ imageService: 'compile' }),
   integrations: [sitemap(), preact()],
   vite: {
     plugins: [tailwindcss()],
