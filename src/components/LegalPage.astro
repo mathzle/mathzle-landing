@@ -133,6 +133,10 @@ const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
     }, { rootMargin: '-90px 0px -70% 0px' });
     Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
   })();
+  // Collapse the mobile table of contents once a section link is tapped.
+  document.querySelectorAll('.toc--mob a').forEach(function (a) {
+    a.addEventListener('click', function () { var d = a.closest('details'); if (d) d.open = false; });
+  });
 </script>
 
 <style>
@@ -232,5 +236,25 @@ const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
     .company { padding: 1.25rem; }
     .company dl div { grid-template-columns: 1fr; gap: 0; }
     .lc { padding: 1.5rem; }
+  }
+  /* Narrow phones: each table row becomes a card; the column header (data-label,
+     added by the Markdown table plugin) labels each cell. */
+  @media (max-width: 480px) {
+    .legal-prose :global(.table-scroll) { border: 0; border-radius: 0; background: transparent; }
+    .legal-prose :global(table), .legal-prose :global(tbody), .legal-prose :global(tr), .legal-prose :global(td) { display: block; width: 100%; }
+    .legal-prose :global(thead) {
+      position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
+    .legal-prose :global(tr) {
+      margin: 0 0 0.75rem; padding: 0.5rem 1rem; border: 1px solid var(--color-mk-hairline-strong);
+      border-radius: 16px; background: var(--color-surface);
+    }
+    .legal-prose :global(th), .legal-prose :global(td) { min-width: 0; padding: 0.625rem 0; }
+    .legal-prose :global(tr + tr td) { border-top: 0; }
+    .legal-prose :global(td + td) { border-top: 1px solid var(--color-mk-hairline-strong); }
+    .legal-prose :global(td[data-label]::before) {
+      content: attr(data-label); display: block; margin-bottom: 0.125rem;
+      font-size: 0.8125rem; font-weight: 700; color: var(--color-text-secondary);
+    }
   }
 </style>

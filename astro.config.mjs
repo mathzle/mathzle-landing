@@ -8,8 +8,9 @@ import { hiddenFromSitemap } from './src/lib/beta.ts';
 
 /**
  * Wrap every Markdown <table> in a focusable scroll container so wide tables
- * (legal pages, D-019) scroll inside themselves on phones instead of pushing
- * the page sideways.
+ * (legal pages, D-019) scroll inside themselves instead of pushing the page
+ * sideways, and copy each column header onto its body cells as `data-label`
+ * so narrow phones (LegalPage.astro, ≤480px) can render rows as stacked cards.
  */
 function rehypeScrollableTables() {
   /** @param {any} tree @param {{ path?: string }} file */
@@ -24,6 +25,7 @@ function wrapTables(node, ariaLabel) {
   if (!node.children) return;
   node.children = node.children.map((/** @type {any} */ child) => {
     if (child.type === 'element' && child.tagName === 'table') {
+      labelCells(child);
       return {
         type: 'element',
         tagName: 'div',
@@ -34,6 +36,25 @@ function wrapTables(node, ariaLabel) {
     wrapTables(child, ariaLabel);
     return child;
   });
+}
+
+/** @param {any} node @param {string} tag @returns {any[]} */
+const childEls = (node, tag) => (node.children ?? []).filter((/** @type {any} */ c) => c.type === 'element' && c.tagName === tag);
+/** @param {any} node @returns {string} */
+const hastText = (node) => (node.type === 'text' ? node.value : (node.children ?? []).map(hastText).join(''));
+/** @param {any} table */
+function labelCells(table) {
+  const head = childEls(table, 'thead')[0];
+  const headRow = head && childEls(head, 'tr')[0];
+  if (!headRow) return;
+  const labels = childEls(headRow, 'th').map((th) => hastText(th).trim());
+  for (const body of childEls(table, 'tbody')) {
+    for (const tr of childEls(body, 'tr')) {
+      childEls(tr, 'td').forEach((td, i) => {
+        if (labels[i]) td.properties = { ...td.properties, dataLabel: labels[i] };
+      });
+    }
+  }
 }
 
 /**
