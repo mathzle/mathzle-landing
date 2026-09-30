@@ -57,7 +57,6 @@ export const claims = {
   tutorAnchor:        { value: true,    source: 'monthly Premium < one primary tutoring session (price survey)', verifiedBy: null },
   // Beta program
   betaSeats:          { value: 100,     source: 'beta program plan (D-008)',                        verifiedBy: null },
-  betaRewardMonths:   { value: 6,       source: 'beta program plan (D-008)',                        verifiedBy: null },
   // Support
   responseDays:       { value: 2,       source: 'support SLA (business days)',                      verifiedBy: null },
 } satisfies Record<string, Claim>;

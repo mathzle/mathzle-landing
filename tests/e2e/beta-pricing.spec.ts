@@ -3,6 +3,10 @@ import { site } from '../../src/data/site';
 
 // D-017: during the beta the site shows no prices at all. Skips itself once
 // `site.pricing.public` flips to true (the pricing specs take over).
+// Every public route (matches seo.spec.ts's ROUTES; /pricing/ is a
+// redirect while pricing isn't public).
+const ROUTES = ['', 'about', 'faq', 'contact', 'privacy', 'terms', 'pricing'];
+
 test.describe('beta: pricing hidden', () => {
   test.skip(site.pricing.public, 'pricing is public');
 
@@ -53,5 +57,30 @@ test.describe('beta: pricing hidden', () => {
       expect(faq.mainEntity.length).toBe(shown);
       await expect(page.locator('footer a[href*="pricing"], nav a[href*="pricing"], dialog a[href*="pricing"]')).toHaveCount(0);
     });
+
+    // D-020: the beta invitation asks families to play and give feedback —
+    // it must never promise Premium or any other paid reward.
+    test(`${locale}: #voices doesn't mention Premium or a launch reward`, async ({ page }) => {
+      await page.goto(`/${locale}/`);
+      const voices = page.locator('#voices');
+      await voices.waitFor({ state: 'visible' });
+      const text = await voices.innerText();
+      expect(text).not.toMatch(/premium/i);
+      expect(text).not.toMatch(/khi mở bán|at launch/i);
+    });
   }
+
+  // D-020: with pricing not public, no rendered page anywhere may name
+  // Premium, a price, or a billing cadence. Legal pages are included in this
+  // scan — they only refer to a future "paid plan" / "gói trả phí" generically.
+  test('no public route mentions Premium, a price, or /month while pricing is not public', async ({ page }) => {
+    for (const locale of ['vi', 'en'] as const) {
+      for (const r of ROUTES) {
+        const path = `/${locale}/${r ? `${r}/` : ''}`;
+        await page.goto(path);
+        const text = await page.locator('body').innerText();
+        expect(text, `${path} leaks pricing/Premium copy`).not.toMatch(/Premium|119|4\.99|\/tháng|per month/);
+      }
+    }
+  });
 });

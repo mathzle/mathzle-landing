@@ -254,7 +254,7 @@
     "beta": {
       "eyebrow": "Chương trình phụ huynh đồng hành",
       "title": "Chúng mình đang tìm =={claim:betaSeats} gia đình== chơi thử và góp ý.",
-      "body": "Con chơi Mathzle mỗi tuần, bố mẹ trả lời một khảo sát ngắn mỗi tháng. Đổi lại, gia đình bạn được dùng Premium miễn phí {claim:betaRewardMonths} tháng khi mở bán.",
+      "body": "Con chơi Mathzle mỗi tuần, bố mẹ trả lời một khảo sát ngắn mỗi tháng. Góp ý của gia đình bạn sẽ quyết định Mathzle trở thành thế nào.",
       "placeholder": "email@cua-ban.com",
       "button": "Đăng ký tham gia",
       "success": "Cảm ơn bạn! Chúng mình sẽ email khi có suất.",

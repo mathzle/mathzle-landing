@@ -253,7 +253,7 @@
     "beta": {
       "eyebrow": "Founding families program",
       "title": "We're looking for =={claim:betaSeats} families== to play and give feedback.",
-      "body": "Your child plays each week; you answer a short survey each month. In return, your family gets Premium free for {claim:betaRewardMonths} months at launch.",
+      "body": "Your child plays each week; you answer a short survey each month. Your family's feedback shapes what Mathzle becomes.",
       "placeholder": "your@email.com",
       "button": "Count us in",
       "success": "Thank you! We'll email you when a spot opens.",
