@@ -248,5 +248,18 @@
       "error": "Something went wrong. Try again?",
       "invalid": "That email doesn't look right. Mind checking it?"
     }
+  },
+  "about": {
+    "title": "About Mathzle",
+    "lead": "A math game for primary-school kids, built in Vietnamese first.",
+    "description": "Mathzle is a browser math game for ages {claim:ageRange}. Why we built it and the principles we keep.",
+    "principlesEyebrow": "Principles",
+    "principlesTitle": "Four things we ==won't trade away.==",
+    "principles": [
+      { "title": "Play first, learning follows", "body": "Every problem is a level. If kids don't want to play it, we rebuild the level." },
+      { "title": "Mistakes are part of learning", "body": "No lost points, no scolding. Every mistake is one more try." },
+      { "title": "Parents stay in charge", "body": "Parents create the account, see progress and decide how long kids play." },
+      { "title": "Honest numbers", "body": "Every number on this site has a source. If we're not sure, we don't write it." }
+    ]
   }
 }

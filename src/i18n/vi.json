@@ -249,5 +249,18 @@
       "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
       "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
     }
+  },
+  "about": {
+    "title": "Về Mathzle",
+    "lead": "Trò chơi toán cho bé tiểu học, làm bằng tiếng Việt trước tiên.",
+    "description": "Mathzle là trò chơi toán chạy trên trình duyệt cho bé {claim:ageRange} tuổi. Vì sao chúng mình làm Mathzle và những nguyên tắc chúng mình giữ.",
+    "principlesEyebrow": "Nguyên tắc",
+    "principlesTitle": "Bốn điều chúng mình ==không đánh đổi.==",
+    "principles": [
+      { "title": "Con chơi trước, học theo sau", "body": "Mỗi bài toán là một màn chơi. Nếu con không muốn chơi, chúng mình làm lại màn đó." },
+      { "title": "Sai là một phần của học", "body": "Không trừ điểm, không chê. Mỗi lần sai là một lần thử nữa." },
+      { "title": "Bố mẹ luôn nắm quyền", "body": "Bố mẹ tạo tài khoản, xem tiến độ và quyết định thời gian con chơi." },
+      { "title": "Nói thật về con số", "body": "Mọi con số trên trang này đều có nguồn. Chưa chắc thì chúng mình không viết." }
+    ]
   }
 }
