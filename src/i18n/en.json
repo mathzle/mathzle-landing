@@ -98,5 +98,9 @@
     "contactEmail": "Email",
     "zalo": "Chat on Zalo",
     "taxId": "Tax ID"
+  },
+  "media": {
+    "pause": "Pause video",
+    "play": "Play video"
   }
 }

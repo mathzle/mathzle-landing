@@ -99,5 +99,9 @@
     "contactEmail": "Email",
     "zalo": "Nhắn Zalo",
     "taxId": "MST"
+  },
+  "media": {
+    "pause": "Tạm dừng video",
+    "play": "Phát video"
   }
 }

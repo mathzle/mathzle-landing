@@ -49,3 +49,9 @@ test('icons render as inline svg', async ({ page }) => {
   await page.goto('/kit');
   await expect(page.locator('#kit-buttons .icon svg')).toHaveCount(6);
 });
+
+test('frames keep a fixed aspect ratio even without screenshots', async ({ page }) => {
+  await page.goto('/kit');
+  const box = (await page.locator('#kit-frames .bf-body').boundingBox())!;
+  expect(Math.round((box.width / box.height) * 10) / 10).toBe(1.6);
+});
