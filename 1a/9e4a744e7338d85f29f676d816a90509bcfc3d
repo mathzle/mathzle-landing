@@ -1,0 +1,21 @@
+src/content/legal/en/terms.md
+  s_6a8dd77299ee2b::t_74675e2ba29650 13,15,29,48,120,141
+src/content/legal/vi/terms.md
+  s_6a8dd77299ee2b::t_74675e2ba29650 13,15,29,48,104,120,141
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1a9e4a744e7338d85f29f676d816a90509bcfc3d",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
