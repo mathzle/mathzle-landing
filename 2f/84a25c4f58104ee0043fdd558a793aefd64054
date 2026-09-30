@@ -1,0 +1,32 @@
+src/components/sections/ForParents.astro
+  s_6a8dd77299ee2b::t_435af727197752 1-52
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_d1a25e1bb3254e 13-14
+  s_6a8dd77299ee2b::t_8b2de3fcd08db2 26-27
+tests/unit/content-integrity.test.ts
+  s_6a8dd77299ee2b::t_03603e99593d4e 1-23
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_446366c22856a5 173-204
+src/components/sections/Safety.astro
+  s_6a8dd77299ee2b::t_9968c000c84512 1-36
+tests/e2e/parents-safety.spec.ts
+  s_6a8dd77299ee2b::t_59a72bf9d9486d 1-19
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_6ab261b6b49836 172-203
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2f84a25c4f58104ee0043fdd558a793aefd64054",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
