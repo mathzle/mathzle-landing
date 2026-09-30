@@ -5,14 +5,23 @@ import Footer from '../../components/Footer.astro';
 import ParentSummary from '../../components/ParentSummary.astro';
 import { site } from '../../data/site';
 import { t } from '../../utils/i18n';
+import { copyText } from '../../lib/copy';
 
 const locale = 'vi' as const;
 const path = '/vi/privacy/';
 const l = t(locale).legalPages;
+/*
+ * Known claims-register exception: the static legal BODY text below is
+ * lawyer-owned and deliberately NOT routed through claims.ts / copy().
+ * It restates register facts: noAds, noChat, noDataSale, ageRange.
+ * When one of those claims changes, the lawyer updates this text — don't
+ * edit it here. The meta description (and ParentSummary) do go through
+ * the register like the rest of the site.
+ */
 ---
 <Base
   title="Chính sách bảo mật — Mathzle"
-  description="Cách Mathzle xử lý dữ liệu. Không quảng cáo, không tracker bên thứ ba trong app trẻ em, không bán dữ liệu."
+  description={copyText(l.privacyDescription, locale)}
   locale={locale}
   path={path}
 >

@@ -5,6 +5,7 @@ import Mascot from '../Mascot.astro';
 import FaqAccordion from '../islands/FaqAccordion';
 import { copy, copyText, visible } from '../../lib/copy';
 import { site } from '../../data/site';
+import { jsonLd } from '../../lib/seo';
 import { t, type Locale } from '../../utils/i18n';
 
 type Category = 'learning' | 'safety' | 'billing' | 'tech';
@@ -54,7 +55,7 @@ const faqSchema = {
     </div>
   </div>
 </Section>
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<script type="application/ld+json" set:html={jsonLd(faqSchema)} />
 
 <style is:global>
   .faq-grid { display: grid; grid-template-columns: 4fr 8fr; gap: 4rem; align-items: start; }

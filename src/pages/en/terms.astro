@@ -8,6 +8,14 @@ import { t } from '../../utils/i18n';
 const locale = 'en' as const;
 const path = '/en/terms/';
 const l = t(locale).legalPages;
+/*
+ * Known claims-register exception: the static legal BODY text below is
+ * lawyer-owned and deliberately NOT routed through claims.ts / copy().
+ * It restates register facts: ageRange, noDataSale, "free tier free forever".
+ * When one of those claims changes, the lawyer updates this text — don't
+ * edit it here. The meta description (and ParentSummary) do go through
+ * the register like the rest of the site.
+ */
 ---
 <Base
   title="Terms of Service — Mathzle"

@@ -276,6 +276,7 @@
     ]
   },
   "legalPages": {
+    "privacyDescription": "How Mathzle handles data: no third-party trackers in the kid app{if:noAds}, no ads{/if}{if:noDataSale}, no data sold{/if}.",
     "summaryTitle": "The short version for busy parents",
     "summary": [
       { "if": "noAds", "text": "There are no ads in Mathzle." },

@@ -277,6 +277,7 @@
     ]
   },
   "legalPages": {
+    "privacyDescription": "Cách Mathzle xử lý dữ liệu: không tracker bên thứ ba trong app trẻ em{if:noAds}, không quảng cáo{/if}{if:noDataSale}, không bán dữ liệu{/if}.",
     "summaryTitle": "Tóm tắt cho bố mẹ bận rộn",
     "summary": [
       { "if": "noAds", "text": "Không có quảng cáo trong Mathzle." },

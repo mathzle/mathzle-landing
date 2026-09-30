@@ -7,6 +7,7 @@
  * runs in the browser; we deliberately don't claim iOS/Android.
  */
 import { site } from '../data/site';
+import { audienceAges, jsonLd } from '../lib/seo';
 
 interface Props {
   title: string;
@@ -50,13 +51,14 @@ const orgSchema = {
     : {}),
 };
 
+const ages = audienceAges();
 const appSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'Mathzle',
   description,
   applicationCategory: 'EducationalApplication',
-  audience: { '@type': 'PeopleAudience', suggestedMinAge: 6, suggestedMaxAge: 11 },
+  ...(Object.keys(ages).length ? { audience: { '@type': 'PeopleAudience', ...ages } } : {}),
   browserRequirements: 'Requires a modern browser with JavaScript enabled',
   url: site.appUrl,
   offers: { '@type': 'Offer', price: '0', priceCurrency: locale === 'vi' ? 'VND' : 'USD' },
@@ -85,5 +87,5 @@ const appSchema = {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={`${site.url}${ogImage}`} />
 
-<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+<script type="application/ld+json" set:html={jsonLd(orgSchema)} />
+<script type="application/ld+json" set:html={jsonLd(appSchema)} />
