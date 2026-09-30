@@ -76,7 +76,7 @@
       { "if": "", "label": "Số thế giới", "free": "{claim:freeWorlds}", "premium": "{claim:worlds}" },
       { "if": "", "label": "Xu, huy hiệu, chuỗi ngày chơi", "free": "✓", "premium": "✓" },
       { "if": "skillReport", "label": "Báo cáo tiến bộ theo kỹ năng", "free": "—", "premium": "✓" },
-      { "if": "maxChildProfiles", "label": "Hồ sơ con", "free": "1", "premium": "{claim:maxChildProfiles}" },
+      { "if": "maxChildProfiles", "label": "Hồ sơ con", "free": "{claim:freeChildProfiles}", "premium": "{claim:maxChildProfiles}" },
       { "if": "noAds", "label": "Không quảng cáo", "free": "✓", "premium": "✓" }
     ]
   },

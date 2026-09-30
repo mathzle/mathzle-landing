@@ -34,6 +34,7 @@ export const claims = {
   skillReport:        { value: true,    source: 'family dashboard (Feature 04)',                   verifiedBy: null },
   parentTimeLimit:    { value: true,    source: 'parent settings in mathzle-ui',                   verifiedBy: null },
   maxChildProfiles:   { value: 4,       source: 'family plan limit',                                verifiedBy: null },
+  freeChildProfiles:  { value: 1,       source: 'free plan profile limit',                          verifiedBy: null },
   // Safety
   noAds:              { value: true,    source: 'product policy + privacy policy',                 verifiedBy: null },
   noChat:             { value: true,    source: 'product: no user-to-user messaging',              verifiedBy: null },

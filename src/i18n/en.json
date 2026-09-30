@@ -75,7 +75,7 @@
       { "if": "", "label": "Worlds", "free": "{claim:freeWorlds}", "premium": "{claim:worlds}" },
       { "if": "", "label": "Coins, badges, daily streaks", "free": "✓", "premium": "✓" },
       { "if": "skillReport", "label": "Skill-by-skill progress reports", "free": "—", "premium": "✓" },
-      { "if": "maxChildProfiles", "label": "Child profiles", "free": "1", "premium": "{claim:maxChildProfiles}" },
+      { "if": "maxChildProfiles", "label": "Child profiles", "free": "{claim:freeChildProfiles}", "premium": "{claim:maxChildProfiles}" },
       { "if": "noAds", "label": "No ads", "free": "✓", "premium": "✓" }
     ]
   },
