@@ -42,4 +42,9 @@ describe.runIf(process.env.LAUNCH_CHECK === '1')('launch gate', () => {
   it('site config has every launch-required field', () => {
     expect(missingForLaunch(site)).toEqual([]);
   });
+
+  it('every claim has been verified (value, or confirmed absent)', async () => {
+    const { unverifiedClaims } = await import('../../src/data/claims');
+    expect(unverifiedClaims()).toEqual([]);
+  });
 });

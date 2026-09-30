@@ -189,3 +189,12 @@
     }
   }
 }
+
+/* Preview-only: unverified claims (src/data/claims.ts). Never reaches a
+   strict production build — that build fails instead. */
+.claim-unverified {
+  background: color-mix(in srgb, var(--color-warning) 28%, transparent);
+  outline: 1px dashed var(--color-warning);
+  border-radius: 4px;
+  padding: 0 0.15em;
+}

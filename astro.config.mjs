@@ -13,6 +13,9 @@ export default defineConfig({
   integrations: [sitemap(), preact()],
   vite: {
     plugins: [tailwindcss()],
+    define: {
+      __STRICT_CLAIMS__: JSON.stringify(process.env.STRICT_CLAIMS === '1'),
+    },
   },
   i18n: {
     locales: ['en', 'vi'],
