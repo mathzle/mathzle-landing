@@ -1,0 +1,28 @@
+src/components/sections/Method.astro
+  s_6a8dd77299ee2b::t_5e04b02232fee3 1-83
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_45e479bcd52131 153-164
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_6b76cad2e16ecd 154-165
+tests/e2e/method.spec.ts
+  s_6a8dd77299ee2b::t_480204143c406c 1-21
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_1ac43c863a189b 12
+  s_6a8dd77299ee2b::t_21979ea4f69137 23
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "45a33a790cf53cd3e69b0404dca93923570350d6",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
