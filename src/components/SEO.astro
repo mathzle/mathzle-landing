@@ -38,6 +38,16 @@ const orgSchema = {
   url: site.url,
   logo: `${site.url}/favicon.svg`,
   // Add sameAs entries here once social accounts exist.
+  ...(site.contact.email
+    ? {
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: site.contact.email,
+          contactType: 'customer support',
+          availableLanguage: ['vi', 'en'],
+        },
+      }
+    : {}),
 };
 
 const appSchema = {

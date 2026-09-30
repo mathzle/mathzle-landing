@@ -98,7 +98,7 @@
   "contact": {
     "title": "Contact",
     "lead": "We read every message{if:responseDays} and reply within {claim:responseDays} business days{/if}.",
-    "description": "Reach the Mathzle team by email or Zalo.",
+    "description": "Reach the Mathzle team by email or Zalo for questions about lessons, billing, or your account.",
     "email": "Email",
     "zalo": "Zalo",
     "zaloCta": "Message on Zalo",

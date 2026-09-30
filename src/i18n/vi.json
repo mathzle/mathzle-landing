@@ -99,7 +99,7 @@
   "contact": {
     "title": "Liên hệ",
     "lead": "Chúng mình đọc mọi tin nhắn{if:responseDays} và trả lời trong {claim:responseDays} ngày làm việc{/if}.",
-    "description": "Liên hệ đội ngũ Mathzle qua email hoặc Zalo.",
+    "description": "Liên hệ đội ngũ Mathzle qua email hoặc Zalo nếu bạn có câu hỏi về bài học, thanh toán hoặc tài khoản.",
     "email": "Email",
     "zalo": "Zalo",
     "zaloCta": "Nhắn Zalo",
