@@ -22,3 +22,15 @@ test('mobile: worlds are a swipeable row', async ({ page, isMobile }) => {
   await page.goto('/vi/');
   await expect(page.locator('#worlds .bento')).toHaveCSS('scroll-snap-type', /x mandatory/);
 });
+
+test('reduced motion: world card hover does not lift or zoom', async ({ page }, info) => {
+  test.skip(info.project.name !== 'chromium', 'hover is a desktop interaction');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/vi/');
+  const card = page.locator('.wc').nth(1);
+  await card.scrollIntoViewIfNeeded();
+  await card.hover();
+  await page.waitForTimeout(500); // past any transition
+  expect(await card.evaluate((el) => getComputedStyle(el).transform)).toBe('none');
+  expect(await card.locator('.wc-media img').evaluate((el) => getComputedStyle(el).transform)).toBe('none');
+});

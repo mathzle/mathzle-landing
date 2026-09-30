@@ -260,6 +260,7 @@
     transition: transform var(--duration-normal) var(--ease-mk-out), box-shadow var(--duration-normal) var(--ease-mk-out);
   }
   .mk-card--push:hover { transform: translateY(-2px); box-shadow: var(--shadow-mk-md); }
+  @media (prefers-reduced-motion: reduce) { .mk-card--push:hover { transform: none; } }
 
   /* Legal pages (privacy/terms) — shared by both locales' prose layout */
   .prose-page { max-width: 720px; margin: 0 auto; padding: 3rem 1.5rem 2rem; }
