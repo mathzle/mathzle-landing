@@ -9,11 +9,17 @@ export function formatNumber(n: number, locale: Locale): string {
   return n.toLocaleString(locale === 'vi' ? 'vi-VN' : 'en-US');
 }
 
-function escapeHtml(s: string): string {
+export function escapeHtml(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function flag(key: string, html: string): string {
+/**
+ * Wrap html in the same "unverified claim" markup `claimHtml`/`copy` use.
+ * Exported so components that derive a display value from *multiple* claims
+ * (e.g. a savings % from both a monthly and a yearly price) can flag it
+ * themselves when `claimHtml`'s single-key check isn't enough.
+ */
+export function flag(key: string, html: string): string {
   return `<span class="claim-unverified" data-claim="${key}" title="Unverified claim: ${key}">${html}</span>`;
 }
 

@@ -7,7 +7,7 @@ import SignupForm from '../islands/SignupForm';
 import { site } from '../../data/site';
 import { resolveClaim, type ClaimKey } from '../../data/claims';
 import { currencyFor, formatPrice, perDay, savingsPct } from '../../data/pricing';
-import { copy, claimHtml, visible } from '../../lib/copy';
+import { copy, claimHtml, visible, flag, escapeHtml } from '../../lib/copy';
 import { t, type Locale } from '../../utils/i18n';
 
 interface Props { locale: Locale }
@@ -19,11 +19,20 @@ const k = (suffix: 'Monthly' | 'Yearly') => `premium${suffix}${cur === 'VND' ? '
 const fmt = (v: number | string) => formatPrice(Number(v), cur);
 const monthlyHtml = claimHtml(k('Monthly'), fmt);
 const yearlyHtml = claimHtml(k('Yearly'), fmt);
-const m = resolveClaim(k('Monthly')).value;
-const y = resolveClaim(k('Yearly')).value;
+const monthlyClaim = resolveClaim(k('Monthly'));
+const yearlyClaim = resolveClaim(k('Yearly'));
+const m = monthlyClaim.value;
+const y = yearlyClaim.value;
 const numeric = typeof m === 'number' && typeof y === 'number';
 const perDayHtml = numeric ? claimHtml(k('Yearly'), () => p.perDay.replace('{price}', formatPrice(perDay(y as number, cur), cur))) : null;
-const saveText = numeric ? p.save.replace('{pct}', String(savingsPct(m as number, y as number))) : null;
+// Savings % is derived from *both* the monthly and yearly claims — claimHtml
+// only checks one key, so flag it ourselves if either is still unverified.
+const saveHtml = numeric
+  ? (() => {
+      const text = escapeHtml(p.save.replace('{pct}', String(savingsPct(m as number, y as number))));
+      return monthlyClaim.verified && yearlyClaim.verified ? text : flag(k('Yearly'), text);
+    })()
+  : null;
 const anchor = copy(p.anchor, locale);
 const refund = copy(p.refund, locale);
 ---
@@ -35,7 +44,7 @@ const refund = copy(p.refund, locale);
     <input type="radio" name="billing" id="billing-monthly" value="monthly" />
     <label for="billing-monthly">{p.monthly}</label>
     <input type="radio" name="billing" id="billing-yearly" value="yearly" checked />
-    <label for="billing-yearly">{p.yearly}{saveText && <span class="billing-save">{saveText}</span>}</label>
+    <label for="billing-yearly">{p.yearly}{saveHtml && <span class="billing-save" set:html={saveHtml} />}</label>
   </fieldset>
 
   <div class="plans">
