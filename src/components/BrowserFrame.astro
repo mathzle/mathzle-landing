@@ -16,5 +16,9 @@ const { url = 'app.mathzle.com', class: className } = Astro.props;
   .bf-dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--color-mk-hairline-strong); }
   .bf-url { flex: 1; max-width: 22rem; margin-inline: auto; text-align: center; font-size: 0.75rem; color: var(--color-text-secondary); background: var(--color-surface); border-radius: var(--radius-pill); padding: 0.25rem 0.75rem; }
   .bf-body { aspect-ratio: 16 / 10; position: relative; }
-  .bf-body :global(img), .bf-body :global(video) { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* Only the frame's own media fills it — never images nested inside slotted
+     widgets (e.g. the TryAProblem mascot). */
+  .bf-body > :global(img), .bf-body > :global(picture img), .bf-body > :global(video), .bf-body > :global(.pv video) {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
 </style>

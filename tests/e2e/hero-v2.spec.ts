@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('hero v2: headline, single primary CTA, reassurance', async ({ page }) => {
-  await page.goto('/kit');
+  await page.goto('/vi/');
   await expect(page.locator('#hero-title')).toContainText('Bố mẹ thấy rõ con tiến bộ');
   const cta = page.locator('a[data-track="cta-play-hero"]');
   await expect(cta).toContainText('Cho con chơi thử miễn phí');
@@ -10,7 +10,7 @@ test('hero v2: headline, single primary CTA, reassurance', async ({ page }) => {
 });
 
 test('try-a-problem: wrong answer gives a hint and allows retry; right answer advances', async ({ page }) => {
-  await page.goto('/kit');
+  await page.goto('/vi/');
   const tap = page.locator('#hero .tap').first();
   await expect(tap.locator('.tap-q')).toContainText('7 + 5');
   await tap.getByRole('button', { name: '11' }).click();
@@ -24,7 +24,7 @@ test('try-a-problem: wrong answer gives a hint and allows retry; right answer ad
 });
 
 test('hero visual reserves space before the island hydrates (no layout shift)', async ({ page }) => {
-  await page.goto('/kit');
+  await page.goto('/vi/');
   const cls = await page.evaluate(
     () =>
       new Promise<number>((resolve) => {

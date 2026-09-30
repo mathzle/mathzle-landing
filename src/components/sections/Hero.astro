@@ -66,7 +66,9 @@ const tryProps = {
 
 <style>
   /* `.hero` sits on the Section root (another component) → must be global. */
-  :global(.hero) { padding-block: clamp(3rem, 6vw, 5.5rem) clamp(4rem, 8vw, 7rem); }
+  /* `overflow-x: clip` contains the visual's right bleed and its glow without
+     making the section a scroll container (no horizontal page scroll). */
+  :global(.hero) { padding-block: clamp(3rem, 6vw, 5.5rem) clamp(4rem, 8vw, 7rem); overflow-x: clip; }
   .hero-grid { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
   .hero-copy { display: grid; gap: 1.5rem; justify-items: start; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.75rem 1.25rem; align-items: center; }
@@ -78,10 +80,15 @@ const tryProps = {
     content: ''; position: absolute; inset: -12% -8%; z-index: -1;
     background: radial-gradient(closest-side, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent);
   }
-  .hero-stage { position: relative; width: 100%; height: 100%; }
+  /* The stage lives in the frame's 16:10 body, but the card is taller than
+     16:10 on narrow screens: make the body a grid so the in-flow stage can
+     grow it (aspect-ratio keeps min-height:auto), and the card never clips. */
+  .hero-visual :global(.bf-body) { display: grid; }
+  .hero-stage { position: relative; display: grid; place-items: center; padding: 1.5rem; }
   .hero-stage :global(.hero-stage-bg) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
-  .hero-stage-slot { position: absolute; inset: 0; display: grid; place-items: center; padding: 1.5rem; }
-  .hero-sticker { position: absolute; left: -2rem; bottom: -2.5rem; width: min(300px, 70%); min-height: 236px; }
+  /* Reserve the card's height before the client:only island mounts (CLS 0). */
+  .hero-stage-slot { position: relative; width: 100%; min-height: var(--tap-min-h); display: grid; place-items: center; }
+  .hero-sticker { position: absolute; left: -2rem; bottom: -2.5rem; width: min(300px, 70%); min-height: var(--tap-min-h); }
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; }
     /* `.hero-sticker` goes static below — nothing else needs the bleed room
@@ -93,7 +100,9 @@ const tryProps = {
 </style>
 
 <style is:global>
-  .tap { background: var(--color-surface); border-radius: var(--radius-card-lg); padding: 1.25rem; box-shadow: var(--shadow-mk-lg); border: 1px solid var(--color-mk-hairline); width: min(100%, 340px); min-height: 236px; display: grid; gap: 0.75rem; }
+  /* Matches the card's natural (unsolved) height so the reserve == final size. */
+  :root { --tap-min-h: 16.5rem; }
+  .tap { background: var(--color-surface); border-radius: var(--radius-card-lg); padding: 1.25rem; box-shadow: var(--shadow-mk-lg); border: 1px solid var(--color-mk-hairline); width: min(100%, 340px); min-height: var(--tap-min-h); display: grid; gap: 0.75rem; }
   .tap-head { display: flex; gap: 0.75rem; align-items: center; }
   .tap-title { margin: 0; font-weight: 800; }
   .tap-prompt { margin: 0; font-size: 0.875rem; color: var(--color-text-secondary); }
