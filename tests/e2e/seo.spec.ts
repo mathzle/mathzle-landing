@@ -37,6 +37,7 @@ test('sitemap lists public routes only', async ({ request }) => {
   const xml = await (await request.get('/sitemap-0.xml')).text();
   expect(xml).toContain('https://mathzle.com/vi/contact/');
   expect(xml).not.toMatch(/\/(kit|og)\//);
+  expect(xml).not.toContain('<loc>https://mathzle.com/</loc>'); // root is only the language-sniff stub
 });
 
 test('WebApplication offer price uses the locale currency', async ({ page }) => {

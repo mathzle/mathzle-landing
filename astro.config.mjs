@@ -18,7 +18,14 @@ export default defineConfig({
     ...(process.env.STRICT_CLAIMS === '1' ? { prerenderEnvironment: 'node' } : {}),
   }),
   integrations: [
-    sitemap({ filter: (page) => !/\/(kit|og)\//.test(new URL(page).pathname + '/') }),
+    sitemap({
+      // Public locale pages only: no internal kit, OG renderers, or the root
+      // language-sniff stub (`/` just forwards to /vi/ or /en/).
+      filter: (page) => {
+        const path = new URL(page).pathname;
+        return path !== '/' && !/\/(kit|og)\//.test(path + '/');
+      },
+    }),
     preact(),
   ],
   vite: {
