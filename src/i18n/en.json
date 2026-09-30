@@ -201,5 +201,16 @@
       { "if": "parentDataDeletion", "icon": "Trash2", "title": "Delete data any time", "body": "One action in your account settings." }
     ],
     "privacyLink": "Read our privacy policy"
+  },
+  "story": {
+    "eyebrow": "Why Mathzle exists",
+    "title": "We want kids to ==love math== before they have to be good at it.",
+    "paragraphs": [
+      "Many math apps assume a child will sit still and follow the syllabus. We started from the opposite: kids want to play.",
+      "So every problem in Mathzle is a short level inside a world with characters and a story. Mistakes aren't punished. Right answers get a cheer.",
+      "We're a small team building in Vietnamese first."
+    ],
+    "advisorsTitle": "Advisors",
+    "aboutLink": "More about us"
   }
 }

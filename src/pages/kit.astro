@@ -12,6 +12,7 @@ import PainPromise from '../components/sections/PainPromise.astro';
 import Method from '../components/sections/Method.astro';
 import ForParents from '../components/sections/ForParents.astro';
 import Safety from '../components/sections/Safety.astro';
+import Story from '../components/sections/Story.astro';
 import { Image } from 'astro:assets';
 import { screen } from '../data/media';
 import { copy } from '../lib/copy';
@@ -25,6 +26,7 @@ const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
     <Method locale="vi" />
     <ForParents locale="vi" />
     <Safety locale="vi" />
+    <Story locale="vi" />
     {tones.map((tone) => (
       <Section id={`kit-tone-${tone}`} tone={tone}>
         <SectionHeader

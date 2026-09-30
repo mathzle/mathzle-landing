@@ -202,5 +202,16 @@
       { "if": "parentDataDeletion", "icon": "Trash2", "title": "Bố mẹ xoá dữ liệu bất kỳ lúc nào", "body": "Một thao tác trong phần cài đặt tài khoản." }
     ],
     "privacyLink": "Đọc chính sách bảo mật"
+  },
+  "story": {
+    "eyebrow": "Vì sao có Mathzle",
+    "title": "Chúng mình muốn con ==thích toán== trước khi phải giỏi toán.",
+    "paragraphs": [
+      "Nhiều ứng dụng học toán mặc định con sẽ ngồi yên và làm theo giáo trình. Chúng mình bắt đầu từ điều ngược lại: con muốn chơi.",
+      "Vì vậy mỗi bài toán trong Mathzle là một màn chơi ngắn, trong một thế giới có nhân vật và câu chuyện. Sai không bị phạt. Đúng thì được reo mừng.",
+      "Chúng mình là một đội nhỏ, làm sản phẩm bằng tiếng Việt trước tiên."
+    ],
+    "advisorsTitle": "Cố vấn chuyên môn",
+    "aboutLink": "Đọc thêm về chúng mình"
   }
 }

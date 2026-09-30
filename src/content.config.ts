@@ -24,4 +24,19 @@ const curriculumCollection = defineCollection({
   }),
 });
 
-export const collections = { faq: faqCollection, curriculum: curriculumCollection };
+const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'consentDate must be YYYY-MM-DD');
+const teamCollection = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/team' }),
+  schema: ({ image }) => z.object({
+    people: z.array(z.object({
+      role: z.enum(['founder', 'advisor']),
+      name: z.string().min(2),
+      title: z.string().min(2),
+      bio: z.string().optional(),
+      photo: image(),
+      consentDate: isoDate,
+    })),
+  }),
+});
+
+export const collections = { faq: faqCollection, curriculum: curriculumCollection, team: teamCollection };
