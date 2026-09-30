@@ -1,0 +1,29 @@
+astro.config.mjs
+  s_6a8dd77299ee2b::t_c124343e691e27 12-19
+.github/workflows/ci.yml
+  s_6a8dd77299ee2b::t_3632a6a123826e 1-20
+.github/workflows/deploy.yml
+  s_6a8dd77299ee2b::t_888fa3489dde05 33-40,46-47
+  s_6a8dd77299ee2b::t_9cfa1cb3755d10 48
+tests/lighthouse/lighthouserc.cjs
+  s_6a8dd77299ee2b::t_af778670c22a1d 5-8,15-16,18-20,26,28,30-31
+src/layouts/Base.astro
+  s_6a8dd77299ee2b::t_dfcbfc5ff6dae9 5-10
+  s_6a8dd77299ee2b::t_578ddf5af145ae 28-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f7e0c4a689fdc2c7356c745236a2f896b11f1b2b",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
