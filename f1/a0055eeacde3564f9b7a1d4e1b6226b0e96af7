@@ -1,0 +1,21 @@
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_f343e1bacd6cc6 234,290
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_f343e1bacd6cc6 233,289
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f1a0055eeacde3564f9b7a1d4e1b6226b0e96af7",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
