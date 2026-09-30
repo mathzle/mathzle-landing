@@ -1,0 +1,76 @@
+src/components/Nav.astro
+  s_6a8dd77299ee2b::t_d43828d255ff26 6,16,18-19
+  s_6a8dd77299ee2b::t_ab556398059659 146-149
+  s_6a8dd77299ee2b::t_284a78430cd999 46
+  s_6a8dd77299ee2b::t_2b005fbc1a4a18 99
+src/pages/vi/index.astro
+  s_6a8dd77299ee2b::t_9a14d542387b94 5,7-9,11-14,17-19,23,25,29-31,33-36,39,42
+src/pages/vi/faq.astro
+  s_6a8dd77299ee2b::t_9d7b37ff6766ff 6,20
+src/styles/global.css
+  s_6a8dd77299ee2b::t_efc661dacbd4bb 211
+src/components/sections/ProofStrip.astro
+  s_6a8dd77299ee2b::t_6b28ab0f94ac69 25,28
+scripts/check-js-budget.mjs
+  s_6a8dd77299ee2b::t_5fcadb92d772ec 1-13
+tests/e2e/home-structure.spec.ts
+  s_6a8dd77299ee2b::t_2f909777210fa8 1-34
+src/components/sections/Hero.astro
+  s_6a8dd77299ee2b::t_ab4311bb7877a3 87-90
+  s_6a8dd77299ee2b::t_46017969854ad1 19
+  s_6a8dd77299ee2b::t_b70076794b9dab 18
+  s_6a8dd77299ee2b::t_5f793877f113c5 20-22
+  s_6a8dd77299ee2b::t_d92ac0dfe088e7 84-86
+  s_6a8dd77299ee2b::t_749e27e1e46899 91
+  s_28cd8f47957c4d::t_5d7bd90edf6566 2-11,13-14,16,23-25,27,30-37,39-40,44-62,65,68-83,93,95-113
+src/pages/en/index.astro
+  s_6a8dd77299ee2b::t_1e04a910621d6f 5,7-9,11-14,17-19,23,25,29-31,33-36,39,42
+tests/e2e/hero.spec.ts
+  s_6a8dd77299ee2b::t_e1b1d853eb1f42 3,5-8,11,13-14,17-18,21,24
+src/components/MobileDrawer.astro
+  s_6a8dd77299ee2b::t_76dc04023bac53 13
+  s_6a8dd77299ee2b::t_50539b6658b66e 25
+package.json
+  s_6a8dd77299ee2b::t_06e5ebba7b19f5 17
+src/pages/en/pricing.astro
+  s_6a8dd77299ee2b::t_9d7b37ff6766ff 7,22
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_3739687019f28b 4,6
+  s_6a8dd77299ee2b::t_f007c4cd175aac 125-129
+src/pages/en/faq.astro
+  s_6a8dd77299ee2b::t_9d7b37ff6766ff 6,20
+tests/e2e/cta.spec.ts
+  s_6a8dd77299ee2b::t_b78ecc75f7ff6b 3,5-7,12
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_29b6ca2f2af49a 124-128
+  s_6a8dd77299ee2b::t_07f219774c83eb 3,5
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_8dbd4a20bb78f9 9
+  s_6a8dd77299ee2b::t_54ca71e161a8c0 24
+src/pages/vi/pricing.astro
+  s_6a8dd77299ee2b::t_9d7b37ff6766ff 7,22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "11ee5b41b9762a4e08544d6df95a6867ad1ec0cf",
+  "prompts": {},
+  "sessions": {
+    "s_28cd8f47957c4d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "agent-a31c545a5b47617f0",
+        "model": "unknown"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    },
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
