@@ -57,7 +57,25 @@ const testimonialsCollection = defineCollection({
   }),
 });
 
+// Privacy Policy / Terms of Use (D-019). One Markdown file per locale+doc:
+// src/content/legal/{vi,en}/{privacy,terms}.md → ids "vi/privacy", …
+const legalCollection = defineCollection({
+  loader: glob({ pattern: '*/*.md', base: './src/content/legal' }),
+  schema: z.object({
+    title: z.string().min(2),
+    description: z.string().min(50).max(170),
+    lead: z.string().min(10),
+    // YAML turns an unquoted 2026-09-30 into a Date — normalise back to YYYY-MM-DD.
+    updated: z.union([
+      z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'updated must be YYYY-MM-DD'),
+      z.date().transform((d) => d.toISOString().slice(0, 10)),
+    ]),
+    docType: z.enum(['privacy', 'terms']),
+  }),
+});
+
 export const collections = {
+  legal: legalCollection,
   faq: faqCollection,
   curriculum: curriculumCollection,
   team: teamCollection,
