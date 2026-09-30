@@ -2,36 +2,42 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
-import SectionDivider from '../../components/SectionDivider.astro';
+import StickyCta from '../../components/StickyCta.astro';
 import Hero from '../../components/sections/Hero.astro';
-import HowItWorks from '../../components/sections/HowItWorks.astro';
+import ProofStrip from '../../components/sections/ProofStrip.astro';
+import PainPromise from '../../components/sections/PainPromise.astro';
+import Method from '../../components/sections/Method.astro';
 import Worlds from '../../components/sections/Worlds.astro';
-import TrustSignals from '../../components/sections/TrustSignals.astro';
+import ForParents from '../../components/sections/ForParents.astro';
+import Safety from '../../components/sections/Safety.astro';
+import Story from '../../components/sections/Story.astro';
+import Voices from '../../components/sections/Voices.astro';
 import Pricing from '../../components/sections/Pricing.astro';
 import FAQ from '../../components/sections/FAQ.astro';
-import CtaCapture from '../../components/sections/CtaCapture.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { copyText } from '../../lib/copy';
+import { t } from '../../utils/i18n';
 
 const locale = 'vi' as const;
 const path = '/vi/';
+const h = t(locale).home;
 ---
-<Base
-  title="Mathzle — Toán học dành cho trẻ 6–11 tuổi"
-  description="Biến toán học thành cuộc phiêu lưu. Sáu thế giới, những màn chơi ngắn. Miễn phí để bắt đầu, chạy trên mọi trình duyệt — không cần tải, không cần app store."
-  locale={locale}
-  path={path}
->
+<Base title={copyText(h.title, locale)} description={copyText(h.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
     <Hero locale={locale} />
-    <SectionDivider />
-    <HowItWorks locale={locale} />
+    <ProofStrip locale={locale} />
+    <PainPromise locale={locale} />
+    <Method locale={locale} />
     <Worlds locale={locale} />
-    <SectionDivider flip />
-    <TrustSignals locale={locale} />
-    <SectionDivider />
+    <ForParents locale={locale} />
+    <Safety locale={locale} />
+    <Story locale={locale} />
+    <Voices locale={locale} />
     <Pricing locale={locale} />
     <FAQ locale={locale} />
-    <CtaCapture locale={locale} />
+    <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />
+  <StickyCta locale={locale} />
 </Base>

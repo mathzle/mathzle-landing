@@ -4,7 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import Pricing from '../../components/sections/Pricing.astro';
 import FAQ from '../../components/sections/FAQ.astro';
-import CtaCapture from '../../components/sections/CtaCapture.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
 
 const locale = 'en' as const;
 const path = '/en/pricing';
@@ -19,7 +19,7 @@ const path = '/en/pricing';
   <main>
     <Pricing locale={locale} />
     <FAQ locale={locale} />
-    <CtaCapture locale={locale} />
+    <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />
 </Base>

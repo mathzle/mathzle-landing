@@ -208,7 +208,7 @@
     opacity: 0.7;
   }
 
-  /* Signup form — shared by CtaCapture, Pricing, and Voices' beta program.
+  /* Signup form — shared by FinalCta, Pricing, and Voices' beta program.
      Moved here (Task 17) so every {claim:…}-adjacent form looks the same. */
   .cta-form { display: flex; gap: 0.5rem; max-width: 480px; flex-wrap: wrap; }
   .cta-form input { flex: 1; min-width: 200px; padding: 0.875rem 1rem; border-radius: var(--radius-input);

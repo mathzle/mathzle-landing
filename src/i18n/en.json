@@ -1,49 +1,12 @@
 {
   "nav": {
-    "howItWorks": "How it works",
+    "method": "How it teaches",
     "worlds": "Worlds",
+    "parents": "For parents",
     "pricing": "Pricing",
     "faq": "FAQ",
-    "signIn": "Sign in",
-    "playFree": "Play free",
     "menu": "Open menu",
     "close": "Close menu"
-  },
-  "hero": {
-    "eyebrow": "Math for ages 6–11",
-    "headline": "Make math an adventure",
-    "subhead": "Short math games across six worlds. Runs right in the browser — nothing to install.",
-    "ctaPlay": "Start playing — free",
-    "ctaSecondary": "See how it works",
-    "supportNote": "Free forever for two worlds. Premium unlocks all six.",
-    "statsLabel": "At a glance",
-    "trustLabel": "What you get",
-    "stats": [
-      { "value": "6", "label": "Worlds" },
-      { "value": "0", "label": "Ads" },
-      { "value": "$0", "label": "To start" }
-    ],
-    "trustRail": [
-      "No ads, ever",
-      "Tiếng Việt + English",
-      "Runs in any browser",
-      "Free to start"
-    ]
-  },
-  "howItWorks": {
-    "title": "How it works",
-    "step1": {
-      "title": "Pick a world",
-      "body": "Six themed worlds. Your kid picks where to start."
-    },
-    "step2": {
-      "title": "Play a lesson",
-      "body": "Short lessons. A mistake just means another try."
-    },
-    "step3": {
-      "title": "Earn rewards",
-      "body": "Coins, badges, and daily streaks build the habit."
-    }
   },
   "worlds": {
     "eyebrow": "{claim:worlds} worlds",
@@ -60,12 +23,6 @@
     "sunset": { "name": "Pattern Peaks",      "blurb": "Spot, measure and combine shapes; angles and lines.",          "skills": ["Flat shapes", "Perimeter and area", "Angles and lines"] },
     "berry":  { "name": "Fraction Fields",    "blurb": "From halves and thirds to comparing and calculating fractions.", "skills": ["First fractions", "Comparing fractions", "Fraction operations"] },
     "mint":   { "name": "Measurement Meadow", "blurb": "Length, weight, time and money — the numbers kids meet every day.", "skills": ["Length and weight", "Clocks and calendars", "Money"] }
-  },
-  "trust": {
-    "title": "Built so parents can relax",
-    "safe":         { "title": "Safe by default",       "body": "No ads. No chat. No data sold." },
-    "browser":      { "title": "Nothing to install",    "body": "Phone, tablet, laptop. Open the browser and play." },
-    "multilingual": { "title": "Vietnamese + English",  "body": "Switch language any time. Numbers feel native in both." }
   },
   "pricing": {
     "eyebrow": "Pricing",
@@ -123,8 +80,6 @@
   },
   "a11y": { "switchLang": "Switch to" },
   "cta": {
-    "title": "Stay in the loop",
-    "subtitle": "One email a month. New worlds, teacher tips, native-app early access.",
     "placeholder": "your@email.com",
     "button": "Subscribe",
     "success": "Welcome! Check your inbox.",
@@ -166,7 +121,11 @@
     "reassureLabel": "What starting takes",
     "reassure": ["No card needed", "Nothing to install", "Plays instantly"]
   },
-  "heroV2": {
+  "home": {
+    "title": "Mathzle — A grade {claim:gradeRange} math game that runs in the browser",
+    "description": "Your child learns math by playing through {claim:worlds} worlds. Free to start, nothing to install{if:noAds}, no ads{/if}."
+  },
+  "hero": {
     "eyebrow": "Grades {claim:gradeRange} · Ages {claim:ageRange}",
     "headline": "Math your child wants to play. ==Progress you can actually see.==",
     "lead": "Mathzle is a math game that runs right in the browser{if:curriculumGdpt2018}, aligned with Vietnam's GDPT 2018 curriculum{/if}. Your child plays through {claim:worlds} worlds{if:skillReport}; you see their progress skill by skill{/if}.",

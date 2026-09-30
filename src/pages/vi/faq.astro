@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import FAQ from '../../components/sections/FAQ.astro';
-import CtaCapture from '../../components/sections/CtaCapture.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
 
 const locale = 'vi' as const;
 const path = '/vi/faq';
@@ -17,7 +17,7 @@ const path = '/vi/faq';
   <Nav locale={locale} path={path} />
   <main>
     <FAQ locale={locale} />
-    <CtaCapture locale={locale} />
+    <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />
 </Base>

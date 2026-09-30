@@ -10,6 +10,7 @@ interface Props {
 }
 const { locale, path, links } = Astro.props;
 const i = t(locale).nav;
+const a = t(locale).actions;
 ---
 <dialog id="mobile-nav" class="drawer" aria-label={i.menu}>
   <div class="drawer-head">
@@ -21,7 +22,7 @@ const i = t(locale).nav;
   <div class="drawer-foot">
     <LangSwitch locale={locale} path={path} />
     <a href={site.appUrl} class="btn-push drawer-cta" data-track="drawer-cta" target="_blank" rel="noopener noreferrer">
-      {i.playFree}
+      {a.primaryShort}
     </a>
   </div>
 </dialog>

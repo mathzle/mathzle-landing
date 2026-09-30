@@ -3,6 +3,7 @@ import { t, type Locale } from '../utils/i18n';
 import LangSwitch from './LangSwitch.astro';
 import MobileDrawer from './MobileDrawer.astro';
 import { site } from '../data/site';
+import { resolveClaim } from '../data/claims';
 
 interface Props {
   locale: Locale;
@@ -12,9 +13,10 @@ const { locale, path } = Astro.props;
 const i = t(locale);
 const home = `/${locale}/`;
 const links = [
-  { href: `${home}#how-it-works`, label: i.nav.howItWorks },
+  { href: `${home}#method`, label: i.nav.method },
   { href: `${home}#worlds`, label: i.nav.worlds },
-  { href: `${home}pricing`, label: i.nav.pricing },
+  ...(resolveClaim('skillReport').show ? [{ href: `${home}#parents`, label: i.nav.parents }] : []),
+  { href: `${home}#pricing`, label: i.nav.pricing },
   { href: `${home}faq`, label: i.nav.faq },
 ];
 ---
@@ -41,7 +43,7 @@ const links = [
         target="_blank"
         rel="noopener noreferrer"
       >
-        {i.nav.playFree}
+        {i.actions.primaryShort}
       </a>
       <button
         type="button"
@@ -94,7 +96,7 @@ const links = [
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text-primary);
   }
   .nav-links {
     display: flex;
@@ -141,7 +143,10 @@ const links = [
     .nav-cta { padding: 0.5rem 0.875rem; font-size: 0.875rem; }
     .nav { padding: 0.625rem 1rem; }
   }
-  @media (max-width: 380px) {
+  @media (max-width: 420px) {
+    /* The CTA label got longer ("Chơi thử miễn phí" / "Try it free") than the
+       old nav copy — drop the wordmark text on narrow phones so the header
+       never forces horizontal scroll. */
     .nav-logo-text { display: none; }
   }
 </style>

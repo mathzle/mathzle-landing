@@ -1,16 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-test('signup form is wired and renders the placeholder', async ({ page }) => {
+test('newsletter form in the final CTA hydrates', async ({ page }) => {
   await page.goto('/en/');
-  const section = page.locator('#signup');
-  await section.scrollIntoViewIfNeeded();
-  const input = section.locator('input[type=email]');
-  await expect(input).toBeVisible();
+  const fc = page.locator('#final-cta');
+  await fc.locator('summary').click();
+  const input = fc.locator('input[type=email]');
   await input.fill('test+e2e@example.com');
   // Don't actually submit against the live endpoint here; CTA-form spec is
   // about confirming the island hydrated and the input accepts text. The
   // endpoint contract is exercised at Cloudflare integration time (Task 15).
-  await expect(section.locator('button[type=submit]')).toBeEnabled();
+  await expect(fc.locator('button[type=submit]')).toBeEnabled();
 });
 
 test('FAQ accordion expands and exposes schema.org markup', async ({ page }) => {

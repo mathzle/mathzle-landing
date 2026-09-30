@@ -22,10 +22,10 @@ const i = t(locale).proof;
   :global(.proof) { padding-block: 2.5rem; }
   .proof-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin: 0;
     border-block: 1px solid var(--color-mk-hairline); }
-  .proof-item { display: flex; flex-direction: column-reverse; gap: 0.5rem; padding: 1.75rem 1.5rem; }
+  .proof-item { display: flex; flex-direction: column-reverse; gap: 0.5rem; padding: 1.75rem 1.5rem; min-width: 0; }
   .proof-item + .proof-item { border-left: 1px solid var(--color-mk-hairline); }
   .proof-label { font-size: 0.9375rem; color: var(--color-text-secondary); }
-  .proof-item dd { margin: 0; }
+  .proof-item dd { margin: 0; overflow-wrap: anywhere; }
   .proof-foot { margin: 1rem 0 0; }
   @media (max-width: 640px) {
     .proof-grid { grid-template-columns: 1fr 1fr; }

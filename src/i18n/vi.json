@@ -1,50 +1,13 @@
 {
   "_note": "DRAFT — needs review by a native Vietnamese speaker before launch. Register: friendly 'mình/bạn', not formal 'tôi'. Tone: warm, parent-respectful, not babyish.",
   "nav": {
-    "howItWorks": "Cách hoạt động",
+    "method": "Phương pháp",
     "worlds": "Thế giới",
+    "parents": "Cho bố mẹ",
     "pricing": "Bảng giá",
     "faq": "Hỏi đáp",
-    "signIn": "Đăng nhập",
-    "playFree": "Chơi miễn phí",
     "menu": "Mở menu",
     "close": "Đóng menu"
-  },
-  "hero": {
-    "eyebrow": "Toán cho bé 6–11 tuổi",
-    "headline": "Biến toán học thành cuộc phiêu lưu",
-    "subhead": "Những màn chơi toán ngắn trong sáu thế giới. Chạy ngay trên trình duyệt — không cần cài đặt.",
-    "ctaPlay": "Chơi miễn phí ngay",
-    "ctaSecondary": "Xem cách hoạt động",
-    "supportNote": "Miễn phí mãi mãi với 2 thế giới. Bản Premium mở khoá cả 6 thế giới.",
-    "statsLabel": "Tóm tắt nhanh",
-    "trustLabel": "Bố mẹ nhận được gì",
-    "stats": [
-      { "value": "6", "label": "Thế giới" },
-      { "value": "0", "label": "Quảng cáo" },
-      { "value": "0đ", "label": "Để bắt đầu" }
-    ],
-    "trustRail": [
-      "Không quảng cáo",
-      "Tiếng Việt + English",
-      "Chạy trên mọi trình duyệt",
-      "Miễn phí khởi đầu"
-    ]
-  },
-  "howItWorks": {
-    "title": "Cách hoạt động",
-    "step1": {
-      "title": "Chọn thế giới",
-      "body": "Sáu thế giới khác nhau. Bé tự chọn nơi bắt đầu."
-    },
-    "step2": {
-      "title": "Chơi bài học",
-      "body": "Bài học ngắn. Sai thì thử lại, không bị chê."
-    },
-    "step3": {
-      "title": "Nhận phần thưởng",
-      "body": "Xu, huy hiệu, và streak hằng ngày tạo thói quen."
-    }
   },
   "worlds": {
     "eyebrow": "{claim:worlds} thế giới",
@@ -61,12 +24,6 @@
     "sunset": { "name": "Đỉnh Hình Học",    "blurb": "Nhận biết, đo và ghép hình phẳng; góc và đường thẳng.",       "skills": ["Hình phẳng", "Chu vi, diện tích", "Góc và đường thẳng"] },
     "berry":  { "name": "Đồng Phân Số",     "blurb": "Từ một nửa, một phần ba đến so sánh và tính với phân số.",    "skills": ["Làm quen phân số", "So sánh phân số", "Bốn phép tính phân số"] },
     "mint":   { "name": "Đồng Cỏ Đo Lường", "blurb": "Độ dài, khối lượng, thời gian và tiền — những con số con gặp mỗi ngày.", "skills": ["Đo độ dài, khối lượng", "Xem giờ, xem lịch", "Tiền Việt Nam"] }
-  },
-  "trust": {
-    "title": "Thiết kế để bố mẹ yên tâm",
-    "safe":         { "title": "An toàn mặc định",       "body": "Không quảng cáo. Không chat. Không bán dữ liệu." },
-    "browser":      { "title": "Không cần cài đặt",      "body": "Điện thoại, máy tính bảng, laptop. Mở trình duyệt là chơi." },
-    "multilingual": { "title": "Tiếng Việt + English",   "body": "Đổi ngôn ngữ bất kỳ lúc nào. Số đọc tự nhiên cả hai." }
   },
   "pricing": {
     "eyebrow": "Bảng giá",
@@ -124,8 +81,6 @@
   },
   "a11y": { "switchLang": "Chuyển sang" },
   "cta": {
-    "title": "Đăng ký nhận tin",
-    "subtitle": "Mỗi tháng một email. Thế giới mới, tips giáo viên, ưu tiên app native.",
     "placeholder": "email@cua-ban.com",
     "button": "Đăng ký",
     "success": "Cảm ơn! Hãy kiểm tra email của bạn.",
@@ -167,7 +122,11 @@
     "reassureLabel": "Cam kết khi bắt đầu",
     "reassure": ["Không cần thẻ", "Không cần tải app", "Mở là chơi"]
   },
-  "heroV2": {
+  "home": {
+    "title": "Mathzle — Trò chơi toán lớp {claim:gradeRange} cho bé, chạy trên trình duyệt",
+    "description": "Con học toán như chơi game qua {claim:worlds} thế giới. Miễn phí để bắt đầu, không cần tải app{if:noAds}, không quảng cáo{/if}."
+  },
+  "hero": {
     "eyebrow": "Toán lớp {claim:gradeRange} · Bé {claim:ageRange} tuổi",
     "headline": "Con học toán như chơi game. ==Bố mẹ thấy rõ con tiến bộ.==",
     "lead": "Mathzle là trò chơi toán chạy ngay trên trình duyệt{if:curriculumGdpt2018}, bám chương trình GDPT 2018{/if}. Con chơi qua {claim:worlds} thế giới{if:skillReport}; bố mẹ thấy con tiến bộ ở từng kỹ năng{/if}.",
