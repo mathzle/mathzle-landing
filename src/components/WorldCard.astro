@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import OpChip from './OpChip.astro';
 
 /**
@@ -15,7 +17,7 @@ import OpChip from './OpChip.astro';
 interface Props {
   worldColor: string;
   symbol: string;
-  image?: string;
+  image?: ImageMetadata;
   imageAlt?: string;
   title: string;
   subtitle: string;
@@ -40,11 +42,12 @@ const Tag = href ? 'a' : 'div';
 <Tag href={href} class="world-card" style={styleOverride}>
   {image ? (
     <div class="world-image-wrap">
-      <img
+      <Picture
         src={image}
         alt={imageAlt}
-        width="480"
-        height="480"
+        widths={[360, 720]}
+        sizes="(min-width: 1024px) 360px, 85vw"
+        formats={['avif', 'webp']}
         class="world-image"
         loading="lazy"
         decoding="async"

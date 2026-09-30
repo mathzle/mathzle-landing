@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../../utils/i18n';
+import { WORLDS } from '../../data/worlds';
 import WorldCard from '../WorldCard.astro';
 
 interface Props {
@@ -7,33 +8,24 @@ interface Props {
 }
 const { locale } = Astro.props;
 const w = t(locale).worlds;
-
-// Each world owns one token from the world palette, one math glyph that
-// hints at its content (the recurring brand mark), and an illustration
-// of the world scene that fills the card viewport.
-const worlds = [
-  { color: 'var(--color-world-ocean)',  symbol: '+', image: '/brand/worlds/CountingCove.png',       data: w.ocean  },
-  { color: 'var(--color-world-forest)', symbol: '×', image: '/brand/worlds/NumberForest.png',       data: w.forest },
-  { color: 'var(--color-world-sky)',    symbol: '?', image: '/brand/worlds/LogicSky.png',           data: w.sky    },
-  { color: 'var(--color-world-sunset)', symbol: '△', image: '/brand/worlds/PatternPeaks.png',       data: w.sunset },
-  { color: 'var(--color-world-berry)',  symbol: '½', image: '/brand/worlds/FractionFields.png',     data: w.berry  },
-  { color: 'var(--color-world-mint)',   symbol: '⏱', image: '/brand/worlds/MeasurementMeadow.png',  data: w.mint   },
-];
 ---
 <section id="worlds" class="worlds">
   <h2 class="section-title">{w.title}</h2>
   <div class="worlds-grid">
-    {worlds.map((world) => (
-      <WorldCard
-        worldColor={world.color}
-        symbol={world.symbol}
-        image={world.image}
-        imageAlt={`${world.data.name} — ${world.data.subtitle}`}
-        title={world.data.name}
-        subtitle={world.data.subtitle}
-        badges={world.data.badges}
-      />
-    ))}
+    {WORLDS.map((world) => {
+      const data = w[world.id];
+      return (
+        <WorldCard
+          worldColor={world.color}
+          symbol={world.symbol}
+          image={world.image}
+          imageAlt={`${data.name} — ${data.subtitle}`}
+          title={data.name}
+          subtitle={data.subtitle}
+          badges={data.badges}
+        />
+      );
+    })}
   </div>
 </section>
 
