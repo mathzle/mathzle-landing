@@ -21,13 +21,16 @@ test('lead text on ink tone meets contrast (muted ink text, not app secondary)',
 });
 
 test.describe('reduced motion', () => {
-  test.use({ reducedMotion: 'reduce' });
+  // The `reducedMotion` context option (test.use) is not honored by the
+  // Chromium build in this environment — verified with a bare data: URL page,
+  // unrelated to this app, where `test.use({ reducedMotion: 'reduce' })` left
+  // matchMedia() reporting 'no-preference'. `page.emulateMedia` (CDP
+  // Emulation.setEmulatedMedia) does apply reliably, so use that instead.
   test('reveal content and marker are fully visible immediately', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/kit');
+    expect(await page.evaluate(() => matchMedia('(prefers-reduced-motion: reduce)').matches)).toBe(true);
     const reveal = page.locator('.reveal').first();
-    // Kit keeps growing (hero + demo sections) — scroll so the scroll-linked
-    // reveal animation has actually entered before asserting on it.
-    await reveal.scrollIntoViewIfNeeded();
     await expect(reveal).toHaveCSS('opacity', '1');
     const mark = page.locator('mark.marker').first();
     await expect(mark).toHaveCSS('background-size', '100% 100%');
