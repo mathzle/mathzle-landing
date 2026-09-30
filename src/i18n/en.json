@@ -102,6 +102,7 @@
     "email": "Email",
     "zalo": "Zalo",
     "zaloCta": "Message on Zalo",
+    "pending": "Mathzle's official contact email will be published here before Mathzle's public launch.",
     "faqHint": "Your answer might already be in the FAQ."
   },
   "a11y": { "switchLang": "Switch to" },
@@ -295,7 +296,7 @@
     "taxId": "Tax code",
     "address": "Address",
     "email": "Contact email",
-    "companyPending": "Our legal entity details and official contact channel will be published here before Mathzle's public launch. During the beta, please reach us through the {link}.",
+    "companyPending": "Mathzle's legal entity details and official contact email have not been published yet; we will publish them here before Mathzle's public launch. During the beta, please reach us through the {link}.",
     "contactPage": "Contact page",
     "questionsTitle": "Questions about your data or these terms?",
     "questionsBody": "The Mathzle team is happy to explain anything that isn't clear.",

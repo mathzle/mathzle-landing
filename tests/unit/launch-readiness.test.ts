@@ -1,6 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
-import { site, missingForLaunch, type SiteConfig } from '../../src/data/site';
+import { site, missingForLaunch, LAUNCH_REQUIRED, type SiteConfig } from '../../src/data/site';
 
 const complete: SiteConfig = {
   url: 'https://mathzle.com',
@@ -33,6 +33,12 @@ describe('missingForLaunch', () => {
       'legal.policiesReviewedOn',
       'analytics.cfBeaconToken',
     ]);
+  });
+  // Legal pages, the Company details box and the Contact page all say the
+  // official contact email "will be published before public launch" — the
+  // launch gate must therefore refuse to pass without it.
+  it('requires contact.email for launch (the pending-contact promise)', () => {
+    expect(LAUNCH_REQUIRED).toContain('contact.email');
   });
   it('does not require optional fields (zalo, taxId, mascot name)', () => {
     expect(missingForLaunch({ ...complete, legal: { ...complete.legal, taxId: null } })).toEqual([]);

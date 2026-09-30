@@ -103,6 +103,7 @@
     "email": "Email",
     "zalo": "Zalo",
     "zaloCta": "Nhắn Zalo",
+    "pending": "Địa chỉ email liên hệ chính thức của Mathzle sẽ được công bố tại đây trước khi Mathzle ra mắt chính thức.",
     "faqHint": "Có thể câu trả lời đã nằm trong trang Hỏi đáp."
   },
   "a11y": { "switchLang": "Chuyển sang" },
@@ -296,7 +297,7 @@
     "taxId": "Mã số thuế",
     "address": "Địa chỉ",
     "email": "Email liên hệ",
-    "companyPending": "Thông tin pháp nhân và kênh liên hệ chính thức sẽ được công bố tại đây trước khi Mathzle ra mắt chính thức. Trong giai đoạn thử nghiệm, vui lòng liên hệ qua {link}.",
+    "companyPending": "Thông tin pháp nhân và địa chỉ email liên hệ chính thức của Mathzle chưa được công bố; chúng tôi sẽ công bố tại đây trước khi Mathzle ra mắt chính thức. Trong giai đoạn thử nghiệm, vui lòng liên hệ qua {link}.",
     "contactPage": "trang Liên hệ",
     "questionsTitle": "Còn câu hỏi về dữ liệu hay điều khoản?",
     "questionsBody": "Đội ngũ Mathzle sẵn sàng giải thích bất kỳ điều gì chưa rõ.",
