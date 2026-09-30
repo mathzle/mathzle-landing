@@ -1,0 +1,25 @@
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_5a8f165256e5ee 257
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_6b7509b66a8981 256
+tests/e2e/beta-pricing.spec.ts
+  s_6a8dd77299ee2b::t_d3e7498c7e5173 6-9
+  s_6a8dd77299ee2b::t_9a79eb4f135696 60-63,65-70,72-85
+  s_6a8dd77299ee2b::t_e7858c7783e2f0 64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6b4fd0789cff6829d4e0f19dacc1eafbde6fa352",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
