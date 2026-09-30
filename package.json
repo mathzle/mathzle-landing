@@ -16,6 +16,7 @@
     "test:e2e": "playwright test",
     "check:js": "node scripts/check-js-budget.mjs",
     "check:media": "node scripts/check-media.mjs",
+    "check:dist": "node scripts/check-dist-copy.mjs",
     "og": "node scripts/og.mjs",
     "lhci:run": "lhci autorun --config=tests/lighthouse/lighthouserc.cjs",
     "wrangler": "wrangler",

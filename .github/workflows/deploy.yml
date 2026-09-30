@@ -44,7 +44,7 @@ jobs:
           PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
 
       - name: Budgets
-        run: pnpm check:js && pnpm check:media
+        run: pnpm check:js && pnpm check:media && pnpm check:dist
 
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v3
