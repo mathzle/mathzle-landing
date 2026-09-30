@@ -1,0 +1,62 @@
+src/lib/beta.ts
+  s_6a8dd77299ee2b::t_7bd5765d114cc1 1-21
+tests/e2e/beta-pricing.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 1-18,20-49
+  s_6a8dd77299ee2b::t_f0e1833c77ef1b 19
+src/pages/vi/index.astro
+  s_6a8dd77299ee2b::t_fcc034c61367b4 19,38
+src/pages/en/pricing.astro
+  s_6a8dd77299ee2b::t_4914141ed00b65 12,18,20,32
+  s_6a8dd77299ee2b::t_fcc034c61367b4 13,17
+tests/e2e/home-structure.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 2,11-14
+tests/e2e/pricing.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 2-6
+src/components/Footer.astro
+  s_6a8dd77299ee2b::t_fcc034c61367b4 14
+src/pages/vi/pricing.astro
+  s_6a8dd77299ee2b::t_4914141ed00b65 12,18,20,32
+  s_6a8dd77299ee2b::t_fcc034c61367b4 13,17
+tests/e2e/no-fake-content.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 2,19
+tests/e2e/mobile.spec.ts
+  s_6a8dd77299ee2b::t_3b366f940a002d 2,25-27
+src/pages/en/index.astro
+  s_6a8dd77299ee2b::t_fcc034c61367b4 19,38
+tests/unit/beta.test.ts
+  s_6a8dd77299ee2b::t_7bd5765d114cc1 1-33
+src/components/sections/FAQ.astro
+  s_6a8dd77299ee2b::t_fcc034c61367b4 9,17-19
+tests/e2e/faq.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 2,49
+src/components/Nav.astro
+  s_6a8dd77299ee2b::t_fcc034c61367b4 19
+astro.config.mjs
+  s_6a8dd77299ee2b::t_fcc034c61367b4 7,24-25,28
+src/components/BetaRedirect.astro
+  s_6a8dd77299ee2b::t_4914141ed00b65 1-25
+tests/e2e/cta.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 2,33
+src/data/site.ts
+  s_6a8dd77299ee2b::t_d5fa19ff9a03bb 16-21,37-38
+tests/e2e/pricing-page.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 2-6
+tests/e2e/seo.spec.ts
+  s_6a8dd77299ee2b::t_787108db56dffb 2,4-5,43-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "df9b6bd89545ebf30638b52d4824679378f43b88",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
