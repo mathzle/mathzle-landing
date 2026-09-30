@@ -5,7 +5,9 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "signIn": "Sign in",
-    "playFree": "Play free"
+    "playFree": "Play free",
+    "menu": "Open menu",
+    "close": "Close menu"
   },
   "hero": {
     "eyebrow": "Math for ages 6–11",

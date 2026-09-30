@@ -1,0 +1,75 @@
+---
+import LangSwitch from './LangSwitch.astro';
+import { site } from '../data/site';
+import { t, type Locale } from '../utils/i18n';
+
+interface Props {
+  locale: Locale;
+  path: string;
+  links: { href: string; label: string }[];
+}
+const { locale, path, links } = Astro.props;
+const i = t(locale).nav;
+---
+<dialog id="mobile-nav" class="drawer" aria-label={i.menu}>
+  <div class="drawer-head">
+    <button type="button" class="drawer-close" data-close-nav aria-label={i.close}>✕</button>
+  </div>
+  <ul class="drawer-links">
+    {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+  </ul>
+  <div class="drawer-foot">
+    <LangSwitch locale={locale} path={path} />
+    <a href={site.appUrl} class="btn-push drawer-cta" data-track="drawer-cta" target="_blank" rel="noopener noreferrer">
+      {i.playFree}
+    </a>
+  </div>
+</dialog>
+
+<script>
+  const drawer = document.getElementById('mobile-nav') as HTMLDialogElement | null;
+  document.querySelectorAll('[data-open-nav]').forEach((btn) =>
+    btn.addEventListener('click', () => {
+      drawer?.showModal();
+      btn.setAttribute('aria-expanded', 'true');
+    }),
+  );
+  drawer?.addEventListener('close', () =>
+    document.querySelectorAll('[data-open-nav]').forEach((b) => b.setAttribute('aria-expanded', 'false')),
+  );
+  drawer?.querySelectorAll('[data-close-nav], a').forEach((el) =>
+    el.addEventListener('click', () => drawer.close()),
+  );
+  // Click on the backdrop (the dialog element itself, outside its content box) closes it.
+  drawer?.addEventListener('click', (e) => {
+    if (e.target === drawer) drawer.close();
+  });
+</script>
+
+<style>
+  .drawer {
+    margin: 0 0 0 auto;
+    height: 100dvh;
+    max-height: 100dvh;
+    width: min(88vw, 360px);
+    border: 0;
+    padding: 1rem 1.5rem calc(1.5rem + env(safe-area-inset-bottom, 0px));
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+  }
+  .drawer::backdrop { background: rgb(23 21 43 / 0.45); }
+  .drawer[open] { display: flex; flex-direction: column; }
+  .drawer-head { display: flex; justify-content: flex-end; }
+  .drawer-close {
+    width: 44px; height: 44px; border: 0; background: transparent;
+    font-size: 1.25rem; color: var(--color-text-secondary); cursor: pointer;
+  }
+  .drawer-links { list-style: none; margin: 1rem 0; padding: 0; display: grid; gap: 0.25rem; }
+  .drawer-links a {
+    display: block; padding: 0.875rem 0; font-size: 1.25rem; font-weight: 700;
+    color: var(--color-text-primary); text-decoration: none;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .drawer-foot { margin-top: auto; display: grid; gap: 1rem; }
+  .drawer-cta { width: 100%; }
+</style>
