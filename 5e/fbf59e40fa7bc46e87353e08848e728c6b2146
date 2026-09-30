@@ -1,0 +1,41 @@
+src/components/SectionHeader.astro
+  s_6a8dd77299ee2b::t_c0b680ac0a0e6f 1-31
+astro.config.mjs
+  s_6a8dd77299ee2b::t_4b52a1996e46d5 13-16
+scripts/shoot.mjs
+  s_6a8dd77299ee2b::t_69f6d2595de352 1-27
+.gitignore
+  s_6a8dd77299ee2b::t_f0c89388008413 41-43
+src/components/Eyebrow.astro
+  s_6a8dd77299ee2b::t_cfdda49444fb4d 1-13
+src/styles/global.css
+  s_6a8dd77299ee2b::t_38ed57587a026e 108
+  s_6a8dd77299ee2b::t_7120971ddbb9ce 209-262
+  s_6a8dd77299ee2b::t_4c9fddbd7f09d7 80-97
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_64fd5c1f0d7d28 1-34
+src/layouts/Base.astro
+  s_6a8dd77299ee2b::t_a9abbbe9fea044 43-54
+  s_6a8dd77299ee2b::t_1e61c6731c701f 12,14
+  s_6a8dd77299ee2b::t_b6c8f4c8ee3785 21-22
+src/components/Section.astro
+  s_6a8dd77299ee2b::t_5969ad071fe82c 1-15
+tests/e2e/kit.spec.ts
+  s_6a8dd77299ee2b::t_d19785206ea9a9 1-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "5efbf59e40fa7bc46e87353e08848e728c6b2146",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
