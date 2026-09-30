@@ -4,19 +4,15 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import FAQ from '../../components/sections/FAQ.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
-
+import { t } from '../../utils/i18n';
 const locale = 'en' as const;
 const path = '/en/faq';
+const f = t(locale).faqPage;
 ---
-<Base
-  title="FAQ — Mathzle"
-  description="Common questions about Mathzle: pricing, ages, safety, browser support, and the iOS/Android roadmap."
-  locale={locale}
-  path={path}
->
+<Base title={`${f.title} — Mathzle`} description={f.description} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
-    <FAQ locale={locale} />
+    <FAQ locale={locale} grouped headingLevel="h1" />
     <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />

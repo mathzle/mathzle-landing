@@ -8,8 +8,9 @@ import { site } from '../../data/site';
 import { t, type Locale } from '../../utils/i18n';
 
 type Category = 'learning' | 'safety' | 'billing' | 'tech';
-interface Props { locale: Locale; categories?: Category[]; tone?: 'canvas' | 'tint' }
-const { locale, categories, tone = 'canvas' } = Astro.props;
+interface Props { locale: Locale; categories?: Category[]; tone?: 'canvas' | 'tint'; grouped?: boolean; headingLevel?: 'h1' | 'h2' }
+const { locale, categories, tone = 'canvas', grouped = false, headingLevel = 'h2' } = Astro.props;
+const H = headingLevel;
 const i = t(locale).faq;
 const all = visible((await getEntry('faq', locale))?.data.items ?? []);
 const items = categories ? all.filter((q) => categories.includes(q.category)) : all;
@@ -26,14 +27,30 @@ const faqSchema = {
 <Section id="faq" tone={tone} labelledby="faq-title">
   <div class="faq-grid">
     <aside class="faq-side">
-      <h2 id="faq-title" class="mk-h2">{i.title}</h2>
+      <H id="faq-title" class="mk-h2">{i.title}</H>
       <Mascot state="wave" size={88} />
       <p class="faq-ask">{i.askTitle}</p>
       {site.contact.zaloUrl && <a class="btn-text" href={site.contact.zaloUrl} target="_blank" rel="noopener noreferrer">{i.askZalo} →</a>}
       {site.contact.email && <a class="btn-text" href={`mailto:${site.contact.email}`}>{i.askEmail} →</a>}
     </aside>
     <div class="faq-main">
-      <FaqAccordion items={items.map((q) => ({ id: q.id, question: q.question, answerHtml: copy(q.answer, locale) }))} client:only="preact" />
+      {grouped ? (
+        <div class="faq-groups">
+          {(['learning', 'safety', 'billing', 'tech'] as const).map((c) => {
+            const group = items.filter((q) => q.category === c);
+            return group.length > 0 && (
+              <section class="faq-group" aria-labelledby={`faq-g-${c}`}>
+                <h2 id={`faq-g-${c}`} class="mk-h3">{i.categories[c]}</h2>
+                <div class="faq-group-body" style={`min-height: ${group.length * 3.75}rem`}>
+                  <FaqAccordion items={group.map((q) => ({ id: q.id, question: q.question, answerHtml: copy(q.answer, locale) }))} client:only="preact" />
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      ) : (
+        <FaqAccordion items={items.map((q) => ({ id: q.id, question: q.question, answerHtml: copy(q.answer, locale) }))} client:only="preact" />
+      )}
     </div>
   </div>
 </Section>
@@ -44,6 +61,8 @@ const faqSchema = {
   .faq-side { position: sticky; top: 7rem; display: grid; gap: 1rem; justify-items: start; }
   .faq-ask { margin: 0.5rem 0 0; font-weight: 700; }
   .faq-main { min-height: 24rem; }
+  .faq-group + .faq-group { margin-top: 2.5rem; }
+  .faq-group .faq-list { min-height: 0; }
   .faq-list { list-style: none; padding: 0; margin: 0; }
   .faq-item { border-bottom: 1px solid var(--color-mk-hairline-strong); scroll-margin-top: 6rem; }
   .faq-q { width: 100%; padding: 1.375rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem;

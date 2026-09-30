@@ -6,10 +6,6 @@ test('footer exposes legal pages and every configured contact channel', async ({
   const footer = page.locator('footer');
   await expect(footer.getByRole('link', { name: 'Bảo mật' })).toHaveAttribute('href', '/vi/privacy');
   await expect(footer.getByRole('link', { name: 'Điều khoản' })).toHaveAttribute('href', '/vi/terms');
-  if (site.contact.email) {
-    await expect(footer.locator(`a[href="mailto:${site.contact.email}"]`)).toBeVisible();
-  } else {
-    await expect(footer.locator('a[href^="mailto:"]')).toHaveCount(0);
-  }
+  await expect(footer.getByRole('link', { name: 'Liên hệ' })).toHaveAttribute('href', '/vi/contact');
   if (site.legal.companyName) await expect(footer.locator('.footer-legal')).toContainText(site.legal.companyName);
 });

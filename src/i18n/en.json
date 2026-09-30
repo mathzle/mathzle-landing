@@ -91,6 +91,19 @@
       "tech": "Technical"
     }
   },
+  "faqPage": {
+    "title": "FAQ",
+    "description": "Questions parents ask about Mathzle: learning, safety, billing and devices."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "We read every message{if:responseDays} and reply within {claim:responseDays} business days{/if}.",
+    "description": "Reach the Mathzle team by email or Zalo.",
+    "email": "Email",
+    "zalo": "Zalo",
+    "zaloCta": "Message on Zalo",
+    "faqHint": "Your answer might already be in the FAQ."
+  },
   "a11y": { "switchLang": "Switch to" },
   "cta": {
     "placeholder": "your@email.com",

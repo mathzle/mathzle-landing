@@ -92,6 +92,19 @@
       "tech": "Kỹ thuật"
     }
   },
+  "faqPage": {
+    "title": "Hỏi đáp",
+    "description": "Câu hỏi bố mẹ hay hỏi về Mathzle: cách học, an toàn, thanh toán và thiết bị."
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "lead": "Chúng mình đọc mọi tin nhắn{if:responseDays} và trả lời trong {claim:responseDays} ngày làm việc{/if}.",
+    "description": "Liên hệ đội ngũ Mathzle qua email hoặc Zalo.",
+    "email": "Email",
+    "zalo": "Zalo",
+    "zaloCta": "Nhắn Zalo",
+    "faqHint": "Có thể câu trả lời đã nằm trong trang Hỏi đáp."
+  },
   "a11y": { "switchLang": "Chuyển sang" },
   "cta": {
     "placeholder": "email@cua-ban.com",
