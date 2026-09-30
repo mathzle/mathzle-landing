@@ -1,0 +1,35 @@
+tests/unit/copy.test.ts
+  s_6a8dd77299ee2b::t_ff2e4f939460cb 1-99
+tests/unit/claims.test.ts
+  s_6a8dd77299ee2b::t_820da95b21e30c 1-39
+src/lib/copy.ts
+  s_6a8dd77299ee2b::t_b76a5247a41e4d 1-68
+src/env.d.ts
+  s_6a8dd77299ee2b::t_d9fd4c03aa7e4d 1-2
+src/data/claims.ts
+  s_6a8dd77299ee2b::t_159621693213a2 1-84
+package.json
+  s_6a8dd77299ee2b::t_8967781f74f304 11
+tests/unit/launch-readiness.test.ts
+  s_6a8dd77299ee2b::t_6f6d99cb564bb5 45-49
+src/styles/global.css
+  s_6a8dd77299ee2b::t_7b2d16eaf61c41 192-200
+astro.config.mjs
+  s_6a8dd77299ee2b::t_4794cfb1deb86f 16-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c14d1cb68cc78475aecdea2edbeebc91ed7c9b17",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
