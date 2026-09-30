@@ -1,0 +1,23 @@
+tests/e2e/worlds.spec.ts
+  s_6a8dd77299ee2b::t_c8dce31b61d250 25-36
+src/components/WorldCard.astro
+  s_6a8dd77299ee2b::t_8268821c379f80 24-26
+src/styles/global.css
+  s_6a8dd77299ee2b::t_8268821c379f80 263
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "17f2e75e9918cbcfde85f8d93bd4f830dae95f2d",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
