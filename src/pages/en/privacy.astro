@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { site } from '../../data/site';
 
 const locale = 'en' as const;
 const path = '/en/privacy';
@@ -19,7 +20,7 @@ const path = '/en/privacy';
       <p class="lead">Last updated: 2026-05-19</p>
     </header>
     <section class="prose">
-      <p><strong>TODO(legal):</strong> this is placeholder copy. A lawyer needs to review before launch. The bullet list below is the intent that the policy must encode.</p>
+      <!-- Pending lawyer review — see site.legal.policiesReviewedOn -->
 
       <h2>What we collect</h2>
       <ul>
@@ -45,8 +46,12 @@ const path = '/en/privacy';
       <h2>Children</h2>
       <p>Mathzle is built for kids ages 6–11. Parents create the account. Vietnam's Decree 13 and COPPA-style protections apply — kids' data is processed only to deliver the lesson experience.</p>
 
-      <h2>Contact</h2>
-      <p>Privacy questions: <a href="mailto:privacy@mathzle.com">privacy@mathzle.com</a></p>
+      {site.contact.email && (
+        <>
+          <h2>Contact</h2>
+          <p>Privacy questions: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
+        </>
+      )}
     </section>
   </main>
   <Footer locale={locale} path={path} />

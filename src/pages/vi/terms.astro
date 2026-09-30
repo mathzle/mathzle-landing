@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { site } from '../../data/site';
 
 const locale = 'vi' as const;
 const path = '/vi/terms';
@@ -19,7 +20,7 @@ const path = '/vi/terms';
       <p class="lead">Cập nhật lần cuối: 19/05/2026</p>
     </header>
     <section class="prose">
-      <p><strong>TODO(legal):</strong> bản tạm. Cần luật sư rà soát trước khi ra mắt. Ý định bên dưới mô tả những gì điều khoản chính thức phải đạt được.</p>
+      <!-- Pending lawyer review — see site.legal.policiesReviewedOn -->
       <h2>Ai có thể dùng Mathzle</h2>
       <p>Mathzle dành cho trẻ 6–11 tuổi. Phụ huynh hoặc người giám hộ phải tạo tài khoản. Chúng mình không quảng cáo trực tiếp đến trẻ em.</p>
       <h2>Bạn có thể làm gì</h2>
@@ -28,8 +29,12 @@ const path = '/vi/terms';
       <p>Dịch vụ hoạt động như đã mô tả. Chúng mình thông báo trước khi có thay đổi quan trọng. Chúng mình không bán dữ liệu của bạn.</p>
       <h2>Chúng mình yêu cầu gì</h2>
       <p>Đừng cố phá hoại dịch vụ, cào bài học, hay chia sẻ tài khoản Premium ngoài gia đình bạn.</p>
-      <h2>Liên hệ</h2>
-      <p>Câu hỏi: <a href="mailto:hello@mathzle.com">hello@mathzle.com</a></p>
+      {site.contact.email && (
+        <>
+          <h2>Liên hệ</h2>
+          <p>Câu hỏi: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
+        </>
+      )}
     </section>
   </main>
   <Footer locale={locale} path={path} />

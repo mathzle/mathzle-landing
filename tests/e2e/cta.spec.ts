@@ -29,10 +29,11 @@ test('FAQ accordion expands and exposes schema.org markup', async ({ page }) => 
   expect(jsonLdCount).toBeGreaterThanOrEqual(3); // Org + WebApplication + FAQ
 });
 
-test('pricing CTAs link to the web app', async ({ page }) => {
+test('pricing: free CTA goes to the app, premium CTA goes to the waitlist while not on sale', async ({ page }) => {
   await page.goto('/en/pricing');
-  const freeCta = page.locator('a[data-track="cta-pricing-free"]');
-  const premCta = page.locator('a[data-track="cta-pricing-premium"]');
-  await expect(freeCta).toHaveAttribute('href', /app\.mathzle\.com/);
-  await expect(premCta).toHaveAttribute('href', /app\.mathzle\.com/);
+  await expect(page.locator('a[data-track="cta-pricing-free"]')).toHaveAttribute('href', /app\.mathzle\.com/);
+  const prem = page.locator('a[data-track="cta-pricing-premium"]');
+  await expect(prem).toHaveAttribute('href', '#signup');
+  await expect(prem).not.toContainText(/try/i);
+  await expect(page.locator('#signup')).toHaveCount(1);
 });

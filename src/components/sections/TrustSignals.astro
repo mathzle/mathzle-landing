@@ -9,10 +9,10 @@ const { locale } = Astro.props;
 const i = t(locale).trust;
 
 // Same cube-face brand language used elsewhere — three trust pillars,
-// each glyph hints at its meaning: ✓ safety, ✎ educator-built, ☼ language.
+// each glyph hints at its meaning: ✓ safety, ▶ runs anywhere, ☼ language.
 const signals = [
   { symbol: '✓', accent: 'var(--color-success)',     ...i.safe },
-  { symbol: '✎', accent: 'var(--color-primary)',     ...i.educator },
+  { symbol: '▶', accent: 'var(--color-primary)',     ...i.browser },
   { symbol: '☼', accent: 'var(--color-world-ocean)', ...i.multilingual },
 ];
 ---

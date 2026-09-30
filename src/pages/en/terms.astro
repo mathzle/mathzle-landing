@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import { site } from '../../data/site';
 
 const locale = 'en' as const;
 const path = '/en/terms';
@@ -19,7 +20,7 @@ const path = '/en/terms';
       <p class="lead">Last updated: 2026-05-19</p>
     </header>
     <section class="prose">
-      <p><strong>TODO(legal):</strong> placeholder. Lawyer review required before launch. The intent below tells the lawyer what the terms must accomplish.</p>
+      <!-- Pending lawyer review — see site.legal.policiesReviewedOn -->
       <h2>Who can use Mathzle</h2>
       <p>Mathzle is built for kids ages 6–11. A parent or guardian must create the account. We don't market to children directly.</p>
       <h2>What you can do</h2>
@@ -28,8 +29,12 @@ const path = '/en/terms';
       <p>The service works as described. We notify you in advance of material changes. We don't sell your data.</p>
       <h2>What we ask</h2>
       <p>Don't try to break the service, scrape lessons, or share premium accounts beyond your family.</p>
-      <h2>Contact</h2>
-      <p>Questions: <a href="mailto:hello@mathzle.com">hello@mathzle.com</a></p>
+      {site.contact.email && (
+        <>
+          <h2>Contact</h2>
+          <p>Questions: <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
+        </>
+      )}
     </section>
   </main>
   <Footer locale={locale} path={path} />

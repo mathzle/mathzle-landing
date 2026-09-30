@@ -8,6 +8,7 @@ interface Props {
 const { locale } = Astro.props;
 const i = t(locale).pricing;
 const webAppUrl = site.appUrl;
+const premiumHref = site.premium.onSale ? site.appUrl : '#signup';
 ---
 <section id="pricing" class="pricing">
   <h2 class="section-title">{i.title}</h2>
@@ -42,7 +43,12 @@ const webAppUrl = site.appUrl;
       <ul class="price-list">
         {i.premiumBullets.map((b) => <li>{b}</li>)}
       </ul>
-      <a href={webAppUrl} class="btn-push price-cta price-cta-premium" data-track="cta-pricing-premium" target="_blank" rel="noopener noreferrer">
+      <a
+        href={premiumHref}
+        class="btn-push price-cta price-cta-premium"
+        data-track="cta-pricing-premium"
+        {...(site.premium.onSale ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         {i.premiumCta}
       </a>
       <p class="price-note">{i.premiumNote}</p>

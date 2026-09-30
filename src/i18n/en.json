@@ -10,14 +10,16 @@
   "hero": {
     "eyebrow": "Math for ages 6–11",
     "headline": "Make math an adventure",
-    "subhead": "Six worlds. Hundreds of lessons. Built with classroom teachers.",
+    "subhead": "Short math games across six worlds. Runs right in the browser — nothing to install.",
     "ctaPlay": "Start playing — free",
     "ctaSecondary": "See how it works",
     "supportNote": "Free forever for two worlds. Premium unlocks all six.",
+    "statsLabel": "At a glance",
+    "trustLabel": "What you get",
     "stats": [
       { "value": "6", "label": "Worlds" },
-      { "value": "200+", "label": "Lessons" },
-      { "value": "2", "label": "Languages" }
+      { "value": "0", "label": "Ads" },
+      { "value": "$0", "label": "To start" }
     ],
     "trustRail": [
       "No ads, ever",
@@ -34,7 +36,7 @@
     },
     "step2": {
       "title": "Play a lesson",
-      "body": "Short lessons. Designed with classroom teachers."
+      "body": "Short lessons. A mistake just means another try."
     },
     "step3": {
       "title": "Earn rewards",
@@ -51,22 +53,10 @@
     "mint":   { "name": "Measurement Meadow",  "subtitle": "Units, time, money",     "badges": ["1st grade", "3rd grade"] }
   },
   "trust": {
-    "title": "Parents trust Mathzle",
-    "safe":         { "title": "Safe by default",     "body": "No ads. No chat. No data sold." },
-    "educator":     { "title": "Educator-designed",   "body": "Built with classroom teachers. Aligned to grade-level standards." },
-    "multilingual": { "title": "Vietnamese + English", "body": "Switch language any time. Numbers feel native in both." }
-  },
-  "screenshots": {
-    "title": "Peek inside a world",
-    "subtitle": "Warm cream, pushable buttons, the math cube — on every screen."
-  },
-  "testimonials": {
-    "title": "What parents say",
-    "items": [
-      { "quote": "My daughter actually asks to do math now.",                  "author": "Linh, mom of two — Hanoi" },
-      { "quote": "Replaced two other math apps. Worth the switch.",            "author": "Anh, dad in HCMC" },
-      { "quote": "Tested with my class. The pacing is real classroom pacing.", "author": "Ms. Pham, primary teacher" }
-    ]
+    "title": "Built so parents can relax",
+    "safe":         { "title": "Safe by default",       "body": "No ads. No chat. No data sold." },
+    "browser":      { "title": "Nothing to install",    "body": "Phone, tablet, laptop. Open the browser and play." },
+    "multilingual": { "title": "Vietnamese + English",  "body": "Switch language any time. Numbers feel native in both." }
   },
   "pricing": {
     "title": "Free forever. Premium when you're ready.",
@@ -77,12 +67,13 @@
     "premiumTitle": "Premium",
     "premiumPrice": "$4.99/mo",
     "premiumBullets": ["All six worlds", "Family sharing (up to 4 kids)", "Priority support"],
-    "premiumCta": "Try premium",
-    "premiumNote": "Cancel any time. Premium launches soon."
+    "premiumCta": "Hold my launch price",
+    "premiumNote": "Premium is almost ready. Leave your email to lock in the launch price."
   },
   "faq": {
     "title": "Frequently asked questions"
   },
+  "a11y": { "switchLang": "Switch to" },
   "cta": {
     "title": "Stay in the loop",
     "subtitle": "One email a month. New worlds, teacher tips, native-app early access.",

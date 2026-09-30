@@ -1,5 +1,5 @@
 ---
-import { altPathForLocale, localeLabel, type Locale } from '../utils/i18n';
+import { altPathForLocale, localeLabel, t, type Locale } from '../utils/i18n';
 
 interface Props {
   locale: Locale;
@@ -9,12 +9,13 @@ interface Props {
 const { locale, path, class: className } = Astro.props;
 const other: Locale = locale === 'en' ? 'vi' : 'en';
 const altHref = altPathForLocale(path, other);
+const label = `${t(locale).a11y.switchLang} ${localeLabel(other)}`;
 ---
 <a
   href={altHref}
   class={['lang-switch', className].filter(Boolean).join(' ')}
   hreflang={other}
-  aria-label={`Switch to ${localeLabel(other)}`}
+  aria-label={label}
 >
   <span aria-hidden="true">🌐</span>
   <span>{localeLabel(other)}</span>

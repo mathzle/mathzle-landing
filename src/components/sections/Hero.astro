@@ -16,7 +16,7 @@ const webAppUrl = site.appUrl;
       <h1 class="hero-headline">{i.headline}</h1>
       <p class="hero-subhead">{i.subhead}</p>
 
-      <ul class="hero-stats" aria-label="At a glance">
+      <ul class="hero-stats" aria-label={i.statsLabel}>
         {i.stats.map((s) => (
           <li class="hero-stat">
             <span class="hero-stat-value">{s.value}</span>
@@ -41,7 +41,7 @@ const webAppUrl = site.appUrl;
         </a>
       </div>
 
-      <ul class="hero-trust" aria-label="What you get">
+      <ul class="hero-trust" aria-label={i.trustLabel}>
         {i.trustRail.map((item) => (
           <li class="hero-trust-item">
             <span aria-hidden="true" class="hero-trust-tick">✓</span>

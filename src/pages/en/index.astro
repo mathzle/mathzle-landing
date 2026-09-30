@@ -7,8 +7,6 @@ import Hero from '../../components/sections/Hero.astro';
 import HowItWorks from '../../components/sections/HowItWorks.astro';
 import WorldsGrid from '../../components/sections/WorldsGrid.astro';
 import TrustSignals from '../../components/sections/TrustSignals.astro';
-import Screenshots from '../../components/sections/Screenshots.astro';
-import Testimonials from '../../components/sections/Testimonials.astro';
 import Pricing from '../../components/sections/Pricing.astro';
 import FAQ from '../../components/sections/FAQ.astro';
 import CtaCapture from '../../components/sections/CtaCapture.astro';
@@ -18,7 +16,7 @@ const path = '/en/';
 ---
 <Base
   title="Mathzle — Math made for kids ages 6–11"
-  description="Make math an adventure. Six worlds, hundreds of lessons. Free to start, runs in any browser — no install, no app store."
+  description="Make math an adventure. Six worlds, short math games. Free to start, runs in any browser — no install, no app store."
   locale={locale}
   path={path}
 >
@@ -30,8 +28,6 @@ const path = '/en/';
     <WorldsGrid locale={locale} />
     <SectionDivider flip />
     <TrustSignals locale={locale} />
-    <Screenshots locale={locale} />
-    <Testimonials locale={locale} />
     <SectionDivider />
     <Pricing locale={locale} />
     <FAQ locale={locale} />
