@@ -1,0 +1,43 @@
+src/pages/en/contact.astro
+  s_6a8dd77299ee2b::t_9b4b5e8c98dae5 1-40
+tests/e2e/faq-contact.spec.ts
+  s_6a8dd77299ee2b::t_187ae963d6bb21 1-16
+src/components/Footer.astro
+  s_6a8dd77299ee2b::t_922b6cf8269b14 19
+src/data/claims.ts
+  s_6a8dd77299ee2b::t_d13a9e45a679ad 55-56
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_338036f29501e1 95-107
+src/pages/en/faq.astro
+  s_6a8dd77299ee2b::t_e66bb58f44e3ee 7,10,12,15
+src/pages/vi/contact.astro
+  s_6a8dd77299ee2b::t_7b8f4b8fc6956c 1-40
+src/components/sections/FAQ.astro
+  s_6a8dd77299ee2b::t_e96522ad6bfa46 11-13
+  s_6a8dd77299ee2b::t_1ab8163c59cf95 44-46
+  s_6a8dd77299ee2b::t_2d279b8123ac84 30
+  s_6a8dd77299ee2b::t_21617a34d69321 37-43,47-53
+  s_6a8dd77299ee2b::t_413b68fb2eed54 64-65
+tests/e2e/footer.spec.ts
+  s_6a8dd77299ee2b::t_ce1b19945121c1 9
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_6a53a648c3a559 94-106
+src/pages/vi/faq.astro
+  s_6a8dd77299ee2b::t_25b1e829ec940b 7,10,12,15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "476c1c46b9fbd21999abc6a98d21dcdf68120e4f",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
