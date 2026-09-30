@@ -103,5 +103,29 @@
   "media": {
     "pause": "Tạm dừng video",
     "play": "Phát video"
+  },
+  "actions": {
+    "primary": "Cho con chơi thử miễn phí",
+    "primaryShort": "Chơi thử miễn phí",
+    "secondary": "Xem con sẽ học gì",
+    "reassureLabel": "Cam kết khi bắt đầu",
+    "reassure": ["Không cần thẻ", "Không cần tải app", "Mở là chơi"]
+  },
+  "heroV2": {
+    "eyebrow": "Toán lớp {claim:gradeRange} · Bé {claim:ageRange} tuổi",
+    "headline": "Con học toán như chơi game. ==Bố mẹ thấy rõ con tiến bộ.==",
+    "lead": "Mathzle là trò chơi toán chạy ngay trên trình duyệt{if:curriculumGdpt2018}, bám chương trình GDPT 2018{/if}. Con chơi qua {claim:worlds} thế giới{if:skillReport}; bố mẹ thấy con tiến bộ ở từng kỹ năng{/if}.",
+    "frameLabel": "Video: một bé đang chơi màn đầu tiên trong Mathzle"
+  },
+  "try": {
+    "title": "Thử một câu",
+    "prompt": "Chọn đáp án đúng",
+    "correct": "Chuẩn! Trong Mathzle, mỗi câu như thế này nằm trong một câu chuyện nhỏ.",
+    "next": "Câu khác",
+    "hints": [
+      "Gần rồi! Đếm tiếp từ 7 thêm 5 bước nhé.",
+      "Gần rồi! Bớt 5 trước để còn 10, rồi bớt tiếp 3.",
+      "Gần rồi! Lấy 1 từ 6 bù cho 9 thành 10, rồi cộng phần còn lại."
+    ]
   }
 }

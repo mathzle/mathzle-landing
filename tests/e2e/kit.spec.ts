@@ -25,6 +25,9 @@ test.describe('reduced motion', () => {
   test('reveal content and marker are fully visible immediately', async ({ page }) => {
     await page.goto('/kit');
     const reveal = page.locator('.reveal').first();
+    // Kit keeps growing (hero + demo sections) — scroll so the scroll-linked
+    // reveal animation has actually entered before asserting on it.
+    await reveal.scrollIntoViewIfNeeded();
     await expect(reveal).toHaveCSS('opacity', '1');
     const mark = page.locator('mark.marker').first();
     await expect(mark).toHaveCSS('background-size', '100% 100%');

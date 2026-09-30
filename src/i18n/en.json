@@ -102,5 +102,29 @@
   "media": {
     "pause": "Pause video",
     "play": "Play video"
+  },
+  "actions": {
+    "primary": "Let your child try it free",
+    "primaryShort": "Try it free",
+    "secondary": "See what they'll learn",
+    "reassureLabel": "What starting takes",
+    "reassure": ["No card needed", "Nothing to install", "Plays instantly"]
+  },
+  "heroV2": {
+    "eyebrow": "Grades {claim:gradeRange} · Ages {claim:ageRange}",
+    "headline": "Math your child wants to play. ==Progress you can actually see.==",
+    "lead": "Mathzle is a math game that runs right in the browser{if:curriculumGdpt2018}, aligned with Vietnam's GDPT 2018 curriculum{/if}. Your child plays through {claim:worlds} worlds{if:skillReport}; you see their progress skill by skill{/if}.",
+    "frameLabel": "Video: a child playing their first Mathzle level"
+  },
+  "try": {
+    "title": "Try one",
+    "prompt": "Pick the right answer",
+    "correct": "Nice! In Mathzle, every question like this lives inside a little story.",
+    "next": "Another one",
+    "hints": [
+      "Close! Count on from 7, five more steps.",
+      "Close! Take away 5 to get to 10, then 3 more.",
+      "Close! Move 1 from the 6 to make 9 into 10, then add the rest."
+    ]
   }
 }
