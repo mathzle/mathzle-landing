@@ -6,7 +6,7 @@ import FAQ from '../../components/sections/FAQ.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import { t } from '../../utils/i18n';
 const locale = 'en' as const;
-const path = '/en/faq';
+const path = '/en/faq/';
 const f = t(locale).faqPage;
 ---
 <Base title={`${f.title} — Mathzle`} description={f.description} locale={locale} path={path}>

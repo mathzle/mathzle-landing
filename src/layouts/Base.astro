@@ -13,7 +13,7 @@ interface Props {
   title: string;
   description: string;
   locale: 'en' | 'vi';
-  path: string;            // canonical path e.g. '/en/' or '/vi/about'
+  path: string;            // canonical path, always slash-terminated: '/en/', '/vi/about/'
   ogImage?: string;
   noindex?: boolean;
 }

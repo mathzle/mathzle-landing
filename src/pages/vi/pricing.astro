@@ -9,7 +9,7 @@ import FinalCta from '../../components/sections/FinalCta.astro';
 import { copyText } from '../../lib/copy';
 import { t } from '../../utils/i18n';
 const locale = 'vi' as const;
-const path = '/vi/pricing';
+const path = '/vi/pricing/';
 const p = t(locale).pricingPage;
 ---
 <Base title={`${p.title} — Mathzle`} description={copyText(p.description, locale)} locale={locale} path={path}>

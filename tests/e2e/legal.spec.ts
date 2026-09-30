@@ -3,7 +3,7 @@ import { site } from '../../src/data/site';
 
 for (const locale of ['vi', 'en']) {
   test(`${locale}/privacy opens with a parent summary`, async ({ page }) => {
-    await page.goto(`/${locale}/privacy`);
+    await page.goto(`/${locale}/privacy/`);
     const s = page.locator('.parent-summary');
     await expect(s).toBeVisible();
     expect(await s.locator('li').count()).toBeGreaterThanOrEqual(3);

@@ -5,7 +5,7 @@ test('safety section is dark, lists commitments and links to privacy', async ({ 
   const s = page.locator('#safety');
   await expect(s).toHaveCSS('background-color', 'rgb(23, 21, 43)');
   expect(await s.locator('.sg-item').count()).toBeGreaterThanOrEqual(3);
-  await expect(s.getByRole('link', { name: /chính sách bảo mật/i })).toHaveAttribute('href', '/vi/privacy');
+  await expect(s.getByRole('link', { name: /chính sách bảo mật/i })).toHaveAttribute('href', '/vi/privacy/');
 });
 
 test('safety text meets contrast on ink', async ({ page }) => {

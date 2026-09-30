@@ -9,7 +9,7 @@ import { site } from '../../data/site';
 import { copy } from '../../lib/copy';
 import { t } from '../../utils/i18n';
 const locale = 'vi' as const;
-const path = '/vi/contact';
+const path = '/vi/contact/';
 const c = t(locale).contact;
 ---
 <Base title={`${c.title} — Mathzle`} description={c.description} locale={locale} path={path}>
@@ -27,7 +27,7 @@ const c = t(locale).contact;
           <li class="mk-card"><Icon name="MessageCircle" /><span class="mk-caption">{c.zalo}</span><a href={site.contact.zaloUrl} target="_blank" rel="noopener noreferrer">{c.zaloCta} →</a></li>
         )}
       </ul>
-      <p class="mk-body"><a href={`/${locale}/faq`}>{c.faqHint}</a></p>
+      <p class="mk-body"><a href={`/${locale}/faq/`}>{c.faqHint}</a></p>
     </Section>
   </main>
   <Footer locale={locale} path={path} />

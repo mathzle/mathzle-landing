@@ -20,7 +20,7 @@ export function getLocaleFromPath(path: string): Locale {
   return path.startsWith('/vi') ? 'vi' : 'en';
 }
 
-/** Swap the locale prefix in a path: '/en/about' → '/vi/about' */
+/** Swap the locale prefix in a path: '/en/about/' → '/vi/about/' */
 export function altPathForLocale(path: string, target: Locale): string {
   return path.replace(/^\/(en|vi)(\/|$)/, `/${target}$2`);
 }

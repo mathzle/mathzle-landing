@@ -23,7 +23,7 @@ const advisors = people.filter((p) => p.role === 'advisor');
       <SectionHeader id="story-title" locale={locale} eyebrow={i.eyebrow} title={i.title} align="center" />
       {i.paragraphs.map((p) => <p class="mk-body">{p}</p>)}
       {founder?.bio && <p class="mk-body st-bio">{founder.bio}</p>}
-      {showAboutLink && <a class="btn-text" href={`/${locale}/about`}>{i.aboutLink} →</a>}
+      {showAboutLink && <a class="btn-text" href={`/${locale}/about/`}>{i.aboutLink} →</a>}
     </div>
   </div>
   {advisors.length > 0 && (

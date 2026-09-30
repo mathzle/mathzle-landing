@@ -10,7 +10,7 @@ import FinalCta from '../../components/sections/FinalCta.astro';
 import { copyText } from '../../lib/copy';
 import { t } from '../../utils/i18n';
 const locale = 'en' as const;
-const path = '/en/about';
+const path = '/en/about/';
 const a = t(locale).about;
 ---
 <Base title={`${a.title} — Mathzle`} description={copyText(a.description, locale)} locale={locale} path={path}>

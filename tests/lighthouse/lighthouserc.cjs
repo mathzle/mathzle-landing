@@ -12,7 +12,7 @@ module.exports = {
     collect: {
       startServerCommand: 'pnpm preview',
       startServerReadyPattern: 'Local',
-      url: ['http://localhost:4321/vi/', 'http://localhost:4321/en/', 'http://localhost:4321/vi/pricing', 'http://localhost:4321/vi/faq'],
+      url: ['http://localhost:4321/vi/', 'http://localhost:4321/en/', 'http://localhost:4321/vi/pricing/', 'http://localhost:4321/vi/faq/'],
       numberOfRuns: 3,
       settings: {
         formFactor: 'mobile',

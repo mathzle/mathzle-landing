@@ -29,7 +29,7 @@ test('FAQ accordion expands and exposes schema.org markup', async ({ page }) => 
 });
 
 test('pricing: free CTA goes to the app, premium CTA goes to the waitlist while not on sale', async ({ page }) => {
-  await page.goto('/en/pricing');
+  await page.goto('/en/pricing/');
   await expect(page.locator('a[data-track="cta-pricing-free"]')).toHaveAttribute('href', /app\.mathzle\.com/);
   const prem = page.locator('a[data-track="cta-pricing-premium"]');
   await expect(prem).toHaveAttribute('href', '#premium-waitlist');
