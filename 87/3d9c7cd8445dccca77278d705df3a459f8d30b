@@ -1,0 +1,27 @@
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_09b9fb5b6febd8 98-101
+tests/e2e/footer.spec.ts
+  s_6a8dd77299ee2b::t_f4d77883a4548c 1-18
+src/components/Footer.astro
+  s_6a8dd77299ee2b::t_23921a4e38c5bd 116-123
+  s_6a8dd77299ee2b::t_5851c319124b43 3
+  s_6a8dd77299ee2b::t_77126f950f08eb 40-41,48-55
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_f039acd44745b7 97-100
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "873d9c7cd8445dccca77278d705df3a459f8d30b",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
