@@ -1,0 +1,30 @@
+tests/e2e/mobile.spec.ts
+  s_6a8dd77299ee2b::t_dbf6aa79174ca5 1-37
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_a15c1672c67a96 8-10
+src/components/Nav.astro
+  s_6a8dd77299ee2b::t_1c73a5dcedb0c3 125-135,140-145
+  s_6a8dd77299ee2b::t_3f9cd16019650c 4,14-19
+  s_6a8dd77299ee2b::t_6fb9cbb5561c2e 34,44,46-55,60
+  s_6a8dd77299ee2b::t_35ad3ccdc8778c 61
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_665ea2ef329186 9-11
+src/components/MobileDrawer.astro
+  s_6a8dd77299ee2b::t_bb7131ca56ba4a 1-75
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e536a5fd8e99445258944a029008bd0a5addfee1",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
