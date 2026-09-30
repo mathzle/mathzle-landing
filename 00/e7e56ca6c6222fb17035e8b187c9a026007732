@@ -1,0 +1,23 @@
+src/content/legal/en/privacy.md
+  s_6a8dd77299ee2b::t_dfd02e24199a66 93
+  s_6a8dd77299ee2b::t_455093dc7b892d 20,28,53-54,76,81,92,102,112,115,133,137,144,146,166-174,193,207,209,234
+src/content/legal/vi/privacy.md
+  s_6a8dd77299ee2b::t_62df97ae09cf54 3-4,20,26,28,53-54,76,81,92,102,112,115,133,137,144,146,166-174,193,207,209
+  s_6a8dd77299ee2b::t_dfd02e24199a66 93
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "00e7e56ca6c6222fb17035e8b187c9a026007732",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
