@@ -1,0 +1,38 @@
+src/components/Button.astro
+  s_6a8dd77299ee2b::t_ff7047105cb47b 4-10,15-16,27,37-45,54,66
+src/components/Icon.astro
+  s_6a8dd77299ee2b::t_0e549362cee834 1-9
+package.json
+  s_6a8dd77299ee2b::t_cbfae9ff0577ba 27
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_ad913d02a9c0a1 34-48
+  s_6a8dd77299ee2b::t_3691c27d577fb4 5-6
+tests/e2e/kit.spec.ts
+  s_6a8dd77299ee2b::t_de730f29b149bd 33-46
+tests/unit/icons.test.ts
+  s_6a8dd77299ee2b::t_ec0c009d110f35 1-15
+src/lib/icons.ts
+  s_6a8dd77299ee2b::t_6265f239608388 1-22
+src/styles/global.css
+  s_6a8dd77299ee2b::t_0a4f1592bffa71 185
+  s_6a8dd77299ee2b::t_df34894c0658de 92
+  s_6a8dd77299ee2b::t_56f3f62aa4e3cf 182-184,186-191
+pnpm-lock.yaml
+  s_6a8dd77299ee2b::t_ad197d5e089aca 26-28,2200-2202,2952-2953,4078,5678-5679,6740
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "356d6bda285c0bcd32efeb6b6a96694ba3230d76",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
