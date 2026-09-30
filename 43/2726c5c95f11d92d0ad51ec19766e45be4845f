@@ -1,0 +1,49 @@
+tests/unit/signup.test.ts
+  s_6a8dd77299ee2b::t_3799989e560a65 1-49
+src/components/sections/Voices.astro
+  s_6a8dd77299ee2b::t_7df2cd4d660a91 23
+  s_6a8dd77299ee2b::t_50ba5197874417 1-22,24-51
+src/content.config.ts
+  s_6a8dd77299ee2b::t_7f5da93efe27b0 42-64
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_80956dccbf2a24 92-93
+  s_6a8dd77299ee2b::t_274267fd20b0c5 216-230
+src/components/sections/CtaCapture.astro
+  s_6a8dd77299ee2b::t_d3deae5b909db2 18,23
+src/data/claims.ts
+  s_6a8dd77299ee2b::t_7eb41b2c7e86a0 50-52
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_01c5db8e113bd9 217-231
+  s_6a8dd77299ee2b::t_08279b8568d44b 93-94
+tests/e2e/voices.spec.ts
+  s_6a8dd77299ee2b::t_2ba6a640ebea8a 1-26
+src/content/testimonials/en.json
+  s_6a8dd77299ee2b::t_2c7ebe0380f731 1
+src/pages/api/signup.ts
+  s_6a8dd77299ee2b::t_8da4421f62a925 5-9,12,17-21,30-32,46-50,52,55,63-66
+src/content/testimonials/vi.json
+  s_6a8dd77299ee2b::t_5ace21ef65f51e 1
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_4722099141fe01 31
+  s_6a8dd77299ee2b::t_9046aef538bc6e 16
+src/styles/global.css
+  s_6a8dd77299ee2b::t_2902b375a2642e 211-222
+src/components/islands/SignupForm.tsx
+  s_6a8dd77299ee2b::t_197d9132ad19ec 6,11-12,15,17-26,38,40-42,53,64,67-69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "432726c5c95f11d92d0ad51ec19766e45be4845f",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
