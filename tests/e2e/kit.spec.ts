@@ -30,3 +30,17 @@ test('headline uses balanced wrapping', async ({ page }) => {
   await page.goto('/kit');
   await expect(page.locator('.mk-display').first()).toHaveCSS('text-wrap', /balance/);
 });
+
+test('button sizes are ordered and never wrap', async ({ page }) => {
+  await page.goto('/kit');
+  const h = async (t: string) => (await page.locator(`[data-track="${t}"]`).boundingBox())!.height;
+  const [sm, md, lg] = [await h('kit-sm'), await h('kit-md'), await h('kit-lg')];
+  expect(sm).toBeLessThan(md);
+  expect(md).toBeLessThan(lg);
+  await expect(page.locator('[data-track="kit-lg"]')).toHaveCSS('white-space', 'nowrap');
+});
+
+test('icons render as inline svg', async ({ page }) => {
+  await page.goto('/kit');
+  await expect(page.locator('#kit-buttons .icon svg')).toHaveCount(6);
+});

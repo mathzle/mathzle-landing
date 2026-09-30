@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
 import { copy } from '../lib/copy';
 const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
 ---
@@ -29,6 +31,20 @@ const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
       <p class="mk-lead">Lead paragraph.</p>
       <p class="mk-body">Body paragraph.</p>
     </Section>
-    <!-- Task 8–10 append: buttons, icons, frames, world cards -->
+    <Section id="kit-buttons">
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
+        <Button href="#" size="sm" track="kit-sm">Small</Button>
+        <Button href="#" track="kit-md">Medium</Button>
+        <Button href="#" size="lg" track="kit-lg">Large →</Button>
+        <Button href="#" variant="secondary" track="kit-secondary">Secondary</Button>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1rem">
+        {(['ShieldCheck', 'MessageCircleOff', 'Lock', 'Ban', 'Server', 'Trash2'] as const).map((n) => <Icon name={n} size={24} />)}
+      </div>
+    </Section>
+    <Section id="kit-ink" tone="ink">
+      <Button href="#" variant="onInk" size="lg" track="kit-on-ink">On ink</Button>
+    </Section>
+    <!-- Task 9–10 append: frames, world cards -->
   </main>
 </Base>

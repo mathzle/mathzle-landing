@@ -24,6 +24,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@fontsource/be-vietnam-pro": "^5.2.8",
     "astro": "^6.3.5",
+    "lucide-static": "1.49.0",
     "preact": "^10.29.2"
   },
   "devDependencies": {

@@ -1,15 +1,19 @@
 ---
 /**
  * Pushable button — mirrors the AppButton mechanic from mathzle-ui.
- * Three variants:
- *   - primary: solid fill + 4px darker bottom border + translateY on :active
- *   - outline: transparent fill + colored bottom border
- *   - text:    no fill, no border, opacity dip on :active
+ * Five variants:
+ *   - primary:   solid fill + 4px darker bottom border + translateY on :active
+ *   - secondary: surface fill + hairline border, same push mechanic
+ *   - onInk:     surface fill for use on .mk-tone-ink sections
+ *   - outline:   transparent fill + colored bottom border
+ *   - text:      no fill, no border, opacity dip on :active
+ * Three sizes (sm/md/lg) — md is the default and adds no size class.
  * Renders <a> if href is provided, otherwise <button>.
  */
 interface Props {
   href?: string;
-  variant?: 'primary' | 'outline' | 'text';
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'onInk' | 'outline' | 'text';
   color?: string;
   ariaLabel?: string;
   track?: string;
@@ -20,6 +24,7 @@ interface Props {
 
 const {
   href,
+  size = 'md',
   variant = 'primary',
   color,
   ariaLabel,
@@ -29,7 +34,15 @@ const {
   external = false,
 } = Astro.props;
 
-const baseClass = variant === 'primary' ? 'btn-push' : variant === 'text' ? 'btn-text' : 'btn-outline';
+const variantClass = {
+  primary: 'btn-push',
+  secondary: 'btn-push btn-secondary',
+  onInk: 'btn-push btn-on-ink',
+  outline: 'btn-outline',
+  text: 'btn-text',
+}[variant];
+const sizeClass = size === 'md' || variant === 'text' || variant === 'outline' ? '' : `btn-${size}`;
+const classes = [variantClass, sizeClass, className].filter(Boolean).join(' ');
 const styleOverride = color
   ? `--color-primary: ${color}; --color-primary-dark: color-mix(in srgb, ${color} 75%, black);`
   : undefined;
@@ -38,7 +51,7 @@ const styleOverride = color
   href ? (
     <a
       href={href}
-      class={[baseClass, className].filter(Boolean).join(' ')}
+      class={classes}
       style={styleOverride}
       aria-label={ariaLabel}
       data-track={track}
@@ -50,7 +63,7 @@ const styleOverride = color
   ) : (
     <button
       type={type}
-      class={[baseClass, className].filter(Boolean).join(' ')}
+      class={classes}
       style={styleOverride}
       aria-label={ariaLabel}
       data-track={track}
