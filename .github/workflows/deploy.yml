@@ -30,12 +30,21 @@ jobs:
       - name: Unit tests
         run: pnpm test:unit
 
-      - name: Build
-        run: pnpm build
+      - name: Launch gate (site config + every claim verified)
+        run: pnpm launch:check
+        env:
+          PUBLIC_APP_URL_CONFIRMED: ${{ vars.PUBLIC_APP_URL_CONFIRMED }}
+          PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
+
+      - name: Build (strict claims)
+        run: pnpm build:prod
         env:
           PUBLIC_APP_URL: ${{ vars.PUBLIC_APP_URL }}
           PUBLIC_APP_URL_CONFIRMED: ${{ vars.PUBLIC_APP_URL_CONFIRMED }}
           PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
+
+      - name: Budgets
+        run: pnpm check:js && pnpm check:media
 
       - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v3

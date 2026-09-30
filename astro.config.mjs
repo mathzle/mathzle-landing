@@ -9,7 +9,14 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://mathzle.com',
   output: 'static',
-  adapter: cloudflare({ imageService: 'compile' }),
+  adapter: cloudflare({
+    imageService: 'compile',
+    // Strict builds (STRICT_CLAIMS=1) must fail the process when a page throws
+    // during prerender. The default workerd prerender environment swallows
+    // per-page errors (logs them, still exits 0), so route strict builds
+    // through the node prerender environment where errors propagate.
+    ...(process.env.STRICT_CLAIMS === '1' ? { prerenderEnvironment: 'node' } : {}),
+  }),
   integrations: [
     sitemap({ filter: (page) => !/\/(kit|og)\//.test(new URL(page).pathname + '/') }),
     preact(),

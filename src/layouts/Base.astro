@@ -2,6 +2,12 @@
 import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import { site } from '../data/site';
+// Preload the weight-800 Be Vietnam Pro subset used by the hero <h1> (.mk-display,
+// the LCP element on every marketing page) so the swap-in doesn't repaint the LCP
+// late. Locale-specific: the vi hero needs Vietnamese diacritics, the en hero only
+// needs the latin subset.
+import bvp800Vietnamese from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-vietnamese-800-normal.woff2?url';
+import bvp800Latin from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-latin-800-normal.woff2?url';
 
 interface Props {
   title: string;
@@ -19,6 +25,13 @@ const { title, description, locale, path, ogImage, noindex } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href={locale === 'vi' ? bvp800Vietnamese : bvp800Latin}
+    />
     <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
