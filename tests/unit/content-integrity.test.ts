@@ -19,5 +19,14 @@ describe('content integrity', () => {
     it(`${name}: every "if" and {claim:…} names a real claim`, () => {
       for (const key of [...allIfs(dict), ...allClaimRefs(dict)].filter(Boolean)) expect(claims).toHaveProperty(key);
     });
+    it(`${name}: proof stats that may be confirmed absent are gated by their own claim`, () => {
+      // levels/skills can be verified as "none" (null) — the item must then hide,
+      // not throw in copy() ("confirmed absent — rewrite the copy").
+      for (const key of ['levels', 'skills']) {
+        const item = dict.proof.items.find((it) => it.value === `{claim:${key}}`);
+        expect(item, key).toBeDefined();
+        expect(item!.if, key).toBe(key);
+      }
+    });
   }
 });

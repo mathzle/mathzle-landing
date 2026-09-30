@@ -160,8 +160,8 @@
     "label": "Mathzle bằng con số",
     "items": [
       { "if": "", "value": "{claim:worlds}", "label": "thế giới" },
-      { "if": "", "value": "{claim:levels}", "label": "màn chơi" },
-      { "if": "", "value": "{claim:skills}", "label": "kỹ năng lớp {claim:gradeRange}" },
+      { "if": "levels", "value": "{claim:levels}", "label": "màn chơi" },
+      { "if": "skills", "value": "{claim:skills}", "label": "kỹ năng lớp {claim:gradeRange}" },
       { "if": "noAds", "value": "0", "label": "quảng cáo" }
     ],
     "footnote": "Số liệu nội dung tính đến {claim:contentAsOf}.{if:curriculumGdpt2018} Nội dung bám chương trình GDPT 2018.{/if}"

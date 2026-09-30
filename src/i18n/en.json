@@ -159,8 +159,8 @@
     "label": "Mathzle in numbers",
     "items": [
       { "if": "", "value": "{claim:worlds}", "label": "worlds" },
-      { "if": "", "value": "{claim:levels}", "label": "levels" },
-      { "if": "", "value": "{claim:skills}", "label": "grade {claim:gradeRange} skills" },
+      { "if": "levels", "value": "{claim:levels}", "label": "levels" },
+      { "if": "skills", "value": "{claim:skills}", "label": "grade {claim:gradeRange} skills" },
       { "if": "noAds", "value": "0", "label": "ads" }
     ],
     "footnote": "Content numbers as of {claim:contentAsOf}.{if:curriculumGdpt2018} Content follows Vietnam's GDPT 2018 curriculum.{/if}"
