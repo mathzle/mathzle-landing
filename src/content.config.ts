@@ -39,4 +39,26 @@ const teamCollection = defineCollection({
   }),
 });
 
-export const collections = { faq: faqCollection, curriculum: curriculumCollection, team: teamCollection };
+const testimonialsCollection = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/content/testimonials' }),
+  schema: ({ image }) => z.object({
+    items: z.array(z.object({
+      quote: z.string().min(10),
+      highlight: z.string().optional(),
+      parent: z.string().min(2),          // "Mẹ bé An"
+      childGrade: z.number().int().min(1).max(5),
+      city: z.string().min(2),
+      photo: image().optional(),
+      featured: z.boolean().default(false),
+      consentDate: isoDate,
+      source: z.string().min(3),          // "beta survey 2026-11"
+    }).refine((t) => !t.highlight || t.quote.includes(t.highlight), 'highlight must be a substring of quote')),
+  }),
+});
+
+export const collections = {
+  faq: faqCollection,
+  curriculum: curriculumCollection,
+  team: teamCollection,
+  testimonials: testimonialsCollection,
+};

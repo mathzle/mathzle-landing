@@ -90,7 +90,8 @@
     "placeholder": "email@cua-ban.com",
     "button": "Đăng ký",
     "success": "Cảm ơn! Hãy kiểm tra email của bạn.",
-    "error": "Có lỗi xảy ra. Bạn thử lại nhé?"
+    "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
+    "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
   },
   "footer": {
     "tagline": "Toán học dành cho trẻ em.",
@@ -213,5 +214,20 @@
     ],
     "advisorsTitle": "Cố vấn chuyên môn",
     "aboutLink": "Đọc thêm về chúng mình"
+  },
+  "voices": {
+    "eyebrow": "Phụ huynh nói gì",
+    "title": "Từ những gia đình ==đang chơi Mathzle.==",
+    "credit": "{parent} · lớp {grade} · {city}",
+    "beta": {
+      "eyebrow": "Chương trình phụ huynh đồng hành",
+      "title": "Chúng mình đang tìm =={claim:betaSeats} gia đình== chơi thử và góp ý.",
+      "body": "Con chơi Mathzle mỗi tuần, bố mẹ trả lời một khảo sát ngắn mỗi tháng. Đổi lại, gia đình bạn được dùng Premium miễn phí {claim:betaRewardMonths} tháng khi mở bán.",
+      "placeholder": "email@cua-ban.com",
+      "button": "Đăng ký tham gia",
+      "success": "Cảm ơn bạn! Chúng mình sẽ email khi có suất.",
+      "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
+      "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
+    }
   }
 }

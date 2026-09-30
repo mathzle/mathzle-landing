@@ -89,7 +89,8 @@
     "placeholder": "your@email.com",
     "button": "Subscribe",
     "success": "Welcome! Check your inbox.",
-    "error": "Something went wrong. Try again?"
+    "error": "Something went wrong. Try again?",
+    "invalid": "That email doesn't look right. Mind checking it?"
   },
   "footer": {
     "tagline": "Math made for kids.",
@@ -212,5 +213,20 @@
     ],
     "advisorsTitle": "Advisors",
     "aboutLink": "More about us"
+  },
+  "voices": {
+    "eyebrow": "What parents say",
+    "title": "From families ==playing Mathzle today.==",
+    "credit": "{parent} · grade {grade} · {city}",
+    "beta": {
+      "eyebrow": "Founding families program",
+      "title": "We're looking for =={claim:betaSeats} families== to play and give feedback.",
+      "body": "Your child plays each week; you answer a short survey each month. In return, your family gets Premium free for {claim:betaRewardMonths} months at launch.",
+      "placeholder": "your@email.com",
+      "button": "Count us in",
+      "success": "Thank you! We'll email you when a spot opens.",
+      "error": "Something went wrong. Try again?",
+      "invalid": "That email doesn't look right. Mind checking it?"
+    }
   }
 }

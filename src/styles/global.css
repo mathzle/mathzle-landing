@@ -208,6 +208,18 @@
     opacity: 0.7;
   }
 
+  /* Signup form — shared by CtaCapture, Pricing, and Voices' beta program.
+     Moved here (Task 17) so every {claim:…}-adjacent form looks the same. */
+  .cta-form { display: flex; gap: 0.5rem; max-width: 480px; flex-wrap: wrap; }
+  .cta-form input { flex: 1; min-width: 200px; padding: 0.875rem 1rem; border-radius: var(--radius-input);
+    border: 1.5px solid var(--color-mk-hairline-strong); background: var(--color-surface); font: inherit; color: var(--color-text-primary); }
+  .cta-form input:focus { outline: none; border-color: var(--color-primary); }
+  .cta-form .btn-push { min-height: auto; padding: 0.875rem 1.5rem; }
+  .cta-form--ink input { border-color: transparent; }
+  .cta-success { font-weight: 600; color: var(--color-success); }
+  .cta-error { width: 100%; color: var(--color-error); font-size: 0.875rem; margin: 0.25rem 0 0; }
+  @media (max-width: 540px) { .cta-form { flex-direction: column; } .cta-form input, .cta-form .btn-push { width: 100%; } }
+
   /* Reduced-motion override — respect the system flag */
   @media (prefers-reduced-motion: reduce) {
     .btn-push {

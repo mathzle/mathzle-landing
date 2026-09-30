@@ -13,6 +13,7 @@ import Method from '../components/sections/Method.astro';
 import ForParents from '../components/sections/ForParents.astro';
 import Safety from '../components/sections/Safety.astro';
 import Story from '../components/sections/Story.astro';
+import Voices from '../components/sections/Voices.astro';
 import { Image } from 'astro:assets';
 import { screen } from '../data/media';
 import { copy } from '../lib/copy';
@@ -27,6 +28,7 @@ const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
     <ForParents locale="vi" />
     <Safety locale="vi" />
     <Story locale="vi" />
+    <Voices locale="vi" />
     {tones.map((tone) => (
       <Section id={`kit-tone-${tone}`} tone={tone}>
         <SectionHeader

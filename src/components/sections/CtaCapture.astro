@@ -15,10 +15,12 @@ const i = t(locale).cta;
     <p class="cta-sub">{i.subtitle}</p>
     <SignupForm
       locale={locale}
+      source="newsletter"
       placeholder={i.placeholder}
       button={i.button}
       success={i.success}
       error={i.error}
+      invalid={i.invalid}
       client:only="preact"
     />
   </div>
@@ -59,44 +61,6 @@ const i = t(locale).cta;
     line-height: 1.5;
   }
   .cta-form {
-    display: flex;
-    gap: 0.5rem;
-    max-width: 480px;
     margin: 0 auto;
-    flex-wrap: wrap;
-  }
-  .cta-form input {
-    flex: 1;
-    min-width: 200px;
-    padding: 0.875rem 1rem;
-    border-radius: var(--radius-input);
-    border: 1.5px solid var(--color-border);
-    background: var(--color-surface);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--color-text-primary);
-  }
-  .cta-form input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-  }
-  .cta-form .btn-push {
-    padding: 0.875rem 1.5rem;
-    min-height: auto;
-  }
-  .cta-success {
-    font-size: 1.125rem;
-    color: var(--color-success);
-    font-weight: 600;
-  }
-  .cta-error {
-    width: 100%;
-    color: var(--color-error);
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-  }
-  @media (max-width: 540px) {
-    .cta-form { flex-direction: column; }
-    .cta-form input, .cta-form .btn-push { width: 100%; }
   }
 </style>
