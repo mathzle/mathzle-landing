@@ -1,0 +1,31 @@
+tests/e2e/final-sticky-footer.spec.ts
+  s_6a8dd77299ee2b::t_ca8235b7a7a908 1-31
+src/components/Footer.astro
+  s_6a8dd77299ee2b::t_c0259ba16d9db7 3-5,7,10-26,31-33,35-36,38-45,47-52,55-66
+src/components/sections/FinalCta.astro
+  s_6a8dd77299ee2b::t_c8e8390824425b 1-37
+src/components/StickyCta.astro
+  s_6a8dd77299ee2b::t_d4a618ebd5f3a7 1-44
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_0b33864390abcb 134-138,140-146,148-149,151,153,155-156
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_da994ce5ab6517 135-139,141-147,149-150,152,154,156-157
+tests/e2e/footer.spec.ts
+  s_6a8dd77299ee2b::t_3e4cb5de1c6d0e 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "91af6e3e142dcb7aa395de1595268816ae19c173",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
