@@ -1,0 +1,30 @@
+tests/e2e/og.spec.ts
+  s_6a8dd77299ee2b::t_3b1a757ad66a5b 1-14
+src/components/SEO.astro
+  s_6a8dd77299ee2b::t_9ef7c4188cb06b 68-69
+  s_6a8dd77299ee2b::t_43455a54bc4608 25
+src/pages/og/[locale].astro
+  s_6a8dd77299ee2b::t_c984b9c2d88bdc 1-29
+DEPLOY.md
+  s_6a8dd77299ee2b::t_ec887d4342be44 164
+scripts/og.mjs
+  s_6a8dd77299ee2b::t_a6345a7f6d8f2e 1-13
+package.json
+  s_6a8dd77299ee2b::t_7b47851247be4a 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "ae472c28601bb79fc73e4c450b10894575bb85b9",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
