@@ -166,11 +166,11 @@ Walk through this once before flipping `mathzle.com` from "showing the `*.worker
 - [ ] **Vietnamese copy:** a native speaker has reviewed `src/i18n/vi.json` and the prose pages (`about`, `privacy`, `terms`). Remove the `_note` field in `vi.json` afterwards
 - [ ] **Testimonials:** `src/content/testimonials/{en,vi}.json` are empty by design (the section stays hidden). Only add real, attributable quotes you have written permission to use
 - [ ] **Privacy + Terms:** a lawyer has reviewed the copy, especially the Decree 13 / COPPA section, and `site.legal` (company name, address, `policiesReviewedOn`) is filled in `src/data/site.ts`. The legal body text restates claims (no ads/chat/data sale, ages) by hand — check it still matches `src/data/claims.ts`
-- [ ] **Pricing:** the `premium*` prices and `refundDays` in `src/data/claims.ts` are the real, verified numbers (`verifiedBy` set)
+- [ ] **Pricing:** the `premium*` prices and `refundDays` in `src/data/claims.ts` are the real, verified numbers (`verifiedBy` set). During the beta `site.pricing.public` is `false` (D-017): no Pricing section, `/pricing/` redirects to `/#voices`, no pricing links or billing FAQ. Flip it to `true` in `src/data/site.ts` at public launch
 
 ### Distribution
 - [ ] **Open Graph preview** looks right when you paste `https://mathzle.com/en/` into Slack / Facebook / Twitter — image, title, description all render
-- [ ] **OG images regenerated:** `public/og/{vi,en}.png` were generated before claim verification (P3 Task 22) — rerun `pnpm preview` + `pnpm og` afterward so the headline no longer carries the yellow unverified-claim highlight
+- [ ] **OG images regenerated:** `public/og/{vi,en}.png` were generated before claim verification (P3 Task 22), when the yellow unverified-claim highlight was always on — rerun `pnpm preview` + `pnpm og` so they are clean. (Since D-018 the highlight only shows when a URL carries `?claims`, e.g. `/vi/?claims`; unverified claims with no value yet are hidden instead of showing `[key]`.)
 - [ ] **Google Search Console** — both `https://mathzle.com/en/` and `https://mathzle.com/vi/` added as properties, ownership verified via DNS TXT, sitemap submitted
 - [ ] **Bing Webmaster Tools** — same
 - [ ] **First production deploy commit tagged:** `git tag v1.0.0 && git push --tags`
