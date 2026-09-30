@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import { copy } from '../lib/copy';
+const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
+---
+<Base title="Mathzle kit" description="Internal component kit" locale="vi" path="/vi/" noindex>
+  <main>
+    {tones.map((tone) => (
+      <Section id={`kit-tone-${tone}`} tone={tone}>
+        <SectionHeader
+          id={`kit-h-${tone}`}
+          locale="vi"
+          eyebrow={`Tone: ${tone}`}
+          title="Con học toán như chơi game. ==Bố mẹ thấy rõ con tiến bộ.=="
+          lead="Mathzle có {claim:worlds} thế giới. **Chạy ngay trên trình duyệt.**"
+        />
+        <div class="mk-card reveal" style="padding: 1.5rem">
+          <p class="mk-stat" set:html={copy('{claim:worlds}', 'vi')} />
+          <p class="mk-caption">Caption / footnote</p>
+        </div>
+      </Section>
+    ))}
+    <Section id="kit-type">
+      <h1 class="mk-display" set:html={copy('Display ==marker== headline', 'vi')} />
+      <h2 class="mk-h2">H2 heading</h2>
+      <h3 class="mk-h3">H3 heading</h3>
+      <p class="mk-lead">Lead paragraph.</p>
+      <p class="mk-body">Body paragraph.</p>
+    </Section>
+    <!-- Task 8–10 append: buttons, icons, frames, world cards -->
+  </main>
+</Base>

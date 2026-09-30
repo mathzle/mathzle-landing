@@ -9,14 +9,17 @@ interface Props {
   locale: 'en' | 'vi';
   path: string;            // canonical path e.g. '/en/' or '/vi/about'
   ogImage?: string;
+  noindex?: boolean;
 }
-const { title, description, locale, path, ogImage } = Astro.props;
+const { title, description, locale, path, ogImage, noindex } = Astro.props;
 ---
 <!doctype html>
 <html lang={locale === 'vi' ? 'vi' : 'en'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO
@@ -37,5 +40,17 @@ const { title, description, locale, path, ogImage } = Astro.props;
         data-cf-beacon={JSON.stringify({ token: site.analytics.cfBeaconToken })}
       ></script>
     )}
+    <script>
+      // Fallback for browsers without scroll-driven animations (see global.css).
+      if (!CSS.supports('animation-timeline: view()')) {
+        const io = new IntersectionObserver(
+          (entries) => entries.forEach((e) => {
+            if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+          }),
+          { rootMargin: '0px 0px -10% 0px' },
+        );
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>

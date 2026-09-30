@@ -10,7 +10,10 @@ export default defineConfig({
   site: 'https://mathzle.com',
   output: 'static',
   adapter: cloudflare({ imageService: 'compile' }),
-  integrations: [sitemap(), preact()],
+  integrations: [
+    sitemap({ filter: (page) => !/\/(kit|og)\//.test(new URL(page).pathname + '/') }),
+    preact(),
+  ],
   vite: {
     plugins: [tailwindcss()],
     define: {
