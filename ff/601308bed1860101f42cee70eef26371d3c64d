@@ -1,0 +1,27 @@
+vitest.config.ts
+  s_6a8dd77299ee2b::t_80e3801b668177 1-13
+tests/unit/i18n-parity.test.ts
+  s_6a8dd77299ee2b::t_aec3da44abca61 1-15
+tests/unit/helpers/strings.ts
+  s_6a8dd77299ee2b::t_ccfc25def36845 1-39
+tests/unit/copy-lint.test.ts
+  s_6a8dd77299ee2b::t_35582f5429d726 1-15
+package.json
+  s_6a8dd77299ee2b::t_39d47137f146e4 14
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "ff601308bed1860101f42cee70eef26371d3c64d",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
