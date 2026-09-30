@@ -1,0 +1,21 @@
+package.json
+  s_6a8dd77299ee2b::t_7793914e9d903f 18
+scripts/check-media.mjs
+  s_6a8dd77299ee2b::t_b1366064e88be7 1-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "5d29c4768053f0aefd0ffb8ce236adf85a3c9221",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
