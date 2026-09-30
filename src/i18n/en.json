@@ -110,7 +110,16 @@
     }
   },
   "faq": {
-    "title": "Frequently asked questions"
+    "title": "Questions parents ask",
+    "askTitle": "Don't see your question?",
+    "askEmail": "Email us",
+    "askZalo": "Message us on Zalo",
+    "categories": {
+      "learning": "Learning",
+      "safety": "Safety",
+      "billing": "Billing",
+      "tech": "Technical"
+    }
   },
   "a11y": { "switchLang": "Switch to" },
   "cta": {

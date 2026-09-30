@@ -4,12 +4,13 @@ import { glob } from 'astro/loaders';
 const faqCollection = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/faq' }),
   schema: z.object({
-    items: z.array(
-      z.object({
-        question: z.string(),
-        answer: z.string(),
-      }),
-    ),
+    items: z.array(z.object({
+      id: z.string().regex(/^[a-z0-9-]+$/),
+      category: z.enum(['learning', 'safety', 'billing', 'tech']),
+      if: z.string(),
+      question: z.string(),
+      answer: z.string(),
+    })),
   }),
 });
 

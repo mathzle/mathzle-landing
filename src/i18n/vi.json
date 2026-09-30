@@ -111,7 +111,16 @@
     }
   },
   "faq": {
-    "title": "Câu hỏi thường gặp"
+    "title": "Bố mẹ thường hỏi",
+    "askTitle": "Chưa thấy câu hỏi của bạn?",
+    "askEmail": "Gửi email cho chúng mình",
+    "askZalo": "Nhắn Zalo cho chúng mình",
+    "categories": {
+      "learning": "Học tập",
+      "safety": "An toàn",
+      "billing": "Thanh toán",
+      "tech": "Kỹ thuật"
+    }
   },
   "a11y": { "switchLang": "Chuyển sang" },
   "cta": {

@@ -23,6 +23,9 @@ export function shape(value: unknown, path = ''): string[] {
   return [path];
 }
 
+/** Luật Quảng cáo 2012 Đ.8: no direct comparison with named competitors. */
+export const COMPETITORS = ['monkey', 'khan', 'prodigy', 'vuihoc', 'clevai', 'codemath', 'hocmai', 'duolingo', 'dragonbox', 'brilliant', 'synthesis'];
+
 export const BANNED_VI = [
   'số 1', 'hàng đầu', 'hàng trăm', 'hàng nghìn', 'tuyệt vời',
   'dùng thử premium', 'loại bỏ quảng cáo',
