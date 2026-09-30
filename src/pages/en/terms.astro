@@ -4,6 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { site } from '../../data/site';
 import { t } from '../../utils/i18n';
+import { pageTitle } from '../../lib/seo';
 
 const locale = 'en' as const;
 const path = '/en/terms/';
@@ -18,7 +19,7 @@ const l = t(locale).legalPages;
  */
 ---
 <Base
-  title="Terms of Service — Mathzle"
+  title={pageTitle('Terms of Service')}
   description="The terms under which you use Mathzle. Clear, fair, kid-respectful."
   locale={locale}
   path={path}

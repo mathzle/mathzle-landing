@@ -8,11 +8,12 @@ import Mascot from '../../components/Mascot.astro';
 import { site } from '../../data/site';
 import { copy } from '../../lib/copy';
 import { t } from '../../utils/i18n';
+import { pageTitle } from '../../lib/seo';
 const locale = 'vi' as const;
 const path = '/vi/contact/';
 const c = t(locale).contact;
 ---
-<Base title={`${c.title} — Mathzle`} description={c.description} locale={locale} path={path}>
+<Base title={pageTitle(c.title)} description={c.description} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
     <Section id="contact" tone="canvas" class="contact">

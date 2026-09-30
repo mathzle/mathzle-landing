@@ -9,11 +9,12 @@ import Story from '../../components/sections/Story.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import { copyText } from '../../lib/copy';
 import { t } from '../../utils/i18n';
+import { pageTitle } from '../../lib/seo';
 const locale = 'vi' as const;
 const path = '/vi/about/';
 const a = t(locale).about;
 ---
-<Base title={`${a.title} — Mathzle`} description={copyText(a.description, locale)} locale={locale} path={path}>
+<Base title={pageTitle(a.title)} description={copyText(a.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
     <Section id="about-hero" tone="canvas" class="about-hero">

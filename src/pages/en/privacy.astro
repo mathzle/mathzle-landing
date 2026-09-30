@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ParentSummary from '../../components/ParentSummary.astro';
 import { site } from '../../data/site';
 import { t } from '../../utils/i18n';
+import { pageTitle } from '../../lib/seo';
 import { copyText } from '../../lib/copy';
 
 const locale = 'en' as const;
@@ -20,7 +21,7 @@ const l = t(locale).legalPages;
  */
 ---
 <Base
-  title="Privacy Policy — Mathzle"
+  title={pageTitle('Privacy Policy')}
   description={copyText(l.privacyDescription, locale)}
   locale={locale}
   path={path}

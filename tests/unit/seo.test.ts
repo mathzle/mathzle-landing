@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { audienceAges, jsonLd } from '../../src/lib/seo';
+import { audienceAges, jsonLd, pageTitle } from '../../src/lib/seo';
 import type { Claim } from '../../src/data/claims';
 
 const reg = (ageRange: Claim) => ({ ageRange });
@@ -23,5 +23,13 @@ describe('jsonLd', () => {
     const out = jsonLd({ name: '</script><script>alert(1)</script>' });
     expect(out).not.toContain('<');
     expect(JSON.parse(out)).toEqual({ name: '</script><script>alert(1)</script>' });
+  });
+});
+
+describe('pageTitle', () => {
+  it('appends the brand once', () => {
+    expect(pageTitle('FAQ')).toBe('FAQ — Mathzle');
+    expect(pageTitle('Mathzle pricing')).toBe('Mathzle pricing');
+    expect(pageTitle('Bảng giá Mathzle')).toBe('Bảng giá Mathzle');
   });
 });

@@ -4,6 +4,7 @@ import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { site } from '../../data/site';
 import { t } from '../../utils/i18n';
+import { pageTitle } from '../../lib/seo';
 
 const locale = 'vi' as const;
 const path = '/vi/terms/';
@@ -18,7 +19,7 @@ const l = t(locale).legalPages;
  */
 ---
 <Base
-  title="Điều khoản sử dụng — Mathzle"
+  title={pageTitle('Điều khoản sử dụng')}
   description="Các điều khoản khi bạn sử dụng Mathzle. Rõ ràng, công bằng, tôn trọng trẻ em."
   locale={locale}
   path={path}

@@ -11,6 +11,7 @@ test('every public route: unique title, description length, canonical + hreflang
       const title = await page.title();
       expect(titles.has(title), `duplicate title on ${path}`).toBe(false);
       titles.add(title);
+      expect(title.match(/Mathzle/g)?.length, `${path} title repeats the brand: ${title}`).toBe(1);
       const desc = (await page.locator('meta[name="description"]').getAttribute('content')) ?? '';
       expect(desc.length, `${path} description length`).toBeGreaterThanOrEqual(50);
       expect(desc.length, `${path} description length`).toBeLessThanOrEqual(170);

@@ -20,3 +20,9 @@ export function audienceAges(
 export function jsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }
+
+/** `<title>` for an inner page: "<name> — Mathzle", without repeating the
+ *  brand when the name already carries it ("Mathzle pricing"). */
+export function pageTitle(name: string): string {
+  return /Mathzle/.test(name) ? name : `${name} — Mathzle`;
+}

@@ -8,11 +8,12 @@ import FAQ from '../../components/sections/FAQ.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import { copyText } from '../../lib/copy';
 import { t } from '../../utils/i18n';
+import { pageTitle } from '../../lib/seo';
 const locale = 'en' as const;
 const path = '/en/pricing/';
 const p = t(locale).pricingPage;
 ---
-<Base title={`${p.title} — Mathzle`} description={copyText(p.description, locale)} locale={locale} path={path}>
+<Base title={pageTitle(p.title)} description={copyText(p.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
     <h1 class="sr-only">{p.title}</h1>
