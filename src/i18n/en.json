@@ -150,5 +150,17 @@
       "Close! Take away 5 to get to 10, then 3 more.",
       "Close! Move 1 from the 6 to make 9 into 10, then add the rest."
     ]
+  },
+  "method": {
+    "eyebrow": "How it teaches",
+    "title": "Not just a game. ==Every level is a full learning loop.==",
+    "lead": "Four steps that repeat in every world — from the first addition to fractions.",
+    "whyLabel": "Why it works",
+    "steps": [
+      { "key": "play",   "screen": "lesson-play", "if": "",           "title": "Play",       "body": "Your child steps into a world and meets the problem inside a small story.", "why": "Context shows kids why the math matters." },
+      { "key": "try",    "screen": "lesson-try",  "if": "",           "title": "Try",        "body": "Pick, drag, count, compare. Mistakes aren't punished — they're one more try.", "why": "Recalling an answer yourself makes it stick better than reading it." },
+      { "key": "hint",   "screen": "lesson-hint", "if": "stepHints",   "title": "Understand", "body": "When they're stuck, hints appear one step at a time. They find the answer themselves.", "why": "Just-enough help keeps them at hard-but-doable." },
+      { "key": "review", "screen": "review",      "if": "spacedReview", "title": "Remember",   "body": "Skills they miss come back over the next days until they're mastered.", "why": "Spaced review is how the brain keeps knowledge for the long run." }
+    ]
   }
 }

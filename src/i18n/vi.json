@@ -151,5 +151,17 @@
       "Gần rồi! Bớt 5 trước để còn 10, rồi bớt tiếp 3.",
       "Gần rồi! Lấy 1 từ 6 bù cho 9 thành 10, rồi cộng phần còn lại."
     ]
+  },
+  "method": {
+    "eyebrow": "Phương pháp",
+    "title": "Không chỉ chơi. ==Mỗi màn là một vòng học trọn vẹn.==",
+    "lead": "Bốn bước lặp lại trong mọi thế giới — từ phép cộng đầu tiên đến phân số.",
+    "whyLabel": "Vì sao hiệu quả",
+    "steps": [
+      { "key": "play",   "screen": "lesson-play", "if": "",           "title": "Chơi", "body": "Con bước vào một thế giới và gặp bài toán trong một câu chuyện nhỏ.", "why": "Bài toán có bối cảnh giúp con hiểu vì sao cần tính." },
+      { "key": "try",    "screen": "lesson-try",  "if": "",           "title": "Thử",  "body": "Chọn đáp án, kéo thả, đếm, so sánh. Sai không bị phạt — chỉ là thêm một lần thử.", "why": "Tự nhớ lại để trả lời giúp kiến thức ở lại lâu hơn là đọc đáp án." },
+      { "key": "hint",   "screen": "lesson-hint", "if": "stepHints",   "title": "Hiểu", "body": "Khi con kẹt, gợi ý hiện ra từng bước. Con tự tìm ra đáp án, không bị đọc sẵn.", "why": "Gợi ý vừa đủ giữ con ở mức hơi khó nhưng làm được." },
+      { "key": "review", "screen": "review",      "if": "spacedReview", "title": "Nhớ",  "body": "Kỹ năng con hay sai quay lại vào những ngày sau cho đến khi thành thạo.", "why": "Ôn lại giãn cách giúp não giữ kiến thức lâu dài." }
+    ]
   }
 }

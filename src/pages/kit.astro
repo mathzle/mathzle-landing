@@ -9,6 +9,7 @@ import TabletFrame from '../components/TabletFrame.astro';
 import HeroV2 from '../components/sections/HeroV2.astro';
 import ProofStrip from '../components/sections/ProofStrip.astro';
 import PainPromise from '../components/sections/PainPromise.astro';
+import Method from '../components/sections/Method.astro';
 import { Image } from 'astro:assets';
 import { screen } from '../data/media';
 import { copy } from '../lib/copy';
@@ -19,6 +20,7 @@ const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
     <HeroV2 locale="vi" />
     <ProofStrip locale="vi" />
     <PainPromise locale="vi" />
+    <Method locale="vi" />
     {tones.map((tone) => (
       <Section id={`kit-tone-${tone}`} tone={tone}>
         <SectionHeader
