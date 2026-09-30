@@ -10,9 +10,9 @@ docType: terms
 
 Điều khoản sử dụng này (“Điều khoản”) điều chỉnh việc bạn truy cập và sử dụng trang giới thiệu Mathzle và ứng dụng Mathzle chạy trên trình duyệt (gọi chung là “Dịch vụ”).
 
-Bằng việc tạo tài khoản, đăng nhập hoặc sử dụng Dịch vụ, bạn xác nhận đã đọc, hiểu và đồng ý với Điều khoản này và [Chính sách bảo mật](/vi/privacy/). Nếu không đồng ý, vui lòng không sử dụng Dịch vụ.
+Bạn chấp nhận Điều khoản này và [Chính sách bảo mật](/vi/privacy/) bằng một thao tác rõ ràng (ví dụ đánh dấu ô xác nhận đã đọc và đồng ý) tại bước đồng ý trong Ứng dụng. Hiện Ứng dụng chưa có bước này; Mathzle sẽ bổ sung trước khi mời các gia đình tham gia thử nghiệm và trước khi ra mắt chính thức (xem mục 5 của Chính sách bảo mật). Việc chỉ truy cập hoặc sử dụng Dịch vụ không được coi là chấp nhận Điều khoản. Nếu không đồng ý, vui lòng không tạo tài khoản.
 
-Nếu bạn tạo hồ sơ cho con, bạn đồng ý với Điều khoản này thay mặt cho con với tư cách cha mẹ hoặc người giám hộ, và chịu trách nhiệm về việc con sử dụng Dịch vụ.
+Khi chấp nhận Điều khoản này để tạo hồ sơ cho con, bạn đồng ý thay mặt cho con với tư cách cha mẹ hoặc người giám hộ, và chịu trách nhiệm về việc con sử dụng Dịch vụ.
 
 ## 2. Định nghĩa
 
@@ -26,7 +26,7 @@ Nếu bạn tạo hồ sơ cho con, bạn đồng ý với Điều khoản này 
 ## 3. Ai được sử dụng và tài khoản
 
 - **Phụ huynh tạo tài khoản.** Chỉ người từ đủ 18 tuổi, có đủ năng lực hành vi dân sự, là cha mẹ hoặc người giám hộ hợp pháp mới được tạo tài khoản gia đình và hồ sơ cho trẻ. Trẻ không tự tạo tài khoản.
-- **Đăng nhập bằng Google.** Hiện tại bạn đăng nhập bằng tài khoản Google. Việc sử dụng tài khoản Google còn chịu sự điều chỉnh của điều khoản của Google.
+- **Đăng nhập bằng Google.** Hiện tại bạn đăng nhập bằng tài khoản Google. Việc sử dụng tài khoản Google còn tuân theo Điều khoản dịch vụ của Google.
 - **Hồ sơ của con.** Bạn có thể tạo hồ sơ cho con với biệt danh, tuổi, ảnh đại diện và mã PIN. Bạn nên dùng biệt danh và hình đại diện có sẵn thay vì tên thật hoặc ảnh thật của con.
 - **Giám sát.** Bạn chịu trách nhiệm giám sát việc con sử dụng Dịch vụ, bao gồm thời gian sử dụng phù hợp với lứa tuổi.
 - **Thông tin chính xác và an toàn tài khoản.** Bạn cung cấp thông tin chính xác, giữ an toàn tài khoản Google và mã PIN của con, và thông báo ngay cho chúng tôi nếu phát hiện tài khoản bị sử dụng trái phép. Bạn chịu trách nhiệm về hoạt động diễn ra trong tài khoản gia đình, trừ trường hợp do lỗi của chúng tôi.
@@ -40,13 +40,12 @@ Mathzle hiện đang trong giai đoạn thử nghiệm. Trong giai đoạn này:
 - **Tính năng có thể thay đổi.** Tính năng, nội dung và giao diện có thể được thêm, thay đổi, tạm dừng hoặc ngừng cung cấp. Chúng tôi sẽ cố gắng thông báo trước những thay đổi lớn ảnh hưởng đến việc học của con.
 - **Dữ liệu thử nghiệm.** Chúng tôi cố gắng giữ tiến độ học của con khi chuyển sang phiên bản chính thức, nhưng không thể bảo đảm mọi dữ liệu trong giai đoạn thử nghiệm đều được chuyển tiếp nguyên vẹn. Nếu cần đặt lại dữ liệu, chúng tôi sẽ thông báo trước qua email.
 - **Góp ý.** Chúng tôi rất mong nhận góp ý của bạn. Khi bạn gửi góp ý, bạn cho phép chúng tôi sử dụng góp ý đó để cải thiện Dịch vụ mà không phải trả phí hay ghi công. Chúng tôi sẽ không công bố tên hay thông tin cá nhân của bạn hoặc của con kèm theo góp ý nếu không có sự đồng ý của bạn.
-- **Quyền lợi dành cho người thử nghiệm**, nếu có, sẽ được công bố riêng kèm điều kiện cụ thể.
 
 ## 5. Quy tắc sử dụng
 
 Bạn đồng ý sử dụng Dịch vụ cho mục đích học tập cá nhân và gia đình, và không:
 
-- sử dụng Dịch vụ trái với pháp luật Việt Nam, thuần phong mỹ tục hoặc thực hiện các hành vi bị nghiêm cấm theo Luật An ninh mạng 2018;
+- sử dụng Dịch vụ trái với pháp luật Việt Nam, thuần phong mỹ tục hoặc thực hiện các hành vi bị nghiêm cấm theo pháp luật về an ninh mạng;
 - tải lên ảnh hoặc nội dung vi phạm pháp luật, xâm phạm quyền của người khác, hoặc không phù hợp với trẻ em;
 - truy cập hoặc cố truy cập tài khoản, hồ sơ, dữ liệu của người khác;
 - dịch ngược, giải mã, tháo rời hoặc cố gắng lấy mã nguồn của Dịch vụ, trừ khi pháp luật cho phép;
@@ -102,7 +101,7 @@ Các mục về quyền sở hữu trí tuệ, giới hạn trách nhiệm, gi�
 
 ## 10. Tuyên bố miễn trừ bảo đảm
 
-Trong giai đoạn thử nghiệm, Dịch vụ được cung cấp miễn phí trên cơ sở **“như hiện có”** và **“như sẵn có”**. Trong phạm vi pháp luật cho phép, chúng tôi không bảo đảm rằng Dịch vụ sẽ luôn hoạt động liên tục, không có lỗi, hoặc đáp ứng mọi mục đích cụ thể của bạn. Nội dung được xây dựng để hỗ trợ việc học, không thay thế việc học ở trường hay sự hướng dẫn của giáo viên.
+Trong giai đoạn thử nghiệm, Dịch vụ được cung cấp miễn phí **theo hiện trạng và trong phạm vi khả năng cung cấp hiện có**. Trong phạm vi pháp luật cho phép, chúng tôi không bảo đảm rằng Dịch vụ sẽ luôn hoạt động liên tục, không có lỗi, hoặc đáp ứng mọi mục đích cụ thể của bạn. Nội dung được xây dựng để hỗ trợ việc học, không thay thế việc học ở trường hay sự hướng dẫn của giáo viên.
 
 Tuyên bố này không làm giảm hay loại trừ các quyền của người tiêu dùng mà Luật Bảo vệ quyền lợi người tiêu dùng 2023 và pháp luật khác không cho phép giảm trừ, bao gồm quyền được cung cấp thông tin chính xác, đầy đủ về Dịch vụ và quyền được bảo vệ thông tin cá nhân.
 
@@ -118,7 +117,7 @@ Trong phạm vi pháp luật cho phép, chúng tôi không chịu trách nhiệm
 
 ## 12. Khiếu nại và giải quyết tranh chấp
 
-**Tiếp nhận khiếu nại.** Bạn có thể gửi khiếu nại, phản ánh về Dịch vụ qua kênh liên hệ tại mục 15. Chúng tôi xác nhận đã nhận trong vòng 72 giờ và phản hồi kết quả xử lý trong thời hạn tối đa 30 ngày, trừ khi pháp luật quy định thời hạn ngắn hơn.
+**Tiếp nhận khiếu nại.** Bạn có thể gửi khiếu nại, phản ánh về Dịch vụ qua kênh liên hệ tại mục 15. Kể từ khi kênh liên hệ chính thức được công bố, chúng tôi xác nhận đã nhận trong vòng 72 giờ và phản hồi kết quả xử lý trong thời hạn tối đa 30 ngày, trừ khi pháp luật quy định thời hạn ngắn hơn.
 
 **Phương thức giải quyết.** Theo Luật Bảo vệ quyền lợi người tiêu dùng 2023, tranh chấp giữa bạn và chúng tôi có thể được giải quyết bằng các phương thức sau:
 
@@ -139,7 +138,7 @@ Việc chọn thương lượng hay hoà giải không làm mất quyền của 
 
 Chúng tôi có thể cập nhật Điều khoản khi Dịch vụ hoặc quy định pháp luật thay đổi. Phiên bản mới được đăng tại trang này kèm ngày cập nhật.
 
-Với thay đổi quan trọng ảnh hưởng đến quyền hoặc nghĩa vụ của bạn, chúng tôi thông báo qua email hoặc trong Ứng dụng ít nhất 15 ngày trước khi thay đổi có hiệu lực. Việc bạn tiếp tục sử dụng Dịch vụ sau ngày hiệu lực được xem là chấp nhận Điều khoản mới; nếu không đồng ý, bạn có thể ngừng sử dụng và yêu cầu xoá dữ liệu.
+Với thay đổi quan trọng ảnh hưởng đến quyền hoặc nghĩa vụ của bạn, chúng tôi thông báo qua email hoặc trong Ứng dụng ít nhất 15 ngày trước khi thay đổi có hiệu lực, và đề nghị bạn chấp nhận Điều khoản mới bằng một thao tác rõ ràng trong Ứng dụng; chúng tôi không coi việc bạn chỉ tiếp tục sử dụng Dịch vụ là chấp nhận. Nếu không đồng ý, bạn có thể ngừng sử dụng và yêu cầu xoá dữ liệu.
 
 Chúng tôi gửi thông báo đến địa chỉ email của tài khoản gia đình hoặc hiển thị trong Ứng dụng. Bạn có trách nhiệm giữ địa chỉ email đó còn hoạt động.
 

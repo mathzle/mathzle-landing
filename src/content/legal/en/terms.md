@@ -10,9 +10,9 @@ docType: terms
 
 These Terms of Use (the “Terms”) govern your access to and use of the Mathzle website and the Mathzle app that runs in the browser (together, the “Service”).
 
-By creating an account, signing in or using the Service, you confirm that you have read, understood and agree to these Terms and our [Privacy Policy](/en/privacy/). If you do not agree, please do not use the Service.
+You accept these Terms and our [Privacy Policy](/en/privacy/) through an explicit action (for example, ticking a box confirming you have read and agree) at the consent step in the App. The App does not have this step yet; Mathzle will add it before inviting families into the beta and before the public launch (see section 5 of the Privacy Policy). Merely visiting or using the Service is not treated as accepting these Terms. If you do not agree, please do not create an account.
 
-If you create a profile for your child, you accept these Terms on your child's behalf as their parent or guardian, and you are responsible for your child's use of the Service.
+When you accept these Terms in order to create a profile for your child, you accept them on your child's behalf as their parent or guardian, and you are responsible for your child's use of the Service.
 
 ## 2. Definitions
 
@@ -26,7 +26,7 @@ If you create a profile for your child, you accept these Terms on your child's b
 ## 3. Who may use the Service and accounts
 
 - **Parents create accounts.** Only a person aged 18 or over with full legal capacity who is a child's parent or legal guardian may create a family account and child profiles. Children do not create accounts themselves.
-- **Google sign-in.** You currently sign in with a Google account. Your use of your Google account is also subject to Google's terms.
+- **Google sign-in.** You currently sign in with a Google account. Your use of your Google account is also subject to Google's Terms of Service.
 - **Your child's profile.** You can create a profile for your child with a nickname, age, avatar and PIN. We recommend a nickname and a built-in avatar rather than your child's real name or photo.
 - **Supervision.** You are responsible for supervising your child's use of the Service, including age-appropriate screen time.
 - **Accurate information and account security.** You provide accurate information, keep your Google account and your child's PIN safe, and tell us promptly if you notice unauthorised use of your account. You are responsible for activity in your family account, except where it results from our fault.
@@ -40,13 +40,12 @@ Mathzle is currently in beta. During the beta:
 - **Features may change.** Features, content and design may be added, changed, paused or discontinued. We will try to give notice of major changes that affect your child's learning.
 - **Beta data.** We aim to keep your child's progress when we move to the public release, but we cannot guarantee that all beta data will carry over intact. If data needs to be reset, we will tell you by email in advance.
 - **Feedback.** We would love to hear your feedback. When you send feedback, you allow us to use it to improve the Service without payment or attribution. We will not publish your or your child's name or personal information with your feedback without your consent.
-- **Beta tester benefits**, if any, will be announced separately with their specific conditions.
 
 ## 5. Acceptable use
 
 You agree to use the Service for personal and family learning, and not to:
 
-- use the Service in breach of Vietnamese law or public morals, or carry out acts prohibited by the 2018 Law on Cybersecurity;
+- use the Service in breach of Vietnamese law or public morals, or carry out acts prohibited by cybersecurity law;
 - upload photos or content that is unlawful, infringes the rights of others, or is unsuitable for children;
 - access or attempt to access other people's accounts, profiles or data;
 - reverse engineer, decompile, disassemble or attempt to extract the source code of the Service, except where the law allows;
@@ -118,7 +117,7 @@ These Terms do **not** exclude or limit our liability where the law does not all
 
 ## 12. Complaints and dispute resolution
 
-**Complaints.** You can send complaints or feedback about the Service through the contact channel in section 15. We acknowledge receipt within 72 hours and respond with the outcome within 30 days at most, unless the law sets a shorter period.
+**Complaints.** You can send complaints or feedback about the Service through the contact channel in section 15. From the time our official contact channel is published, we acknowledge receipt within 72 hours and respond with the outcome within 30 days at most, unless the law sets a shorter period.
 
 **Ways to resolve disputes.** Under the 2023 Law on Protection of Consumer Rights, disputes between you and us may be resolved by:
 
@@ -139,7 +138,7 @@ These Terms are made in Vietnamese and English. If the two versions differ, the 
 
 We may update these Terms when the Service or the law changes. The new version is posted on this page with its update date.
 
-For material changes that affect your rights or obligations, we will notify you by email or in the App at least 15 days before the change takes effect. If you keep using the Service after the effective date, you accept the new Terms; if you do not agree, you can stop using the Service and ask us to delete your data.
+For material changes that affect your rights or obligations, we will notify you by email or in the App at least 15 days before the change takes effect, and ask you to accept the new Terms through an explicit action in the App; we do not treat merely continuing to use the Service as acceptance. If you do not agree, you can stop using the Service and ask us to delete your data.
 
 We send notices to your family account's email address or show them in the App. Please keep that email address active.
 
