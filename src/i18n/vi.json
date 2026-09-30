@@ -47,13 +47,20 @@
     }
   },
   "worlds": {
-    "title": "Sáu thế giới, sáu cách chơi",
-    "ocean":  { "name": "Vịnh Đếm Số",     "subtitle": "Số đếm & giá trị vị trí",     "badges": ["Lớp 1", "Lớp 2"] },
-    "forest": { "name": "Rừng Nhân Chia",   "subtitle": "Bảng cửu chương",            "badges": ["Lớp 2", "Lớp 3"] },
-    "sky":    { "name": "Trời Tư Duy",      "subtitle": "Giải quyết vấn đề",          "badges": ["Lớp 3", "Lớp 4"] },
-    "sunset": { "name": "Đỉnh Hình Học",    "subtitle": "Hình học & hình khối",       "badges": ["Lớp 2", "Lớp 4"] },
-    "berry":  { "name": "Đồng Phân Số",    "subtitle": "Một nửa, một phần ba, một phần tư", "badges": ["Lớp 3", "Lớp 5"] },
-    "mint":   { "name": "Đồng Cỏ Đo Lường", "subtitle": "Đơn vị, thời gian, tiền tệ", "badges": ["Lớp 1", "Lớp 3"] }
+    "eyebrow": "{claim:worlds} thế giới",
+    "title": "Mỗi thế giới là ==một mạch kiến thức== lớp {claim:gradeRange}.",
+    "lead": "Con chọn nơi bắt đầu. Bố mẹ biết con đang học gì.",
+    "gradeLabel": "Lớp {from}–{to}",
+    "carouselLabel": "Các thế giới — vuốt ngang để xem thêm",
+    "curriculumToggle": "Xem bảng kỹ năng theo lớp",
+    "curriculumCaption": "Kỹ năng theo lớp và thế giới{if:curriculumGdpt2018}, sắp theo chương trình GDPT 2018{/if}",
+    "gradeCol": "Lớp",
+    "ocean":  { "name": "Vịnh Đếm Số",      "blurb": "Đếm, đọc, viết và so sánh số; hiểu hàng chục, hàng đơn vị.", "skills": ["Đếm và đọc số", "So sánh, sắp thứ tự", "Hàng chục – hàng đơn vị"] },
+    "forest": { "name": "Rừng Nhân Chia",   "blurb": "Thuộc bảng nhân, bảng chia qua trò chơi thay vì học vẹt.",     "skills": ["Bảng nhân 2–9", "Phép chia", "Nhân chia trong bài toán"] },
+    "sky":    { "name": "Trời Tư Duy",      "blurb": "Đọc đề, chọn phép tính, giải bài toán có lời văn.",            "skills": ["Toán có lời văn", "Trung bình cộng", "Tổng – hiệu"] },
+    "sunset": { "name": "Đỉnh Hình Học",    "blurb": "Nhận biết, đo và ghép hình phẳng; góc và đường thẳng.",       "skills": ["Hình phẳng", "Chu vi, diện tích", "Góc và đường thẳng"] },
+    "berry":  { "name": "Đồng Phân Số",     "blurb": "Từ một nửa, một phần ba đến so sánh và tính với phân số.",    "skills": ["Làm quen phân số", "So sánh phân số", "Bốn phép tính phân số"] },
+    "mint":   { "name": "Đồng Cỏ Đo Lường", "blurb": "Độ dài, khối lượng, thời gian và tiền — những con số con gặp mỗi ngày.", "skills": ["Đo độ dài, khối lượng", "Xem giờ, xem lịch", "Tiền Việt Nam"] }
   },
   "trust": {
     "title": "Thiết kế để bố mẹ yên tâm",

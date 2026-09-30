@@ -46,13 +46,20 @@
     }
   },
   "worlds": {
-    "title": "Six worlds, six ways to play",
-    "ocean":  { "name": "Counting Cove",       "subtitle": "Numbers & place value",  "badges": ["1st grade", "2nd grade"] },
-    "forest": { "name": "Number Forest",       "subtitle": "Times tables",           "badges": ["2nd grade", "3rd grade"] },
-    "sky":    { "name": "Logic Sky",           "subtitle": "Problem solving",        "badges": ["3rd grade", "4th grade"] },
-    "sunset": { "name": "Pattern Peaks",       "subtitle": "Geometry & shapes",      "badges": ["2nd grade", "4th grade"] },
-    "berry":  { "name": "Fraction Fields",     "subtitle": "Halves, thirds, quarters", "badges": ["3rd grade", "5th grade"] },
-    "mint":   { "name": "Measurement Meadow",  "subtitle": "Units, time, money",     "badges": ["1st grade", "3rd grade"] }
+    "eyebrow": "{claim:worlds} worlds",
+    "title": "Each world is ==one strand of math== for grades {claim:gradeRange}.",
+    "lead": "Your child picks where to start. You know what they're learning.",
+    "gradeLabel": "Grades {from}–{to}",
+    "carouselLabel": "Worlds — swipe to see more",
+    "curriculumToggle": "See skills by grade",
+    "curriculumCaption": "Skills by grade and world{if:curriculumGdpt2018}, following Vietnam's GDPT 2018 curriculum{/if}",
+    "gradeCol": "Grade",
+    "ocean":  { "name": "Counting Cove",      "blurb": "Count, read, write and compare numbers; tens and ones.",       "skills": ["Counting and reading numbers", "Comparing and ordering", "Tens and ones"] },
+    "forest": { "name": "Number Forest",      "blurb": "Learn the times tables by playing, not by rote.",              "skills": ["Times tables 2–9", "Division", "Word problems with × and ÷"] },
+    "sky":    { "name": "Logic Sky",          "blurb": "Read the problem, pick the operation, solve word problems.",   "skills": ["Word problems", "Averages", "Sum and difference"] },
+    "sunset": { "name": "Pattern Peaks",      "blurb": "Spot, measure and combine shapes; angles and lines.",          "skills": ["Flat shapes", "Perimeter and area", "Angles and lines"] },
+    "berry":  { "name": "Fraction Fields",    "blurb": "From halves and thirds to comparing and calculating fractions.", "skills": ["First fractions", "Comparing fractions", "Fraction operations"] },
+    "mint":   { "name": "Measurement Meadow", "blurb": "Length, weight, time and money — the numbers kids meet every day.", "skills": ["Length and weight", "Clocks and calendars", "Money"] }
   },
   "trust": {
     "title": "Built so parents can relax",

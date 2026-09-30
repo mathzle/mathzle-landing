@@ -1,216 +1,37 @@
 ---
 import { Picture } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-import OpChip from './OpChip.astro';
-
-/**
- * World card — the illustration is the hero, the world color is the
- * accent. Cream card background (NOT solid world color) so the
- * illustration's own scene/palette doesn't fight a competing color
- * block behind it. World identity carries via:
- *   - the push-border at the bottom (thick, in the world color)
- *   - the OpChip math-glyph stamp on the illustration corner
- *   - the world-color tint on grade-badges
- *   - the title underline accent in the world color
- * Same pushable mechanic as the Flutter WorldCard.
- */
-interface Props {
-  worldColor: string;
-  symbol: string;
-  image?: ImageMetadata;
-  imageAlt?: string;
-  title: string;
-  subtitle: string;
-  badges?: string[];
-  href?: string;
-}
-
-const {
-  worldColor,
-  symbol,
-  image,
-  imageAlt = '',
-  title,
-  subtitle,
-  badges = [],
-  href,
-} = Astro.props;
-
-const styleOverride = `--world-color: ${worldColor}; --world-border: color-mix(in srgb, ${worldColor} 70%, black);`;
-const Tag = href ? 'a' : 'div';
+import type { World } from '../data/worlds';
+interface Props { world: World; name: string; blurb: string; skills: string[]; gradeLabel: string; feature?: boolean }
+const { world, name, blurb, skills, gradeLabel, feature = false } = Astro.props;
 ---
-<Tag href={href} class="world-card" style={styleOverride}>
-  {image ? (
-    <div class="world-image-wrap">
-      <Picture
-        src={image}
-        alt={imageAlt}
-        widths={[360, 720]}
-        sizes="(min-width: 1024px) 360px, 85vw"
-        formats={['avif', 'webp']}
-        class="world-image"
-        loading="lazy"
-        decoding="async"
-      />
-      <div class="world-chip-stamp">
-        <OpChip symbol={symbol} color={worldColor} size={42} tilt={-6} />
-      </div>
-    </div>
-  ) : (
-    <div class="world-chip-wrap">
-      <OpChip symbol={symbol} color={worldColor} size={88} tilt={-6} />
-    </div>
-  )}
-  <div class="world-body">
-    <h3 class="world-title">{title}</h3>
-    <p class="world-subtitle">{subtitle}</p>
-    {badges.length > 0 && (
-      <ul class="world-badges">
-        {badges.map((b) => <li>{b}</li>)}
-      </ul>
-    )}
+<article class:list={['wc', 'mk-card', 'mk-card--push', { 'wc--feature': feature }]} style={`--card-accent: ${world.color}`}>
+  <div class="wc-media">
+    <Picture src={world.image} alt="" widths={feature ? [560, 1120] : [360, 720]}
+      sizes={feature ? '(min-width: 1024px) 760px, 85vw' : '(min-width: 1024px) 380px, 85vw'}
+      formats={['avif', 'webp']} loading="lazy" />
+    <span class="wc-grade">{gradeLabel}</span>
   </div>
-</Tag>
-
+  <div class="wc-body">
+    <h3 class="mk-h3">{name}</h3>
+    <p class="wc-blurb">{blurb}</p>
+    <ul class="wc-skills">{skills.map((s) => <li>{s}</li>)}</ul>
+  </div>
+</article>
 <style>
-  .world-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--color-surface);
-    color: var(--color-text-primary);
-    border-radius: var(--radius-card-lg);
-    border-bottom: 6px solid var(--world-color);
-    padding: 1rem 1rem 1.25rem;
-    text-decoration: none;
-    overflow: hidden;
-    transition:
-      transform var(--duration-normal) var(--easing-spring),
-      box-shadow var(--duration-normal) var(--easing-spring),
-      border-bottom-width var(--duration-fast) var(--easing-spring);
-    box-shadow:
-      0 1px 0 color-mix(in srgb, var(--world-color) 18%, transparent),
-      0 8px 18px rgb(45 42 74 / 0.06);
-  }
-  .world-card:hover {
-    transform: translateY(-3px);
-    box-shadow:
-      0 1px 0 color-mix(in srgb, var(--world-color) 28%, transparent),
-      0 16px 28px rgb(45 42 74 / 0.10);
-  }
-  .world-card:active {
-    transform: translateY(4px);
-    border-bottom-width: 0;
-  }
-
-  /* Illustration is the hero — fills the card width edge-to-edge.
-     Corners gently rounded to match the card. The cream background
-     shows in any transparent regions of natural-edge illustrations
-     without fighting full-bleed scenes. */
-  .world-image-wrap {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    background: var(--color-bg);
-  }
-  .world-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform var(--duration-normal) var(--easing-spring);
-  }
-  .world-card:hover .world-image {
-    transform: scale(1.03);
-  }
-
-  /* OpChip stamped on the illustration corner — small recurring math
-     mark in the world color, sitting on a soft white halo so it reads
-     against any illustration background. */
-  .world-chip-stamp {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 4px;
-    border-radius: 999px;
-    background: rgb(255 255 255 / 0.92);
-    box-shadow: 0 2px 8px rgb(45 42 74 / 0.12);
-    display: grid;
-    place-items: center;
-  }
-
-  /* Fallback (no image) */
-  .world-chip-wrap {
-    display: flex;
-    justify-content: center;
-    padding: 2rem 0 1rem;
-  }
-
-  .world-body {
-    padding: 1rem 0.5rem 0;
-    text-align: center;
-  }
-  .world-title {
-    font-family: var(--font-display);
-    font-size: 1.375rem;
-    font-weight: 700;
-    line-height: 1.15;
-    color: var(--color-text-primary);
-    /* Title gets a subtle world-color underline accent on hover */
-    background-image: linear-gradient(var(--world-color), var(--world-color));
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
-    background-size: 0% 3px;
-    padding-bottom: 4px;
-    transition: background-size var(--duration-normal) var(--easing-spring);
-  }
-  .world-card:hover .world-title {
-    background-size: 40% 3px;
-  }
-  .world-subtitle {
-    color: var(--color-text-secondary);
-    margin-top: 0.25rem;
-    font-size: 0.9375rem;
-    line-height: 1.4;
-  }
-
-  .world-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.375rem;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin-top: 0.875rem;
-  }
-  .world-badges li {
-    background: color-mix(in srgb, var(--world-color) 16%, var(--color-surface));
-    color: color-mix(in srgb, var(--world-color) 60%, var(--color-text-primary));
-    border-radius: var(--radius-pill);
-    padding: 0.2rem 0.625rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .world-card,
-    .world-image,
-    .world-title {
-      transition: none;
-    }
-    .world-card:hover,
-    .world-card:active {
-      transform: none;
-      box-shadow:
-        0 1px 0 color-mix(in srgb, var(--world-color) 18%, transparent),
-        0 8px 18px rgb(45 42 74 / 0.06);
-    }
-    .world-card:hover .world-image {
-      transform: none;
-    }
-    .world-card:hover .world-title {
-      background-size: 0% 3px;
-    }
+  .wc { overflow: hidden; display: flex; flex-direction: column; height: 100%; }
+  .wc-media { position: relative; aspect-ratio: 4 / 3; background: color-mix(in srgb, var(--card-accent) 12%, var(--color-surface)); }
+  .wc-media :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease-mk-out); }
+  .wc:hover .wc-media :global(img) { transform: scale(1.03); }
+  .wc-grade { position: absolute; left: 12px; top: 12px; background: var(--color-surface); border-radius: var(--radius-pill);
+    padding: 0.25rem 0.625rem; font-size: 0.75rem; font-weight: 700; color: var(--color-text-primary); }
+  .wc-body { padding: 1.25rem 1.25rem 1.5rem; display: grid; gap: 0.5rem; }
+  .wc-blurb { margin: 0; color: var(--color-text-secondary); }
+  .wc-skills { list-style: none; margin: 0.25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.375rem; }
+  .wc-skills li { font-size: 0.8125rem; font-weight: 600; padding: 0.25rem 0.625rem; border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--card-accent) 14%, transparent); color: var(--color-text-primary); }
+  .wc--feature .wc-media { aspect-ratio: auto; flex: 1; min-height: 320px; }
+  @media (hover: hover) and (min-width: 1024px) {
+    .wc:not(.wc--feature) .wc-skills { opacity: 0; transform: translateY(4px); transition: opacity var(--duration-normal), transform var(--duration-normal); }
+    .wc:not(.wc--feature):hover .wc-skills, .wc:not(.wc--feature):focus-within .wc-skills { opacity: 1; transform: none; }
   }
 </style>

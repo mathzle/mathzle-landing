@@ -1,0 +1,43 @@
+---
+import { getEntry } from 'astro:content';
+import { WORLDS } from '../../data/worlds';
+import { copy } from '../../lib/copy';
+import { resolveClaim } from '../../data/claims';
+import { t, type Locale } from '../../utils/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const w = t(locale).worlds;
+const entry = await getEntry('curriculum', locale);
+const rows = entry?.data.rows ?? [];
+const gdpt = resolveClaim('curriculumGdpt2018');
+---
+{gdpt.show && rows.length > 0 && (
+  <details class="curric">
+    <summary class="btn-text">{w.curriculumToggle}</summary>
+    <div class="curric-scroll" role="region" tabindex="0" aria-labelledby="curric-cap">
+      <table>
+        <caption id="curric-cap" class="mk-caption" set:html={copy(w.curriculumCaption, locale)} />
+        <thead>
+          <tr><th scope="col">{w.gradeCol}</th>{WORLDS.map((x) => <th scope="col" style={`--c:${x.color}`}>{w[x.id].name}</th>)}</tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr><th scope="row">{r.grade}</th>{WORLDS.map((x) => <td>{r.cells[x.id] || '—'}</td>)}</tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+)}
+<style>
+  .curric { margin-top: 2rem; }
+  .curric summary { cursor: pointer; list-style: none; }
+  .curric summary::-webkit-details-marker { display: none; }
+  .curric-scroll { overflow-x: auto; margin-top: 1rem; border: 1px solid var(--color-mk-hairline); border-radius: var(--radius-card); background: var(--color-surface); }
+  table { border-collapse: collapse; min-width: 860px; width: 100%; font-size: 0.875rem; }
+  caption { text-align: left; padding: 0.75rem 1rem; }
+  th, td { padding: 0.75rem 1rem; border-top: 1px solid var(--color-mk-hairline); text-align: left; vertical-align: top; }
+  thead th { border-top: 0; border-bottom: 3px solid var(--c, var(--color-mk-hairline-strong)); font-weight: 700; }
+  tbody th { font-weight: 800; }
+  td { color: var(--color-text-secondary); }
+</style>
