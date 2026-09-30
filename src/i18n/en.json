@@ -281,7 +281,7 @@
       { "if": "noAds", "text": "There are no ads in Mathzle." },
       { "if": "noDataSale", "text": "We never sell your child's data to anyone." },
       { "if": "noChat", "text": "There's no chat or messaging between users." },
-      { "if": "", "text": "We only store learning progress, level results and the parent's account email." },
+      { "if": "", "text": "We only keep what your child needs to learn: their profile (nickname, age, avatar), learning progress and the parent's Google account." },
       { "if": "parentDataDeletion", "text": "You can delete your child's data at any time." }
     ],
     "updated": "Last updated: {date}",

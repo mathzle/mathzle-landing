@@ -46,7 +46,8 @@ export const claims = {
   noDataSale:         { value: true,    source: 'privacy policy',                                  verifiedBy: null },
   noInAppPurchase:    { value: true,    source: 'product: no purchases inside kid mode',           verifiedBy: null },
   dataResidency:      { value: null,    source: 'k3s cluster location (Feature 17)',               verifiedBy: null },
-  parentDataDeletion: { value: true,    source: 'account settings: delete child data',            verifiedBy: null },
+  // null until a self-service delete ships: today deletion is by request only (legal-fact-sheet §6, D-019).
+  parentDataDeletion: { value: null,    source: 'account settings: delete child data (not built yet)', verifiedBy: null },
   // Pricing
   premiumMonthlyVnd:  { value: 119000,  source: 'pricing decision',                                verifiedBy: null },
   premiumYearlyVnd:   { value: 990000,  source: 'proposal 36 §4.10',                                verifiedBy: null },

@@ -282,7 +282,7 @@
       { "if": "noAds", "text": "Không có quảng cáo trong Mathzle." },
       { "if": "noDataSale", "text": "Chúng mình không bán dữ liệu của con cho bất kỳ ai." },
       { "if": "noChat", "text": "Không có chat hay tin nhắn giữa người dùng." },
-      { "if": "", "text": "Chúng mình chỉ lưu tiến độ học, kết quả màn chơi và email tài khoản của bố mẹ." },
+      { "if": "", "text": "Chúng mình chỉ lưu những gì cần để con học: hồ sơ của con (biệt danh, tuổi, ảnh đại diện), tiến độ học và tài khoản Google của bố mẹ." },
       { "if": "parentDataDeletion", "text": "Bố mẹ có thể xoá dữ liệu của con bất kỳ lúc nào." }
     ],
     "updated": "Cập nhật lần cuối: {date}",
