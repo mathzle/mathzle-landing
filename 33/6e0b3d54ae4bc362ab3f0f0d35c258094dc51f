@@ -1,0 +1,34 @@
+src/pages/kit.astro
+  s_6a8dd77299ee2b::t_214bf90405253d 15
+  s_6a8dd77299ee2b::t_766626495ed53f 29
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_49fdc01acacd05 205-215
+src/components/sections/Story.astro
+  s_6a8dd77299ee2b::t_7558a4f101690d 1-57
+tests/e2e/story.spec.ts
+  s_6a8dd77299ee2b::t_b1995b11dde71b 1-12
+src/content.config.ts
+  s_6a8dd77299ee2b::t_9005aec561ff98 27-42
+src/content/team/vi.json
+  s_6a8dd77299ee2b::t_7669a99fac649d 1
+src/content/team/en.json
+  s_6a8dd77299ee2b::t_1bc5b821bbe598 1
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_4bc68783cc9526 204-214
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "336e0b3d54ae4bc362ab3f0f0d35c258094dc51f",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
