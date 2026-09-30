@@ -3,22 +3,22 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import Pricing from '../../components/sections/Pricing.astro';
+import CompareTable from '../../components/sections/CompareTable.astro';
 import FAQ from '../../components/sections/FAQ.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
-
+import { copyText } from '../../lib/copy';
+import { t } from '../../utils/i18n';
 const locale = 'vi' as const;
 const path = '/vi/pricing';
+const p = t(locale).pricingPage;
 ---
-<Base
-  title="Bảng giá — Mathzle"
-  description="Mathzle miễn phí mãi mãi với 2 thế giới. Premium mở khoá cả 6 thế giới, chia sẻ gia đình, và hỗ trợ ưu tiên. Hủy bất kỳ lúc nào."
-  locale={locale}
-  path={path}
->
+<Base title={`${p.title} — Mathzle`} description={copyText(p.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
+    <h1 class="sr-only">{p.title}</h1>
     <Pricing locale={locale} />
-    <FAQ locale={locale} />
+    <CompareTable locale={locale} />
+    <FAQ locale={locale} categories={['billing']} />
     <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />

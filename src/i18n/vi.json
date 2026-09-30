@@ -67,6 +67,19 @@
       "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
     }
   },
+  "pricingPage": {
+    "title": "Bảng giá Mathzle",
+    "description": "Miễn phí mãi mãi với {claim:freeWorlds} thế giới. Premium mở khoá cả {claim:worlds} thế giới{if:noAds}. Không quảng cáo ở mọi gói{/if}.",
+    "compareTitle": "So sánh chi tiết",
+    "planCol": "Tính năng",
+    "rows": [
+      { "if": "", "label": "Số thế giới", "free": "{claim:freeWorlds}", "premium": "{claim:worlds}" },
+      { "if": "", "label": "Xu, huy hiệu, chuỗi ngày chơi", "free": "✓", "premium": "✓" },
+      { "if": "skillReport", "label": "Báo cáo tiến bộ theo kỹ năng", "free": "—", "premium": "✓" },
+      { "if": "maxChildProfiles", "label": "Hồ sơ con", "free": "1", "premium": "{claim:maxChildProfiles}" },
+      { "if": "noAds", "label": "Không quảng cáo", "free": "✓", "premium": "✓" }
+    ]
+  },
   "faq": {
     "title": "Bố mẹ thường hỏi",
     "askTitle": "Chưa thấy câu hỏi của bạn?",

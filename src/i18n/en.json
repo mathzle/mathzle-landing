@@ -66,6 +66,19 @@
       "invalid": "That email doesn't look right. Mind checking it?"
     }
   },
+  "pricingPage": {
+    "title": "Mathzle pricing",
+    "description": "Free forever with {claim:freeWorlds} worlds. Premium unlocks all {claim:worlds}{if:noAds}. No ads on any plan{/if}.",
+    "compareTitle": "Compare plans",
+    "planCol": "Feature",
+    "rows": [
+      { "if": "", "label": "Worlds", "free": "{claim:freeWorlds}", "premium": "{claim:worlds}" },
+      { "if": "", "label": "Coins, badges, daily streaks", "free": "✓", "premium": "✓" },
+      { "if": "skillReport", "label": "Skill-by-skill progress reports", "free": "—", "premium": "✓" },
+      { "if": "maxChildProfiles", "label": "Child profiles", "free": "1", "premium": "{claim:maxChildProfiles}" },
+      { "if": "noAds", "label": "No ads", "free": "✓", "premium": "✓" }
+    ]
+  },
   "faq": {
     "title": "Questions parents ask",
     "askTitle": "Don't see your question?",

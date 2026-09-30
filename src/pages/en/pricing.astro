@@ -3,22 +3,22 @@ import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import Pricing from '../../components/sections/Pricing.astro';
+import CompareTable from '../../components/sections/CompareTable.astro';
 import FAQ from '../../components/sections/FAQ.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
-
+import { copyText } from '../../lib/copy';
+import { t } from '../../utils/i18n';
 const locale = 'en' as const;
 const path = '/en/pricing';
+const p = t(locale).pricingPage;
 ---
-<Base
-  title="Pricing — Mathzle"
-  description="Mathzle is free forever for two worlds. Premium unlocks all six worlds, family sharing, and priority support. Cancel any time."
-  locale={locale}
-  path={path}
->
+<Base title={`${p.title} — Mathzle`} description={copyText(p.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
+    <h1 class="sr-only">{p.title}</h1>
     <Pricing locale={locale} />
-    <FAQ locale={locale} />
+    <CompareTable locale={locale} />
+    <FAQ locale={locale} categories={['billing']} />
     <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />
