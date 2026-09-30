@@ -1,0 +1,29 @@
+src/content/legal/en/privacy.md
+  s_6a8dd77299ee2b::t_66aba6e39fd0ab 20
+  s_6a8dd77299ee2b::t_9cc4e242edde41 166
+  s_6a8dd77299ee2b::t_3ad870dfa0875d 207
+  s_6a8dd77299ee2b::t_41498b5417ad35 127
+  s_6a8dd77299ee2b::t_fd92d705f8311a 91
+src/content/legal/vi/privacy.md
+  s_6a8dd77299ee2b::t_91c8f2008c4472 207
+  s_6a8dd77299ee2b::t_0e9ada67cf027a 91
+  s_6a8dd77299ee2b::t_d4d1a05f483a34 127
+  s_6a8dd77299ee2b::t_72da5774925cdb 20
+  s_6a8dd77299ee2b::t_c4832165e41745 166
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "5840c693c9fa92df6640874983090ed514a24198",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
