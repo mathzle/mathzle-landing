@@ -1,0 +1,23 @@
+src/i18n/en.json
+  s_6a8dd77299ee2b::t_13414126451f9a 162-163
+src/i18n/vi.json
+  s_6a8dd77299ee2b::t_13414126451f9a 163-164
+tests/unit/content-integrity.test.ts
+  s_6a8dd77299ee2b::t_1bf4cf06d8f4ca 22-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f45981e6d9e4e660cde04c131feb0c5673138b1b",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
