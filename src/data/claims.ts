@@ -5,8 +5,13 @@
  * - verifiedBy: "<who> <YYYY-MM-DD>" once a human confirmed the value, else null.
  * - A verified claim with value null/false means "confirmed we don't offer
  *   this" — components hide it.
- * - Preview builds render unverified claims highlighted; `pnpm build:prod`
+ * - Preview builds render unverified claims wrapped in `.claim-unverified`
+ *   spans that are visually invisible by default; add `?claims` to any URL
+ *   (e.g. /vi/?claims) to highlight them for review (D-018). `pnpm build:prod`
  *   (STRICT_CLAIMS=1) fails if any rendered claim is unverified.
+ * - An unverified claim with value null ("not counted yet") is treated as not
+ *   shown in preview builds, so gated copy/items disappear instead of
+ *   rendering a `[key]` placeholder.
  */
 export type ClaimValue = number | string | boolean | null;
 export interface Claim {
@@ -81,7 +86,8 @@ export function resolveClaim(
   if (strict) {
     throw new Error(`Unverified claim "${key}" used in a strict build (source: ${c.source})`);
   }
-  return { show: true, value: c.value, verified: false };
+  // Unverified + no value yet: nothing to show, so gated copy/items hide.
+  return { show: c.value !== null, value: c.value, verified: false };
 }
 
 export function unverifiedClaims(register: Record<string, Claim> = claims): string[] {

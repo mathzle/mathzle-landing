@@ -36,10 +36,14 @@ describe('copy()', () => {
     expect(copy('{claim:pending} kỹ năng', 'vi')).toBe(
       '<span class="claim-unverified" data-claim="pending" title="Unverified claim: pending">12</span> kỹ năng',
     );
-    expect(copy('{claim:empty}', 'vi')).toContain('>[empty]</span>');
+  });
+  it('renders an unverified claim with no value as nothing (no [key] placeholder)', () => {
+    expect(copy('A{claim:empty}B', 'vi')).toBe('AB');
+    expect(copyText('A{claim:empty}B', 'vi')).toBe('AB');
   });
   it('throws in strict builds on unverified claims', () => {
     expect(() => copy('{claim:pending}', 'vi', true)).toThrow(/Unverified claim "pending"/);
+    expect(() => copy('{claim:empty}', 'vi', true)).toThrow(/Unverified claim "empty"/);
   });
   it('throws when copy references a claim confirmed absent', () => {
     expect(() => copy('{claim:gone}', 'vi')).toThrow(/confirmed absent/);
@@ -64,6 +68,10 @@ describe('{if:key} sections', () => {
   it('throws in strict builds when the condition is unverified', () => {
     expect(() => copy('{if:pending}x{/if}', 'vi', true)).toThrow(/Unverified claim "pending"/);
   });
+  it('drops the text for an unverified claim with no value yet', () => {
+    expect(copy('A{if:empty} lưu tại {claim:empty}{/if}.', 'vi')).toBe('A.');
+    expect(copyText('A{if:empty} lưu tại {claim:empty}{/if}.', 'vi')).toBe('A.');
+  });
   it('supports claims inside a conditional section', () => {
     expect(copy('{if:flag}{claim:worlds} thế giới{/if}', 'vi')).toBe('6 thế giới');
   });
@@ -76,9 +84,12 @@ describe('claimHtml()', () => {
   it('returns null when the claim is confirmed absent', () => {
     expect(claimHtml('gone' as never, String)).toBeNull();
   });
-  it('flags unverified values and shows [key] for missing ones', () => {
+  it('flags unverified values and hides ones with no value yet', () => {
     expect(claimHtml('pending' as never, String)).toContain('claim-unverified');
-    expect(claimHtml('empty' as never, String)).toContain('[empty]');
+    expect(claimHtml('empty' as never, String)).toBeNull();
+  });
+  it('throws in strict builds on an unverified value', () => {
+    expect(() => claimHtml('empty' as never, String, true)).toThrow(/Unverified claim "empty"/);
   });
 });
 
@@ -100,7 +111,7 @@ describe('formatNumber()', () => {
 
 describe('visible()', () => {
   it('keeps unconditional items and items whose claim shows', () => {
-    const items = [{ if: '', n: 1 }, { if: 'flag', n: 2 }, { if: 'gone', n: 3 }, { if: 'pending', n: 4 }];
+    const items = [{ if: '', n: 1 }, { if: 'flag', n: 2 }, { if: 'gone', n: 3 }, { if: 'pending', n: 4 }, { if: 'empty', n: 5 }];
     expect(visible(items).map((i) => i.n)).toEqual([1, 2, 4]);
   });
   it('throws in strict builds on an unverified condition', () => {

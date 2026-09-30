@@ -4,7 +4,8 @@ test('proof strip: every number is either verified or visibly flagged', async ({
   await page.goto('/kit');
   const stats = page.locator('#proof dd');
   const n = await stats.count();
-  expect(n).toBeGreaterThanOrEqual(3);
+  // levels/skills hide until counted (D-018), leaving worlds + no-ads.
+  expect(n).toBeGreaterThanOrEqual(2);
   for (let k = 0; k < n; k++) {
     const html = await stats.nth(k).innerHTML();
     expect(/^\d|claim-unverified/.test(html.trim())).toBe(true);

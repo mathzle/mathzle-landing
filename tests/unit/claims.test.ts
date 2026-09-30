@@ -19,10 +19,13 @@ describe('resolveClaim', () => {
   });
   it('shows an unverified claim in preview builds, flagged', () => {
     expect(resolveClaim('b' as never, false, reg)).toEqual({ show: true, value: 12, verified: false });
-    expect(resolveClaim('e' as never, false, reg)).toEqual({ show: true, value: null, verified: false });
+  });
+  it('hides an unverified claim with no value yet in preview builds (no [key] placeholder)', () => {
+    expect(resolveClaim('e' as never, false, reg)).toEqual({ show: false, value: null, verified: false });
   });
   it('throws on an unverified claim in strict builds, naming the key', () => {
     expect(() => resolveClaim('b' as never, true, reg)).toThrow(/Unverified claim "b"/);
+    expect(() => resolveClaim('e' as never, true, reg)).toThrow(/Unverified claim "e"/);
   });
   it('throws on an unknown key', () => {
     expect(() => resolveClaim('zzz' as never, false, reg)).toThrow(/Unknown claim "zzz"/);

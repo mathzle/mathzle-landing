@@ -300,7 +300,9 @@
 
 /* Preview-only: unverified claims (src/data/claims.ts). Never reaches a
    strict production build — that build fails instead. */
-.claim-unverified {
+/* Unverified claims (D-018): invisible by default so parents read clean copy.
+   Reviewers add `?claims` to the URL; Base.astro then sets html.show-claims. */
+.show-claims .claim-unverified {
   background: color-mix(in srgb, var(--color-warning) 28%, transparent);
   outline: 1px dashed var(--color-warning);
   border-radius: 4px;

@@ -32,7 +32,7 @@ const { title, description, locale, path, ogImage, noindex } = Astro.props;
       crossorigin
       href={locale === 'vi' ? bvp800Vietnamese : bvp800Latin}
     />
-    <script is:inline>document.documentElement.classList.add('js');</script>
+    <script is:inline>document.documentElement.classList.add('js');if(new URLSearchParams(location.search).has('claims'))document.documentElement.classList.add('show-claims');</script>
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO

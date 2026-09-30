@@ -25,10 +25,13 @@ export function flag(key: string, html: string): string {
 
 function claimText(key: string, locale: Locale, strict: boolean): { text: string; verified: boolean } {
   const r = resolveClaim(key as ClaimKey, strict);
+  // Unverified with no value yet (preview builds only — strict threw above):
+  // render nothing rather than a `[key]` placeholder. Copy should gate such
+  // claims with {if:key}; tests/unit/content-integrity.test.ts enforces that.
+  if (!r.verified && r.value === null) return { text: '', verified: true };
   if (!r.show) throw new Error(`Copy references claim "${key}" which is confirmed absent — rewrite the copy`);
   if (typeof r.value === 'boolean') throw new Error(`Claim "${key}" is boolean and cannot be interpolated`);
-  const text =
-    r.value === null ? `[${key}]` : typeof r.value === 'number' ? formatNumber(r.value, locale) : r.value;
+  const text = typeof r.value === 'number' ? formatNumber(r.value, locale) : (r.value as string);
   return { text, verified: r.verified };
 }
 
@@ -74,6 +77,6 @@ export function claimHtml(
   const r = resolveClaim(key, strict);
   if (!r.show) return null;
   if (typeof r.value === 'boolean') throw new Error(`Claim "${key}" is boolean; use {if:${key}}`);
-  const html = r.value === null ? `[${key}]` : escapeHtml(format(r.value));
+  const html = escapeHtml(format(r.value as number | string));
   return r.verified ? html : flag(key, html);
 }
