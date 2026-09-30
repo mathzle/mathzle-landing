@@ -1,0 +1,25 @@
+scripts/check-dist-copy.mjs
+  s_6a8dd77299ee2b::t_34b5b04dc889dd 1-28
+.github/workflows/ci.yml
+  s_6a8dd77299ee2b::t_6e0254a5bd1952 18
+.github/workflows/deploy.yml
+  s_6a8dd77299ee2b::t_24ed177a2b8744 47
+package.json
+  s_6a8dd77299ee2b::t_326d48b38edc8b 19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "216219d62810caddf1bada0244a4ea3d2aabc985",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
