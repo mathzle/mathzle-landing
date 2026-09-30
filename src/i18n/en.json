@@ -274,5 +274,17 @@
       { "title": "Parents stay in charge", "body": "Parents create the account, see progress and decide how long kids play." },
       { "title": "Honest numbers", "body": "Every number on this site has a source. If we're not sure, we don't write it." }
     ]
+  },
+  "legalPages": {
+    "summaryTitle": "The short version for busy parents",
+    "summary": [
+      { "if": "noAds", "text": "There are no ads in Mathzle." },
+      { "if": "noDataSale", "text": "We never sell your child's data to anyone." },
+      { "if": "noChat", "text": "There's no chat or messaging between users." },
+      { "if": "", "text": "We only store learning progress, level results and the parent's account email." },
+      { "if": "parentDataDeletion", "text": "You can delete your child's data at any time." }
+    ],
+    "updated": "Last updated: {date}",
+    "pending": "This version is under legal review."
   }
 }

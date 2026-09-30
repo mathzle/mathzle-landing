@@ -275,5 +275,17 @@
       { "title": "Bố mẹ luôn nắm quyền", "body": "Bố mẹ tạo tài khoản, xem tiến độ và quyết định thời gian con chơi." },
       { "title": "Nói thật về con số", "body": "Mọi con số trên trang này đều có nguồn. Chưa chắc thì chúng mình không viết." }
     ]
+  },
+  "legalPages": {
+    "summaryTitle": "Tóm tắt cho bố mẹ bận rộn",
+    "summary": [
+      { "if": "noAds", "text": "Không có quảng cáo trong Mathzle." },
+      { "if": "noDataSale", "text": "Chúng mình không bán dữ liệu của con cho bất kỳ ai." },
+      { "if": "noChat", "text": "Không có chat hay tin nhắn giữa người dùng." },
+      { "if": "", "text": "Chúng mình chỉ lưu tiến độ học, kết quả màn chơi và email tài khoản của bố mẹ." },
+      { "if": "parentDataDeletion", "text": "Bố mẹ có thể xoá dữ liệu của con bất kỳ lúc nào." }
+    ],
+    "updated": "Cập nhật lần cuối: {date}",
+    "pending": "Bản đang được luật sư rà soát."
   }
 }
