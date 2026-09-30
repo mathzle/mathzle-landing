@@ -35,6 +35,14 @@ test.describe('beta: pricing hidden', () => {
       expect(xml).not.toContain('/pricing/');
     });
 
+    test(`${locale}: FAQ and Contact meta descriptions don't mention payment`, async ({ page }) => {
+      for (const sub of ['faq', 'contact']) {
+        await page.goto(`/${locale}/${sub}/`);
+        const desc = (await page.locator('meta[name="description"]').getAttribute('content')) ?? '';
+        expect(desc, `${sub} description`).not.toMatch(/thanh toán|billing|payment|giá|price/i);
+      }
+    });
+
     test(`${locale}/faq/: no billing group, JSON-LD matches the page`, async ({ page }) => {
       await page.goto(`/${locale}/faq/`);
       await expect(page.locator('#faq-g-billing')).toHaveCount(0);

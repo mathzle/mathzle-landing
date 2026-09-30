@@ -93,12 +93,12 @@
   },
   "faqPage": {
     "title": "FAQ",
-    "description": "Questions parents ask about Mathzle: learning, safety, billing and devices."
+    "description": "Questions parents ask about Mathzle: how kids learn, safety and data, devices and the beta program."
   },
   "contact": {
     "title": "Contact",
     "lead": "We read every message{if:responseDays} and reply within {claim:responseDays} business days{/if}.",
-    "description": "Reach the Mathzle team by email or Zalo for questions about lessons, billing, or your account.",
+    "description": "Reach the Mathzle team with questions about lessons, your child's safety, devices or your account.",
     "email": "Email",
     "zalo": "Zalo",
     "zaloCta": "Message on Zalo",
@@ -161,6 +161,7 @@
       { "if": "", "value": "{claim:worlds}", "label": "worlds" },
       { "if": "levels", "value": "{claim:levels}", "label": "levels" },
       { "if": "skills", "value": "{claim:skills}", "label": "grade {claim:gradeRange} skills" },
+      { "if": "gradeRange", "value": "{claim:gradeRange}", "label": "primary grades" },
       { "if": "noAds", "value": "0", "label": "ads" }
     ],
     "footnote": "Content numbers as of {claim:contentAsOf}.{if:curriculumGdpt2018} Content follows Vietnam's GDPT 2018 curriculum.{/if}"

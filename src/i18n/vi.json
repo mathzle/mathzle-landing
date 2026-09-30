@@ -94,12 +94,12 @@
   },
   "faqPage": {
     "title": "Hỏi đáp",
-    "description": "Câu hỏi bố mẹ hay hỏi về Mathzle: cách học, an toàn, thanh toán và thiết bị."
+    "description": "Câu hỏi bố mẹ hay hỏi về Mathzle: cách con học, an toàn dữ liệu, thiết bị và chương trình thử nghiệm."
   },
   "contact": {
     "title": "Liên hệ",
     "lead": "Chúng mình đọc mọi tin nhắn{if:responseDays} và trả lời trong {claim:responseDays} ngày làm việc{/if}.",
-    "description": "Liên hệ đội ngũ Mathzle qua email hoặc Zalo nếu bạn có câu hỏi về bài học, thanh toán hoặc tài khoản.",
+    "description": "Liên hệ đội ngũ Mathzle nếu bạn có câu hỏi về bài học, an toàn của con, thiết bị hoặc tài khoản.",
     "email": "Email",
     "zalo": "Zalo",
     "zaloCta": "Nhắn Zalo",
@@ -162,6 +162,7 @@
       { "if": "", "value": "{claim:worlds}", "label": "thế giới" },
       { "if": "levels", "value": "{claim:levels}", "label": "màn chơi" },
       { "if": "skills", "value": "{claim:skills}", "label": "kỹ năng lớp {claim:gradeRange}" },
+      { "if": "gradeRange", "value": "{claim:gradeRange}", "label": "lớp tiểu học" },
       { "if": "noAds", "value": "0", "label": "quảng cáo" }
     ],
     "footnote": "Số liệu nội dung tính đến {claim:contentAsOf}.{if:curriculumGdpt2018} Nội dung bám chương trình GDPT 2018.{/if}"
