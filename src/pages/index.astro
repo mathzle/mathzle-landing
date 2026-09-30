@@ -1,11 +1,11 @@
 ---
 /**
- * Root redirect. Astro produces a static HTML page that uses
- * meta refresh + JS fallback to send users to the appropriate locale.
+ * Root language sniff. A static page: the script sends Vietnamese browsers
+ * to /vi/ and everyone else to /en/; meta refresh covers no-JS.
  *
- * Cloudflare Pages can do this server-side via _redirects too — see
- * public/_redirects in Task 12 for the edge-level Accept-Language
- * sniffing. This page is the in-build fallback.
+ * There is deliberately no `_redirects` rule for `/`: the Workers asset
+ * server rejects `Language=` conditions, and an unconditional `/ → /en/`
+ * would override this sniff.
  */
 ---
 <!doctype html>
