@@ -11,8 +11,5 @@ test('footer exposes legal pages and every configured contact channel', async ({
   } else {
     await expect(footer.locator('a[href^="mailto:"]')).toHaveCount(0);
   }
-  if (site.legal.companyName) {
-    await expect(footer).toContainText(site.legal.companyName);
-  }
-  await expect(footer.locator('.footer-legal')).toHaveCount(site.legal.companyName ? 1 : 0);
+  if (site.legal.companyName) await expect(footer.locator('.footer-legal')).toContainText(site.legal.companyName);
 });

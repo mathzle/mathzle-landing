@@ -132,20 +132,29 @@
     "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
     "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
   },
+  "final": {
+    "title": "Con sẵn sàng cho ==màn chơi đầu tiên== chưa?",
+    "newsletterToggle": "Chưa sẵn sàng? Nhận thư mỗi tháng từ Mathzle",
+    "newsletterBody": "Mỗi tháng một email: thế giới mới và mẹo nhỏ để cùng con học toán."
+  },
   "footer": {
-    "tagline": "Toán học dành cho trẻ em.",
-    "copyright": "© 2026 Mathzle.",
-    "links": {
-      "about": "Giới thiệu",
-      "pricing": "Bảng giá",
-      "faq": "Hỏi đáp",
-      "privacy": "Bảo mật",
-      "terms": "Điều khoản",
-      "contact": "Liên hệ"
-    },
+    "tagline": "Trò chơi toán cho bé tiểu học, chạy ngay trên trình duyệt.",
+    "product": "Sản phẩm",
+    "support": "Hỗ trợ",
+    "legal": "Pháp lý",
     "contactEmail": "Email",
     "zalo": "Nhắn Zalo",
-    "taxId": "MST"
+    "taxId": "MST",
+    "links": {
+      "method": "Phương pháp",
+      "worlds": "Thế giới",
+      "pricing": "Bảng giá",
+      "about": "Giới thiệu",
+      "faq": "Hỏi đáp",
+      "contact": "Liên hệ",
+      "privacy": "Bảo mật",
+      "terms": "Điều khoản"
+    }
   },
   "media": {
     "pause": "Tạm dừng video",

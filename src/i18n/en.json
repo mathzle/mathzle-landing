@@ -131,20 +131,29 @@
     "error": "Something went wrong. Try again?",
     "invalid": "That email doesn't look right. Mind checking it?"
   },
+  "final": {
+    "title": "Is your child ready for ==their first level?==",
+    "newsletterToggle": "Not ready yet? Get one email a month from Mathzle",
+    "newsletterBody": "One email a month: new worlds and small ideas for doing math together."
+  },
   "footer": {
-    "tagline": "Math made for kids.",
-    "copyright": "© 2026 Mathzle.",
-    "links": {
-      "about": "About",
-      "pricing": "Pricing",
-      "faq": "FAQ",
-      "privacy": "Privacy",
-      "terms": "Terms",
-      "contact": "Contact"
-    },
+    "tagline": "A math game for primary-school kids that runs right in the browser.",
+    "product": "Product",
+    "support": "Support",
+    "legal": "Legal",
     "contactEmail": "Email",
     "zalo": "Chat on Zalo",
-    "taxId": "Tax ID"
+    "taxId": "Tax ID",
+    "links": {
+      "method": "How it teaches",
+      "worlds": "Worlds",
+      "pricing": "Pricing",
+      "about": "About",
+      "faq": "FAQ",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
   },
   "media": {
     "pause": "Pause video",
