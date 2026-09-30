@@ -224,7 +224,7 @@
   .mk-tone-tint   { background: var(--color-mk-canvas-tint); }
   .mk-tone-warm   { background: var(--color-mk-canvas-warm); }
   .mk-tone-ink    { background: var(--color-mk-ink); color: var(--color-mk-ink-text); }
-  .mk-tone-ink :where(.mk-lead, .mk-body, .mk-caption) { color: var(--color-mk-ink-text-muted); }
+  .mk-tone-ink .mk-lead, .mk-tone-ink .mk-body, .mk-tone-ink .mk-caption { color: var(--color-mk-ink-text-muted); }
   @media (min-width: 1024px) {
     .mk-tone-tint, .mk-tone-warm, .mk-tone-ink { margin-inline: 1rem; border-radius: var(--radius-mk-band); }
   }

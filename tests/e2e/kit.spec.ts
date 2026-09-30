@@ -15,6 +15,11 @@ test('section tones paint distinct backgrounds', async ({ page }) => {
   expect(tones[3]).toBe('rgb(23, 21, 43)');
 });
 
+test('lead text on ink tone meets contrast (muted ink text, not app secondary)', async ({ page }) => {
+  await page.goto('/kit');
+  await expect(page.locator('#kit-tone-ink .mk-lead').first()).toHaveCSS('color', 'rgb(185, 181, 214)');
+});
+
 test.describe('reduced motion', () => {
   test.use({ reducedMotion: 'reduce' });
   test('reveal content and marker are fully visible immediately', async ({ page }) => {
