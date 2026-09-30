@@ -16,7 +16,7 @@ const links = [
   { href: `${home}#method`, label: i.nav.method },
   { href: `${home}#worlds`, label: i.nav.worlds },
   ...(resolveClaim('skillReport').show ? [{ href: `${home}#parents`, label: i.nav.parents }] : []),
-  { href: `${home}#pricing`, label: i.nav.pricing },
+  ...(site.pricing.public ? [{ href: `${home}#pricing`, label: i.nav.pricing }] : []),
   { href: `${home}faq/`, label: i.nav.faq },
 ];
 ---

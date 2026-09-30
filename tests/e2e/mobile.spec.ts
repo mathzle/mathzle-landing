@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { site } from '../../src/data/site';
 
 test.describe('mobile nav', () => {
   test.beforeEach(({ isMobile }) => test.skip(!isMobile, 'mobile only'));
@@ -21,7 +22,9 @@ test.describe('mobile nav', () => {
     await page.locator('[data-open-nav]').click();
     const drawer = page.locator('dialog#mobile-nav');
     await expect(drawer).toBeVisible();
-    await expect(drawer.getByRole('link', { name: 'Bảng giá' })).toBeVisible();
+    await expect(drawer.getByRole('link', { name: 'Hỏi đáp' })).toBeVisible();
+    // Pricing link only once pricing is public (D-017).
+    await expect(drawer.getByRole('link', { name: 'Bảng giá' })).toHaveCount(site.pricing.public ? 1 : 0);
     await expect(drawer.getByRole('link', { name: /English/ })).toBeVisible();
     await page.keyboard.press('Escape');
     await expect(drawer).toBeHidden();

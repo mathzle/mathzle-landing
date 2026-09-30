@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { site } from '../../src/data/site';
 
 test('deep link opens the matching question', async ({ page }) => {
   await page.goto('/vi/faq/#faq-install');
@@ -45,7 +46,7 @@ for (const width of [360, 390, 768, 1024, 1280, 1440]) {
       const overflow = await page.$$eval('.faq-group-body', (els) =>
         els.map((el) => el.querySelector('.faq-list')!.getBoundingClientRect().height - parseFloat(getComputedStyle(el).minHeight)),
       );
-      expect(overflow.length).toBe(4);
+      expect(overflow.length).toBe(site.pricing.public ? 4 : 3); // billing group hidden in beta
       for (const d of overflow) expect(d).toBeLessThanOrEqual(0.5);
     }
   });

@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
+import { site } from '../../src/data/site';
 
-const ROUTES = ['', 'pricing', 'about', 'faq', 'contact', 'privacy', 'terms'];
+// /pricing/ is a redirect to the beta program while pricing isn't public (D-017).
+const ROUTES = ['', ...(site.pricing.public ? ['pricing'] : []), 'about', 'faq', 'contact', 'privacy', 'terms'];
 
 test('every public route: unique title, description length, canonical + hreflang', async ({ page }) => {
   const titles = new Set<string>();
@@ -38,6 +40,8 @@ test('sitemap lists public routes only', async ({ request }) => {
   expect(xml).toContain('https://mathzle.com/vi/contact/');
   expect(xml).not.toMatch(/\/(kit|og)\//);
   expect(xml).not.toContain('<loc>https://mathzle.com/</loc>'); // root is only the language-sniff stub
+  if (site.pricing.public) expect(xml).toContain('https://mathzle.com/vi/pricing/');
+  else expect(xml).not.toContain('/pricing/');
 });
 
 test('WebApplication offer price uses the locale currency', async ({ page }) => {

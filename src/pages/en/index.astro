@@ -16,6 +16,7 @@ import Pricing from '../../components/sections/Pricing.astro';
 import FAQ from '../../components/sections/FAQ.astro';
 import FinalCta from '../../components/sections/FinalCta.astro';
 import { copyText } from '../../lib/copy';
+import { site } from '../../data/site';
 import { t } from '../../utils/i18n';
 
 const locale = 'en' as const;
@@ -34,7 +35,7 @@ const h = t(locale).home;
     <Safety locale={locale} />
     <Story locale={locale} />
     <Voices locale={locale} />
-    <Pricing locale={locale} />
+    {site.pricing.public && <Pricing locale={locale} />}
     <FAQ locale={locale} />
     <FinalCta locale={locale} />
   </main>

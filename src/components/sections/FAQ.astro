@@ -6,6 +6,7 @@ import FaqAccordion from '../islands/FaqAccordion';
 import { copy, copyText, visible } from '../../lib/copy';
 import { site } from '../../data/site';
 import { jsonLd } from '../../lib/seo';
+import { visibleFaq } from '../../lib/beta';
 import { t, type Locale } from '../../utils/i18n';
 
 type Category = 'learning' | 'safety' | 'billing' | 'tech';
@@ -13,7 +14,9 @@ interface Props { locale: Locale; categories?: Category[]; tone?: 'canvas' | 'ti
 const { locale, categories, tone = 'canvas', grouped = false, headingLevel = 'h2' } = Astro.props;
 const H = headingLevel;
 const i = t(locale).faq;
-const all = visible((await getEntry('faq', locale))?.data.items ?? []);
+// Billing questions stay hidden while pricing isn't public (D-017); the
+// JSON-LD below is built from the same list, so schema matches the page.
+const all = visibleFaq(visible((await getEntry('faq', locale))?.data.items ?? []));
 const items = categories ? all.filter((q) => categories.includes(q.category)) : all;
 const faqSchema = {
   '@context': 'https://schema.org',

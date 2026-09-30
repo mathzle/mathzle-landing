@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import preact from '@astrojs/preact';
 import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from '@tailwindcss/vite';
+import { hiddenFromSitemap } from './src/lib/beta.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,10 +21,11 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Public locale pages only: no internal kit, OG renderers, or the root
-      // language-sniff stub (`/` just forwards to /vi/ or /en/).
+      // language-sniff stub (`/` just forwards to /vi/ or /en/). The pricing
+      // pages are redirects while pricing isn't public (D-017).
       filter: (page) => {
         const path = new URL(page).pathname;
-        return path !== '/' && !/\/(kit|og)\//.test(path + '/');
+        return path !== '/' && !/\/(kit|og)\//.test(path + '/') && !hiddenFromSitemap(path);
       },
     }),
     preact(),

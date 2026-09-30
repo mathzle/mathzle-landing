@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { site } from '../../src/data/site';
 
 test('newsletter form in the final CTA hydrates', async ({ page }) => {
   await page.goto('/en/');
@@ -29,6 +30,7 @@ test('FAQ accordion expands and exposes schema.org markup', async ({ page }) => 
 });
 
 test('pricing: free CTA goes to the app, premium CTA goes to the waitlist while not on sale', async ({ page }) => {
+  test.skip(!site.pricing.public, 'beta: pricing hidden (D-017)');
   await page.goto('/en/pricing/');
   await expect(page.locator('a[data-track="cta-pricing-free"]')).toHaveAttribute('href', /app\.mathzle\.com/);
   const prem = page.locator('a[data-track="cta-pricing-premium"]');

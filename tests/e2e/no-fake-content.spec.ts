@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { site } from '../../src/data/site';
 
 for (const locale of ['vi', 'en'] as const) {
   test(`${locale}: no placeholder testimonials or fake screenshots`, async ({ page }) => {
@@ -15,7 +16,7 @@ for (const locale of ['vi', 'en'] as const) {
     await expect(hero).not.toContainText(/giáo viên|teacher/i);
   });
 
-  for (const sub of ['', 'about', 'privacy', 'terms', 'faq', 'pricing']) {
+  for (const sub of ['', 'about', 'privacy', 'terms', 'faq', ...(site.pricing.public ? ['pricing'] : [])]) {
     test(`${locale}/${sub}: no visible TODOs or unverifiable claims`, async ({ page }) => {
       await page.goto(`/${locale}/${sub}`);
       const text = await page.locator('body').innerText();

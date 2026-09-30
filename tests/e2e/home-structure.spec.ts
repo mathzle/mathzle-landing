@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { site } from '../../src/data/site';
 
 const ORDER = ['hero', 'proof', 'pain', 'method', 'worlds', 'parents', 'safety', 'story', 'voices', 'pricing', 'faq', 'final-cta'];
 
@@ -7,7 +8,10 @@ for (const locale of ['vi', 'en']) {
     await page.goto(`/${locale}/`);
     const ids = await page.locator('main > section[id]').evaluateAll((els) => els.map((e) => e.id));
     expect(ids).toEqual(ORDER.filter((id) => ids.includes(id)));
-    for (const must of ['hero', 'proof', 'method', 'worlds', 'safety', 'pricing', 'faq', 'final-cta']) expect(ids).toContain(must);
+    // Pricing is only required once public (D-017: the beta hides all prices).
+    const must = ['hero', 'proof', 'method', 'worlds', 'safety', ...(site.pricing.public ? ['pricing'] : []), 'faq', 'final-cta'];
+    for (const id of must) expect(ids).toContain(id);
+    if (!site.pricing.public) expect(ids).not.toContain('pricing');
   });
 
   test(`${locale}: tone rhythm — no adjacent tints, at most two ink bands`, async ({ page }) => {

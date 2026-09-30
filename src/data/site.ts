@@ -13,6 +13,12 @@ export interface SiteConfig {
   /** policiesReviewedOn: YYYY-MM-DD a lawyer signed off Privacy + Terms. */
   legal: { companyName: string | null; taxId: string | null; address: string | null; policiesReviewedOn: string | null };
   premium: { onSale: boolean };
+  /**
+   * Beta phase (D-017): while false the site shows no prices anywhere — no
+   * Pricing section, /pricing/ redirects to the beta program, no pricing
+   * links, no billing FAQ. Pricing code stays intact for the flip.
+   */
+  pricing: { public: boolean };
   mascot: { name: string | null };
   analytics: { cfBeaconToken: string | null };
 }
@@ -28,6 +34,8 @@ export const site: SiteConfig = {
   contact: { email: null, zaloUrl: null },
   legal: { companyName: null, taxId: null, address: null, policiesReviewedOn: null },
   premium: { onSale: false },
+  // Flip to true at public launch (restores Pricing section, /pricing/, links, billing FAQ).
+  pricing: { public: false },
   mascot: { name: null },
   analytics: { cfBeaconToken: env.PUBLIC_CF_BEACON_TOKEN || null },
 };

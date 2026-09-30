@@ -1,4 +1,9 @@
 import { test, expect } from '@playwright/test';
+import { site } from '../../src/data/site';
+
+// Public-launch assertions only; the beta (pricing hidden, D-017) is covered
+// by beta-pricing.spec.ts.
+test.skip(!site.pricing.public, 'beta: pricing hidden (D-017)');
 
 for (const locale of ['vi', 'en']) {
   test(`${locale}/pricing: plans, comparison, billing FAQ, final CTA`, async ({ page }) => {

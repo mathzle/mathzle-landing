@@ -9,10 +9,15 @@ import FinalCta from '../../components/sections/FinalCta.astro';
 import { copyText } from '../../lib/copy';
 import { t } from '../../utils/i18n';
 import { pageTitle } from '../../lib/seo';
+import BetaRedirect from '../../components/BetaRedirect.astro';
+import { pricingPublic, betaTarget } from '../../lib/beta';
 const locale = 'en' as const;
 const path = '/en/pricing/';
 const p = t(locale).pricingPage;
+// Beta phase (D-017): no prices anywhere — send visitors to the beta program.
+const open = pricingPublic();
 ---
+{!open ? <BetaRedirect to={betaTarget(locale)} locale={locale} /> : (
 <Base title={pageTitle(p.title)} description={copyText(p.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
@@ -24,3 +29,4 @@ const p = t(locale).pricingPage;
   </main>
   <Footer locale={locale} path={path} />
 </Base>
+)}

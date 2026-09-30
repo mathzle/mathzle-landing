@@ -11,7 +11,7 @@ const cols = [
   { title: i.product, links: [
     { href: `${home}#method`, label: i.links.method },
     { href: `${home}#worlds`, label: i.links.worlds },
-    { href: `${home}pricing/`, label: i.links.pricing },
+    ...(site.pricing.public ? [{ href: `${home}pricing/`, label: i.links.pricing }] : []),
   ] },
   { title: i.support, links: [
     { href: `${home}faq/`, label: i.links.faq },
