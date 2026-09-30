@@ -1,6 +1,6 @@
 /**
  * Lighthouse CI thresholds. Runs against pnpm preview (locally) or the
- * Cloudflare Pages branch preview URL (in CI via LHCI_BUILD_CONTEXT).
+ * deployed Worker preview URL (in CI via LHCI_BUILD_CONTEXT).
  *
  * Mobile emulation (390×844, DPR 3) to match how parents actually load the
  * site. Spec target is Perf ≥ 95 on a real device; the 0.9 gate here allows

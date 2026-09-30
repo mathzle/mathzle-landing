@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import { site, missingForLaunch, type SiteConfig } from '../../src/data/site';
 
@@ -46,5 +47,14 @@ describe.runIf(process.env.LAUNCH_CHECK === '1')('launch gate', () => {
   it('every claim has been verified (value, or confirmed absent)', async () => {
     const { unverifiedClaims } = await import('../../src/data/claims');
     expect(unverifiedClaims()).toEqual([]);
+  });
+
+  it('wrangler.jsonc binds a real SIGNUPS KV namespace (not the placeholder)', () => {
+    const src = readFileSync(new URL('../../wrangler.jsonc', import.meta.url), 'utf8')
+      .replace(/^\s*\/\/.*$/gm, ''); // strip line comments (JSONC)
+    const kv = (JSON.parse(src).kv_namespaces ?? []) as { binding: string; id: string }[];
+    const signups = kv.find((n) => n.binding === 'SIGNUPS');
+    expect(signups?.id).toBeTruthy();
+    expect(signups?.id).not.toBe('REPLACE_WITH_KV_ID');
   });
 });
