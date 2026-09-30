@@ -1,5 +1,6 @@
 ---
 import { t, type Locale } from '../utils/i18n';
+import { site } from '../data/site';
 import LangSwitch from './LangSwitch.astro';
 
 interface Props {
@@ -36,12 +37,22 @@ const year = new Date().getFullYear();
       <a href={`${home}faq`}>{i.footer.links.faq}</a>
       <a href={`${home}privacy`}>{i.footer.links.privacy}</a>
       <a href={`${home}terms`}>{i.footer.links.terms}</a>
+      {site.contact.email && <a href={`mailto:${site.contact.email}`}>{i.footer.links.contact}: {site.contact.email}</a>}
+      {site.contact.zaloUrl && <a href={site.contact.zaloUrl} target="_blank" rel="noopener noreferrer">{i.footer.zalo}</a>}
     </nav>
 
     <div class="footer-utility">
       <LangSwitch locale={locale} path={path} />
     </div>
   </div>
+
+  {site.legal.companyName && (
+    <p class="footer-legal">
+      {site.legal.companyName}
+      {site.legal.taxId && <> · {i.footer.taxId} {site.legal.taxId}</>}
+      {site.legal.address && <> · {site.legal.address}</>}
+    </p>
+  )}
 </footer>
 
 <style>
@@ -101,5 +112,13 @@ const year = new Date().getFullYear();
   }
   .footer-nav a:hover {
     color: var(--color-text-primary);
+  }
+  .footer-legal {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8125rem;
+    color: var(--color-text-secondary);
   }
 </style>

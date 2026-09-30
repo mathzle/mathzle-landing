@@ -95,6 +95,9 @@
       "privacy": "Bảo mật",
       "terms": "Điều khoản",
       "contact": "Liên hệ"
-    }
+    },
+    "contactEmail": "Email",
+    "zalo": "Nhắn Zalo",
+    "taxId": "MST"
   }
 }

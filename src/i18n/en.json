@@ -94,6 +94,9 @@
       "privacy": "Privacy",
       "terms": "Terms",
       "contact": "Contact"
-    }
+    },
+    "contactEmail": "Email",
+    "zalo": "Chat on Zalo",
+    "taxId": "Tax ID"
   }
 }
