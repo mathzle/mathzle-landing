@@ -285,6 +285,20 @@
       { "if": "parentDataDeletion", "text": "You can delete your child's data at any time." }
     ],
     "updated": "Last updated: {date}",
-    "pending": "This version is under legal review."
+    "draft": "Draft — awaiting legal review",
+    "draftDate": "Draft dated {date}",
+    "eyebrow": "Legal",
+    "toc": "Contents",
+    "tocToggle": "On this page",
+    "companyTitle": "Company details",
+    "companyName": "Company name",
+    "taxId": "Tax code",
+    "address": "Address",
+    "email": "Contact email",
+    "companyPending": "Our legal entity details and official contact channel will be published here before Mathzle's public launch. During the beta, please reach us through the {link}.",
+    "contactPage": "Contact page",
+    "questionsTitle": "Questions about your data or these terms?",
+    "questionsBody": "The Mathzle team is happy to explain anything that isn't clear.",
+    "questionsCta": "Contact us"
   }
 }

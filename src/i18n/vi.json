@@ -286,6 +286,20 @@
       { "if": "parentDataDeletion", "text": "Bố mẹ có thể xoá dữ liệu của con bất kỳ lúc nào." }
     ],
     "updated": "Cập nhật lần cuối: {date}",
-    "pending": "Bản đang được luật sư rà soát."
+    "draft": "Bản dự thảo — đang chờ luật sư rà soát",
+    "draftDate": "Bản nháp ngày {date}",
+    "eyebrow": "Pháp lý",
+    "toc": "Mục lục",
+    "tocToggle": "Mục lục trang này",
+    "companyTitle": "Thông tin doanh nghiệp",
+    "companyName": "Tên doanh nghiệp",
+    "taxId": "Mã số thuế",
+    "address": "Địa chỉ",
+    "email": "Email liên hệ",
+    "companyPending": "Thông tin pháp nhân và kênh liên hệ chính thức sẽ được công bố tại đây trước khi Mathzle ra mắt chính thức. Trong giai đoạn thử nghiệm, vui lòng liên hệ qua {link}.",
+    "contactPage": "trang Liên hệ",
+    "questionsTitle": "Còn câu hỏi về dữ liệu hay điều khoản?",
+    "questionsBody": "Đội ngũ Mathzle sẵn sàng giải thích bất kỳ điều gì chưa rõ.",
+    "questionsCta": "Liên hệ với chúng tôi"
   }
 }
