@@ -5,8 +5,9 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const a = t(locale).actions;
 ---
-<div class="sticky-cta" data-sticky-cta data-visible="false">
-  <a href={site.appUrl} class="btn-push" data-track="sticky-cta" target="_blank" rel="noopener noreferrer" tabindex="-1">{a.primaryShort}</a>
+<!-- `inert` while hidden: the off-screen bar stays out of the tab order and a11y tree. -->
+<div class="sticky-cta" data-sticky-cta data-visible="false" inert>
+  <a href={site.appUrl} class="btn-push" data-track="sticky-cta" target="_blank" rel="noopener noreferrer">{a.primaryShort}</a>
 </div>
 <script>
   const bar = document.querySelector<HTMLElement>('[data-sticky-cta]');
@@ -17,7 +18,7 @@ const a = t(locale).actions;
     const update = () => {
       const show = !seen.get(hero) && !(final && seen.get(final));
       bar.dataset.visible = String(show);
-      bar.querySelector('a')!.tabIndex = show ? 0 : -1;
+      bar.inert = !show;
     };
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => seen.set(e.target, e.isIntersecting));

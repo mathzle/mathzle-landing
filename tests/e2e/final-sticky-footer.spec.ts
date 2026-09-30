@@ -7,10 +7,13 @@ test.describe('sticky CTA (mobile)', () => {
     await page.goto('/vi/');
     const bar = page.locator('[data-sticky-cta]');
     await expect(bar).toHaveAttribute('data-visible', 'false');
+    await expect(bar).toHaveAttribute('inert', ''); // off-screen bar is out of the a11y tree / tab order
     await page.locator('#worlds').scrollIntoViewIfNeeded();
     await expect(bar).toHaveAttribute('data-visible', 'true');
+    await expect(bar).not.toHaveAttribute('inert', /.*/);
     await page.locator('#final-cta').scrollIntoViewIfNeeded();
     await expect(bar).toHaveAttribute('data-visible', 'false');
+    await expect(bar).toHaveAttribute('inert', '');
   });
 
   test('never covers the footer legal line', async ({ page }) => {
