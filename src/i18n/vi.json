@@ -231,7 +231,7 @@
       { "if": "noAds", "icon": "Ban", "title": "Không quảng cáo", "body": "Không banner, không video quảng cáo, kể cả ở bản miễn phí." },
       { "if": "noChat", "icon": "MessageCircleOff", "title": "Không chat với người lạ", "body": "Không có tin nhắn giữa người dùng. Con chỉ chơi với bài toán." },
       { "if": "noDataSale", "icon": "Lock", "title": "Không bán dữ liệu", "body": "Dữ liệu của con chỉ dùng để con học tốt hơn, không chia sẻ cho bên quảng cáo." },
-      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "Không mua hàng trong game", "body": "Con không thể tự tiêu tiền. Mọi thanh toán do bố mẹ thực hiện." },
+      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "Không mua hàng trong game", "body": "Trong Mathzle không có mục mua hàng nào dành cho trẻ." },
       { "if": "dataResidency", "icon": "Server", "title": "Dữ liệu lưu tại {claim:dataResidency}", "body": "Xử lý theo Nghị định 13/2023 về bảo vệ dữ liệu cá nhân." },
       { "if": "parentDataDeletion", "icon": "Trash2", "title": "Bố mẹ xoá dữ liệu bất kỳ lúc nào", "body": "Một thao tác trong phần cài đặt tài khoản." }
     ],
@@ -277,7 +277,6 @@
     ]
   },
   "legalPages": {
-    "privacyDescription": "Cách Mathzle xử lý dữ liệu: không tracker bên thứ ba trong app trẻ em{if:noAds}, không quảng cáo{/if}{if:noDataSale}, không bán dữ liệu{/if}.",
     "summaryTitle": "Tóm tắt cho bố mẹ bận rộn",
     "summary": [
       { "if": "noAds", "text": "Không có quảng cáo trong Mathzle." },
@@ -288,7 +287,7 @@
     ],
     "updated": "Cập nhật lần cuối: {date}",
     "draft": "Bản dự thảo — đang chờ luật sư rà soát",
-    "draftDate": "Bản nháp ngày {date}",
+    "draftDate": "Dự thảo ngày {date}",
     "eyebrow": "Pháp lý",
     "toc": "Mục lục",
     "tocToggle": "Mục lục trang này",

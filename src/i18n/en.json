@@ -230,7 +230,7 @@
       { "if": "noAds", "icon": "Ban", "title": "No ads", "body": "No banners, no video ads — not even on the free plan." },
       { "if": "noChat", "icon": "MessageCircleOff", "title": "No chatting with strangers", "body": "There's no messaging between users. Your child only plays with the math." },
       { "if": "noDataSale", "icon": "Lock", "title": "No selling data", "body": "Your child's data is used to help them learn — never shared with advertisers." },
-      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "No in-game purchases", "body": "Kids can't spend money. Every payment is made by a parent." },
+      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "No in-game purchases", "body": "There is nothing for children to buy inside Mathzle." },
       { "if": "dataResidency", "icon": "Server", "title": "Data stored in {claim:dataResidency}", "body": "Handled under Vietnam's Decree 13/2023 on personal data protection." },
       { "if": "parentDataDeletion", "icon": "Trash2", "title": "Delete data any time", "body": "One action in your account settings." }
     ],
@@ -276,7 +276,6 @@
     ]
   },
   "legalPages": {
-    "privacyDescription": "How Mathzle handles data: no third-party trackers in the kid app{if:noAds}, no ads{/if}{if:noDataSale}, no data sold{/if}.",
     "summaryTitle": "The short version for busy parents",
     "summary": [
       { "if": "noAds", "text": "There are no ads in Mathzle." },
@@ -287,7 +286,7 @@
     ],
     "updated": "Last updated: {date}",
     "draft": "Draft — awaiting legal review",
-    "draftDate": "Draft dated {date}",
+    "draftDate": "Draft of {date}",
     "eyebrow": "Legal",
     "toc": "Contents",
     "tocToggle": "On this page",
