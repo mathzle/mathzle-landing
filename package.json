@@ -11,6 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest",
+    "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "lhci:run": "lhci autorun --config=tests/lighthouse/lighthouserc.cjs",
     "wrangler": "wrangler"
