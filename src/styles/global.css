@@ -4,11 +4,7 @@
    - Weight 800 (ExtraBold) carries display character at hero sizes
    - One family, one bundle, one source of truth
    - Matches the mathzle-ui Flutter app, which also ships only BVP */
-@import '@fontsource/be-vietnam-pro/400.css';
-@import '@fontsource/be-vietnam-pro/500.css';
-@import '@fontsource/be-vietnam-pro/600.css';
-@import '@fontsource/be-vietnam-pro/700.css';
-@import '@fontsource/be-vietnam-pro/800.css';
+@import './fonts.css'; /* @fontsource BVP 400–800, vi-friendly subset order (see file) */
 @import './font-fallbacks.css';
 
 /* ============================================================
@@ -21,8 +17,8 @@
   /* Fonts */
   /* Same family for display and body — weight + size + tracking do
      the differentiation. See @layer base h1/h2/h3 below. */
-  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', 'BVP Fallback DejaVu', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', 'BVP Fallback DejaVu', system-ui, sans-serif;
+  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
 
   /* Brand */
   --color-primary: #5b6cff;
@@ -101,8 +97,8 @@
 
 /* English copy averages differently → its own calibrated fallbacks (font-fallbacks.css). */
 :root:lang(en) {
-  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', 'BVP Fallback DejaVu En', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', 'BVP Fallback DejaVu En', system-ui, sans-serif;
+  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
 }
 
 /* ============================================================

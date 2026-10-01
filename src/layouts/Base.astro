@@ -3,14 +3,12 @@ import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import { site } from '../data/site';
 // Preload the weight-800 Be Vietnam Pro faces used by the hero <h1> (.mk-display,
-// the LCP element on every marketing page) so the swap-in doesn't repaint the LCP
-// late. Locale-specific and complete: the vi headline needs latin (ASCII),
-// vietnamese (ạ ố ộ…) AND latin-ext (ơ ư Đ — overlapping unicode-ranges resolve
-// to the later-declared latin-ext face); the en headline only needs latin.
+// the LCP element on every marketing page) so the headline swaps to BVP early.
+// Locale-specific: vi needs latin + vietnamese (fonts.css declares vietnamese
+// last so it also covers ơ ư Đ — no latin-ext); en needs latin only.
 import bvp800Vietnamese from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-vietnamese-800-normal.woff2?url';
-import bvp800LatinExt from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-latin-ext-800-normal.woff2?url';
 import bvp800Latin from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-latin-800-normal.woff2?url';
-const fontPreloads = { vi: [bvp800Latin, bvp800Vietnamese, bvp800LatinExt], en: [bvp800Latin] };
+const fontPreloads = { vi: [bvp800Latin, bvp800Vietnamese], en: [bvp800Latin] };
 
 interface Props {
   title: string;

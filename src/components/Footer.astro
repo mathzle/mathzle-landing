@@ -1,5 +1,7 @@
 ---
 import LangSwitch from './LangSwitch.astro';
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo.png';
 import { site } from '../data/site';
 import { t, type Locale } from '../utils/i18n';
 interface Props { locale: Locale; path: string }
@@ -28,7 +30,7 @@ const cols = [
   <div class="footer-inner">
     <div class="footer-brand">
       <a href={home} class="footer-logo" aria-label="Mathzle">
-        <img src="/brand/logo.png" alt="" width="32" height="32" loading="lazy" decoding="async" />
+        <Image src={logo} alt="" width={32} height={32} densities={[1, 2, 3]} format="webp" loading="lazy" decoding="async" />
         <span>Mathzle</span>
       </a>
       <p class="footer-tagline">{i.tagline}</p>

@@ -4,6 +4,10 @@ import LangSwitch from './LangSwitch.astro';
 import MobileDrawer from './MobileDrawer.astro';
 import { site } from '../data/site';
 import { resolveClaim } from '../data/claims';
+import { Image } from 'astro:assets';
+// 36px mark from a 584px / 410 KB PNG source: let astro:assets emit 1×/2×/3×
+// WebP (~2–8 KB) — the raw PNG competed with the LCP on slow mobile links.
+import logo from '../assets/brand/logo.png';
 
 interface Props {
   locale: Locale;
@@ -23,12 +27,15 @@ const links = [
 <header class="nav-shell">
   <nav class="nav" aria-label="Primary">
     <a href={home} class="nav-logo" aria-label="Mathzle home">
-      <img
-        src="/brand/logo.png"
+      <Image
+        src={logo}
         alt=""
-        width="36"
-        height="36"
+        width={36}
+        height={36}
+        densities={[1, 2, 3]}
+        format="webp"
         class="nav-logo-mark"
+        loading="eager"
         decoding="async"
       />
       <span class="nav-logo-text">Mathzle</span>

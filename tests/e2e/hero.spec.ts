@@ -23,5 +23,8 @@ test('Nav CTA goes to web app and uses the short label', async ({ page }) => {
 
 test('Nav shows the cube logo', async ({ page }) => {
   await page.goto('/en/');
-  await expect(page.locator('img.nav-logo-mark')).toHaveAttribute('src', /\/brand\/logo\.png/);
+  // Optimised derivative of src/assets/brand/logo.png (not the 410 KB original).
+  const logo = page.locator('img.nav-logo-mark');
+  await expect(logo).toHaveAttribute('src', /\/_astro\/logo\.[\w-]+\.webp$/);
+  await expect.poll(() => logo.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
 });
