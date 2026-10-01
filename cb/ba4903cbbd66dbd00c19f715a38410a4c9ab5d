@@ -1,0 +1,26 @@
+src/components/sections/FAQ.astro
+  s_6a8dd77299ee2b::t_09dad210003dd2 47-56,63-73,80-95,104-107,110,112-113,115-118
+  s_6a8dd77299ee2b::t_352f2b9334e2bc 96
+tests/e2e/cta.spec.ts
+  s_6a8dd77299ee2b::t_fcb96fb653f29e 20-27
+tests/e2e/pricing-page.spec.ts
+  s_6a8dd77299ee2b::t_28795b785abb00 14
+tests/e2e/faq.spec.ts
+  s_6a8dd77299ee2b::t_760eee9e1b7d19 6,18-21,25-28,32-48,52,57-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "cbba4903cbbd66dbd00c19f715a38410a4c9ab5d",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
