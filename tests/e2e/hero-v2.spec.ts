@@ -23,19 +23,47 @@ test('try-a-problem: wrong answer gives a hint and allows retry; right answer ad
   await expect(tap.getByRole('status')).toHaveText('');
 });
 
-test('hero visual reserves space before the island hydrates (no layout shift)', async ({ page }) => {
-  await page.goto('/vi/');
-  const cls = await page.evaluate(
-    () =>
-      new Promise<number>((resolve) => {
-        let total = 0;
-        new PerformanceObserver((list) => {
-          for (const e of list.getEntries() as unknown as { value: number; hadRecentInput: boolean }[]) {
-            if (!e.hadRecentInput) total += e.value;
-          }
-        }).observe({ type: 'layout-shift', buffered: true });
-        setTimeout(() => resolve(total), 1500);
-      }),
-  );
-  expect(cls).toBeLessThan(0.05);
-});
+type Shift = { value: number; startTime: number; sources: { node: string; from: number[]; to: number[] }[] };
+
+for (const locale of ['vi', 'en']) {
+  test(`hero visual reserves space before the island hydrates (no layout shift) — /${locale}/`, async ({ page }) => {
+    // Load like a slow CI runner / mid-range phone (4× CPU throttle) so the
+    // first render happens before the non-preloaded Be Vietnam Pro weights
+    // arrive — the fallback → web-font swap then lands inside the measured
+    // window on every machine, as it does on GitHub's runners.
+    const cdp = await page.context().newCDPSession(page);
+    await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+    await page.addInitScript(() => {
+      const w = window as unknown as { __shifts: unknown[] };
+      w.__shifts = [];
+      const rect = (r: DOMRectReadOnly) => [r.x, r.y, r.width, r.height].map(Math.round);
+      new PerformanceObserver((list) => {
+        for (const e of list.getEntries() as unknown as {
+          value: number; startTime: number; hadRecentInput: boolean;
+          sources: { node?: Node; previousRect: DOMRectReadOnly; currentRect: DOMRectReadOnly }[];
+        }[]) {
+          if (e.hadRecentInput) continue;
+          w.__shifts.push({
+            value: e.value,
+            startTime: Math.round(e.startTime),
+            sources: e.sources.map((s) => {
+              const el = s.node instanceof Element ? s.node : s.node?.parentElement;
+              const node = el ? `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${el.classList.length ? `.${[...el.classList].join('.')}` : ''}` : String(s.node?.nodeName);
+              return { node: s.node instanceof Element ? node : `${node} (text)`, from: rect(s.previousRect), to: rect(s.currentRect) };
+            }),
+          });
+        }
+      }).observe({ type: 'layout-shift', buffered: true });
+    });
+
+    await page.goto(`/${locale}/`);
+    // Settle: island mounted, every font loaded and swapped, then a beat more.
+    await expect(page.locator('#hero .tap')).toBeVisible();
+    await page.evaluate(() => document.fonts.ready.then(() => undefined));
+    await page.waitForTimeout(500);
+
+    const shifts = await page.evaluate(() => (window as unknown as { __shifts: Shift[] }).__shifts);
+    const cls = shifts.reduce((sum, s) => sum + s.value, 0);
+    expect(cls, `layout shifts:\n${JSON.stringify(shifts, null, 1)}`).toBeLessThan(0.05);
+  });
+}
