@@ -31,6 +31,10 @@ const label = `${t(locale).a11y.switchLang} ${localeLabel(other)}`;
     text-decoration: none;
     padding: 0.375rem 0.5rem;
     border-radius: var(--radius-sm);
+    /* Never wrap: "Tiếng Việt" broke onto two lines once Be Vietnam Pro
+       loaded (but not in the fallback font), growing the sticky header 10px
+       and shifting the whole page. */
+    white-space: nowrap;
   }
   .lang-switch:hover {
     color: var(--color-text-primary);

@@ -9,6 +9,7 @@
 @import '@fontsource/be-vietnam-pro/600.css';
 @import '@fontsource/be-vietnam-pro/700.css';
 @import '@fontsource/be-vietnam-pro/800.css';
+@import './font-fallbacks.css';
 
 /* ============================================================
    Design tokens — mirrored from mathzle-ui/DESIGN.md.
@@ -20,8 +21,8 @@
   /* Fonts */
   /* Same family for display and body — weight + size + tracking do
      the differentiation. See @layer base h1/h2/h3 below. */
-  --font-display: 'Be Vietnam Pro', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', 'BVP Fallback DejaVu', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', 'BVP Fallback DejaVu', system-ui, sans-serif;
 
   /* Brand */
   --color-primary: #5b6cff;
@@ -96,6 +97,12 @@
   --radius-mk-frame: 28px;
   --radius-mk-band: 32px;
   --ease-mk-out: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* English copy averages differently → its own calibrated fallbacks (font-fallbacks.css). */
+:root:lang(en) {
+  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', 'BVP Fallback DejaVu En', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', 'BVP Fallback DejaVu En', system-ui, sans-serif;
 }
 
 /* ============================================================
@@ -248,8 +255,12 @@
   .mk-display { font-size: clamp(2.75rem, 6vw, 4.75rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; text-wrap: balance; margin: 0; }
   .mk-h2 { font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; text-wrap: balance; margin: 0; }
   .mk-h3 { font-size: clamp(1.25rem, 1.6vw, 1.5rem); line-height: 1.25; letter-spacing: -0.015em; font-weight: 700; margin: 0; }
-  .mk-lead { font-size: clamp(1.125rem, 1.5vw, 1.3125rem); line-height: 1.55; color: var(--color-text-secondary); text-wrap: pretty; max-width: 62ch; margin: 0; }
-  .mk-body { font-size: 1.0625rem; line-height: 1.65; color: var(--color-text-secondary); text-wrap: pretty; max-width: 62ch; }
+  /* Measure in em, not ch: `ch` is the width of the *current* font's "0", so
+     62ch shrank ~15% while the fallback font showed and the lead re-wrapped
+     (and moved everything below it) when Be Vietnam Pro swapped in.
+     41.9em == 62ch of Be Vietnam Pro 400 ("0" = 0.676em) — same final layout. */
+  .mk-lead { font-size: clamp(1.125rem, 1.5vw, 1.3125rem); line-height: 1.55; color: var(--color-text-secondary); text-wrap: pretty; max-width: 41.9em; margin: 0; }
+  .mk-body { font-size: 1.0625rem; line-height: 1.65; color: var(--color-text-secondary); text-wrap: pretty; max-width: 41.9em; }
   .mk-stat { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1; letter-spacing: -0.03em; font-weight: 800; font-variant-numeric: tabular-nums; }
   .mk-caption { font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--color-mk-text-tertiary); }
 

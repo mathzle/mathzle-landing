@@ -27,12 +27,18 @@ type Shift = { value: number; startTime: number; sources: { node: string; from: 
 
 for (const locale of ['vi', 'en']) {
   test(`hero visual reserves space before the island hydrates (no layout shift) — /${locale}/`, async ({ page }) => {
-    // Load like a slow CI runner / mid-range phone (4× CPU throttle) so the
-    // first render happens before the non-preloaded Be Vietnam Pro weights
-    // arrive — the fallback → web-font swap then lands inside the measured
-    // window on every machine, as it does on GitHub's runners.
+    // Deterministic worst case on every machine: a slow CPU (4× throttle) and
+    // web fonts that arrive only after first paint. Every woff2 is held back
+    // 1.5s, so the page always renders in the platform fallback first and the
+    // fallback → Be Vietnam Pro swap always lands inside the measured window
+    // (on fast machines it would otherwise happen before first paint, and
+    // which fallback is installed decides whether text re-wraps).
     const cdp = await page.context().newCDPSession(page);
     await cdp.send('Emulation.setCPUThrottlingRate', { rate: 4 });
+    await page.route('**/*.woff2', async (route) => {
+      await new Promise((r) => setTimeout(r, 1500));
+      await route.continue();
+    });
     await page.addInitScript(() => {
       const w = window as unknown as { __shifts: unknown[] };
       w.__shifts = [];
