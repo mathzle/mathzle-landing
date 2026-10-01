@@ -21,9 +21,6 @@
    hero copy or the type scale changes substantially. */
 
 /* vi copy */
-@font-face { font-family: 'BVP Fallback Arial'; font-weight: 400; src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('LiberationSans-Regular'), local('Arimo'); size-adjust: 113.64%; ascent-override: 88.00%; descent-override: 23.76%; line-gap-override: 0%; }
-
-/* vi copy */
 @font-face { font-family: 'BVP Fallback Arial'; font-weight: 400; src: local(Arial), local('Liberation Sans'); size-adjust: 107.5%; ascent-override: 93%; descent-override: 25.1%; line-gap-override: 0% }
 @font-face { font-family: 'BVP Fallback Arial'; font-weight: 500; src: local(Arial), local('Liberation Sans'); size-adjust: 108.4%; ascent-override: 92.3%; descent-override: 24.9%; line-gap-override: 0% }
 @font-face { font-family: 'BVP Fallback Arial'; font-weight: 600; src: local('Arial Bold'), local('Liberation Sans Bold'); size-adjust: 99.7%; ascent-override: 100.3%; descent-override: 27.1%; line-gap-override: 0% }

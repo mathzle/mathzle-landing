@@ -1,10 +1,11 @@
 ---
-import { Picture } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import { WORLDS } from '../../data/worlds';
 import { screen } from '../../data/media';
 import { copy } from '../../lib/copy';
 import { t, type Locale } from '../../utils/i18n';
+import logo from '../../assets/brand/logo.png';
 export function getStaticPaths() { return [{ params: { locale: 'vi' } }, { params: { locale: 'en' } }]; }
 const locale = Astro.params.locale as Locale;
 const h = t(locale).hero;
@@ -13,7 +14,7 @@ const art = screen('lesson-play') ?? WORLDS[0].image;
 <Base title="og" description="og" locale={locale} path={`/${locale}/`} noindex>
   <div class="og">
     <div class="og-copy">
-      <p class="og-brand"><img src="/brand/logo.png" width="56" height="56" alt="" /> Mathzle</p>
+      <p class="og-brand"><Image src={logo} width={56} height={56} format="png" alt="" /> Mathzle</p>
       <h1 class="og-h" set:html={copy(h.headline, locale)} />
     </div>
     <div class="og-art"><Picture src={art} alt="" widths={[640]} formats={['png']} loading="eager" /></div>
