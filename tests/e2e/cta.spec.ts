@@ -17,12 +17,14 @@ test('FAQ accordion expands and exposes schema.org markup', async ({ page }) => 
   await page.goto('/en/');
   const faq = page.locator('#faq');
   await faq.scrollIntoViewIfNeeded();
-  const firstQ = faq.locator('button.faq-q').first();
-  // First item starts expanded; collapse it, then re-expand.
-  await firstQ.click();
-  await expect(firstQ).toHaveAttribute('aria-expanded', 'false');
-  await firstQ.click();
-  await expect(firstQ).toHaveAttribute('aria-expanded', 'true');
+  const firstItem = faq.locator('details.faq-item').first();
+  const firstSummary = firstItem.locator('summary.faq-q');
+  // First item is server-rendered open; toggling the summary closes it, then re-opens it.
+  await expect(firstItem).toHaveAttribute('open', '');
+  await firstSummary.click();
+  await expect(firstItem).not.toHaveAttribute('open', '');
+  await firstSummary.click();
+  await expect(firstItem).toHaveAttribute('open', '');
 
   // FAQ JSON-LD must be present for SEO.
   const jsonLdCount = await page.locator('script[type="application/ld+json"]').count();

@@ -2,7 +2,6 @@
 import { getEntry } from 'astro:content';
 import Section from '../Section.astro';
 import Mascot from '../Mascot.astro';
-import FaqAccordion from '../islands/FaqAccordion';
 import { copy, copyText, visible } from '../../lib/copy';
 import { site } from '../../data/site';
 import { jsonLd } from '../../lib/seo';
@@ -45,38 +44,77 @@ const faqSchema = {
             return group.length > 0 && (
               <section class="faq-group" aria-labelledby={`faq-g-${c}`}>
                 <h2 id={`faq-g-${c}`} class="mk-h3">{i.categories[c]}</h2>
-                <div class="faq-group-body" style={`--faq-n: ${group.length}`}>
-                  <FaqAccordion items={group.map((q) => ({ id: q.id, question: q.question, answerHtml: copy(q.answer, locale) }))} initialOpen={null} client:only="preact" />
+                <div class="faq-list">
+                  {group.map((q) => (
+                    <details class="faq-item" id={`faq-${q.id}`} name={`faq-g-${c}`}>
+                      <summary class="faq-q">
+                        <span class="faq-q-text">{q.question}</span>
+                        <span class="faq-chev" aria-hidden="true"></span>
+                      </summary>
+                      <div class="faq-a" set:html={copy(q.answer, locale)} />
+                    </details>
+                  ))}
                 </div>
               </section>
             );
           })}
         </div>
       ) : (
-        <FaqAccordion items={items.map((q) => ({ id: q.id, question: q.question, answerHtml: copy(q.answer, locale) }))} client:only="preact" />
+        <div class="faq-list">
+          {items.map((q, idx) => (
+            <details class="faq-item" id={`faq-${q.id}`} name="faq" open={idx === 0 ? true : undefined}>
+              <summary class="faq-q">
+                <span class="faq-q-text">{q.question}</span>
+                <span class="faq-chev" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-a" set:html={copy(q.answer, locale)} />
+            </details>
+          ))}
+        </div>
       )}
     </div>
   </div>
 </Section>
 <script type="application/ld+json" set:html={jsonLd(faqSchema)} />
 
+<script>
+  // Deep-link support (`#faq-<id>`): open the matching <details> and scroll
+  // it into view. No framework — content is already in the initial HTML, so
+  // without JS the page still reads fine, just without the auto-open/scroll.
+  function openFaqFromHash() {
+    const m = /^#faq-(.+)$/.exec(location.hash);
+    if (!m) return;
+    const el = document.getElementById(`faq-${m[1]}`);
+    if (el instanceof HTMLDetailsElement) {
+      el.open = true;
+      el.scrollIntoView({ block: 'start' });
+    }
+  }
+  openFaqFromHash();
+  addEventListener('hashchange', openFaqFromHash);
+</script>
+
 <style is:global>
   .faq-grid { display: grid; grid-template-columns: 4fr 8fr; gap: 4rem; align-items: start; }
   .faq-side { position: sticky; top: 7rem; display: grid; gap: 1rem; justify-items: start; }
   .faq-ask { margin: 0.5rem 0 0; font-weight: 700; }
-  .faq-main { min-height: 24rem; }
   .faq-group + .faq-group { margin-top: 2.5rem; }
-  .faq-group .faq-list { min-height: 0; }
-  /* Reserve the collapsed group before the client:only island mounts (CLS 0):
-     one row = question padding + one line (desktop) or two lines (narrow). */
-  .faq-group-body { --faq-row: 4.5rem; min-height: calc(var(--faq-n) * var(--faq-row)); }
-  @media (max-width: 1100px) { .faq-group-body { --faq-row: 6.25rem; } }
   .faq-list { list-style: none; padding: 0; margin: 0; }
   .faq-item { border-bottom: 1px solid var(--color-mk-hairline-strong); scroll-margin-top: 6rem; }
-  .faq-q { width: 100%; padding: 1.375rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  .faq-item > summary { list-style: none; }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+  .faq-item > summary::marker { content: ''; }
+  .faq-q { width: 100%; padding: 1.375rem 0; min-height: 48px; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
     background: transparent; border: 0; font: inherit; font-size: 1.125rem; font-weight: 700; text-align: left; cursor: pointer; color: var(--color-text-primary); }
   .faq-q:hover .faq-q-text { color: var(--color-primary); }
+  .faq-q:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 2px; }
   .faq-chev { font-size: 1.5rem; line-height: 1; color: var(--color-mk-text-tertiary); min-width: 1rem; text-align: center; }
+  .faq-chev::before { content: '+'; }
+  .faq-item[open] .faq-chev::before { content: '\2212'; }
   .faq-a { padding: 0 0 1.5rem; color: var(--color-text-secondary); line-height: 1.65; max-width: 62ch; }
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-item[open] > summary ~ * { animation: faq-reveal var(--duration-fast, 0.15s) ease; }
+  }
+  @keyframes faq-reveal { from { opacity: 0; } to { opacity: 1; } }
   @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; gap: 2rem; } .faq-side { position: static; } }
 </style>
