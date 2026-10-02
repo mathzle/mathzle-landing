@@ -68,7 +68,8 @@ export async function handleSignup(
 
   if (contact) {
     // Every message is kept: one key per message, never the signup dedupe below.
-    await env.SIGNUPS.put(`contact:${email}:${ts}`, JSON.stringify({ ...meta, ...contact }));
+    // The random suffix keeps two messages sent in the same millisecond apart.
+    await env.SIGNUPS.put(`contact:${email}:${ts}:${crypto.randomUUID()}`, JSON.stringify({ ...meta, ...contact }));
     return json({ ok: true });
   }
 

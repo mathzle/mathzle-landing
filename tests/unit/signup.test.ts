@@ -52,20 +52,19 @@ describe('handleSignup — contact messages (D-023)', () => {
   const msg = (over: Record<string, unknown> = {}) =>
     req({ email: 'Mom@Ex.vn', locale: 'vi', source: 'contact', name: ' Lan ', message: ' Xin chào ', consent: true, ...over });
 
-  it('stores name + message under contact:<email>:<ts>', async () => {
+  it('stores name + message under contact:<email>:<ts>:<uuid>', async () => {
     const s = kv();
     const res = await handleSignup(msg(), { SIGNUPS: s });
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({ ok: true });
     const [key] = [...s.m.keys()];
-    expect(key).toMatch(/^contact:mom@ex\.vn:\d+$/);
+    expect(key).toMatch(/^contact:mom@ex\.vn:\d+:[0-9a-f-]{36}$/);
     expect(JSON.parse(s.m.get(key)!)).toMatchObject({ locale: 'vi', source: 'contact', name: 'Lan', message: 'Xin chào', ua: null, ref: null });
-    expect(JSON.parse(s.m.get(key)!).ts).toBe(Number(key.split(':').pop()));
+    expect(JSON.parse(s.m.get(key)!).ts).toBe(Number(key.split(':')[2]));
   });
-  it('keeps every message from the same email (no signup dedupe)', async () => {
+  it('keeps every message from the same email, even within the same millisecond', async () => {
     const s = kv();
-    let now = 1_000;
-    const spy = vi.spyOn(Date, 'now').mockImplementation(() => now++);
+    const spy = vi.spyOn(Date, 'now').mockReturnValue(1_000);
     try {
       await handleSignup(msg({ message: 'one' }), { SIGNUPS: s });
       const res = await handleSignup(msg({ message: 'two' }), { SIGNUPS: s });
@@ -73,8 +72,11 @@ describe('handleSignup — contact messages (D-023)', () => {
     } finally {
       spy.mockRestore();
     }
-    expect([...s.m.keys()]).toEqual(['contact:mom@ex.vn:1000', 'contact:mom@ex.vn:1001']);
-    expect([...s.m.values()].map((v) => JSON.parse(v).message)).toEqual(['one', 'two']);
+    const keys = [...s.m.keys()];
+    expect(keys).toHaveLength(2);
+    expect(new Set(keys).size).toBe(2);
+    for (const k of keys) expect(k).toMatch(/^contact:mom@ex\.vn:1000:/);
+    expect([...s.m.values()].map((v) => JSON.parse(v).message).sort()).toEqual(['one', 'two']);
   });
   it('stores a missing name as null', async () => {
     const s = kv();
