@@ -81,6 +81,8 @@ const refund = copy(p.refund, locale);
   )}
 
   {!site.premium.onSale && (
+    /* client:only renders nothing on the server: .waitlist reserves the
+       form's final height so hydration causes no layout shift. */
     <div id="premium-waitlist" class="waitlist">
       <SignupForm locale={locale} source="premium-waitlist" placeholder={p.waitlist.placeholder} button={p.waitlist.button}
         success={p.waitlist.success} error={p.waitlist.error} invalid={p.waitlist.invalid} client:only="preact" />
@@ -108,7 +110,10 @@ const refund = copy(p.refund, locale);
   .plan-list :global(.icon) { color: var(--color-success); margin-top: 2px; }
   :global(.plan-cta) { width: 100%; }
   .plan-foot { text-align: center; margin: 2rem 0 0; color: var(--color-text-secondary); display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; }
-  .waitlist { max-width: 480px; margin: 2rem auto 0; scroll-margin-top: 6rem; }
+  /* Reserved height == rendered .cta-form height (global.css) at each
+     breakpoint (measured): single row above 540px, stacked at/below it. */
+  .waitlist { max-width: 480px; margin: 2rem auto 0; scroll-margin-top: 6rem; min-height: 56px; }
+  @media (max-width: 540px) { .waitlist { min-height: 118px; } }
   /* #pricing is the Section root (another component) → :global for the :has() anchor. */
   :global(#pricing:has(#billing-monthly:checked)) .price--yearly,
   :global(#pricing:has(#billing-yearly:checked)) .price--monthly { display: none; }

@@ -3,7 +3,9 @@ import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import { site } from '../data/site';
 // Preload the weight-800 Be Vietnam Pro faces used by the hero <h1> (.mk-display,
-// the LCP element on every marketing page) so the headline swaps to BVP early.
+// the LCP element on every marketing page) so the eventual swap to BVP (at
+// `wf`, with the rest of the text — see below) is instant: the font is
+// already in cache by the time the class is added, instead of blocking on it.
 // Locale-specific: vi needs latin + vietnamese (fonts.css declares vietnamese
 // last so it also covers ơ ư Đ — no latin-ext); en needs latin only.
 import bvp800Vietnamese from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-vietnamese-800-normal.woff2?url';
