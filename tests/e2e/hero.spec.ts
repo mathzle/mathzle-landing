@@ -1,22 +1,30 @@
 import { test, expect } from '@playwright/test';
 
-test('EN hero renders with mascot, headline, and CTAs', async ({ page }) => {
+test('EN hero: headline, CTA to app', async ({ page }) => {
   await page.goto('/en/');
-  await expect(page.locator('h1')).toContainText('Make math an adventure');
-  await expect(page.locator('img[alt="Mathzle mascot, cheering"]')).toBeVisible();
-  await expect(page.locator('a[data-track="cta-play-hero"]')).toBeVisible();
-  await expect(page.locator('a[data-track="cta-play-hero"]')).toHaveAttribute('href', /app\.mathzle\.com/);
+  await expect(page.locator('h1')).toContainText('Math your child wants to play');
+  const cta = page.locator('a[data-track="cta-play-hero"]');
+  await expect(cta).toContainText('Let your child try it free');
+  await expect(cta).toHaveAttribute('href', /app\.mathzle\.com/);
 });
 
-test('VI hero renders translated copy', async ({ page }) => {
+test('VI hero: translated headline and CTA', async ({ page }) => {
   await page.goto('/vi/');
-  await expect(page.locator('h1')).toContainText('Biến toán học thành cuộc phiêu lưu');
-  await expect(page.locator('a[data-track="cta-play-hero"]')).toContainText('Chơi miễn phí ngay');
+  await expect(page.locator('h1')).toContainText('Con học toán như chơi game');
+  await expect(page.locator('a[data-track="cta-play-hero"]')).toContainText('Cho con chơi thử miễn phí');
 });
 
-test('Nav CTA goes to web app', async ({ page }) => {
-  await page.goto('/en/');
+test('Nav CTA goes to web app and uses the short label', async ({ page }) => {
+  await page.goto('/vi/');
   const navCta = page.locator('a[data-track="nav-cta"]');
-  await expect(navCta).toBeVisible();
   await expect(navCta).toHaveAttribute('href', /app\.mathzle\.com/);
+  await expect(navCta).toHaveText('Chơi thử miễn phí');
+});
+
+test('Nav shows the cube logo', async ({ page }) => {
+  await page.goto('/en/');
+  // Optimised derivative of src/assets/brand/logo.png (not the 410 KB original).
+  const logo = page.locator('img.nav-logo-mark');
+  await expect(logo).toHaveAttribute('src', /\/_astro\/logo\.[\w-]+\.webp$/);
+  await expect.poll(() => logo.evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
 });

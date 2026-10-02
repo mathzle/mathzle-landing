@@ -9,6 +9,11 @@ export default defineConfig({
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL ?? 'http://localhost:4321',
     trace: 'on-first-retry',
+    // Full Chromium in new-headless mode instead of the default headless shell:
+    // the shell lays text out with hinted, whole-pixel glyph advances, so line
+    // breaks (and thus font-swap layout shift) differ from real Chrome — and
+    // from Lighthouse, which runs full Chrome.
+    channel: 'chromium',
   },
   webServer: {
     command: 'pnpm preview',

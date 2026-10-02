@@ -1,21 +1,33 @@
 ---
 import '../styles/global.css';
 import SEO from '../components/SEO.astro';
+import { site } from '../data/site';
+// Preload the weight-800 Be Vietnam Pro faces used by the hero <h1> (.mk-display,
+// the LCP element on every marketing page) so the headline swaps to BVP early.
+// Locale-specific: vi needs latin + vietnamese (fonts.css declares vietnamese
+// last so it also covers ơ ư Đ — no latin-ext); en needs latin only.
+import bvp800Vietnamese from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-vietnamese-800-normal.woff2?url';
+import bvp800Latin from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-latin-800-normal.woff2?url';
+const fontPreloads = { vi: [bvp800Latin, bvp800Vietnamese], en: [bvp800Latin] };
 
 interface Props {
   title: string;
   description: string;
   locale: 'en' | 'vi';
-  path: string;            // canonical path e.g. '/en/' or '/vi/about'
+  path: string;            // canonical path, always slash-terminated: '/en/', '/vi/about/'
   ogImage?: string;
+  noindex?: boolean;
 }
-const { title, description, locale, path, ogImage } = Astro.props;
+const { title, description, locale, path, ogImage, noindex } = Astro.props;
 ---
 <!doctype html>
 <html lang={locale === 'vi' ? 'vi' : 'en'}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {fontPreloads[locale].map((href) => <link rel="preload" as="font" type="font/woff2" crossorigin href={href} />)}
+    <script is:inline>document.documentElement.classList.add('js');if(new URLSearchParams(location.search).has('claims'))document.documentElement.classList.add('show-claims');</script>
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO
@@ -28,7 +40,25 @@ const { title, description, locale, path, ogImage } = Astro.props;
   </head>
   <body class="min-h-dvh">
     <slot />
-    <!-- Cloudflare Web Analytics — token pasted before launch (Task 12) -->
-    <!-- <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"REPLACE_ME"}'></script> -->
+    {site.analytics.cfBeaconToken && (
+      <script
+        is:inline
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon={JSON.stringify({ token: site.analytics.cfBeaconToken })}
+      ></script>
+    )}
+    <script>
+      // Fallback for browsers without scroll-driven animations (see global.css).
+      if (!CSS.supports('animation-timeline: view()')) {
+        const io = new IntersectionObserver(
+          (entries) => entries.forEach((e) => {
+            if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+          }),
+          { rootMargin: '0px 0px -10% 0px' },
+        );
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>

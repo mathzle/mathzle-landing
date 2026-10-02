@@ -1,129 +1,119 @@
 ---
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import Button from '../Button.astro';
+import Icon from '../Icon.astro';
+import SignupForm from '../islands/SignupForm';
+import { site } from '../../data/site';
+import { resolveClaim, type ClaimKey } from '../../data/claims';
+import { currencyFor, formatPrice, perDay, savingsPct } from '../../data/pricing';
+import { copy, claimHtml, visible, flag, escapeHtml } from '../../lib/copy';
 import { t, type Locale } from '../../utils/i18n';
 
-interface Props {
-  locale: Locale;
-}
+interface Props { locale: Locale }
 const { locale } = Astro.props;
-const i = t(locale).pricing;
-const webAppUrl = 'https://app.mathzle.com'; // TODO(launch): final URL
+const d = t(locale);
+const p = d.pricing;
+const cur = currencyFor(locale);
+const k = (suffix: 'Monthly' | 'Yearly') => `premium${suffix}${cur === 'VND' ? 'Vnd' : 'Usd'}` as ClaimKey;
+const fmt = (v: number | string) => formatPrice(Number(v), cur);
+const monthlyHtml = claimHtml(k('Monthly'), fmt);
+const yearlyHtml = claimHtml(k('Yearly'), fmt);
+const monthlyClaim = resolveClaim(k('Monthly'));
+const yearlyClaim = resolveClaim(k('Yearly'));
+const m = monthlyClaim.value;
+const y = yearlyClaim.value;
+const numeric = typeof m === 'number' && typeof y === 'number';
+const perDayHtml = numeric ? claimHtml(k('Yearly'), () => p.perDay.replace('{price}', formatPrice(perDay(y as number, cur), cur))) : null;
+// Savings % is derived from *both* the monthly and yearly claims — claimHtml
+// only checks one key, so flag it ourselves if either is still unverified.
+const saveHtml = numeric
+  ? (() => {
+      const text = escapeHtml(p.save.replace('{pct}', String(savingsPct(m as number, y as number))));
+      return monthlyClaim.verified && yearlyClaim.verified ? text : flag(k('Yearly'), text);
+    })()
+  : null;
+const anchor = copy(p.anchor, locale);
+const refund = copy(p.refund, locale);
 ---
-<section id="pricing" class="pricing">
-  <h2 class="section-title">{i.title}</h2>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div class="price-card-header">
-        <h3 class="price-title">{i.freeTitle}</h3>
-        <p class="price-amount">{i.freePrice}</p>
-      </div>
-      <ul class="price-list">
-        {i.freeBullets.map((b) => <li>{b}</li>)}
-      </ul>
-      <a href={webAppUrl} class="btn-push price-cta" data-track="cta-pricing-free" target="_blank" rel="noopener noreferrer">
-        {i.freeCta}
-      </a>
-    </div>
-    <div class="price-card price-card-premium">
-      <div class="price-card-header">
-        <h3 class="price-title">{i.premiumTitle}</h3>
-        <p class="price-amount">{i.premiumPrice}</p>
-      </div>
-      <ul class="price-list">
-        {i.premiumBullets.map((b) => <li>{b}</li>)}
-      </ul>
-      <a href={webAppUrl} class="btn-push price-cta price-cta-premium" data-track="cta-pricing-premium" target="_blank" rel="noopener noreferrer">
-        {i.premiumCta}
-      </a>
-      <p class="price-note">{i.premiumNote}</p>
-    </div>
+<Section id="pricing" tone="canvas" labelledby="pricing-title">
+  <SectionHeader id="pricing-title" locale={locale} eyebrow={p.eyebrow} title={p.title} align="center" />
+
+  <fieldset class="billing">
+    <legend class="sr-only">{p.billingLabel}</legend>
+    <input type="radio" name="billing" id="billing-monthly" value="monthly" />
+    <label for="billing-monthly">{p.monthly}</label>
+    <input type="radio" name="billing" id="billing-yearly" value="yearly" checked />
+    <label for="billing-yearly">{p.yearly}{saveHtml && <span class="billing-save" set:html={saveHtml} />}</label>
+  </fieldset>
+
+  <div class="plans">
+    <article class="plan mk-card">
+      <h3 class="mk-h3">{p.free.title}</h3>
+      <p class="plan-price"><span class="mk-stat">{p.free.price}</span> <span class="mk-caption">{p.free.note}</span></p>
+      <ul class="plan-list">{visible(p.free.bullets).map((b) => <li><Icon name="Check" size={18} /><span set:html={copy(b.text, locale)} /></li>)}</ul>
+      <Button href={site.appUrl} external track="cta-pricing-free" class="plan-cta">{d.actions.primary}</Button>
+    </article>
+
+    <article class="plan plan--premium mk-card">
+      <span class="plan-badge">{p.premium.badge}</span>
+      <h3 class="mk-h3">{p.premium.title}</h3>
+      {monthlyHtml && (
+        <p class="plan-price price--monthly"><span class="mk-stat" set:html={monthlyHtml} /><span class="mk-caption">{p.perMonth}</span></p>
+      )}
+      {yearlyHtml && (
+        <p class="plan-price price--yearly">
+          <span class="mk-stat" set:html={yearlyHtml} /><span class="mk-caption">{p.perYear}</span>
+          {perDayHtml && <span class="plan-perday" set:html={perDayHtml} />}
+        </p>
+      )}
+      <ul class="plan-list">{visible(p.premium.bullets).map((b) => <li><Icon name="Check" size={18} /><span set:html={copy(b.text, locale)} /></li>)}</ul>
+      {site.premium.onSale ? (
+        <Button href={site.appUrl} external track="cta-pricing-premium" class="plan-cta">{p.premium.cta}</Button>
+      ) : (
+        <>
+          <Button href="#premium-waitlist" track="cta-pricing-premium" class="plan-cta">{p.premium.waitlistCta}</Button>
+          <p class="mk-caption">{p.premium.waitlistNote}</p>
+        </>
+      )}
+    </article>
   </div>
-</section>
+
+  {(anchor || refund) && (
+    <p class="plan-foot">{anchor && <span set:html={anchor} />}{refund && <span set:html={refund} />}</p>
+  )}
+
+  {!site.premium.onSale && (
+    <div id="premium-waitlist" class="waitlist">
+      <SignupForm locale={locale} source="premium-waitlist" placeholder={p.waitlist.placeholder} button={p.waitlist.button}
+        success={p.waitlist.success} error={p.waitlist.error} invalid={p.waitlist.invalid} client:only="preact" />
+    </div>
+  )}
+</Section>
 
 <style>
-  .pricing {
-    padding: 5rem 1.5rem;
-    max-width: 880px;
-    margin: 0 auto;
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 3rem;
-    letter-spacing: -0.02em;
-  }
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  @media (max-width: 640px) {
-    .pricing-grid { grid-template-columns: 1fr; }
-  }
-  .price-card {
-    background: var(--color-surface);
-    padding: 2rem;
-    border-radius: var(--radius-card-lg);
-    border-bottom: var(--spacing-push-depth) solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-  .price-card-premium {
-    background: linear-gradient(150deg, var(--color-primary), var(--color-secondary));
-    color: var(--color-text-on-primary);
-    border-bottom-color: var(--color-primary-dark);
-  }
-  .price-card-header {
-    text-align: center;
-  }
-  .price-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
-  .price-amount {
-    font-family: var(--font-display);
-    font-size: 2.75rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-top: 0.25rem;
-    font-variant-numeric: tabular-nums;
-  }
-  .price-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .price-list li {
-    padding-left: 1.5rem;
-    position: relative;
-  }
-  .price-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    font-weight: 700;
-    color: var(--color-success);
-  }
-  .price-card-premium .price-list li::before {
-    color: var(--color-reward);
-  }
-  .price-cta {
-    width: 100%;
-    margin-top: auto;
-  }
-  .price-cta-premium {
-    background: var(--color-text-on-primary);
-    color: var(--color-primary);
-    border-bottom-color: rgb(255 255 255 / 0.4);
-  }
-  .price-note {
-    font-size: 0.8rem;
-    opacity: 0.85;
-    text-align: center;
-  }
+  .billing { border: 0; margin: 0 auto 2.5rem; padding: 4px; display: flex; width: fit-content; gap: 4px;
+    background: var(--color-mk-canvas-tint); border-radius: var(--radius-pill); }
+  .billing input { position: absolute; opacity: 0; pointer-events: none; }
+  .billing label { padding: 0.5rem 1.125rem; border-radius: var(--radius-pill); font-weight: 700; cursor: pointer; display: inline-flex; gap: 0.5rem; align-items: center; }
+  .billing input:checked + label { background: var(--color-surface); box-shadow: var(--shadow-mk-sm); }
+  .billing input:focus-visible + label { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+  .billing-save { font-size: 0.75rem; color: var(--color-success); }
+  .plans { display: grid; grid-template-columns: repeat(2, minmax(0, 380px)); justify-content: center; gap: 1.5rem; }
+  .plan { position: relative; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .plan--premium { border: 2px solid var(--color-primary); box-shadow: var(--shadow-mk-md); }
+  .plan-badge { position: absolute; top: -0.8rem; left: 2rem; background: var(--color-primary); color: var(--color-text-on-primary);
+    font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: var(--radius-pill); }
+  .plan-price { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.375rem; }
+  .plan-perday { flex-basis: 100%; font-size: 0.875rem; font-weight: 600; color: var(--color-success); }
+  .plan-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.625rem; flex: 1; }
+  .plan-list li { display: flex; gap: 0.5rem; }
+  .plan-list :global(.icon) { color: var(--color-success); margin-top: 2px; }
+  :global(.plan-cta) { width: 100%; }
+  .plan-foot { text-align: center; margin: 2rem 0 0; color: var(--color-text-secondary); display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 1.5rem; }
+  .waitlist { max-width: 480px; margin: 2rem auto 0; scroll-margin-top: 6rem; }
+  /* #pricing is the Section root (another component) → :global for the :has() anchor. */
+  :global(#pricing:has(#billing-monthly:checked)) .price--yearly,
+  :global(#pricing:has(#billing-yearly:checked)) .price--monthly { display: none; }
+  @media (max-width: 720px) { .plans { grid-template-columns: 1fr; } }
 </style>

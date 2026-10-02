@@ -1,0 +1,9 @@
+{
+  "rows": [
+    { "grade": 1, "cells": { "ocean": "Numbers to 100: count, read, write, compare", "forest": "", "sky": "", "sunset": "", "berry": "", "mint": "Length in cm; telling the hour; days of the week" } },
+    { "grade": 2, "cells": { "ocean": "Numbers to 1,000: hundreds, tens, ones", "forest": "Times and division tables for 2 and 5", "sky": "", "sunset": "Points, segments, broken lines; quadrilaterals", "berry": "", "mint": "Kilograms, litres; days, hours, minutes; Vietnamese money" } },
+    { "grade": 3, "cells": { "ocean": "", "forest": "Times and division tables 3–9; multiply and divide by one digit", "sky": "Two-step word problems", "sunset": "Right angles; perimeter and area of rectangles and squares", "berry": "Unit fractions: one half to one ninth", "mint": "Grams, millilitres; temperature; reading clocks to the minute" } },
+    { "grade": 4, "cells": { "ocean": "", "forest": "", "sky": "Averages; sum-and-difference problems", "sunset": "Acute, obtuse, straight angles; perpendicular and parallel lines; parallelograms, rhombuses", "berry": "Fractions: simplify, common denominators, compare, four operations", "mint": "" } },
+    { "grade": 5, "cells": { "ocean": "", "forest": "", "sky": "", "sunset": "", "berry": "Decimals; percentages", "mint": "" } }
+  ]
+}

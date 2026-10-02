@@ -1,0 +1,57 @@
+---
+import { Picture } from 'astro:assets';
+import { getEntry } from 'astro:content';
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import { t, type Locale } from '../../utils/i18n';
+interface Props { locale: Locale; showAboutLink?: boolean }
+const { locale, showAboutLink = true } = Astro.props;
+const i = t(locale).story;
+const people = (await getEntry('team', locale))?.data.people ?? [];
+const founder = people.find((p) => p.role === 'founder');
+const advisors = people.filter((p) => p.role === 'advisor');
+---
+<Section id="story" tone="canvas" labelledby="story-title">
+  <div class:list={['st', { 'st--solo': !founder }]}>
+    {founder && (
+      <figure class="st-founder reveal">
+        <Picture src={founder.photo} alt={founder.name} widths={[400, 800]} sizes="(min-width: 900px) 400px, 80vw" formats={['avif', 'webp']} loading="lazy" />
+        <figcaption><strong>{founder.name}</strong><span>{founder.title}</span></figcaption>
+      </figure>
+    )}
+    <div class="st-copy">
+      <SectionHeader id="story-title" locale={locale} eyebrow={i.eyebrow} title={i.title} align="center" />
+      {i.paragraphs.map((p) => <p class="mk-body">{p}</p>)}
+      {founder?.bio && <p class="mk-body st-bio">{founder.bio}</p>}
+      {showAboutLink && <a class="btn-text" href={`/${locale}/about/`}>{i.aboutLink} →</a>}
+    </div>
+  </div>
+  {advisors.length > 0 && (
+    <div class="st-advisors">
+      <h3 class="mk-caption">{i.advisorsTitle}</h3>
+      <ul>
+        {advisors.map((a) => (
+          <li>
+            <Picture src={a.photo} alt="" widths={[96, 192]} sizes="64px" formats={['avif', 'webp']} loading="lazy" />
+            <div><strong>{a.name}</strong><span>{a.title}</span></div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</Section>
+<style>
+  .st { display: grid; grid-template-columns: 4fr 6fr; gap: 4rem; align-items: center; }
+  .st--solo { grid-template-columns: 1fr; max-width: 760px; margin-inline: auto; }
+  .st-copy :global(.sh) { text-align: left; justify-items: start; margin-bottom: 1.5rem; }
+  .st-founder { margin: 0; }
+  .st-founder :global(img) { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius-card-lg); }
+  .st-founder figcaption { margin-top: 0.75rem; display: grid; }
+  .st-founder figcaption span, .st-advisors span { color: var(--color-text-secondary); font-size: 0.875rem; }
+  .st-advisors { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-mk-hairline); }
+  .st-advisors ul { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; }
+  .st-advisors li { display: flex; gap: 0.75rem; align-items: center; }
+  .st-advisors li div { display: grid; }
+  .st-advisors :global(img) { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+  @media (max-width: 900px) { .st { grid-template-columns: 1fr; } .st-founder { max-width: 320px; } }
+</style>

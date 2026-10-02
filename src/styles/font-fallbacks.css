@@ -1,0 +1,45 @@
+/* Metric-matched fallbacks for Be Vietnam Pro.
+
+   Be Vietnam Pro loads with `font-display: swap`, so on a cold or slow load
+   the page first renders in a fallback and reflows when BVP arrives. With the
+   bare `system-ui, sans-serif` fallback that reflow depended on whatever font
+   the platform picked (DejaVu Sans on GitHub's Ubuntu runner is ~15% wider
+   than BVP at 600–800, Arial/Liberation ~4–14% narrower at 400–500): hero
+   lines re-wrapped on swap, the copy column changed height and everything
+   below / beside it moved (CI CLS 0.15–0.29).
+
+   These faces take the font every platform has — Arial (Windows, macOS, iOS;
+   Liberation Sans / Arimo are its metric clones on Linux), Roboto (Android),
+   DejaVu Sans (Linux without Liberation) — and scale each one per weight to
+   BVP's average advance width (size-adjust) and BVP's vertical metrics
+   (ascent/descent/line-gap overrides), so fallback text wraps and stacks
+   like BVP and the swap is (near) invisible to layout.
+
+   Calibrated on the above-the-fold copy (nav + hero), separately for vi and
+   en copy: size-adjust = Σ width(BVP) / Σ width(fallback) per weight;
+   ascent/descent = BVP's (1.00 / 0.27 em) ÷ size-adjust. Re-calibrate if the
+   hero copy or the type scale changes substantially. */
+
+/* vi copy */
+@font-face { font-family: 'BVP Fallback Arial'; font-weight: 400; src: local(Arial), local('Liberation Sans'); size-adjust: 107.5%; ascent-override: 93%; descent-override: 25.1%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial'; font-weight: 500; src: local(Arial), local('Liberation Sans'); size-adjust: 108.4%; ascent-override: 92.3%; descent-override: 24.9%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial'; font-weight: 600; src: local('Arial Bold'), local('Liberation Sans Bold'); size-adjust: 99.7%; ascent-override: 100.3%; descent-override: 27.1%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial'; font-weight: 700; src: local('Arial Bold'), local('Liberation Sans Bold'); size-adjust: 102%; ascent-override: 98%; descent-override: 26.5%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial'; font-weight: 800; src: local('Arial Bold'), local('Liberation Sans Bold'); size-adjust: 105%; ascent-override: 95.2%; descent-override: 25.7%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto'; font-weight: 400; src: local(Roboto); size-adjust: 109.8%; ascent-override: 91.1%; descent-override: 24.6%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto'; font-weight: 500; src: local('Roboto Medium'); size-adjust: 109.7%; ascent-override: 91.2%; descent-override: 24.6%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto'; font-weight: 600; src: local('Roboto Bold'); size-adjust: 108.5%; ascent-override: 92.2%; descent-override: 24.9%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto'; font-weight: 700; src: local('Roboto Bold'); size-adjust: 109%; ascent-override: 91.7%; descent-override: 24.8%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto'; font-weight: 800; src: local('Roboto Bold'); size-adjust: 112.4%; ascent-override: 88.9%; descent-override: 24%; line-gap-override: 0% }
+
+/* en copy — selected under :lang(en) in global.css */
+@font-face { font-family: 'BVP Fallback Arial En'; font-weight: 400; src: local(Arial), local('Liberation Sans'); size-adjust: 108.4%; ascent-override: 92.2%; descent-override: 24.9%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial En'; font-weight: 500; src: local(Arial), local('Liberation Sans'); size-adjust: 110.9%; ascent-override: 90.2%; descent-override: 24.4%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial En'; font-weight: 600; src: local('Arial Bold'), local('Liberation Sans Bold'); size-adjust: 105.1%; ascent-override: 95.1%; descent-override: 25.7%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial En'; font-weight: 700; src: local('Arial Bold'), local('Liberation Sans Bold'); size-adjust: 102.5%; ascent-override: 97.6%; descent-override: 26.3%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Arial En'; font-weight: 800; src: local('Arial Bold'), local('Liberation Sans Bold'); size-adjust: 110%; ascent-override: 90.9%; descent-override: 24.5%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto En'; font-weight: 400; src: local(Roboto); size-adjust: 108.7%; ascent-override: 92%; descent-override: 24.8%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto En'; font-weight: 500; src: local('Roboto Medium'); size-adjust: 110.7%; ascent-override: 90.4%; descent-override: 24.4%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto En'; font-weight: 600; src: local('Roboto Bold'); size-adjust: 110.8%; ascent-override: 90.2%; descent-override: 24.4%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto En'; font-weight: 700; src: local('Roboto Bold'); size-adjust: 110%; ascent-override: 90.9%; descent-override: 24.5%; line-gap-override: 0% }
+@font-face { font-family: 'BVP Fallback Roboto En'; font-weight: 800; src: local('Roboto Bold'); size-adjust: 114%; ascent-override: 87.7%; descent-override: 23.7%; line-gap-override: 0% }

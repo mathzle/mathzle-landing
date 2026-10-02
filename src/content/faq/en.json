@@ -1,36 +1,14 @@
 {
   "items": [
-    {
-      "question": "Is Mathzle really free?",
-      "answer": "Yes. Two worlds are free forever. Premium unlocks all six worlds plus ad-free and family sharing."
-    },
-    {
-      "question": "What ages is it for?",
-      "answer": "Built for ages 6 to 11. Lessons adapt to your kid's level, so a 6-year-old and an 11-year-old can both find their pace."
-    },
-    {
-      "question": "Do I need to install anything?",
-      "answer": "No. Mathzle runs in any modern browser on phones, tablets, and computers. No app store, no install, no storage used on the device."
-    },
-    {
-      "question": "Will there be iOS and Android apps?",
-      "answer": "Native apps are on the roadmap. For now the browser version delivers the full experience — and updates ship instantly without app-store review delays."
-    },
-    {
-      "question": "Is it safe for kids?",
-      "answer": "No ads. No chat with strangers. No data sold. Parents control everything from the family dashboard."
-    },
-    {
-      "question": "Does it work offline?",
-      "answer": "Mathzle needs internet to load lessons. Once a lesson is loaded, most activities continue without connection."
-    },
-    {
-      "question": "What language is it in?",
-      "answer": "Vietnamese and English. You can switch any time in settings — the numbers feel native in both."
-    },
-    {
-      "question": "How is it different from Khan Academy Kids or Prodigy?",
-      "answer": "Three things: it runs in any browser (no install), it's designed for the 6–11 sweet spot specifically, and it ships in Vietnamese first."
-    }
+    { "id": "reading", "category": "learning", "if": "", "question": "Can my child play before they read well?", "answer": "Mathzle fits best once a child can read short sentences: in-game text is kept very short and always comes with pictures and numbers. If your child is just starting to read, sit with them for the first few sessions and they'll get the hang of it." },
+    { "id": "daily-time", "category": "learning", "if": "", "question": "How long should my child play each day?", "answer": "We suggest about {claim:sessionMinutes} minutes a day — enough for steady practice without long screen time.{if:parentTimeLimit} You can set a limit in settings.{/if}" },
+    { "id": "textbook", "category": "learning", "if": "curriculumGdpt2018", "question": "Does it follow what my child learns at school?", "answer": "Content follows Vietnam's GDPT 2018 curriculum for grades {claim:gradeRange} — the shared framework behind all three national textbook series. The skills-by-grade table is in the Worlds section." },
+    { "id": "install", "category": "tech", "if": "", "question": "Do I need to install an app? What devices work?", "answer": "No install needed. Mathzle runs in the browser on phones, tablets and computers. iOS and Android apps are on the roadmap; the web version is fully featured." },
+    { "id": "business-model", "category": "billing", "if": "noAds", "question": "If it's free, how does Mathzle make money?", "answer": "From the Premium plan that parents pay for. We don't sell ads{if:noDataSale} or data{/if} — so the free plan isn't paid for with your child's attention." },
+    { "id": "data", "category": "safety", "if": "", "question": "How is my child's data protected?", "answer": "We only keep what's needed for learning: your child's profile (nickname, age, avatar), learning progress and the parent's Google account. You can ask us to delete your child's data via the Contact page.{if:dataResidency} Data is stored in {claim:dataResidency}.{/if}{if:parentDataDeletion} You can delete all of your child's data at any time.{/if} Details are in our Privacy Policy." },
+    { "id": "different", "category": "learning", "if": "", "question": "How is Mathzle different from other ways to learn math?", "answer": "Mathzle isn't exam cramming: we focus on steady, enjoyable daily practice. It runs right in the browser, was written in Vietnamese from day one{if:skillReport}, and shows you progress skill by skill{/if}." },
+    { "id": "siblings", "category": "billing", "if": "maxChildProfiles", "question": "Can siblings share an account?", "answer": "Yes. One account holds up to {claim:maxChildProfiles} child profiles, each with its own progress." },
+    { "id": "refund", "category": "billing", "if": "refundDays", "question": "How do cancelling and refunds work?", "answer": "Cancel renewal any time from your account. Within the first {claim:refundDays} days, if your child doesn't love it, we'll refund you in full — just email us." },
+    { "id": "classroom", "category": "tech", "if": "", "question": "Can teachers use Mathzle with a class?", "answer": "Mathzle is designed for families right now. If you'd like to use it with a class, message us — we're listening." }
   ]
 }

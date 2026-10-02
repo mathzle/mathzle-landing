@@ -1,0 +1,31 @@
+---
+import Eyebrow from './Eyebrow.astro';
+import { copy, type Locale } from '../lib/copy';
+
+interface Props {
+  id: string;
+  title: string;
+  locale: Locale;
+  eyebrow?: string;
+  lead?: string;
+  align?: 'split' | 'center';
+  accent?: string;
+  level?: 'h1' | 'h2';
+}
+const { id, title, locale, eyebrow, lead, align = 'split', accent, level = 'h2' } = Astro.props;
+const Tag = level;
+const titleClass = level === 'h1' ? 'mk-display' : 'mk-h2';
+---
+<header class:list={['sh', `sh--${align}`, 'reveal']}>
+  <div class="sh-main">
+    {eyebrow && <Eyebrow accent={accent}><Fragment set:html={copy(eyebrow, locale)} /></Eyebrow>}
+    <Tag id={id} class={titleClass} set:html={copy(title, locale)} />
+  </div>
+  {lead && <p class="mk-lead sh-lead" set:html={copy(lead, locale)} />}
+</header>
+<style>
+  .sh { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+  .sh--split { display: grid; grid-template-columns: 7fr 5fr; gap: 2rem 3rem; align-items: end; }
+  .sh--center { text-align: center; display: grid; justify-items: center; gap: 1rem; }
+  @media (max-width: 880px) { .sh--split { grid-template-columns: 1fr; } }
+</style>

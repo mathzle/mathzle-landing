@@ -1,0 +1,51 @@
+---
+import { Picture } from 'astro:assets';
+import { getEntry } from 'astro:content';
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import SignupForm from '../islands/SignupForm';
+import { copy } from '../../lib/copy';
+import { t, type Locale } from '../../utils/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const v = t(locale).voices;
+const items = (await getEntry('testimonials', locale))?.data.items ?? [];
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const quoteHtml = (q: string, h?: string) => (h ? esc(q).replace(esc(h), `<strong>${esc(h)}</strong>`) : esc(q));
+---
+<Section id="voices" tone="tint" labelledby="voices-title">
+  {items.length > 0 ? (
+    <>
+      <SectionHeader id="voices-title" locale={locale} eyebrow={v.eyebrow} title={v.title} />
+      <ul class="vg">
+        {items.map((it) => (
+          <li class:list={['vc', 'mk-card', 'reveal', { 'vc--featured': it.featured }]}>
+            <blockquote set:html={`&ldquo;${quoteHtml(it.quote, it.highlight)}&rdquo;`} />
+            <footer>
+              {it.photo && <Picture src={it.photo} alt="" widths={[80, 160]} sizes="40px" formats={['avif', 'webp']} loading="lazy" />}
+              <span>{v.credit.replace('{parent}', it.parent).replace('{grade}', String(it.childGrade)).replace('{city}', it.city)}</span>
+            </footer>
+          </li>
+        ))}
+      </ul>
+    </>
+  ) : (
+    <div class="beta">
+      <SectionHeader id="voices-title" locale={locale} eyebrow={v.beta.eyebrow} title={v.beta.title} align="center" />
+      <p class="mk-body beta-body" set:html={copy(v.beta.body, locale)} />
+      <SignupForm locale={locale} source="beta" placeholder={v.beta.placeholder} button={v.beta.button}
+        success={v.beta.success} error={v.beta.error} invalid={v.beta.invalid} client:only="preact" />
+    </div>
+  )}
+</Section>
+<style>
+  .vg { list-style: none; margin: 0; padding: 0; columns: 3 300px; column-gap: 1.25rem; }
+  .vc { break-inside: avoid; margin-bottom: 1.25rem; padding: 1.5rem; }
+  .vc blockquote { margin: 0 0 1rem; font-size: 1.0625rem; line-height: 1.6; }
+  .vc--featured blockquote { font-size: 1.25rem; }
+  .vc footer { display: flex; gap: 0.75rem; align-items: center; font-size: 0.875rem; color: var(--color-text-secondary); }
+  .vc footer :global(img) { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .beta { max-width: 640px; margin-inline: auto; text-align: center; display: grid; justify-items: center; gap: 1rem; }
+  .beta-body { margin: 0 0 0.5rem; }
+  .beta :global(.cta-form) { width: 100%; margin-inline: auto; }
+</style>

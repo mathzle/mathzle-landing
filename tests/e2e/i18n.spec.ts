@@ -19,9 +19,9 @@ test('hreflang tags present on both locales', async ({ page }) => {
 });
 
 test('canonical URL is locale-correct', async ({ page }) => {
-  await page.goto('/en/about');
+  await page.goto('/en/about/');
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
     'href',
-    'https://mathzle.com/en/about',
+    'https://mathzle.com/en/about/',
   );
 });

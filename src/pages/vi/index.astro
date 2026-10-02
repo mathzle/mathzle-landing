@@ -2,36 +2,43 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import StickyCta from '../../components/StickyCta.astro';
 import Hero from '../../components/sections/Hero.astro';
-import HowItWorks from '../../components/sections/HowItWorks.astro';
-import WorldsGrid from '../../components/sections/WorldsGrid.astro';
-import TrustSignals from '../../components/sections/TrustSignals.astro';
-import Screenshots from '../../components/sections/Screenshots.astro';
-import Testimonials from '../../components/sections/Testimonials.astro';
+import ProofStrip from '../../components/sections/ProofStrip.astro';
+import PainPromise from '../../components/sections/PainPromise.astro';
+import Method from '../../components/sections/Method.astro';
+import Worlds from '../../components/sections/Worlds.astro';
+import ForParents from '../../components/sections/ForParents.astro';
+import Safety from '../../components/sections/Safety.astro';
+import Story from '../../components/sections/Story.astro';
+import Voices from '../../components/sections/Voices.astro';
 import Pricing from '../../components/sections/Pricing.astro';
 import FAQ from '../../components/sections/FAQ.astro';
-import CtaCapture from '../../components/sections/CtaCapture.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { copyText } from '../../lib/copy';
+import { site } from '../../data/site';
+import { t } from '../../utils/i18n';
 
 const locale = 'vi' as const;
 const path = '/vi/';
+const h = t(locale).home;
 ---
-<Base
-  title="Mathzle — Toán học dành cho trẻ 6–11 tuổi"
-  description="Biến toán học thành cuộc phiêu lưu. Sáu thế giới, hàng trăm bài học. Miễn phí để bắt đầu, chạy trên mọi trình duyệt — không cần tải, không cần app store."
-  locale={locale}
-  path={path}
->
+<Base title={copyText(h.title, locale)} description={copyText(h.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
     <Hero locale={locale} />
-    <HowItWorks locale={locale} />
-    <WorldsGrid locale={locale} />
-    <TrustSignals locale={locale} />
-    <Screenshots locale={locale} />
-    <Testimonials locale={locale} />
-    <Pricing locale={locale} />
+    <ProofStrip locale={locale} />
+    <PainPromise locale={locale} />
+    <Method locale={locale} />
+    <Worlds locale={locale} />
+    <ForParents locale={locale} />
+    <Safety locale={locale} />
+    <Story locale={locale} />
+    <Voices locale={locale} />
+    {site.pricing.public && <Pricing locale={locale} />}
     <FAQ locale={locale} />
-    <CtaCapture locale={locale} />
+    <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />
+  <StickyCta locale={locale} />
 </Base>

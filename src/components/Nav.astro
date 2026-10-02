@@ -1,6 +1,13 @@
 ---
 import { t, type Locale } from '../utils/i18n';
 import LangSwitch from './LangSwitch.astro';
+import MobileDrawer from './MobileDrawer.astro';
+import { site } from '../data/site';
+import { resolveClaim } from '../data/claims';
+import { Image } from 'astro:assets';
+// 36px mark from a 584px / 410 KB PNG source: let astro:assets emit 1×/2×/3×
+// WebP (~2–8 KB) — the raw PNG competed with the LCP on slow mobile links.
+import logo from '../assets/brand/logo.png';
 
 interface Props {
   locale: Locale;
@@ -9,33 +16,57 @@ interface Props {
 const { locale, path } = Astro.props;
 const i = t(locale);
 const home = `/${locale}/`;
+const links = [
+  { href: `${home}#method`, label: i.nav.method },
+  { href: `${home}#worlds`, label: i.nav.worlds },
+  ...(resolveClaim('skillReport').show ? [{ href: `${home}#parents`, label: i.nav.parents }] : []),
+  ...(site.pricing.public ? [{ href: `${home}#pricing`, label: i.nav.pricing }] : []),
+  { href: `${home}faq/`, label: i.nav.faq },
+];
 ---
 <header class="nav-shell">
   <nav class="nav" aria-label="Primary">
-    <a href={home} class="nav-logo">
-      <span class="nav-logo-mark">M</span>
+    <a href={home} class="nav-logo" aria-label="Mathzle home">
+      <Image
+        src={logo}
+        alt=""
+        width={36}
+        height={36}
+        densities={[1, 2, 3]}
+        format="webp"
+        class="nav-logo-mark"
+        loading="eager"
+        decoding="async"
+      />
       <span class="nav-logo-text">Mathzle</span>
     </a>
-    <ul class="nav-links">
-      <li><a href={`${home}#how-it-works`}>{i.nav.howItWorks}</a></li>
-      <li><a href={`${home}#worlds`}>{i.nav.worlds}</a></li>
-      <li><a href={`${home}pricing`}>{i.nav.pricing}</a></li>
-      <li><a href={`${home}faq`}>{i.nav.faq}</a></li>
-    </ul>
+    <ul class="nav-links">{links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
     <div class="nav-actions">
       <LangSwitch locale={locale} path={path} class="nav-lang" />
       <a
-        href="https://app.mathzle.com"
+        href={site.appUrl}
         class="btn-push nav-cta"
         data-track="nav-cta"
         target="_blank"
         rel="noopener noreferrer"
       >
-        ▶ {i.nav.playFree}
+        {i.actions.primaryShort}
       </a>
+      <button
+        type="button"
+        class="nav-menu-btn"
+        data-open-nav
+        aria-controls="mobile-nav"
+        aria-expanded="false"
+        aria-label={i.nav.menu}
+      >
+        <span aria-hidden="true">☰</span>
+      </button>
     </div>
   </nav>
 </header>
+
+<MobileDrawer locale={locale} path={path} links={links} />
 
 <style>
   .nav-shell {
@@ -63,22 +94,16 @@ const home = `/${locale}/`;
     text-decoration: none;
   }
   .nav-logo-mark {
-    display: grid;
-    place-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 10px;
-    background: var(--color-primary);
-    color: var(--color-text-on-primary);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.125rem;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    display: block;
   }
   .nav-logo-text {
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text-primary);
   }
   .nav-links {
     display: flex;
@@ -106,9 +131,29 @@ const home = `/${locale}/`;
     padding: 0.625rem 1.125rem;
     min-height: auto;
     font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .nav-menu-btn {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: transparent;
+    font-size: 1.375rem;
+    color: var(--color-text-primary);
+    cursor: pointer;
   }
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .nav-lang { display: none; }
+    .nav-menu-btn { display: inline-grid; place-items: center; }
+    .nav-cta { padding: 0.5rem 0.875rem; font-size: 0.875rem; }
+    .nav { padding: 0.625rem 1rem; }
+  }
+  @media (max-width: 420px) {
+    /* The CTA label got longer ("Chơi thử miễn phí" / "Try it free") than the
+       old nav copy — drop the wordmark text on narrow phones so the header
+       never forces horizontal scroll. */
+    .nav-logo-text { display: none; }
   }
 </style>

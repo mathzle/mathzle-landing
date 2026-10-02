@@ -2,18 +2,23 @@ import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
-interface KVNamespaceLike {
-  put: (key: string, value: string) => Promise<void>;
+export const SOURCES = ['newsletter', 'beta', 'premium-waitlist'] as const;
+export type SignupSource = (typeof SOURCES)[number];
+export interface KVLike {
+  get(key: string): Promise<string | null>;
+  put(key: string, value: string): Promise<void>;
 }
-
 interface CloudflareLocals {
-  runtime?: { env?: { SIGNUPS?: KVNamespaceLike } };
+  runtime?: { env?: { SIGNUPS?: KVLike } };
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export const POST: APIRoute = async ({ request, locals }) => {
-  let body: { email?: unknown; locale?: unknown };
+export async function handleSignup(
+  request: Request,
+  env: { SIGNUPS?: KVLike } | undefined,
+): Promise<Response> {
+  let body: { email?: unknown; locale?: unknown; source?: unknown };
   try {
     body = (await request.json()) as typeof body;
   } catch {
@@ -22,12 +27,14 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
   const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : '';
   const locale = body.locale === 'vi' ? 'vi' : 'en';
+  const source: SignupSource = SOURCES.includes(body.source as SignupSource)
+    ? (body.source as SignupSource)
+    : 'newsletter';
 
   if (!email || email.length > 254 || !EMAIL_RE.test(email)) {
     return json({ error: 'invalid-email' }, 400);
   }
 
-  const env = (locals as CloudflareLocals).runtime?.env;
   if (!env?.SIGNUPS) {
     // KV binding missing — happens before Task 15 is finished.
     // We deliberately don't tell the client which environment-side
@@ -36,10 +43,16 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return json({ error: 'unavailable' }, 503);
   }
 
+  const key = `${source}:${email}`;
+  if (await env.SIGNUPS.get(key)) {
+    return json({ ok: true, duplicate: true });
+  }
+
   await env.SIGNUPS.put(
-    email,
+    key,
     JSON.stringify({
       locale,
+      source,
       ts: Date.now(),
       ua: request.headers.get('user-agent') ?? null,
       ref: request.headers.get('referer') ?? null,
@@ -47,7 +60,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
   );
 
   return json({ ok: true });
-};
+}
+
+export const POST: APIRoute = ({ request, locals }) =>
+  handleSignup(request, (locals as CloudflareLocals).runtime?.env);
 
 function json(data: unknown, status = 200) {
   return new Response(JSON.stringify(data), {

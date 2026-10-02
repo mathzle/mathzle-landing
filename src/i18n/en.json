@@ -1,94 +1,304 @@
 {
   "nav": {
-    "howItWorks": "How it works",
+    "method": "How it teaches",
     "worlds": "Worlds",
+    "parents": "For parents",
     "pricing": "Pricing",
     "faq": "FAQ",
-    "signIn": "Sign in",
-    "playFree": "Play free"
-  },
-  "hero": {
-    "headline": "Make math an adventure",
-    "subhead": "Math made for ages 6–11. Works in any browser. No install, no storage, no app store.",
-    "ctaPlay": "Start playing — free",
-    "ctaSecondary": "See how it works",
-    "supportNote": "Free forever for two worlds. Premium unlocks all six."
-  },
-  "howItWorks": {
-    "title": "How it works",
-    "step1": {
-      "title": "Pick a world",
-      "body": "Six themed worlds — pick where your kid wants to start."
-    },
-    "step2": {
-      "title": "Play a lesson",
-      "body": "Short, focused lessons designed with classroom teachers."
-    },
-    "step3": {
-      "title": "Earn rewards",
-      "body": "Coins, streaks, and badges keep the streak going."
-    }
+    "menu": "Open menu",
+    "close": "Close menu"
   },
   "worlds": {
-    "title": "Six worlds, six ways to play",
-    "ocean":  { "name": "Counting Cove",       "subtitle": "Numbers & place value",  "badges": ["1st grade", "2nd grade"] },
-    "forest": { "name": "Number Forest",       "subtitle": "Times tables",           "badges": ["2nd grade", "3rd grade"] },
-    "sky":    { "name": "Logic Sky",           "subtitle": "Problem solving",        "badges": ["3rd grade", "4th grade"] },
-    "sunset": { "name": "Pattern Peaks",       "subtitle": "Geometry & shapes",      "badges": ["2nd grade", "4th grade"] },
-    "berry":  { "name": "Fraction Fields",     "subtitle": "Halves, thirds, quarters", "badges": ["3rd grade", "5th grade"] },
-    "mint":   { "name": "Measurement Meadow",  "subtitle": "Units, time, money",     "badges": ["1st grade", "3rd grade"] }
-  },
-  "trust": {
-    "title": "Parents trust Mathzle",
-    "safe":         { "title": "Safe by default",     "body": "No ads. No chat. No data sold." },
-    "educator":     { "title": "Educator-designed",   "body": "Built with classroom teachers and reviewed against grade-level standards." },
-    "multilingual": { "title": "Vietnamese + English", "body": "Switch language any time. Numbers feel native in both." }
-  },
-  "screenshots": {
-    "title": "See it in action",
-    "subtitle": "Same warm cream, same pushable buttons, same blob mascot — on every screen."
-  },
-  "testimonials": {
-    "title": "What parents say",
-    "items": [
-      { "quote": "My daughter actually asks to do math now.",                  "author": "Linh, mom of two — Hanoi" },
-      { "quote": "Replaced two other math apps. Worth the switch.",            "author": "Anh, dad in HCMC" },
-      { "quote": "Tested with my class. The pacing is real classroom pacing.", "author": "Ms. Pham, primary teacher" }
-    ]
+    "eyebrow": "{claim:worlds} worlds",
+    "title": "Each world is ==one strand of math== for grades {claim:gradeRange}.",
+    "lead": "Your child picks where to start. You know what they're learning.",
+    "gradeLabel": "Grades {from}–{to}",
+    "carouselLabel": "Worlds — swipe to see more",
+    "curriculumToggle": "See skills by grade",
+    "curriculumCaption": "Skills by grade and world{if:curriculumGdpt2018}, following Vietnam's GDPT 2018 curriculum{/if}",
+    "gradeCol": "Grade",
+    "ocean":  { "name": "Counting Cove",      "blurb": "Count, read, write and compare numbers; tens and ones.",       "skills": ["Counting and reading numbers", "Comparing and ordering", "Tens and ones"] },
+    "forest": { "name": "Number Forest",      "blurb": "Learn the times tables by playing, not by rote.",              "skills": ["Times tables 2–9", "Division", "Word problems with × and ÷"] },
+    "sky":    { "name": "Logic Sky",          "blurb": "Read the problem, pick the operation, solve word problems.",   "skills": ["Word problems", "Averages", "Sum and difference"] },
+    "sunset": { "name": "Pattern Peaks",      "blurb": "Spot, measure and combine shapes; angles and lines.",          "skills": ["Flat shapes", "Perimeter and area", "Angles and lines"] },
+    "berry":  { "name": "Fraction Fields",    "blurb": "From halves and thirds to comparing and calculating fractions.", "skills": ["First fractions", "Comparing fractions", "Fraction operations"] },
+    "mint":   { "name": "Measurement Meadow", "blurb": "Length, weight, time and money — the numbers kids meet every day.", "skills": ["Length and weight", "Clocks and calendars", "Money"] }
   },
   "pricing": {
-    "title": "Free forever. Premium when you're ready.",
-    "freeTitle": "Free",
-    "freePrice": "$0",
-    "freeBullets": ["Two full worlds", "Daily streaks", "Vietnamese + English"],
-    "freeCta": "Start playing",
-    "premiumTitle": "Premium",
-    "premiumPrice": "$4.99/mo",
-    "premiumBullets": ["All six worlds", "Family sharing (up to 4 kids)", "Priority support"],
-    "premiumCta": "Try premium",
-    "premiumNote": "Cancel any time. Billing isn't live yet — placeholder pricing pending launch."
+    "eyebrow": "Pricing",
+    "title": "Free to start. ==Premium when they want more.==",
+    "billingLabel": "Billing period",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "save": "Save {pct}%",
+    "perMonth": "/month",
+    "perYear": "/year",
+    "perDay": "≈ {price} a day",
+    "free": {
+      "title": "Free",
+      "price": "$0",
+      "note": "Forever",
+      "bullets": [
+        { "if": "", "text": "{claim:freeWorlds} full worlds" },
+        { "if": "", "text": "Daily streaks, coins and badges" },
+        { "if": "noAds", "text": "No ads" }
+      ]
+    },
+    "premium": {
+      "title": "Premium",
+      "badge": "Most popular",
+      "bullets": [
+        { "if": "", "text": "All {claim:worlds} worlds" },
+        { "if": "skillReport", "text": "Skill-by-skill progress reports" },
+        { "if": "maxChildProfiles", "text": "Up to {claim:maxChildProfiles} child profiles" }
+      ],
+      "cta": "Choose Premium",
+      "waitlistCta": "Hold my launch price",
+      "waitlistNote": "Premium is almost ready. Leave your email to lock in the launch price."
+    },
+    "anchor": "{if:tutorAnchor}A month of Premium costs less than one tutoring session.{/if}",
+    "refund": "{if:refundDays}Full refund within {claim:refundDays} days if your child doesn't love it.{/if}",
+    "waitlist": {
+      "placeholder": "your@email.com",
+      "button": "Hold my price",
+      "success": "You're on the list! We'll email you when Premium opens.",
+      "error": "Something went wrong. Try again?",
+      "invalid": "That email doesn't look right. Mind checking it?"
+    }
+  },
+  "pricingPage": {
+    "title": "Mathzle pricing",
+    "description": "Free forever with {claim:freeWorlds} worlds. Premium unlocks all {claim:worlds}{if:noAds}. No ads on any plan{/if}.",
+    "compareTitle": "Compare plans",
+    "planCol": "Feature",
+    "rows": [
+      { "if": "", "label": "Worlds", "free": "{claim:freeWorlds}", "premium": "{claim:worlds}" },
+      { "if": "", "label": "Coins, badges, daily streaks", "free": "✓", "premium": "✓" },
+      { "if": "skillReport", "label": "Skill-by-skill progress reports", "free": "—", "premium": "✓" },
+      { "if": "maxChildProfiles", "label": "Child profiles", "free": "{claim:freeChildProfiles}", "premium": "{claim:maxChildProfiles}" },
+      { "if": "noAds", "label": "No ads", "free": "✓", "premium": "✓" }
+    ]
   },
   "faq": {
-    "title": "Frequently asked questions"
+    "title": "Questions parents ask",
+    "askTitle": "Don't see your question?",
+    "askEmail": "Email us",
+    "askZalo": "Message us on Zalo",
+    "categories": {
+      "learning": "Learning",
+      "safety": "Safety",
+      "billing": "Billing",
+      "tech": "Technical"
+    }
   },
+  "faqPage": {
+    "title": "FAQ",
+    "description": "Questions parents ask about Mathzle: how kids learn, safety and data, devices and the beta program."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "We read every message{if:responseDays} and reply within {claim:responseDays} business days{/if}.",
+    "description": "Reach the Mathzle team with questions about lessons, your child's safety, devices or your account.",
+    "email": "Email",
+    "zalo": "Zalo",
+    "zaloCta": "Message on Zalo",
+    "pending": "Mathzle's official contact email will be published here before Mathzle's public launch.",
+    "faqHint": "Your answer might already be in the FAQ."
+  },
+  "a11y": { "switchLang": "Switch to" },
   "cta": {
-    "title": "Stay in the loop",
-    "subtitle": "One email a month. Tips from teachers, new worlds, early access to native apps.",
     "placeholder": "your@email.com",
     "button": "Subscribe",
     "success": "Welcome! Check your inbox.",
-    "error": "Something went wrong. Try again?"
+    "error": "Something went wrong. Try again?",
+    "invalid": "That email doesn't look right. Mind checking it?"
+  },
+  "final": {
+    "title": "Is your child ready for ==their first level?==",
+    "newsletterToggle": "Not ready yet? Get one email a month from Mathzle",
+    "newsletterBody": "One email a month: new worlds and small ideas for doing math together."
   },
   "footer": {
-    "tagline": "Math made for kids.",
-    "copyright": "© 2026 Mathzle.",
+    "tagline": "A math game for primary-school kids that runs right in the browser.",
+    "product": "Product",
+    "support": "Support",
+    "legal": "Legal",
+    "taxId": "Tax ID",
     "links": {
-      "about": "About",
+      "method": "How it teaches",
+      "worlds": "Worlds",
       "pricing": "Pricing",
+      "about": "About",
       "faq": "FAQ",
+      "contact": "Contact",
       "privacy": "Privacy",
-      "terms": "Terms",
-      "contact": "Contact"
+      "terms": "Terms"
     }
+  },
+  "media": {
+    "pause": "Pause video",
+    "play": "Play video"
+  },
+  "actions": {
+    "primary": "Let your child try it free",
+    "primaryShort": "Try it free",
+    "secondary": "See what they'll learn",
+    "reassureLabel": "What starting takes",
+    "reassure": ["No card needed", "Nothing to install", "Plays instantly"]
+  },
+  "home": {
+    "title": "Mathzle — A grade {claim:gradeRange} math game that runs in the browser",
+    "description": "Your child learns math by playing through {claim:worlds} worlds. Free to start, nothing to install{if:noAds}, no ads{/if}."
+  },
+  "hero": {
+    "eyebrow": "Grades {claim:gradeRange} · Ages {claim:ageRange}",
+    "headline": "Math your child wants to play. ==Progress you can actually see.==",
+    "lead": "Mathzle is a math game that runs right in the browser{if:curriculumGdpt2018}, aligned with Vietnam's GDPT 2018 curriculum{/if}. Your child plays through {claim:worlds} worlds{if:skillReport}; you see their progress skill by skill{/if}.",
+    "frameLabel": "Video: a child playing their first Mathzle level"
+  },
+  "proof": {
+    "label": "Mathzle in numbers",
+    "items": [
+      { "if": "", "value": "{claim:worlds}", "label": "worlds" },
+      { "if": "levels", "value": "{claim:levels}", "label": "levels" },
+      { "if": "skills", "value": "{claim:skills}", "label": "grade {claim:gradeRange} skills" },
+      { "if": "gradeRange", "value": "{claim:gradeRange}", "label": "primary grades" },
+      { "if": "noAds", "value": "0", "label": "ads" }
+    ],
+    "footnote": "Content numbers as of {claim:contentAsOf}.{if:curriculumGdpt2018} Content follows Vietnam's GDPT 2018 curriculum.{/if}"
+  },
+  "pain": {
+    "eyebrow": "If math feels hard right now",
+    "title": "Your child isn't bad at math. ==They just haven't met the right way to learn it.==",
+    "lead": "Three things parents tell us — and what Mathzle does about each.",
+    "ifLabel": "If your child…",
+    "thenLabel": "Mathzle…",
+    "rows": [
+      { "if": "", "pain": "Cries or snaps over math homework", "promise": "Breaks it into {claim:lessonMinutes}-minute levels. A mistake means another try — no scolding, no lost points." },
+      { "if": "parentTimeLimit", "pain": "Gets stuck on videos for hours", "promise": "Turns {claim:sessionMinutes} minutes of screen time into {claim:sessionMinutes} minutes of thinking. You set the time limit." },
+      { "if": "spacedReview", "pain": "Learns it today, forgets it next week", "promise": "Skills they miss come back over the following days until they stick." }
+    ],
+    "mascotSays": "I'll play along with you!",
+    "mascotSaysNamed": "I'm {name}. I'll play along with you!"
+  },
+  "try": {
+    "title": "Try one",
+    "prompt": "Pick the right answer",
+    "correct": "Nice! In Mathzle, every question like this lives inside a little story.",
+    "next": "Another one",
+    "hints": [
+      "Close! Count on from 7, five more steps.",
+      "Close! Take away 5 to get to 10, then 3 more.",
+      "Close! Move 1 from the 6 to make 9 into 10, then add the rest."
+    ]
+  },
+  "method": {
+    "eyebrow": "How it teaches",
+    "title": "Not just a game. ==Every level is a full learning loop.==",
+    "lead": "Four steps that repeat in every world — from the first addition to fractions.",
+    "whyLabel": "Why it works",
+    "steps": [
+      { "key": "play",   "screen": "lesson-play", "if": "",           "title": "Play",       "body": "Your child steps into a world and meets the problem inside a small story.", "why": "Context shows kids why the math matters." },
+      { "key": "try",    "screen": "lesson-try",  "if": "",           "title": "Try",        "body": "Pick, drag, count, compare. Mistakes aren't punished — they're one more try.", "why": "Recalling an answer yourself makes it stick better than reading it." },
+      { "key": "hint",   "screen": "lesson-hint", "if": "stepHints",   "title": "Understand", "body": "When they're stuck, hints appear one step at a time. They find the answer themselves.", "why": "Just-enough help keeps them at hard-but-doable." },
+      { "key": "review", "screen": "review",      "if": "spacedReview", "title": "Remember",   "body": "Skills they miss come back over the next days until they're mastered.", "why": "Spaced review is how the brain keeps knowledge for the long run." }
+    ]
+  },
+  "parents": {
+    "eyebrow": "For parents",
+    "title": "Know what they're good at and where they're stuck — ==no guessing.==",
+    "lead": "Mathzle records every skill your child plays, so you can help in the right place.",
+    "kidTitle": "Your child gets",
+    "kid": [
+      { "if": "", "text": "Fun practice every day, no grade pressure" },
+      { "if": "", "text": "More confidence after every mistake" },
+      { "if": "", "text": "Coins, badges and daily streaks" }
+    ],
+    "parentTitle": "You get",
+    "parent": [
+      { "if": "skillReport", "text": "Progress reports skill by skill" },
+      { "if": "parentTimeLimit", "text": "Your own daily time limit" },
+      { "if": "maxChildProfiles", "text": "Up to {claim:maxChildProfiles} child profiles per account" }
+    ],
+    "screenAlt": "Mathzle's parent progress report screen"
+  },
+  "safety": {
+    "eyebrow": "Safety",
+    "title": "A place you can ==trust== your child to play alone.",
+    "lead": "These commitments are written into our privacy policy — not just slogans.",
+    "items": [
+      { "if": "noAds", "icon": "Ban", "title": "No ads", "body": "No banners, no video ads — not even on the free plan." },
+      { "if": "noChat", "icon": "MessageCircleOff", "title": "No chatting with strangers", "body": "There's no messaging between users. Your child only plays with the math." },
+      { "if": "noDataSale", "icon": "Lock", "title": "No selling data", "body": "Your child's data is used to help them learn — never shared with advertisers." },
+      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "No in-game purchases", "body": "There is nothing for children to buy inside Mathzle." },
+      { "if": "dataResidency", "icon": "Server", "title": "Data stored in {claim:dataResidency}", "body": "Handled under Vietnam's Decree 13/2023 on personal data protection." },
+      { "if": "parentDataDeletion", "icon": "Trash2", "title": "Delete data any time", "body": "One action in your account settings." }
+    ],
+    "privacyLink": "Read our privacy policy"
+  },
+  "story": {
+    "eyebrow": "Why Mathzle exists",
+    "title": "We want kids to ==love math== before they have to be good at it.",
+    "paragraphs": [
+      "Many math apps assume a child will sit still and follow the syllabus. We started from the opposite: kids want to play.",
+      "So every problem in Mathzle is a short level inside a world with characters and a story. Mistakes aren't punished. Right answers get a cheer.",
+      "We're a small team building in Vietnamese first."
+    ],
+    "advisorsTitle": "Advisors",
+    "aboutLink": "More about us"
+  },
+  "voices": {
+    "eyebrow": "What parents say",
+    "title": "From families ==playing Mathzle today.==",
+    "credit": "{parent} · grade {grade} · {city}",
+    "beta": {
+      "eyebrow": "Founding families program",
+      "title": "We're looking for =={claim:betaSeats} families== to play and give feedback.",
+      "body": "Your child plays each week; you answer a short survey each month. Your family's feedback shapes what Mathzle becomes.",
+      "placeholder": "your@email.com",
+      "button": "Count us in",
+      "success": "Thank you! We'll email you when a spot opens.",
+      "error": "Something went wrong. Try again?",
+      "invalid": "That email doesn't look right. Mind checking it?"
+    }
+  },
+  "about": {
+    "title": "About Mathzle",
+    "lead": "A math game for primary-school kids, built in Vietnamese first.",
+    "description": "Mathzle is a browser math game for ages {claim:ageRange}. Why we built it and the principles we keep.",
+    "principlesEyebrow": "Principles",
+    "principlesTitle": "Four things we ==won't trade away.==",
+    "principles": [
+      { "title": "Play first, learning follows", "body": "Every problem is a level. If kids don't want to play it, we rebuild the level." },
+      { "title": "Mistakes are part of learning", "body": "No lost points, no scolding. Every mistake is one more try." },
+      { "title": "Parents stay in charge", "body": "Parents create the account, see progress and decide how long kids play." },
+      { "title": "Honest numbers", "body": "Every number on this site has a source. If we're not sure, we don't write it." }
+    ]
+  },
+  "legalPages": {
+    "summaryTitle": "The short version for busy parents",
+    "summary": [
+      { "if": "noAds", "text": "There are no ads in Mathzle." },
+      { "if": "noDataSale", "text": "We never sell your child's data to anyone." },
+      { "if": "noChat", "text": "There's no chat or messaging between users." },
+      { "if": "", "text": "We only keep what your child needs to learn: their profile (nickname, age, avatar), learning progress and the parent's Google account." },
+      { "if": "parentDataDeletion", "text": "You can delete your child's data at any time." }
+    ],
+    "updated": "Last updated: {date}",
+    "draft": "Draft — awaiting legal review",
+    "draftDate": "Draft of {date}",
+    "eyebrow": "Legal",
+    "toc": "Contents",
+    "tocToggle": "On this page",
+    "companyTitle": "Company details",
+    "companyName": "Company name",
+    "taxId": "Tax code",
+    "address": "Address",
+    "email": "Contact email",
+    "companyPending": "Mathzle's legal entity details and official contact email have not been published yet; we will publish them here before Mathzle's public launch. During the beta, please reach us through the {link}.",
+    "contactPage": "Contact page",
+    "questionsTitle": "Questions about your data or these terms?",
+    "questionsBody": "The Mathzle team is happy to explain anything that isn't clear.",
+    "questionsCta": "Contact us"
   }
 }

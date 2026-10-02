@@ -1,109 +1,39 @@
 ---
-/**
- * World-themed pushable card — used in the hub-style worlds grid.
- * The whole card is the tap target. Solid world-color fill, 4px darker
- * bottom border that collapses on :active. Same brand mechanic as the
- * Flutter WorldCard.
- */
-interface Props {
-  worldColor: string;
-  emoji: string;
-  title: string;
-  subtitle: string;
-  badges?: string[];
-  href?: string;
-}
-
-const { worldColor, emoji, title, subtitle, badges = [], href } = Astro.props;
-const styleOverride = `--world-color: ${worldColor}; --world-border: color-mix(in srgb, ${worldColor} 75%, black);`;
+import { Picture } from 'astro:assets';
+import type { World } from '../data/worlds';
+interface Props { world: World; name: string; blurb: string; skills: string[]; gradeLabel: string; feature?: boolean }
+const { world, name, blurb, skills, gradeLabel, feature = false } = Astro.props;
 ---
-{
-  href ? (
-    <a href={href} class="world-card" style={styleOverride}>
-      <div class="world-emoji" aria-hidden="true">{emoji}</div>
-      <h3 class="world-title">{title}</h3>
-      <p class="world-subtitle">{subtitle}</p>
-      {badges.length > 0 && (
-        <ul class="world-badges">
-          {badges.map((b) => <li>{b}</li>)}
-        </ul>
-      )}
-    </a>
-  ) : (
-    <div class="world-card" style={styleOverride}>
-      <div class="world-emoji" aria-hidden="true">{emoji}</div>
-      <h3 class="world-title">{title}</h3>
-      <p class="world-subtitle">{subtitle}</p>
-      {badges.length > 0 && (
-        <ul class="world-badges">
-          {badges.map((b) => <li>{b}</li>)}
-        </ul>
-      )}
-    </div>
-  )
-}
-
+<article class:list={['wc', 'mk-card', 'mk-card--push', { 'wc--feature': feature }]} style={`--card-accent: ${world.color}`}>
+  <div class="wc-media">
+    <Picture src={world.image} alt="" widths={feature ? [560, 1120] : [360, 720]}
+      sizes={feature ? '(min-width: 1024px) 760px, 85vw' : '(min-width: 1024px) 380px, 85vw'}
+      formats={['avif', 'webp']} loading="lazy" />
+    <span class="wc-grade">{gradeLabel}</span>
+  </div>
+  <div class="wc-body">
+    <h3 class="mk-h3">{name}</h3>
+    <p class="wc-blurb">{blurb}</p>
+    <ul class="wc-skills">{skills.map((s) => <li>{s}</li>)}</ul>
+  </div>
+</article>
 <style>
-  .world-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: var(--world-color);
-    color: var(--color-text-on-primary);
-    border-radius: var(--radius-card-lg);
-    border-bottom: var(--spacing-push-depth) solid var(--world-border);
-    padding: 2rem 1.5rem 1.75rem;
-    text-decoration: none;
-    transition:
-      transform var(--duration-fast) var(--easing-spring),
-      border-bottom-width var(--duration-fast) var(--easing-spring);
+  .wc { overflow: hidden; display: flex; flex-direction: column; height: 100%; }
+  .wc-media { position: relative; aspect-ratio: 4 / 3; background: color-mix(in srgb, var(--card-accent) 12%, var(--color-surface)); }
+  .wc-media :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease-mk-out); }
+  @media (prefers-reduced-motion: no-preference) {
+    .wc:hover .wc-media :global(img) { transform: scale(1.03); }
   }
-  .world-card:active {
-    transform: translateY(var(--spacing-push-depth));
-    border-bottom-width: 0;
-  }
-  .world-emoji {
-    width: 96px;
-    height: 96px;
-    border-radius: 9999px;
-    background: rgb(255 255 255 / 0.18);
-    display: grid;
-    place-items: center;
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-  }
-  .world-title {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-  .world-subtitle {
-    opacity: 0.92;
-    margin-top: 0.25rem;
-    font-size: 0.95rem;
-  }
-  .world-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.375rem;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
-    margin-top: 1rem;
-  }
-  .world-badges li {
-    background: rgb(255 255 255 / 0.22);
-    color: var(--color-text-on-primary);
-    border-radius: var(--radius-pill);
-    padding: 0.125rem 0.625rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.025em;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .world-card { transition: none; }
-    .world-card:active { transform: none; }
+  .wc-grade { position: absolute; left: 12px; top: 12px; background: var(--color-surface); border-radius: var(--radius-pill);
+    padding: 0.25rem 0.625rem; font-size: 0.75rem; font-weight: 700; color: var(--color-text-primary); }
+  .wc-body { padding: 1.25rem 1.25rem 1.5rem; display: grid; gap: 0.5rem; }
+  .wc-blurb { margin: 0; color: var(--color-text-secondary); }
+  .wc-skills { list-style: none; margin: 0.25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.375rem; }
+  .wc-skills li { font-size: 0.8125rem; font-weight: 600; padding: 0.25rem 0.625rem; border-radius: var(--radius-pill);
+    background: color-mix(in srgb, var(--card-accent) 14%, transparent); color: var(--color-text-primary); }
+  .wc--feature .wc-media { aspect-ratio: auto; flex: 1; min-height: 320px; }
+  @media (hover: hover) and (min-width: 1024px) {
+    .wc:not(.wc--feature) .wc-skills { opacity: 0; transform: translateY(4px); transition: opacity var(--duration-normal), transform var(--duration-normal); }
+    .wc:not(.wc--feature):hover .wc-skills, .wc:not(.wc--feature):focus-within .wc-skills { opacity: 1; transform: none; }
   }
 </style>

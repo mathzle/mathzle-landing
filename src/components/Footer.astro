@@ -1,101 +1,68 @@
 ---
-import { t, type Locale } from '../utils/i18n';
 import LangSwitch from './LangSwitch.astro';
-
-interface Props {
-  locale: Locale;
-  path: string;
-}
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo.png';
+import { site } from '../data/site';
+import { t, type Locale } from '../utils/i18n';
+interface Props { locale: Locale; path: string }
 const { locale, path } = Astro.props;
-const i = t(locale);
+const i = t(locale).footer;
 const home = `/${locale}/`;
 const year = new Date().getFullYear();
+const cols = [
+  { title: i.product, links: [
+    { href: `${home}#method`, label: i.links.method },
+    { href: `${home}#worlds`, label: i.links.worlds },
+    ...(site.pricing.public ? [{ href: `${home}pricing/`, label: i.links.pricing }] : []),
+  ] },
+  { title: i.support, links: [
+    { href: `${home}faq/`, label: i.links.faq },
+    { href: `${home}about/`, label: i.links.about },
+    { href: `${home}contact/`, label: i.links.contact },
+  ] },
+  { title: i.legal, links: [
+    { href: `${home}privacy/`, label: i.links.privacy },
+    { href: `${home}terms/`, label: i.links.terms },
+  ] },
+];
 ---
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-logo">
-        <span class="footer-logo-mark">M</span>
-        <span class="footer-logo-text">Mathzle</span>
-      </div>
-      <p class="footer-tagline">{i.footer.tagline}</p>
-      <p class="footer-copy">{year !== 2026 ? `© ${year} Mathzle.` : i.footer.copyright}</p>
+      <a href={home} class="footer-logo" aria-label="Mathzle">
+        <Image src={logo} alt="" width={32} height={32} densities={[1, 2, 3]} format="webp" loading="lazy" decoding="async" />
+        <span>Mathzle</span>
+      </a>
+      <p class="footer-tagline">{i.tagline}</p>
+      <LangSwitch locale={locale} path={path} class="footer-lang" />
     </div>
-
-    <nav class="footer-nav" aria-label="Footer">
-      <a href={`${home}about`}>{i.footer.links.about}</a>
-      <a href={`${home}pricing`}>{i.footer.links.pricing}</a>
-      <a href={`${home}faq`}>{i.footer.links.faq}</a>
-      <a href={`${home}privacy`}>{i.footer.links.privacy}</a>
-      <a href={`${home}terms`}>{i.footer.links.terms}</a>
-    </nav>
-
-    <div class="footer-utility">
-      <LangSwitch locale={locale} path={path} />
-    </div>
+    {cols.map((c) => (
+      <nav class="footer-col" aria-label={c.title}>
+        <h2>{c.title}</h2>
+        <ul>{c.links.map((l) => (
+          <li><a href={l.href} {...('external' in l && l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{l.label}</a></li>
+        ))}</ul>
+      </nav>
+    ))}
   </div>
+  <p class="footer-legal">
+    © {year} Mathzle
+    {site.legal.companyName && <> · {site.legal.companyName}</>}
+    {site.legal.taxId && <> · {i.taxId} {site.legal.taxId}</>}
+    {site.legal.address && <> · {site.legal.address}</>}
+  </p>
 </footer>
-
 <style>
-  .footer {
-    background: var(--color-bg-alt);
-    margin-top: 6rem;
-    padding: 3rem 1.5rem 2.5rem;
-  }
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.5fr 1fr auto;
-    gap: 2.5rem;
-    align-items: start;
-  }
-  @media (max-width: 768px) {
-    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
-  }
-  .footer-logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .footer-logo-mark {
-    display: grid;
-    place-items: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 8px;
-    background: var(--color-primary);
-    color: var(--color-text-on-primary);
-    font-family: var(--font-display);
-    font-weight: 700;
-  }
-  .footer-logo-text {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--color-primary);
-  }
-  .footer-tagline {
-    margin-top: 0.75rem;
-    color: var(--color-text-secondary);
-    font-size: 0.95rem;
-  }
-  .footer-copy {
-    margin-top: 0.5rem;
-    color: var(--color-text-tertiary);
-    font-size: 0.85rem;
-  }
-  .footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .footer-nav a {
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: 0.95rem;
-  }
-  .footer-nav a:hover {
-    color: var(--color-text-primary);
-  }
+  .footer { background: var(--color-mk-ink-surface); color: var(--color-mk-ink-text-muted); padding: 4rem 1.5rem calc(2rem + 76px); margin-top: 1rem; }
+  @media (min-width: 769px) { .footer { padding-bottom: 2rem; } }
+  .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; }
+  .footer-logo { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; color: var(--color-mk-ink-text); font-weight: 800; font-size: 1.125rem; }
+  .footer-tagline { margin: 0.75rem 0 1rem; max-width: 32ch; }
+  .footer-col h2 { margin: 0 0 0.75rem; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-mk-ink-text); }
+  .footer-col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+  .footer a { color: inherit; text-decoration: none; }
+  .footer a:hover { color: var(--color-mk-ink-text); }
+  .footer :global(.footer-lang) { color: var(--color-mk-ink-text-muted); padding-left: 0; }
+  .footer-legal { max-width: 1200px; margin: 3rem auto 0; padding-top: 1.25rem; border-top: 1px solid rgb(255 255 255 / 0.1); font-size: 0.8125rem; }
+  @media (max-width: 860px) { .footer-inner { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
 </style>

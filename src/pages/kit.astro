@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import Button from '../components/Button.astro';
+import Icon from '../components/Icon.astro';
+import BrowserFrame from '../components/BrowserFrame.astro';
+import TabletFrame from '../components/TabletFrame.astro';
+import Hero from '../components/sections/Hero.astro';
+import ProofStrip from '../components/sections/ProofStrip.astro';
+import PainPromise from '../components/sections/PainPromise.astro';
+import Method from '../components/sections/Method.astro';
+import ForParents from '../components/sections/ForParents.astro';
+import Safety from '../components/sections/Safety.astro';
+import Story from '../components/sections/Story.astro';
+import Voices from '../components/sections/Voices.astro';
+import { Image } from 'astro:assets';
+import { screen } from '../data/media';
+import { copy } from '../lib/copy';
+const tones = ['canvas', 'tint', 'warm', 'ink'] as const;
+---
+<Base title="Mathzle kit" description="Internal component kit" locale="vi" path="/vi/" noindex>
+  <main>
+    <Hero locale="vi" />
+    <ProofStrip locale="vi" />
+    <PainPromise locale="vi" />
+    <Method locale="vi" />
+    <ForParents locale="vi" />
+    <Safety locale="vi" />
+    <Story locale="vi" />
+    <Voices locale="vi" />
+    {tones.map((tone) => (
+      <Section id={`kit-tone-${tone}`} tone={tone}>
+        <SectionHeader
+          id={`kit-h-${tone}`}
+          locale="vi"
+          eyebrow={`Tone: ${tone}`}
+          title="Con học toán như chơi game. ==Bố mẹ thấy rõ con tiến bộ.=="
+          lead="Mathzle có {claim:worlds} thế giới. **Chạy ngay trên trình duyệt.**"
+        />
+        <div class="mk-card reveal" style="padding: 1.5rem">
+          <p class="mk-stat" set:html={copy('{claim:worlds}', 'vi')} />
+          <p class="mk-caption">Caption / footnote</p>
+        </div>
+      </Section>
+    ))}
+    <Section id="kit-type">
+      <h1 class="mk-display" set:html={copy('Display ==marker== headline', 'vi')} />
+      <h2 class="mk-h2">H2 heading</h2>
+      <h3 class="mk-h3">H3 heading</h3>
+      <p class="mk-lead">Lead paragraph.</p>
+      <p class="mk-body">Body paragraph.</p>
+    </Section>
+    <Section id="kit-buttons">
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center">
+        <Button href="#" size="sm" track="kit-sm">Small</Button>
+        <Button href="#" track="kit-md">Medium</Button>
+        <Button href="#" size="lg" track="kit-lg">Large →</Button>
+        <Button href="#" variant="secondary" track="kit-secondary">Secondary</Button>
+      </div>
+      <div style="display:flex;gap:1rem;margin-top:1rem">
+        {(['ShieldCheck', 'MessageCircleOff', 'Lock', 'Ban', 'Server', 'Trash2'] as const).map((n) => <Icon name={n} size={24} />)}
+      </div>
+    </Section>
+    <Section id="kit-ink" tone="ink">
+      <Button href="#" variant="onInk" size="lg" track="kit-on-ink">On ink</Button>
+    </Section>
+    <Section id="kit-frames" tone="tint">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem">
+        <BrowserFrame>
+          {screen('lesson-play')
+            ? <Image src={screen('lesson-play')!} alt="" widths={[640, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" />
+            : <div class="kit-empty">screen: lesson-play (missing)</div>}
+        </BrowserFrame>
+        <TabletFrame>
+          {screen('family-dashboard')
+            ? <Image src={screen('family-dashboard')!} alt="" widths={[640, 1280]} sizes="50vw" />
+            : <div class="kit-empty">screen: family-dashboard (missing)</div>}
+        </TabletFrame>
+      </div>
+    </Section>
+    <!-- Task 9–10 append: frames, world cards -->
+  </main>
+</Base>
+<style>
+  .kit-empty { display: grid; place-items: center; height: 100%; color: var(--color-mk-text-tertiary); }
+</style>

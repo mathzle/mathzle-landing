@@ -2,72 +2,44 @@
 import Base from '../../layouts/Base.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
+import Section from '../../components/Section.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
 import Mascot from '../../components/Mascot.astro';
-
+import Story from '../../components/sections/Story.astro';
+import FinalCta from '../../components/sections/FinalCta.astro';
+import { copyText } from '../../lib/copy';
+import { t } from '../../utils/i18n';
+import { pageTitle } from '../../lib/seo';
 const locale = 'en' as const;
-const path = '/en/about';
+const path = '/en/about/';
+const a = t(locale).about;
 ---
-<Base
-  title="About Mathzle — Math made for kids"
-  description="Mathzle is a browser-based math adventure for kids ages 6–11. Built with classroom teachers. Vietnamese and English."
-  locale={locale}
-  path={path}
->
+<Base title={pageTitle(a.title)} description={copyText(a.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
-  <main class="prose-page">
-    <header class="prose-hero">
-      <Mascot state="wave" size={120} decorative={false} />
-      <h1>About Mathzle</h1>
-      <p class="lead">Math made for kids ages 6–11. Built with classroom teachers. Vietnamese and English.</p>
-    </header>
-    <section class="prose">
-      <h2>Why we built this</h2>
-      <p>Most math apps assume kids want to install something, sit still, and follow a curriculum. We assume they want to play. Mathzle is six worlds, hundreds of short lessons, and a mascot that cheers when you get it right.</p>
-      <h2>How we think about safety</h2>
-      <p>No ads. No chat with strangers. No data sold. Parents control everything from the family dashboard. We're built to be the math thing parents are happy their kid spent 20 minutes on.</p>
-      <h2>How we think about teaching</h2>
-      <p>The pacing comes from working primary teachers. Each world targets a specific grade-level skill cluster — counting, multiplication, geometry, fractions, measurement, logic. Kids progress at their own pace; we adjust difficulty when they're ready.</p>
-      <h2>Where we come from</h2>
-      <p>Vietnamese-first by design. Numbers feel native in both Vietnamese and English. The team is small, the roadmap is honest, and we ship updates the moment they're ready — no app-store review delay.</p>
-    </section>
+  <main>
+    <Section id="about-hero" tone="canvas" class="about-hero">
+      <Mascot state="wave" size={112} />
+      <h1 class="mk-display">{a.title}</h1>
+      <p class="mk-lead">{a.lead}</p>
+    </Section>
+    <Story locale={locale} showAboutLink={false} />
+    <Section id="principles" tone="tint" labelledby="principles-title">
+      <SectionHeader id="principles-title" locale={locale} eyebrow={a.principlesEyebrow} title={a.principlesTitle} />
+      <ol class="pr">
+        {a.principles.map((p, n) => (
+          <li class="mk-card reveal"><span class="pr-n">{String(n + 1).padStart(2, '0')}</span><h3 class="mk-h3">{p.title}</h3><p class="mk-body">{p.body}</p></li>
+        ))}
+      </ol>
+    </Section>
+    <FinalCta locale={locale} />
   </main>
   <Footer locale={locale} path={path} />
 </Base>
-
-<style is:global>
-  .prose-page {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 2rem;
-  }
-  .prose-hero {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  .prose-hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.25rem, 5vw, 3rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-top: 1rem;
-  }
-  .prose-hero .lead {
-    color: var(--color-text-secondary);
-    font-size: 1.125rem;
-    line-height: 1.5;
-    max-width: 540px;
-    margin: 0.75rem auto 0;
-  }
-  .prose h2 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-  }
-  .prose p {
-    color: var(--color-text-primary);
-    line-height: 1.65;
-    margin-bottom: 1rem;
-  }
+<style>
+  :global(.about-hero .mk-container) { display: grid; justify-items: center; text-align: center; gap: 1rem; }
+  .pr { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+  .pr li { padding: 1.75rem; display: grid; gap: 0.5rem; }
+  .pr li :global(.mk-body) { margin: 0; }
+  .pr-n { font-weight: 800; color: var(--color-primary); }
+  @media (max-width: 720px) { .pr { grid-template-columns: 1fr; } }
 </style>

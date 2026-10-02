@@ -1,0 +1,13 @@
+---
+interface Props { accent?: string }
+const { accent } = Astro.props;
+---
+<p class="eyebrow" style={accent ? `--eyebrow-color: ${accent}` : undefined}><slot /></p>
+<style>
+  .eyebrow {
+    margin: 0 0 1rem;
+    font-size: 0.8125rem; line-height: 1; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--eyebrow-color, var(--color-primary));
+  }
+</style>

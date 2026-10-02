@@ -1,0 +1,31 @@
+---
+import Section from '../Section.astro';
+import { copy, visible } from '../../lib/copy';
+import { t, type Locale } from '../../utils/i18n';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const d = t(locale);
+const p = d.pricingPage;
+---
+<Section id="compare" tone="tint" labelledby="compare-title">
+  <h2 id="compare-title" class="mk-h2 cmp-title">{p.compareTitle}</h2>
+  <div class="cmp-scroll" role="region" tabindex="0" aria-labelledby="compare-title">
+    <table>
+      <thead><tr><th scope="col">{p.planCol}</th><th scope="col">{d.pricing.free.title}</th><th scope="col">{d.pricing.premium.title}</th></tr></thead>
+      <tbody>
+        {visible(p.rows).map((r) => (
+          <tr><th scope="row">{r.label}</th><td set:html={copy(r.free, locale)} /><td set:html={copy(r.premium, locale)} /></tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</Section>
+<style>
+  .cmp-title { text-align: center; margin-bottom: 2rem; }
+  .cmp-scroll { overflow-x: auto; max-width: 760px; margin-inline: auto; background: var(--color-surface); border-radius: var(--radius-card-lg); border: 1px solid var(--color-mk-hairline); }
+  table { width: 100%; border-collapse: collapse; min-width: 480px; }
+  th, td { padding: 1rem 1.25rem; text-align: left; border-top: 1px solid var(--color-mk-hairline); }
+  thead th { border-top: 0; font-weight: 800; }
+  td { font-weight: 600; font-variant-numeric: tabular-nums; }
+  tbody th { font-weight: 500; color: var(--color-text-secondary); }
+</style>

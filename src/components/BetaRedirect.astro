@@ -1,0 +1,29 @@
+---
+/**
+ * Static redirect page for routes hidden during the beta (D-017). Output is
+ * static, so this is an instant meta refresh (+ JS for the fragment on old
+ * browsers), noindex/nofollow and no canonical (a redirect stub shouldn't
+ * declare one). Astro.redirect() would do the same but with a 2 s delay and
+ * an unstyled "Redirecting…" flash. Page-level on purpose: a static
+ * public/_redirects rule couldn't follow the `site.pricing.public` flag.
+ */
+interface Props { to: string; locale: 'vi' | 'en' }
+const { to, locale } = Astro.props;
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content={`0; url=${to}`} />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Mathzle</title>
+    <style>
+      body { display: grid; place-items: center; min-height: 100vh; margin: 0; font: 1rem/1.5 system-ui, sans-serif; background: #fff; color: #111; }
+      a { color: #2b6cb0; }
+    </style>
+  </head>
+  <body>
+    <script is:inline define:vars={{ to }}>window.location.replace(to);</script>
+    <p><a href={to}>Mathzle</a></p>
+  </body>
+</html>

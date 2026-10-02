@@ -1,0 +1,83 @@
+---
+import { Picture } from 'astro:assets';
+import Section from '../Section.astro';
+import SectionHeader from '../SectionHeader.astro';
+import BrowserFrame from '../BrowserFrame.astro';
+import { screen, type ScreenName } from '../../data/media';
+import { WORLDS } from '../../data/worlds';
+import { visible } from '../../lib/copy';
+import { t, type Locale } from '../../utils/i18n';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const i = t(locale).method;
+const accents = ['ocean', 'sunset', 'sky', 'mint'];
+const steps = visible(i.steps).map((s, n) => {
+  const world = WORLDS.find((w) => w.id === accents[n % accents.length])!;
+  return { ...s, n: n + 1, color: world.color, image: screen(s.screen as ScreenName) ?? world.image, isScreen: !!screen(s.screen as ScreenName) };
+});
+---
+<Section id="method" tone="tint" labelledby="method-title">
+  <SectionHeader id="method-title" locale={locale} eyebrow={i.eyebrow} title={i.title} lead={i.lead} />
+  <div class="method" data-method>
+    <ol class="method-steps">
+      {steps.map((s) => (
+        <li class="method-step" data-step={s.key} style={`--step-color: ${s.color}`}>
+          <span class="method-num" aria-hidden="true">{String(s.n).padStart(2, '0')}</span>
+          <h3 class="mk-h3">{s.title}</h3>
+          <p class="mk-body">{s.body}</p>
+          <p class="mk-caption method-why"><strong>{i.whyLabel}:</strong> {s.why}</p>
+          <div class="method-inline">
+            <BrowserFrame>
+              <Picture src={s.image} alt="" widths={[480, 960]} sizes="100vw" formats={['avif', 'webp']} loading="lazy" />
+            </BrowserFrame>
+          </div>
+        </li>
+      ))}
+    </ol>
+    <div class="method-visual" aria-hidden="true">
+      <BrowserFrame>
+        {steps.map((s, n) => (
+          <div data-step={s.key} class:list={['method-shot', { 'is-active': n === 0 }]}>
+            <Picture src={s.image} alt="" widths={[640, 1280]} sizes="(min-width: 1024px) 50vw, 100vw" formats={['avif', 'webp']} loading="lazy" />
+          </div>
+        ))}
+      </BrowserFrame>
+    </div>
+  </div>
+</Section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-method]').forEach((root) => {
+    const shots = root.querySelectorAll<HTMLElement>('.method-visual [data-step]');
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const key = (e.target as HTMLElement).dataset.step;
+        shots.forEach((s) => s.classList.toggle('is-active', s.dataset.step === key));
+      }),
+      { rootMargin: '-45% 0px -45% 0px' },
+    );
+    root.querySelectorAll('.method-step').forEach((s) => io.observe(s));
+  });
+</script>
+
+<style>
+  .method { display: grid; grid-template-columns: 5fr 7fr; gap: 4rem; }
+  .method-steps { list-style: none; margin: 0; padding: 0; }
+  .method-step { min-height: 60vh; display: grid; align-content: center; gap: 0.75rem; }
+  .method-num { font-size: 4rem; font-weight: 800; line-height: 1; color: transparent; -webkit-text-stroke: 2px var(--step-color); }
+  .method-why { margin: 0; }
+  .method-inline { display: none; }
+  .method-visual { position: sticky; top: 15vh; align-self: start; }
+  .method-shot { position: absolute; inset: 0; opacity: 0; transition: opacity var(--duration-normal) ease; }
+  .method-shot.is-active { opacity: 1; }
+  .method-shot :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 900px) {
+    .method { grid-template-columns: 1fr; }
+    .method-visual { display: none; }
+    .method-step { min-height: 0; padding-block: 1.5rem; }
+    .method-inline { display: block; margin-top: 0.75rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .method-shot { transition: none; } }
+</style>

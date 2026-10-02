@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy to Cloudflare Pages
+    name: Deploy to Cloudflare
     permissions:
       contents: read
       deployments: write
@@ -21,18 +21,34 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build
-        run: pnpm build
+      - name: Unit tests
+        run: pnpm test:unit
 
-      - name: Deploy to Cloudflare Pages
+      - name: Launch gate (site config + every claim verified)
+        run: pnpm launch:check
+        env:
+          PUBLIC_APP_URL_CONFIRMED: ${{ vars.PUBLIC_APP_URL_CONFIRMED }}
+          PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
+
+      - name: Build (strict claims)
+        run: pnpm build:prod
+        env:
+          PUBLIC_APP_URL: ${{ vars.PUBLIC_APP_URL }}
+          PUBLIC_APP_URL_CONFIRMED: ${{ vars.PUBLIC_APP_URL_CONFIRMED }}
+          PUBLIC_CF_BEACON_TOKEN: ${{ vars.PUBLIC_CF_BEACON_TOKEN }}
+
+      - name: Budgets
+        run: pnpm check:js && pnpm check:media && pnpm check:dist
+
+      - name: Deploy to Cloudflare
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=mathzle-landing
+          command: deploy

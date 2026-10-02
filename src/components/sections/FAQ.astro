@@ -1,85 +1,120 @@
 ---
 import { getEntry } from 'astro:content';
-import FaqAccordion from '../islands/FaqAccordion';
+import Section from '../Section.astro';
+import Mascot from '../Mascot.astro';
+import { copy, copyText, visible } from '../../lib/copy';
+import { site } from '../../data/site';
+import { jsonLd } from '../../lib/seo';
+import { visibleFaq } from '../../lib/beta';
 import { t, type Locale } from '../../utils/i18n';
 
-interface Props {
-  locale: Locale;
-}
-const { locale } = Astro.props;
+type Category = 'learning' | 'safety' | 'billing' | 'tech';
+interface Props { locale: Locale; categories?: Category[]; tone?: 'canvas' | 'tint'; grouped?: boolean; headingLevel?: 'h1' | 'h2' }
+const { locale, categories, tone = 'canvas', grouped = false, headingLevel = 'h2' } = Astro.props;
+const H = headingLevel;
 const i = t(locale).faq;
-
-const entry = await getEntry('faq', locale);
-const items = entry?.data.items ?? [];
-
+// Billing questions stay hidden while pricing isn't public (D-017); the
+// JSON-LD below is built from the same list, so schema matches the page.
+const all = visibleFaq(visible((await getEntry('faq', locale))?.data.items ?? []));
+const items = categories ? all.filter((q) => categories.includes(q.category)) : all;
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: items.map((q) => ({
     '@type': 'Question',
     name: q.question,
-    acceptedAnswer: { '@type': 'Answer', text: q.answer },
+    acceptedAnswer: { '@type': 'Answer', text: copyText(q.answer, locale) },
   })),
 };
 ---
-<section id="faq" class="faq">
-  <h2 class="section-title">{i.title}</h2>
-  <FaqAccordion items={items} client:only="preact" />
-</section>
-<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<Section id="faq" tone={tone} labelledby="faq-title">
+  <div class="faq-grid">
+    <aside class="faq-side">
+      <H id="faq-title" class="mk-h2">{i.title}</H>
+      <Mascot state="wave" size={88} />
+      <p class="faq-ask">{i.askTitle}</p>
+      {site.contact.zaloUrl && <a class="btn-text" href={site.contact.zaloUrl} target="_blank" rel="noopener noreferrer">{i.askZalo} →</a>}
+      {site.contact.email && <a class="btn-text" href={`mailto:${site.contact.email}`}>{i.askEmail} →</a>}
+    </aside>
+    <div class="faq-main">
+      {grouped ? (
+        <div class="faq-groups">
+          {(['learning', 'safety', 'billing', 'tech'] as const).map((c) => {
+            const group = items.filter((q) => q.category === c);
+            return group.length > 0 && (
+              <section class="faq-group" aria-labelledby={`faq-g-${c}`}>
+                <h2 id={`faq-g-${c}`} class="mk-h3">{i.categories[c]}</h2>
+                <div class="faq-list">
+                  {group.map((q) => (
+                    <details class="faq-item" id={`faq-${q.id}`} name={`faq-g-${c}`}>
+                      <summary class="faq-q">
+                        <span class="faq-q-text">{q.question}</span>
+                        <span class="faq-chev" aria-hidden="true"></span>
+                      </summary>
+                      <div class="faq-a" set:html={copy(q.answer, locale)} />
+                    </details>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="faq-list">
+          {items.map((q, idx) => (
+            <details class="faq-item" id={`faq-${q.id}`} name="faq" open={idx === 0 ? true : undefined}>
+              <summary class="faq-q">
+                <span class="faq-q-text">{q.question}</span>
+                <span class="faq-chev" aria-hidden="true"></span>
+              </summary>
+              <div class="faq-a" set:html={copy(q.answer, locale)} />
+            </details>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</Section>
+<script type="application/ld+json" set:html={jsonLd(faqSchema)} />
+
+<script>
+  // Deep-link support (`#faq-<id>`): open the matching <details> and scroll
+  // it into view. No framework — content is already in the initial HTML, so
+  // without JS the page still reads fine, just without the auto-open/scroll.
+  function openFaqFromHash() {
+    const m = /^#faq-(.+)$/.exec(location.hash);
+    if (!m) return;
+    const el = document.getElementById(`faq-${m[1]}`);
+    if (el instanceof HTMLDetailsElement) {
+      el.open = true;
+      el.scrollIntoView({ block: 'start' });
+    }
+  }
+  openFaqFromHash();
+  addEventListener('hashchange', openFaqFromHash);
+</script>
 
 <style is:global>
-  .faq {
-    padding: 5rem 1.5rem;
-    max-width: 800px;
-    margin: 0 auto;
+  .faq-grid { display: grid; grid-template-columns: 4fr 8fr; gap: 4rem; align-items: start; }
+  .faq-side { position: sticky; top: 7rem; display: grid; gap: 1rem; justify-items: start; }
+  .faq-ask { margin: 0.5rem 0 0; font-weight: 700; }
+  .faq-group + .faq-group { margin-top: 2.5rem; }
+  .faq-list { list-style: none; padding: 0; margin: 0; }
+  .faq-item { border-bottom: 1px solid var(--color-mk-hairline-strong); scroll-margin-top: 6rem; }
+  .faq-item > summary { list-style: none; }
+  .faq-item > summary::-webkit-details-marker { display: none; }
+  .faq-item > summary::marker { content: ''; }
+  .faq-q { width: 100%; padding: 1.375rem 0; min-height: 48px; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    background: transparent; border: 0; font: inherit; font-size: 1.125rem; font-weight: 700; text-align: left; cursor: pointer; color: var(--color-text-primary); }
+  .faq-q:hover .faq-q-text { color: var(--color-primary); }
+  .faq-q:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; border-radius: 2px; }
+  .faq-chev { font-size: 1.5rem; line-height: 1; color: var(--color-mk-text-tertiary); min-width: 1rem; text-align: center; }
+  .faq-chev::before { content: '+'; }
+  .faq-item[open] .faq-chev::before { content: '\2212'; }
+  .faq-a { padding: 0 0 1.5rem; color: var(--color-text-secondary); line-height: 1.65; max-width: 62ch; }
+  @media (prefers-reduced-motion: no-preference) {
+    .faq-item[open] > summary ~ * { animation: faq-reveal var(--duration-fast, 0.15s) ease; }
   }
-  .faq .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 3rem;
-    letter-spacing: -0.02em;
-  }
-  .faq-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .faq-item {
-    border-bottom: 1px solid var(--color-border);
-  }
-  .faq-q {
-    width: 100%;
-    padding: 1.25rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    background: transparent;
-    border: 0;
-    font: inherit;
-    font-size: 1.125rem;
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
-    color: var(--color-text-primary);
-  }
-  .faq-q:hover .faq-q-text {
-    color: var(--color-primary);
-  }
-  .faq-chev {
-    font-size: 1.75rem;
-    line-height: 1;
-    color: var(--color-text-tertiary);
-    font-weight: 300;
-    min-width: 1rem;
-    text-align: center;
-  }
-  .faq-a {
-    padding: 0 0 1.25rem;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-  }
+  @keyframes faq-reveal { from { opacity: 0; } to { opacity: 1; } }
+  @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; gap: 2rem; } .faq-side { position: static; } }
 </style>

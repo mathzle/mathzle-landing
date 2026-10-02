@@ -4,11 +4,8 @@
    - Weight 800 (ExtraBold) carries display character at hero sizes
    - One family, one bundle, one source of truth
    - Matches the mathzle-ui Flutter app, which also ships only BVP */
-@import '@fontsource/be-vietnam-pro/400.css';
-@import '@fontsource/be-vietnam-pro/500.css';
-@import '@fontsource/be-vietnam-pro/600.css';
-@import '@fontsource/be-vietnam-pro/700.css';
-@import '@fontsource/be-vietnam-pro/800.css';
+@import './fonts.css'; /* @fontsource BVP 400–800, vi-friendly subset order (see file) */
+@import './font-fallbacks.css';
 
 /* ============================================================
    Design tokens — mirrored from mathzle-ui/DESIGN.md.
@@ -20,8 +17,8 @@
   /* Fonts */
   /* Same family for display and body — weight + size + tracking do
      the differentiation. See @layer base h1/h2/h3 below. */
-  --font-display: 'Be Vietnam Pro', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
 
   /* Brand */
   --color-primary: #5b6cff;
@@ -77,6 +74,31 @@
   --duration-fast: 80ms;
   --duration-normal: 200ms;
   --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ---- Marketing layer (Feature 18). App tokens above stay untouched. ---- */
+  --color-mk-canvas: #fffcf8;
+  --color-mk-canvas-tint: #f5f4ff;
+  --color-mk-canvas-warm: #fff4ea;
+  --color-mk-ink: #17152b;
+  --color-mk-ink-surface: #221f3a;
+  --color-mk-ink-text: #f4f2ff;
+  --color-mk-ink-text-muted: #b9b5d6;
+  --color-mk-text-tertiary: #8c88ae; /* passes 4.5:1 on canvas; app tertiary does not */
+  --color-mk-hairline: rgb(45 42 74 / 0.08);
+  --color-mk-hairline-strong: rgb(45 42 74 / 0.14);
+  --color-mk-on-ink-shadow: #c9c4ee;
+  --shadow-mk-sm: 0 1px 2px rgb(23 21 43 / 0.04), 0 2px 8px -2px rgb(23 21 43 / 0.06);
+  --shadow-mk-md: 0 1px 2px rgb(23 21 43 / 0.04), 0 12px 32px -12px rgb(23 21 43 / 0.14);
+  --shadow-mk-lg: 0 2px 4px rgb(23 21 43 / 0.04), 0 32px 64px -24px rgb(91 108 255 / 0.28);
+  --radius-mk-frame: 28px;
+  --radius-mk-band: 32px;
+  --ease-mk-out: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* English copy averages differently → its own calibrated fallbacks (font-fallbacks.css). */
+:root:lang(en) {
+  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
 }
 
 /* ============================================================
@@ -87,7 +109,7 @@
   html {
     font-family: var(--font-body);
     color: var(--color-text-primary);
-    background: var(--color-bg);
+    background: var(--color-mk-canvas);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -160,6 +182,16 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+  .btn-push { white-space: nowrap; }
+  .btn-push.btn-sm { min-height: 40px; padding: 0.5rem 0.875rem; font-size: 0.875rem; border-bottom-width: var(--spacing-push-depth-small); }
+  .btn-push.btn-sm:active { transform: translateY(var(--spacing-push-depth-small)); }
+  .btn-push.btn-lg { min-height: 72px; padding: 1rem 1.75rem; font-size: 1.0625rem; }
+  .btn-push.btn-secondary {
+    background: var(--color-surface); color: var(--color-text-primary);
+    border: 1px solid var(--color-mk-hairline-strong);
+    border-bottom: var(--spacing-push-depth) solid var(--color-mk-hairline-strong);
+  }
+  .btn-push.btn-on-ink { background: var(--color-surface); color: var(--color-mk-ink); border-bottom-color: var(--color-mk-on-ink-shadow); }
 
   .btn-text {
     display: inline-flex;
@@ -179,6 +211,18 @@
     opacity: 0.7;
   }
 
+  /* Signup form — shared by FinalCta, Pricing, and Voices' beta program.
+     Moved here (Task 17) so every {claim:…}-adjacent form looks the same. */
+  .cta-form { display: flex; gap: 0.5rem; max-width: 480px; flex-wrap: wrap; }
+  .cta-form input { flex: 1; min-width: 200px; padding: 0.875rem 1rem; border-radius: var(--radius-input);
+    border: 1.5px solid var(--color-mk-hairline-strong); background: var(--color-surface); font: inherit; color: var(--color-text-primary); }
+  .cta-form input:focus { outline: none; border-color: var(--color-primary); }
+  .cta-form .btn-push { min-height: auto; padding: 0.875rem 1.5rem; }
+  .cta-form--ink input { border-color: transparent; }
+  .cta-success { font-weight: 600; color: var(--color-success); }
+  .cta-error { width: 100%; color: var(--color-error); font-size: 0.875rem; margin: 0.25rem 0 0; }
+  @media (max-width: 540px) { .cta-form { flex-direction: column; } .cta-form input, .cta-form .btn-push { width: 100%; } }
+
   /* Reduced-motion override — respect the system flag */
   @media (prefers-reduced-motion: reduce) {
     .btn-push {
@@ -188,4 +232,74 @@
       transform: none;
     }
   }
+
+  /* Layout */
+  .mk-section { padding-block: clamp(80px, 10vw, 136px); padding-inline: 1.5rem; }
+  .mk-tone-canvas { background: var(--color-mk-canvas); }
+  .mk-tone-tint   { background: var(--color-mk-canvas-tint); }
+  .mk-tone-warm   { background: var(--color-mk-canvas-warm); }
+  .mk-tone-ink    { background: var(--color-mk-ink); color: var(--color-mk-ink-text); }
+  .mk-tone-ink .mk-lead, .mk-tone-ink .mk-body, .mk-tone-ink .mk-caption { color: var(--color-mk-ink-text-muted); }
+  @media (min-width: 1024px) {
+    .mk-tone-tint, .mk-tone-warm, .mk-tone-ink { margin-inline: 1rem; border-radius: var(--radius-mk-band); }
+  }
+  .mk-container { max-width: 1200px; margin-inline: auto; }
+  .mk-container--wide { max-width: 1320px; }
+  @media (max-width: 640px) { .mk-section { padding-inline: 1rem; } }
+
+  /* Type */
+  .mk-display { font-size: clamp(2.75rem, 6vw, 4.75rem); line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; text-wrap: balance; margin: 0; }
+  .mk-h2 { font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.08; letter-spacing: -0.03em; font-weight: 800; text-wrap: balance; margin: 0; }
+  .mk-h3 { font-size: clamp(1.25rem, 1.6vw, 1.5rem); line-height: 1.25; letter-spacing: -0.015em; font-weight: 700; margin: 0; }
+  /* Measure in em, not ch: `ch` is the width of the *current* font's "0", so
+     62ch shrank ~15% while the fallback font showed and the lead re-wrapped
+     (and moved everything below it) when Be Vietnam Pro swapped in.
+     41.9em == 62ch of Be Vietnam Pro 400 ("0" = 0.676em) — same final layout. */
+  .mk-lead { font-size: clamp(1.125rem, 1.5vw, 1.3125rem); line-height: 1.55; color: var(--color-text-secondary); text-wrap: pretty; max-width: 41.9em; margin: 0; }
+  .mk-body { font-size: 1.0625rem; line-height: 1.65; color: var(--color-text-secondary); text-wrap: pretty; max-width: 41.9em; }
+  .mk-stat { font-size: clamp(2.5rem, 4vw, 3.5rem); line-height: 1; letter-spacing: -0.03em; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .mk-caption { font-size: 0.8125rem; line-height: 1.4; font-weight: 500; color: var(--color-mk-text-tertiary); }
+
+  /* Cards: static = hairline + soft shadow; interactive = pushable */
+  .mk-card { background: var(--color-surface); border: 1px solid var(--color-mk-hairline); border-radius: var(--radius-card-lg); box-shadow: var(--shadow-mk-sm); }
+  .mk-card--push {
+    border-bottom: var(--spacing-push-depth) solid var(--card-accent, var(--color-primary));
+    transition: transform var(--duration-normal) var(--ease-mk-out), box-shadow var(--duration-normal) var(--ease-mk-out);
+  }
+  .mk-card--push:hover { transform: translateY(-2px); box-shadow: var(--shadow-mk-md); }
+  @media (prefers-reduced-motion: reduce) { .mk-card--push:hover { transform: none; } }
+
+  /* Marker highlight — `==text==` in copy */
+  mark.marker {
+    color: inherit;
+    background: linear-gradient(transparent 60%, color-mix(in srgb, var(--marker-color, var(--color-reward)) 55%, transparent) 60% 92%, transparent 92%) no-repeat 0 0 / 100% 100%;
+    padding-inline: 0.06em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* Scroll reveal */
+  @keyframes mk-reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes mk-marker { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal { animation: mk-reveal linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
+      mark.marker { animation: mk-marker linear both; animation-timeline: view(); animation-range: entry 30% cover 40%; }
+    }
+    @supports not (animation-timeline: view()) {
+      html.js .reveal { transition: opacity 0.52s var(--ease-mk-out), transform 0.52s var(--ease-mk-out); }
+      html.js .reveal:not(.is-in) { opacity: 0; transform: translateY(16px); }
+    }
+  }
+}
+
+/* Preview-only: unverified claims (src/data/claims.ts). Never reaches a
+   strict production build — that build fails instead. */
+/* Unverified claims (D-018): invisible by default so parents read clean copy.
+   Reviewers add `?claims` to the URL; Base.astro then sets html.show-claims. */
+.show-claims .claim-unverified {
+  background: color-mix(in srgb, var(--color-warning) 28%, transparent);
+  outline: 1px dashed var(--color-warning);
+  border-radius: 4px;
+  padding: 0 0.15em;
 }

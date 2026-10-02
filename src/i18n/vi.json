@@ -1,95 +1,305 @@
 {
   "_note": "DRAFT — needs review by a native Vietnamese speaker before launch. Register: friendly 'mình/bạn', not formal 'tôi'. Tone: warm, parent-respectful, not babyish.",
   "nav": {
-    "howItWorks": "Cách hoạt động",
+    "method": "Phương pháp",
     "worlds": "Thế giới",
+    "parents": "Cho bố mẹ",
     "pricing": "Bảng giá",
     "faq": "Hỏi đáp",
-    "signIn": "Đăng nhập",
-    "playFree": "Chơi miễn phí"
-  },
-  "hero": {
-    "headline": "Biến toán học thành cuộc phiêu lưu",
-    "subhead": "Toán học cho trẻ 6–11 tuổi. Chơi ngay trên trình duyệt — không cần tải, không tốn bộ nhớ.",
-    "ctaPlay": "Chơi miễn phí ngay",
-    "ctaSecondary": "Xem cách hoạt động",
-    "supportNote": "Miễn phí mãi mãi với 2 thế giới. Bản Premium mở khoá cả 6 thế giới."
-  },
-  "howItWorks": {
-    "title": "Cách hoạt động",
-    "step1": {
-      "title": "Chọn thế giới",
-      "body": "Sáu thế giới với chủ đề khác nhau — chọn nơi bé muốn bắt đầu."
-    },
-    "step2": {
-      "title": "Chơi bài học",
-      "body": "Các bài học ngắn, tập trung, được thiết kế cùng giáo viên tiểu học."
-    },
-    "step3": {
-      "title": "Nhận phần thưởng",
-      "body": "Coin, streak, và huy hiệu giúp bé duy trì thói quen."
-    }
+    "menu": "Mở menu",
+    "close": "Đóng menu"
   },
   "worlds": {
-    "title": "Sáu thế giới, sáu cách chơi",
-    "ocean":  { "name": "Vịnh Đếm Số",     "subtitle": "Số đếm & giá trị vị trí",     "badges": ["Lớp 1", "Lớp 2"] },
-    "forest": { "name": "Rừng Nhân Chia",   "subtitle": "Bảng cửu chương",            "badges": ["Lớp 2", "Lớp 3"] },
-    "sky":    { "name": "Trời Tư Duy",      "subtitle": "Giải quyết vấn đề",          "badges": ["Lớp 3", "Lớp 4"] },
-    "sunset": { "name": "Đỉnh Hình Học",    "subtitle": "Hình học & hình khối",       "badges": ["Lớp 2", "Lớp 4"] },
-    "berry":  { "name": "Đồng Phân Số",    "subtitle": "Một nửa, một phần ba, một phần tư", "badges": ["Lớp 3", "Lớp 5"] },
-    "mint":   { "name": "Đồng Cỏ Đo Lường", "subtitle": "Đơn vị, thời gian, tiền tệ", "badges": ["Lớp 1", "Lớp 3"] }
-  },
-  "trust": {
-    "title": "Phụ huynh tin tưởng Mathzle",
-    "safe":         { "title": "An toàn mặc định",     "body": "Không quảng cáo. Không chat. Không bán dữ liệu." },
-    "educator":     { "title": "Thiết kế bởi giáo viên", "body": "Xây dựng cùng giáo viên tiểu học và rà soát theo chuẩn lớp học." },
-    "multilingual": { "title": "Tiếng Việt + Anh",     "body": "Đổi ngôn ngữ bất kỳ lúc nào. Con số đọc tự nhiên ở cả hai." }
-  },
-  "screenshots": {
-    "title": "Xem trực tiếp",
-    "subtitle": "Cùng nền kem ấm áp, cùng nút bấm có hiệu ứng, cùng linh vật blob — trên mọi màn hình."
-  },
-  "testimonials": {
-    "title": "Phụ huynh nói gì",
-    "items": [
-      { "quote": "Con gái mình bây giờ tự xin được học toán.",         "author": "Linh, mẹ hai con — Hà Nội" },
-      { "quote": "Đã thay thế hai ứng dụng học toán khác. Đáng đổi.",  "author": "Anh, bố ở TP.HCM" },
-      { "quote": "Mình đã thử với lớp. Nhịp học rất giống lớp thật.", "author": "Cô Phạm, giáo viên tiểu học" }
-    ]
+    "eyebrow": "{claim:worlds} thế giới",
+    "title": "Mỗi thế giới là ==một mạch kiến thức== lớp {claim:gradeRange}.",
+    "lead": "Con chọn nơi bắt đầu. Bố mẹ biết con đang học gì.",
+    "gradeLabel": "Lớp {from}–{to}",
+    "carouselLabel": "Các thế giới — vuốt ngang để xem thêm",
+    "curriculumToggle": "Xem bảng kỹ năng theo lớp",
+    "curriculumCaption": "Kỹ năng theo lớp và thế giới{if:curriculumGdpt2018}, sắp theo chương trình GDPT 2018{/if}",
+    "gradeCol": "Lớp",
+    "ocean":  { "name": "Vịnh Đếm Số",      "blurb": "Đếm, đọc, viết và so sánh số; hiểu hàng chục, hàng đơn vị.", "skills": ["Đếm và đọc số", "So sánh, sắp thứ tự", "Hàng chục – hàng đơn vị"] },
+    "forest": { "name": "Rừng Nhân Chia",   "blurb": "Thuộc bảng nhân, bảng chia qua trò chơi thay vì học vẹt.",     "skills": ["Bảng nhân 2–9", "Phép chia", "Nhân chia trong bài toán"] },
+    "sky":    { "name": "Trời Tư Duy",      "blurb": "Đọc đề, chọn phép tính, giải bài toán có lời văn.",            "skills": ["Toán có lời văn", "Trung bình cộng", "Tổng – hiệu"] },
+    "sunset": { "name": "Đỉnh Hình Học",    "blurb": "Nhận biết, đo và ghép hình phẳng; góc và đường thẳng.",       "skills": ["Hình phẳng", "Chu vi, diện tích", "Góc và đường thẳng"] },
+    "berry":  { "name": "Đồng Phân Số",     "blurb": "Từ một nửa, một phần ba đến so sánh và tính với phân số.",    "skills": ["Làm quen phân số", "So sánh phân số", "Bốn phép tính phân số"] },
+    "mint":   { "name": "Đồng Cỏ Đo Lường", "blurb": "Độ dài, khối lượng, thời gian và tiền — những con số con gặp mỗi ngày.", "skills": ["Đo độ dài, khối lượng", "Xem giờ, xem lịch", "Tiền Việt Nam"] }
   },
   "pricing": {
-    "title": "Miễn phí mãi mãi. Premium khi bạn sẵn sàng.",
-    "freeTitle": "Miễn phí",
-    "freePrice": "0đ",
-    "freeBullets": ["Hai thế giới đầy đủ", "Streak hàng ngày", "Tiếng Việt + Anh"],
-    "freeCta": "Bắt đầu chơi",
-    "premiumTitle": "Premium",
-    "premiumPrice": "119k/tháng",
-    "premiumBullets": ["Cả sáu thế giới", "Chia sẻ gia đình (tới 4 bé)", "Hỗ trợ ưu tiên"],
-    "premiumCta": "Dùng thử Premium",
-    "premiumNote": "Hủy bất kỳ lúc nào. Thanh toán chưa khả dụng — giá tạm thời, sẽ chốt khi ra mắt."
+    "eyebrow": "Bảng giá",
+    "title": "Miễn phí để bắt đầu. ==Premium khi con muốn nhiều hơn.==",
+    "billingLabel": "Chu kỳ thanh toán",
+    "monthly": "Theo tháng",
+    "yearly": "Theo năm",
+    "save": "Tiết kiệm {pct}%",
+    "perMonth": "/tháng",
+    "perYear": "/năm",
+    "perDay": "≈ {price} mỗi ngày",
+    "free": {
+      "title": "Miễn phí",
+      "price": "0đ",
+      "note": "Mãi mãi",
+      "bullets": [
+        { "if": "", "text": "{claim:freeWorlds} thế giới đầy đủ" },
+        { "if": "", "text": "Chuỗi ngày chơi, xu và huy hiệu" },
+        { "if": "noAds", "text": "Không quảng cáo" }
+      ]
+    },
+    "premium": {
+      "title": "Premium",
+      "badge": "Phổ biến",
+      "bullets": [
+        { "if": "", "text": "Cả {claim:worlds} thế giới" },
+        { "if": "skillReport", "text": "Báo cáo tiến bộ theo kỹ năng" },
+        { "if": "maxChildProfiles", "text": "Tối đa {claim:maxChildProfiles} hồ sơ con" }
+      ],
+      "cta": "Chọn Premium",
+      "waitlistCta": "Giữ giá ưu đãi",
+      "waitlistNote": "Premium đang hoàn thiện. Để lại email — bạn được giữ giá ưu đãi khi mở bán."
+    },
+    "anchor": "{if:tutorAnchor}Một tháng Premium rẻ hơn một buổi gia sư.{/if}",
+    "refund": "{if:refundDays}Hoàn tiền trong {claim:refundDays} ngày nếu con không thích.{/if}",
+    "waitlist": {
+      "placeholder": "email@cua-ban.com",
+      "button": "Giữ giá cho tôi",
+      "success": "Đã giữ chỗ! Chúng mình sẽ email khi Premium mở bán.",
+      "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
+      "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
+    }
+  },
+  "pricingPage": {
+    "title": "Bảng giá Mathzle",
+    "description": "Miễn phí mãi mãi với {claim:freeWorlds} thế giới. Premium mở khoá cả {claim:worlds} thế giới{if:noAds}. Không quảng cáo ở mọi gói{/if}.",
+    "compareTitle": "So sánh chi tiết",
+    "planCol": "Tính năng",
+    "rows": [
+      { "if": "", "label": "Số thế giới", "free": "{claim:freeWorlds}", "premium": "{claim:worlds}" },
+      { "if": "", "label": "Xu, huy hiệu, chuỗi ngày chơi", "free": "✓", "premium": "✓" },
+      { "if": "skillReport", "label": "Báo cáo tiến bộ theo kỹ năng", "free": "—", "premium": "✓" },
+      { "if": "maxChildProfiles", "label": "Hồ sơ con", "free": "{claim:freeChildProfiles}", "premium": "{claim:maxChildProfiles}" },
+      { "if": "noAds", "label": "Không quảng cáo", "free": "✓", "premium": "✓" }
+    ]
   },
   "faq": {
-    "title": "Câu hỏi thường gặp"
+    "title": "Bố mẹ thường hỏi",
+    "askTitle": "Chưa thấy câu hỏi của bạn?",
+    "askEmail": "Gửi email cho chúng mình",
+    "askZalo": "Nhắn Zalo cho chúng mình",
+    "categories": {
+      "learning": "Học tập",
+      "safety": "An toàn",
+      "billing": "Thanh toán",
+      "tech": "Kỹ thuật"
+    }
   },
+  "faqPage": {
+    "title": "Hỏi đáp",
+    "description": "Câu hỏi bố mẹ hay hỏi về Mathzle: cách con học, an toàn dữ liệu, thiết bị và chương trình thử nghiệm."
+  },
+  "contact": {
+    "title": "Liên hệ",
+    "lead": "Chúng mình đọc mọi tin nhắn{if:responseDays} và trả lời trong {claim:responseDays} ngày làm việc{/if}.",
+    "description": "Liên hệ đội ngũ Mathzle nếu bạn có câu hỏi về bài học, an toàn của con, thiết bị hoặc tài khoản.",
+    "email": "Email",
+    "zalo": "Zalo",
+    "zaloCta": "Nhắn Zalo",
+    "pending": "Địa chỉ email liên hệ chính thức của Mathzle sẽ được công bố tại đây trước khi Mathzle ra mắt chính thức.",
+    "faqHint": "Có thể câu trả lời đã nằm trong trang Hỏi đáp."
+  },
+  "a11y": { "switchLang": "Chuyển sang" },
   "cta": {
-    "title": "Đăng ký nhận tin",
-    "subtitle": "Mỗi tháng một email. Tips từ giáo viên, thế giới mới, sớm có quyền truy cập app native.",
     "placeholder": "email@cua-ban.com",
     "button": "Đăng ký",
     "success": "Cảm ơn! Hãy kiểm tra email của bạn.",
-    "error": "Có lỗi xảy ra. Bạn thử lại nhé?"
+    "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
+    "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
+  },
+  "final": {
+    "title": "Con sẵn sàng cho ==màn chơi đầu tiên== chưa?",
+    "newsletterToggle": "Chưa sẵn sàng? Nhận thư mỗi tháng từ Mathzle",
+    "newsletterBody": "Mỗi tháng một email: thế giới mới và mẹo nhỏ để cùng con học toán."
   },
   "footer": {
-    "tagline": "Toán học dành cho trẻ em.",
-    "copyright": "© 2026 Mathzle.",
+    "tagline": "Trò chơi toán cho bé tiểu học, chạy ngay trên trình duyệt.",
+    "product": "Sản phẩm",
+    "support": "Hỗ trợ",
+    "legal": "Pháp lý",
+    "taxId": "MST",
     "links": {
-      "about": "Giới thiệu",
+      "method": "Phương pháp",
+      "worlds": "Thế giới",
       "pricing": "Bảng giá",
+      "about": "Giới thiệu",
       "faq": "Hỏi đáp",
+      "contact": "Liên hệ",
       "privacy": "Bảo mật",
-      "terms": "Điều khoản",
-      "contact": "Liên hệ"
+      "terms": "Điều khoản"
     }
+  },
+  "media": {
+    "pause": "Tạm dừng video",
+    "play": "Phát video"
+  },
+  "actions": {
+    "primary": "Cho con chơi thử miễn phí",
+    "primaryShort": "Chơi thử miễn phí",
+    "secondary": "Xem con sẽ học gì",
+    "reassureLabel": "Cam kết khi bắt đầu",
+    "reassure": ["Không cần thẻ", "Không cần tải app", "Mở là chơi"]
+  },
+  "home": {
+    "title": "Mathzle — Trò chơi toán lớp {claim:gradeRange} cho bé, chạy trên trình duyệt",
+    "description": "Con học toán như chơi game qua {claim:worlds} thế giới. Miễn phí để bắt đầu, không cần tải app{if:noAds}, không quảng cáo{/if}."
+  },
+  "hero": {
+    "eyebrow": "Toán lớp {claim:gradeRange} · Bé {claim:ageRange} tuổi",
+    "headline": "Con học toán như chơi game. ==Bố mẹ thấy rõ con tiến bộ.==",
+    "lead": "Mathzle là trò chơi toán chạy ngay trên trình duyệt{if:curriculumGdpt2018}, bám chương trình GDPT 2018{/if}. Con chơi qua {claim:worlds} thế giới{if:skillReport}; bố mẹ thấy con tiến bộ ở từng kỹ năng{/if}.",
+    "frameLabel": "Video: một bé đang chơi màn đầu tiên trong Mathzle"
+  },
+  "proof": {
+    "label": "Mathzle bằng con số",
+    "items": [
+      { "if": "", "value": "{claim:worlds}", "label": "thế giới" },
+      { "if": "levels", "value": "{claim:levels}", "label": "màn chơi" },
+      { "if": "skills", "value": "{claim:skills}", "label": "kỹ năng lớp {claim:gradeRange}" },
+      { "if": "gradeRange", "value": "{claim:gradeRange}", "label": "lớp tiểu học" },
+      { "if": "noAds", "value": "0", "label": "quảng cáo" }
+    ],
+    "footnote": "Số liệu nội dung tính đến {claim:contentAsOf}.{if:curriculumGdpt2018} Nội dung bám chương trình GDPT 2018.{/if}"
+  },
+  "pain": {
+    "eyebrow": "Nếu con đang ngại toán",
+    "title": "Con không dở toán. ==Con chỉ chưa gặp cách học hợp với mình.==",
+    "lead": "Ba điều bố mẹ hay kể với chúng mình — và Mathzle làm gì với từng điều.",
+    "ifLabel": "Nếu con…",
+    "thenLabel": "Mathzle…",
+    "rows": [
+      { "if": "", "pain": "Khóc hoặc cáu mỗi lần làm bài tập toán", "promise": "Chia nhỏ thành những màn chơi {claim:lessonMinutes} phút. Sai thì thử lại — không bị chê, không bị trừ điểm." },
+      { "if": "parentTimeLimit", "pain": "Dán mắt vào video hàng giờ", "promise": "Đổi {claim:sessionMinutes} phút màn hình thành {claim:sessionMinutes} phút tư duy. Bố mẹ đặt giới hạn thời gian cho con." },
+      { "if": "spacedReview", "pain": "Học hôm nay, tuần sau đã quên", "promise": "Kỹ năng con hay sai sẽ quay lại vào những ngày sau, cho đến khi con làm chắc tay." }
+    ],
+    "mascotSays": "Mình sẽ chơi cùng con!",
+    "mascotSaysNamed": "Mình là {name}. Mình sẽ chơi cùng con!"
+  },
+  "try": {
+    "title": "Thử một câu",
+    "prompt": "Chọn đáp án đúng",
+    "correct": "Chuẩn! Trong Mathzle, mỗi câu như thế này nằm trong một câu chuyện nhỏ.",
+    "next": "Câu khác",
+    "hints": [
+      "Gần rồi! Đếm tiếp từ 7 thêm 5 bước nhé.",
+      "Gần rồi! Bớt 5 trước để còn 10, rồi bớt tiếp 3.",
+      "Gần rồi! Lấy 1 từ 6 bù cho 9 thành 10, rồi cộng phần còn lại."
+    ]
+  },
+  "method": {
+    "eyebrow": "Phương pháp",
+    "title": "Không chỉ chơi. ==Mỗi màn là một vòng học trọn vẹn.==",
+    "lead": "Bốn bước lặp lại trong mọi thế giới — từ phép cộng đầu tiên đến phân số.",
+    "whyLabel": "Vì sao hiệu quả",
+    "steps": [
+      { "key": "play",   "screen": "lesson-play", "if": "",           "title": "Chơi", "body": "Con bước vào một thế giới và gặp bài toán trong một câu chuyện nhỏ.", "why": "Bài toán có bối cảnh giúp con hiểu vì sao cần tính." },
+      { "key": "try",    "screen": "lesson-try",  "if": "",           "title": "Thử",  "body": "Chọn đáp án, kéo thả, đếm, so sánh. Sai không bị phạt — chỉ là thêm một lần thử.", "why": "Tự nhớ lại để trả lời giúp kiến thức ở lại lâu hơn là đọc đáp án." },
+      { "key": "hint",   "screen": "lesson-hint", "if": "stepHints",   "title": "Hiểu", "body": "Khi con kẹt, gợi ý hiện ra từng bước. Con tự tìm ra đáp án, không bị đọc sẵn.", "why": "Gợi ý vừa đủ giữ con ở mức hơi khó nhưng làm được." },
+      { "key": "review", "screen": "review",      "if": "spacedReview", "title": "Nhớ",  "body": "Kỹ năng con hay sai quay lại vào những ngày sau cho đến khi thành thạo.", "why": "Ôn lại giãn cách giúp não giữ kiến thức lâu dài." }
+    ]
+  },
+  "parents": {
+    "eyebrow": "Cho bố mẹ",
+    "title": "Biết con giỏi gì, đang kẹt ở đâu — ==không cần đoán.==",
+    "lead": "Mathzle ghi lại từng kỹ năng con đã chơi, để bố mẹ đồng hành đúng chỗ.",
+    "kidTitle": "Con nhận được",
+    "kid": [
+      { "if": "", "text": "Học vui mỗi ngày, không áp lực điểm số" },
+      { "if": "", "text": "Tự tin hơn sau mỗi lần làm sai" },
+      { "if": "", "text": "Xu, huy hiệu và chuỗi ngày chơi liên tiếp" }
+    ],
+    "parentTitle": "Bố mẹ nhận được",
+    "parent": [
+      { "if": "skillReport", "text": "Báo cáo tiến bộ theo từng kỹ năng" },
+      { "if": "parentTimeLimit", "text": "Tự đặt giới hạn thời gian chơi" },
+      { "if": "maxChildProfiles", "text": "Tối đa {claim:maxChildProfiles} hồ sơ con trong một tài khoản" }
+    ],
+    "screenAlt": "Màn hình báo cáo tiến bộ dành cho phụ huynh trong Mathzle"
+  },
+  "safety": {
+    "eyebrow": "An toàn",
+    "title": "Một nơi bố mẹ ==yên tâm== để con chơi một mình.",
+    "lead": "Những cam kết dưới đây nằm trong chính sách bảo mật của chúng mình — không chỉ là khẩu hiệu.",
+    "items": [
+      { "if": "noAds", "icon": "Ban", "title": "Không quảng cáo", "body": "Không banner, không video quảng cáo, kể cả ở bản miễn phí." },
+      { "if": "noChat", "icon": "MessageCircleOff", "title": "Không chat với người lạ", "body": "Không có tin nhắn giữa người dùng. Con chỉ chơi với bài toán." },
+      { "if": "noDataSale", "icon": "Lock", "title": "Không bán dữ liệu", "body": "Dữ liệu của con chỉ dùng để con học tốt hơn, không chia sẻ cho bên quảng cáo." },
+      { "if": "noInAppPurchase", "icon": "ShieldCheck", "title": "Không mua hàng trong game", "body": "Trong Mathzle không có mục mua hàng nào dành cho trẻ." },
+      { "if": "dataResidency", "icon": "Server", "title": "Dữ liệu lưu tại {claim:dataResidency}", "body": "Xử lý theo Nghị định 13/2023 về bảo vệ dữ liệu cá nhân." },
+      { "if": "parentDataDeletion", "icon": "Trash2", "title": "Bố mẹ xoá dữ liệu bất kỳ lúc nào", "body": "Một thao tác trong phần cài đặt tài khoản." }
+    ],
+    "privacyLink": "Đọc chính sách bảo mật"
+  },
+  "story": {
+    "eyebrow": "Vì sao có Mathzle",
+    "title": "Chúng mình muốn con ==thích toán== trước khi phải giỏi toán.",
+    "paragraphs": [
+      "Nhiều ứng dụng học toán mặc định con sẽ ngồi yên và làm theo giáo trình. Chúng mình bắt đầu từ điều ngược lại: con muốn chơi.",
+      "Vì vậy mỗi bài toán trong Mathzle là một màn chơi ngắn, trong một thế giới có nhân vật và câu chuyện. Sai không bị phạt. Đúng thì được reo mừng.",
+      "Chúng mình là một đội nhỏ, làm sản phẩm bằng tiếng Việt trước tiên."
+    ],
+    "advisorsTitle": "Cố vấn chuyên môn",
+    "aboutLink": "Đọc thêm về chúng mình"
+  },
+  "voices": {
+    "eyebrow": "Phụ huynh nói gì",
+    "title": "Từ những gia đình ==đang chơi Mathzle.==",
+    "credit": "{parent} · lớp {grade} · {city}",
+    "beta": {
+      "eyebrow": "Chương trình phụ huynh đồng hành",
+      "title": "Chúng mình đang tìm =={claim:betaSeats} gia đình== chơi thử và góp ý.",
+      "body": "Con chơi Mathzle mỗi tuần, bố mẹ trả lời một khảo sát ngắn mỗi tháng. Góp ý của gia đình bạn sẽ quyết định Mathzle trở thành thế nào.",
+      "placeholder": "email@cua-ban.com",
+      "button": "Đăng ký tham gia",
+      "success": "Cảm ơn bạn! Chúng mình sẽ email khi có suất.",
+      "error": "Có lỗi xảy ra. Bạn thử lại nhé?",
+      "invalid": "Email chưa đúng định dạng. Bạn kiểm tra lại nhé?"
+    }
+  },
+  "about": {
+    "title": "Về Mathzle",
+    "lead": "Trò chơi toán cho bé tiểu học, làm bằng tiếng Việt trước tiên.",
+    "description": "Mathzle là trò chơi toán chạy trên trình duyệt cho bé {claim:ageRange} tuổi. Vì sao chúng mình làm Mathzle và những nguyên tắc chúng mình giữ.",
+    "principlesEyebrow": "Nguyên tắc",
+    "principlesTitle": "Bốn điều chúng mình ==không đánh đổi.==",
+    "principles": [
+      { "title": "Con chơi trước, học theo sau", "body": "Mỗi bài toán là một màn chơi. Nếu con không muốn chơi, chúng mình làm lại màn đó." },
+      { "title": "Sai là một phần của học", "body": "Không trừ điểm, không chê. Mỗi lần sai là một lần thử nữa." },
+      { "title": "Bố mẹ luôn nắm quyền", "body": "Bố mẹ tạo tài khoản, xem tiến độ và quyết định thời gian con chơi." },
+      { "title": "Nói thật về con số", "body": "Mọi con số trên trang này đều có nguồn. Chưa chắc thì chúng mình không viết." }
+    ]
+  },
+  "legalPages": {
+    "summaryTitle": "Tóm tắt cho bố mẹ bận rộn",
+    "summary": [
+      { "if": "noAds", "text": "Không có quảng cáo trong Mathzle." },
+      { "if": "noDataSale", "text": "Chúng mình không bán dữ liệu của con cho bất kỳ ai." },
+      { "if": "noChat", "text": "Không có chat hay tin nhắn giữa người dùng." },
+      { "if": "", "text": "Chúng mình chỉ lưu những gì cần để con học: hồ sơ của con (biệt danh, tuổi, ảnh đại diện), tiến độ học và tài khoản Google của bố mẹ." },
+      { "if": "parentDataDeletion", "text": "Bố mẹ có thể xoá dữ liệu của con bất kỳ lúc nào." }
+    ],
+    "updated": "Cập nhật lần cuối: {date}",
+    "draft": "Bản dự thảo — đang chờ luật sư rà soát",
+    "draftDate": "Dự thảo ngày {date}",
+    "eyebrow": "Pháp lý",
+    "toc": "Mục lục",
+    "tocToggle": "Mục lục trang này",
+    "companyTitle": "Thông tin doanh nghiệp",
+    "companyName": "Tên doanh nghiệp",
+    "taxId": "Mã số thuế",
+    "address": "Địa chỉ",
+    "email": "Email liên hệ",
+    "companyPending": "Thông tin pháp nhân và địa chỉ email liên hệ chính thức của Mathzle chưa được công bố; chúng tôi sẽ công bố tại đây trước khi Mathzle ra mắt chính thức. Trong giai đoạn thử nghiệm, vui lòng liên hệ qua {link}.",
+    "contactPage": "trang Liên hệ",
+    "questionsTitle": "Còn câu hỏi về dữ liệu hay điều khoản?",
+    "questionsBody": "Đội ngũ Mathzle sẵn sàng giải thích bất kỳ điều gì chưa rõ.",
+    "questionsCta": "Liên hệ với chúng tôi"
   }
 }

@@ -1,0 +1,260 @@
+---
+/**
+ * Privacy Policy / Terms of Use page (D-019). The legal text lives in the
+ * `legal` content collection (src/content/legal/{locale}/{doc}.md) and is
+ * lawyer-owned: it is NOT routed through claims.ts / copy(). When a register
+ * fact it restates changes (noAds, noChat, noDataSale, ageRange, pricing),
+ * the Markdown is updated through legal review — see
+ * docs/features/18-landing-premium-upgrade/legal-review-checklist.md.
+ */
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import Section from './Section.astro';
+import Eyebrow from './Eyebrow.astro';
+import Icon from './Icon.astro';
+import ParentSummary from './ParentSummary.astro';
+import { site } from '../data/site';
+import { t, type Locale } from '../utils/i18n';
+import { pageTitle } from '../lib/seo';
+
+interface Props { locale: Locale; doc: 'privacy' | 'terms' }
+const { locale, doc } = Astro.props;
+const path = `/${locale}/${doc}/`;
+const l = t(locale).legalPages;
+
+const entry = await getEntry('legal', `${locale}/${doc}`);
+if (!entry) throw new Error(`Missing legal document ${locale}/${doc}`);
+const { Content, headings } = await render(entry);
+
+const fmt = (iso: string) =>
+  new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-GB', {
+    timeZone: 'UTC', day: '2-digit', month: locale === 'vi' ? '2-digit' : 'long', year: 'numeric',
+  });
+const reviewedOn = site.legal.policiesReviewedOn;
+
+const toc = [
+  ...headings.filter((h) => h.depth === 2).map((h) => ({ slug: h.slug, text: h.text })),
+  { slug: 'company-details', text: l.companyTitle },
+];
+
+const facts = [
+  { label: l.companyName, value: site.legal.companyName },
+  { label: l.taxId, value: site.legal.taxId },
+  { label: l.address, value: site.legal.address },
+].filter((f) => f.value);
+const contactHref = `/${locale}/contact/`;
+const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
+---
+<Base title={pageTitle(entry.data.title)} description={entry.data.description} locale={locale} path={path}>
+  <Nav locale={locale} path={path} />
+  <main class="legal" data-doc={doc}>
+    <Section id="legal-hero" tone="tint" class="legal-hero">
+      <Eyebrow>{l.eyebrow}</Eyebrow>
+      <h1 class="legal-title">{entry.data.title}</h1>
+      <p class="mk-lead">{entry.data.lead}</p>
+      <p class="legal-status" data-status={reviewedOn ? 'reviewed' : 'draft'}>
+        {reviewedOn ? (
+          <span>{l.updated.replace('{date}', fmt(reviewedOn))}</span>
+        ) : (
+          <>
+            <span class="legal-badge">{l.draft}</span>
+            <span class="legal-status-date">{l.draftDate.replace('{date}', fmt(entry.data.updated))}</span>
+          </>
+        )}
+      </p>
+    </Section>
+
+    <div class="legal-layout">
+      <aside class="legal-aside">
+        <nav class="toc toc--desk" aria-label={l.toc}>
+          <p class="toc-title">{l.toc}</p>
+          <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </nav>
+      </aside>
+
+      <div class="legal-main">
+        <details class="toc toc--mob">
+          <summary>{l.tocToggle}</summary>
+          <nav aria-label={l.toc}>
+            <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </nav>
+        </details>
+
+        {doc === 'privacy' && <ParentSummary locale={locale} />}
+
+        <article class="legal-prose">
+          <Content />
+        </article>
+
+        <section id="company-details" class="company mk-card" aria-labelledby="company-details-title">
+          <h2 id="company-details-title" class="mk-h3">{l.companyTitle}</h2>
+          {facts.length > 0 && (
+            <dl>
+              {facts.map((f) => <div><dt>{f.label}</dt><dd>{f.value}</dd></div>)}
+              {site.contact.email && <div><dt>{l.email}</dt><dd><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></dd></div>}
+            </dl>
+          )}
+          {(!site.legal.companyName || !site.contact.email) && (
+            <p class="company-pending">{pendingBefore}<a href={contactHref}>{l.contactPage}</a>{pendingAfter}</p>
+          )}
+        </section>
+      </div>
+    </div>
+
+    <Section id="legal-contact" tone="canvas" class="legal-contact">
+      <div class="lc mk-card">
+        <div>
+          <p class="mk-h3">{l.questionsTitle}</p>
+          <p class="mk-body">{l.questionsBody}</p>
+        </div>
+        <a class="btn-push btn-secondary lc-cta" href={contactHref}><Icon name="Mail" size={20} />{l.questionsCta}</a>
+      </div>
+    </Section>
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>
+
+<script is:inline>
+  // Highlight the section being read in the desktop table of contents.
+  (function () {
+    var links = document.querySelectorAll('.toc--desk a');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = {};
+    links.forEach(function (a) { map[decodeURIComponent(a.getAttribute('href').slice(1))] = a; });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.removeAttribute('aria-current'); });
+        var a = map[e.target.id];
+        if (a) a.setAttribute('aria-current', 'true');
+      });
+    }, { rootMargin: '-90px 0px -70% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+  })();
+  // Collapse the mobile table of contents once a section link is tapped.
+  document.querySelectorAll('.toc--mob a').forEach(function (a) {
+    a.addEventListener('click', function () { var d = a.closest('details'); if (d) d.open = false; });
+  });
+</script>
+
+<style>
+  :global(.legal-hero) { padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2.5rem, 5vw, 4rem); }
+  :global(.legal-hero .mk-container) { max-width: 1120px; }
+  .legal-title {
+    font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.08; letter-spacing: -0.03em;
+    font-weight: 800; margin: 0 0 1rem; text-wrap: balance;
+  }
+  .legal-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin: 1.5rem 0 0; font-size: 0.9375rem; color: var(--color-text-secondary); }
+  .legal-badge {
+    display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; border-radius: var(--radius-pill);
+    background: var(--color-mk-canvas-warm); color: #8a3a12; font-weight: 700; font-size: 0.875rem;
+    border: 1px solid rgb(255 120 73 / 0.35);
+  }
+
+  .legal-layout {
+    display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 4rem;
+    max-width: calc(1120px + 3rem); margin-inline: auto; padding: clamp(2.5rem, 5vw, 4rem) 1.5rem clamp(3rem, 6vw, 5rem);
+  }
+  .legal-main { min-width: 0; max-width: 70ch; }
+
+  /* Table of contents */
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.125rem; }
+  .toc a {
+    display: block; padding: 0.4rem 0.75rem; border-radius: 10px; border-left: 2px solid transparent;
+    color: var(--color-text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 1.4;
+  }
+  .toc a:hover { color: var(--color-text-primary); background: var(--color-mk-canvas-tint); }
+  .toc a[aria-current] { color: var(--color-primary-dark); border-left-color: var(--color-primary); background: var(--color-mk-canvas-tint); font-weight: 600; }
+  .toc--desk { margin-left: -0.75rem; position: sticky; top: 88px; max-height: calc(100dvh - 112px); overflow-y: auto; }
+  .toc-title { margin: 0 0 0.75rem; padding-inline: 0.75rem; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-secondary); }
+  .toc--mob { display: none; }
+
+  /* Prose */
+  .legal-prose { font-size: 1.0625rem; line-height: 1.7; color: var(--color-text-primary); overflow-wrap: break-word; }
+  .legal-prose :global(h2) {
+    font-size: clamp(1.375rem, 2.2vw, 1.625rem); line-height: 1.25; letter-spacing: -0.02em; font-weight: 800;
+    margin: 3.5rem 0 1rem; padding-top: 2rem; border-top: 1px solid var(--color-mk-hairline-strong); scroll-margin-top: 88px;
+  }
+  .legal-prose :global(h2:first-child) { margin-top: 0; padding-top: 0; border-top: 0; }
+  .legal-prose :global(h3) { font-size: 1.1875rem; line-height: 1.35; font-weight: 700; margin: 2rem 0 0.75rem; scroll-margin-top: 88px; }
+  .legal-prose :global(p) { margin: 0 0 1rem; }
+  .legal-prose :global(ul), .legal-prose :global(ol) { margin: 0 0 1.25rem; padding-left: 1.375rem; }
+  .legal-prose :global(li) { margin-bottom: 0.5rem; padding-left: 0.25rem; }
+  .legal-prose :global(li::marker) { color: var(--color-primary); }
+  .legal-prose :global(strong) { font-weight: 700; }
+  .legal-prose :global(a) { color: var(--color-primary-dark); text-decoration: underline; text-underline-offset: 3px; }
+  .legal-prose :global(a:hover) { text-decoration-thickness: 2px; }
+  .legal-prose :global(.table-scroll) {
+    overflow-x: auto; margin: 1.5rem 0 2rem; border: 1px solid var(--color-mk-hairline-strong);
+    border-radius: 16px; background: var(--color-surface);
+  }
+  .legal-prose :global(.table-scroll:focus-visible) { outline: 3px solid var(--color-primary); outline-offset: 2px; }
+  .legal-prose :global(table) { width: 100%; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.5; }
+  .legal-prose :global(th), .legal-prose :global(td) { padding: 0.75rem 1rem; text-align: left; vertical-align: top; min-width: 11rem; }
+  .legal-prose :global(th) { background: var(--color-mk-canvas-tint); font-weight: 700; white-space: nowrap; }
+  .legal-prose :global(tr + tr td) { border-top: 1px solid var(--color-mk-hairline-strong); }
+
+  .legal-main :global(.parent-summary) { margin-bottom: 3rem; }
+
+  /* Company details */
+  .company { margin-top: 3.5rem; padding: 1.5rem 1.75rem; scroll-margin-top: 88px; }
+  .company h2 { margin-bottom: 0.75rem; }
+  .company dl { margin: 0 0 0.75rem; display: grid; gap: 0.5rem; }
+  .company dl div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; }
+  .company dt { color: var(--color-text-secondary); }
+  .company dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
+  .company-pending { margin: 0; line-height: 1.65; color: var(--color-text-primary); }
+  .company a { color: var(--color-primary-dark); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* Contact strip */
+  :global(.legal-contact) { padding-block: 0 clamp(4rem, 8vw, 6rem); }
+  :global(.legal-contact .mk-container) { max-width: 1120px; }
+  .lc { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; padding: 1.75rem 2rem; background: var(--color-mk-canvas-tint); }
+  .lc p { margin: 0; }
+  .lc .mk-body { margin-top: 0.375rem; }
+  .lc-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.25rem; text-decoration: none; white-space: nowrap; }
+
+  @media (max-width: 960px) {
+    .legal-layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 2rem; }
+    .legal-aside { display: none; }
+    .legal-main { max-width: 70ch; margin-inline: auto; width: 100%; }
+    .toc--mob {
+      display: block; margin-bottom: 2rem; border: 1px solid var(--color-mk-hairline-strong);
+      border-radius: 16px; background: var(--color-surface);
+    }
+    .toc--mob summary { cursor: pointer; padding: 0.875rem 1.125rem; font-weight: 700; min-height: 44px; }
+    .toc--mob nav { padding: 0 0.5rem 0.75rem; }
+    .toc--mob a { padding-block: 0.5rem; }
+  }
+  @media (max-width: 640px) {
+    .legal-layout { padding-inline: 1rem; }
+    .legal-prose { font-size: 1rem; }
+    /* Narrower columns so the next column peeks in — a visible cue the table scrolls. */
+    .legal-prose :global(th), .legal-prose :global(td) { min-width: 9.5rem; padding: 0.75rem 0.875rem; }
+    .company { padding: 1.25rem; }
+    .company dl div { grid-template-columns: 1fr; gap: 0; }
+    .lc { padding: 1.5rem; }
+  }
+  /* Narrow phones: each table row becomes a card; the column header (data-label,
+     added by the Markdown table plugin) labels each cell. */
+  @media (max-width: 480px) {
+    .legal-prose :global(.table-scroll) { border: 0; border-radius: 0; background: transparent; }
+    .legal-prose :global(table), .legal-prose :global(tbody), .legal-prose :global(tr), .legal-prose :global(td) { display: block; width: 100%; }
+    .legal-prose :global(thead) {
+      position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap;
+    }
+    .legal-prose :global(tr) {
+      margin: 0 0 0.75rem; padding: 0.5rem 1rem; border: 1px solid var(--color-mk-hairline-strong);
+      border-radius: 16px; background: var(--color-surface);
+    }
+    .legal-prose :global(th), .legal-prose :global(td) { min-width: 0; padding: 0.625rem 0; }
+    .legal-prose :global(tr + tr td) { border-top: 0; }
+    .legal-prose :global(tr td + td) { border-top: 1px solid var(--color-mk-hairline-strong); }
+    .legal-prose :global(td[data-label]::before) {
+      content: attr(data-label); display: block; margin-bottom: 0.125rem;
+      font-size: 0.8125rem; font-weight: 700; color: var(--color-text-secondary);
+    }
+  }
+</style>

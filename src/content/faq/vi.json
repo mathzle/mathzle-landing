@@ -1,36 +1,14 @@
 {
   "items": [
-    {
-      "question": "Mathzle có thực sự miễn phí không?",
-      "answer": "Có. Hai thế giới miễn phí mãi mãi. Bản Premium mở khoá cả sáu thế giới, loại bỏ quảng cáo và cho phép chia sẻ gia đình."
-    },
-    {
-      "question": "Dành cho lứa tuổi nào?",
-      "answer": "Dành cho trẻ 6–11 tuổi. Bài học tự điều chỉnh theo trình độ của bé, nên cả trẻ 6 tuổi và 11 tuổi đều tìm được nhịp riêng."
-    },
-    {
-      "question": "Có cần cài đặt gì không?",
-      "answer": "Không. Mathzle chạy trên mọi trình duyệt hiện đại — điện thoại, máy tính bảng, máy tính. Không cần tải app, không tốn bộ nhớ."
-    },
-    {
-      "question": "Có app cho iOS và Android không?",
-      "answer": "App native đang trong kế hoạch. Hiện tại bản web đã đầy đủ tính năng — và cập nhật ngay lập tức, không cần chờ app store duyệt."
-    },
-    {
-      "question": "Có an toàn cho trẻ không?",
-      "answer": "Không quảng cáo. Không có chat với người lạ. Không bán dữ liệu. Bố mẹ kiểm soát mọi thứ từ trang quản lý gia đình."
-    },
-    {
-      "question": "Có hoạt động offline không?",
-      "answer": "Cần internet để tải bài học. Khi bài học đã tải, đa số hoạt động tiếp tục chạy không cần kết nối."
-    },
-    {
-      "question": "Hỗ trợ ngôn ngữ nào?",
-      "answer": "Tiếng Việt và tiếng Anh. Đổi bất kỳ lúc nào trong cài đặt — con số đọc tự nhiên ở cả hai."
-    },
-    {
-      "question": "Khác gì Khan Academy Kids hay Prodigy?",
-      "answer": "Ba điểm: chạy trực tiếp trên trình duyệt (không cần cài), thiết kế đặc biệt cho độ tuổi 6–11, và có tiếng Việt ngay từ đầu."
-    }
+    { "id": "reading", "category": "learning", "if": "", "question": "Con chưa đọc thạo có chơi được không?", "answer": "Mathzle hợp nhất với bé đã đọc được câu ngắn: chữ trong game được viết thật ngắn và luôn đi kèm hình, số. Nếu con mới bắt đầu tập đọc, bố mẹ ngồi đọc cùng con vài buổi đầu là con quen ngay." },
+    { "id": "daily-time", "category": "learning", "if": "", "question": "Mỗi ngày nên cho con chơi bao lâu?", "answer": "Chúng mình gợi ý khoảng {claim:sessionMinutes} phút mỗi ngày — đủ để luyện đều mà không thành thời gian màn hình dài.{if:parentTimeLimit} Bố mẹ có thể đặt giới hạn trong phần cài đặt.{/if}" },
+    { "id": "textbook", "category": "learning", "if": "curriculumGdpt2018", "question": "Có bám sách giáo khoa con đang học không?", "answer": "Nội dung được sắp theo chương trình GDPT 2018 lớp {claim:gradeRange} — khung chung của cả ba bộ sách Kết nối tri thức, Chân trời sáng tạo và Cánh diều. Bảng kỹ năng theo lớp nằm ở mục Thế giới." },
+    { "id": "install", "category": "tech", "if": "", "question": "Có cần tải app không? Chạy trên máy nào?", "answer": "Không cần tải. Mathzle chạy trên trình duyệt của điện thoại, máy tính bảng và máy tính. App iOS và Android đang trong kế hoạch; bản web đã có đầy đủ tính năng." },
+    { "id": "business-model", "category": "billing", "if": "noAds", "question": "Miễn phí thì Mathzle kiếm tiền từ đâu?", "answer": "Từ gói Premium do bố mẹ trả. Chúng mình không bán quảng cáo{if:noDataSale} và không bán dữ liệu{/if} — nên bản miễn phí không phải trả bằng sự chú ý của con." },
+    { "id": "data", "category": "safety", "if": "", "question": "Dữ liệu của con được bảo vệ thế nào?", "answer": "Chúng mình chỉ lưu những gì cần để con học: hồ sơ của con (biệt danh, tuổi, ảnh đại diện), tiến độ học và tài khoản Google của bố mẹ. Bố mẹ có thể yêu cầu xoá dữ liệu của con qua trang Liên hệ.{if:dataResidency} Dữ liệu lưu tại {claim:dataResidency}.{/if}{if:parentDataDeletion} Bố mẹ có thể xoá toàn bộ dữ liệu của con bất kỳ lúc nào.{/if} Chi tiết nằm trong Chính sách bảo mật." },
+    { "id": "different", "category": "learning", "if": "", "question": "Mathzle khác các cách học toán khác ở điểm nào?", "answer": "Mathzle không phải lớp luyện thi: chúng mình tập trung vào việc con luyện toán đều đặn và thích thú mỗi ngày. Mathzle chạy ngay trên trình duyệt, viết bằng tiếng Việt từ đầu{if:skillReport}, và cho bố mẹ thấy tiến bộ theo từng kỹ năng{/if}." },
+    { "id": "siblings", "category": "billing", "if": "maxChildProfiles", "question": "Nhiều con dùng chung được không?", "answer": "Được. Một tài khoản có tối đa {claim:maxChildProfiles} hồ sơ con, mỗi bé có tiến độ riêng." },
+    { "id": "refund", "category": "billing", "if": "refundDays", "question": "Huỷ và hoàn tiền thế nào?", "answer": "Bố mẹ huỷ gia hạn bất kỳ lúc nào trong phần tài khoản. Trong {claim:refundDays} ngày đầu, nếu con không thích, chúng mình hoàn tiền đầy đủ — chỉ cần gửi email." },
+    { "id": "classroom", "category": "tech", "if": "", "question": "Thầy cô dùng Mathzle cho lớp học được không?", "answer": "Hiện Mathzle được thiết kế cho gia đình. Nếu thầy cô muốn dùng với lớp, hãy nhắn cho chúng mình — chúng mình đang lắng nghe nhu cầu này." }
   ]
 }

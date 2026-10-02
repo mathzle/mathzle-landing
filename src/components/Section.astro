@@ -1,0 +1,15 @@
+---
+interface Props {
+  id?: string;
+  tone?: 'canvas' | 'tint' | 'warm' | 'ink';
+  width?: 'content' | 'wide';
+  class?: string;
+  labelledby?: string;
+}
+const { id, tone = 'canvas', width = 'content', class: className, labelledby } = Astro.props;
+---
+<section id={id} class:list={['mk-section', `mk-tone-${tone}`, className]} aria-labelledby={labelledby}>
+  <div class:list={['mk-container', { 'mk-container--wide': width === 'wide' }]}>
+    <slot />
+  </div>
+</section>

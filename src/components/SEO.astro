@@ -6,6 +6,9 @@
  * Schema choice: WebApplication, not SoftwareApplication. The product
  * runs in the browser; we deliberately don't claim iOS/Android.
  */
+import { site } from '../data/site';
+import { audienceAges, jsonLd } from '../lib/seo';
+
 interface Props {
   title: string;
   description: string;
@@ -20,38 +23,45 @@ const {
   description,
   locale,
   path,
-  ogImage = '/og-default.png',
+  ogImage = `/og/${locale}.png`,
   type = 'website',
 } = Astro.props;
 
-const site = 'https://mathzle.com';
-const url = `${site}${path}`;
+const url = `${site.url}${path}`;
 const altLocale = locale === 'en' ? 'vi' : 'en';
 const altPath = path.replace(/^\/(en|vi)/, `/${altLocale}`);
 const enPath = path.replace(/^\/(en|vi)/, '/en');
-
-// TODO(launch): replace with real Mathzle web-app URL.
-const webAppUrl = 'https://app.mathzle.com';
 
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': 'EducationalOrganization',
   name: 'Mathzle',
-  url: site,
-  logo: `${site}/favicon.svg`,
+  url: site.url,
+  logo: `${site.url}/favicon.svg`,
   // Add sameAs entries here once social accounts exist.
+  ...(site.contact.email
+    ? {
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: site.contact.email,
+          contactType: 'customer support',
+          availableLanguage: ['vi', 'en'],
+        },
+      }
+    : {}),
 };
 
+const ages = audienceAges();
 const appSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'Mathzle',
   description,
   applicationCategory: 'EducationalApplication',
-  audience: { '@type': 'PeopleAudience', suggestedMinAge: 6, suggestedMaxAge: 11 },
+  ...(Object.keys(ages).length ? { audience: { '@type': 'PeopleAudience', ...ages } } : {}),
   browserRequirements: 'Requires a modern browser with JavaScript enabled',
-  url: webAppUrl,
-  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  url: site.appUrl,
+  offers: { '@type': 'Offer', price: '0', priceCurrency: locale === 'vi' ? 'VND' : 'USD' },
 };
 ---
 <title>{title}</title>
@@ -59,21 +69,23 @@ const appSchema = {
 
 <link rel="canonical" href={url} />
 <link rel="alternate" hreflang={locale} href={url} />
-<link rel="alternate" hreflang={altLocale} href={`${site}${altPath}`} />
-<link rel="alternate" hreflang="x-default" href={`${site}${enPath}`} />
+<link rel="alternate" hreflang={altLocale} href={`${site.url}${altPath}`} />
+<link rel="alternate" hreflang="x-default" href={`${site.url}${enPath}`} />
 
 <meta property="og:type" content={type} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={url} />
-<meta property="og:image" content={`${site}${ogImage}`} />
+<meta property="og:image" content={`${site.url}${ogImage}`} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta property="og:locale" content={locale === 'en' ? 'en_US' : 'vi_VN'} />
 <meta property="og:site_name" content="Mathzle" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={`${site}${ogImage}`} />
+<meta name="twitter:image" content={`${site.url}${ogImage}`} />
 
-<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
-<script type="application/ld+json" set:html={JSON.stringify(appSchema)} />
+<script type="application/ld+json" set:html={jsonLd(orgSchema)} />
+<script type="application/ld+json" set:html={jsonLd(appSchema)} />

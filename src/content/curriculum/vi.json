@@ -1,0 +1,9 @@
+{
+  "rows": [
+    { "grade": 1, "cells": { "ocean": "Số đến 100: đếm, đọc, viết, so sánh", "forest": "", "sky": "", "sunset": "", "berry": "", "mint": "Đo độ dài (cm); xem giờ đúng; các ngày trong tuần" } },
+    { "grade": 2, "cells": { "ocean": "Số đến 1000: hàng trăm, hàng chục, hàng đơn vị", "forest": "Bảng nhân, bảng chia 2 và 5", "sky": "", "sunset": "Điểm, đoạn thẳng, đường gấp khúc; hình tứ giác", "berry": "", "mint": "Ki-lô-gam, lít; ngày, giờ, phút; tiền Việt Nam" } },
+    { "grade": 3, "cells": { "ocean": "", "forest": "Bảng nhân, bảng chia 3–9; nhân chia với số có một chữ số", "sky": "Bài toán giải bằng hai bước tính", "sunset": "Góc vuông; chu vi, diện tích hình chữ nhật, hình vuông", "berry": "Làm quen một phần hai, một phần ba… một phần chín", "mint": "Gam, mi-li-lít; nhiệt độ; xem đồng hồ đến từng phút" } },
+    { "grade": 4, "cells": { "ocean": "", "forest": "", "sky": "Trung bình cộng; bài toán tổng – hiệu", "sunset": "Góc nhọn, tù, bẹt; đường thẳng vuông góc, song song; hình bình hành, hình thoi", "berry": "Phân số: rút gọn, quy đồng, so sánh, bốn phép tính", "mint": "" } },
+    { "grade": 5, "cells": { "ocean": "", "forest": "", "sky": "", "sunset": "", "berry": "Số thập phân; tỉ số phần trăm", "mint": "" } }
+  ]
+}
