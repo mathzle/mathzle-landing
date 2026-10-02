@@ -36,6 +36,10 @@ for (const locale of ['vi', 'en'] as const) {
 
     test(`${path}: table of contents matches the headings and scrolls there`, async ({ page }, info) => {
       await page.goto(path);
+      // Let the paint-first font swap (Base.astro, html.wf) finish: it re-wraps
+      // the long prose, and a jump taken mid-swap can land off target.
+      await expect(page.locator('html')).toHaveClass(/\bwf\b/);
+      await page.evaluate(() => document.fonts.ready);
       const ids = await page.locator('.legal-prose h2').evaluateAll((els) => els.map((e) => e.id));
       expect(ids.every(Boolean)).toBe(true);
       const mobile = info.project.name.startsWith('mobile');

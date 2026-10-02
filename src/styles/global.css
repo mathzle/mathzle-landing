@@ -17,8 +17,8 @@
   /* Fonts */
   /* Same family for display and body — weight + size + tracking do
      the differentiation. See @layer base h1/h2/h3 below. */
-  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
+  --font-display: var(--font-stack);
+  --font-body: var(--font-stack);
 
   /* Brand */
   --color-primary: #5b6cff;
@@ -96,9 +96,25 @@
 }
 
 /* English copy averages differently → its own calibrated fallbacks (font-fallbacks.css). */
+:root {
+  --font-fallback: 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
+  --font-stack: var(--font-fallback);
+}
 :root:lang(en) {
-  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
+  --font-fallback: 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
+}
+/* Paint first, then Be Vietnam Pro. Until Base.astro's head script adds
+   `html.wf` (right after the first paint, or at once when this browser has
+   loaded BVP before), text uses only the metric-matched fallback, so the
+   first layout never requests a web font. Before this, the five or so
+   400–700 faces the full-page layout asked for raced the first paint; when
+   they won (locally ~half the runs) Lighthouse's simulation counted ~100 KB
+   of fonts as paint-blocking and LCP jumped ~450 ms (bimodal 2.4 s / 2.9 s
+   on /en/). On a real slow connection those faces arrive after first paint
+   anyway, and the swap is layout-neutral (font-fallbacks.css; hero CLS e2e).
+   The preloaded 800 face (hero h1) is fetched as before. No JS → BVP at once. */
+:root:is(.wf, :not(.js)) {
+  --font-stack: 'Be Vietnam Pro', var(--font-fallback);
 }
 
 /* ============================================================
