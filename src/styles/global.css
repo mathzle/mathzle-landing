@@ -83,7 +83,7 @@
   --color-mk-ink-surface: #221f3a;
   --color-mk-ink-text: #f4f2ff;
   --color-mk-ink-text-muted: #b9b5d6;
-  --color-mk-text-tertiary: #8c88ae; /* passes 4.5:1 on canvas; app tertiary does not */
+  --color-mk-text-tertiary: #6e6a92; /* 5.07:1 on canvas #fff, 4.77:1 on mist, 4.65:1 on tint (was #8c88ae ≈ 3.4:1) */
   --color-mk-hairline: rgb(45 42 74 / 0.08);
   --color-mk-hairline-strong: rgb(45 42 74 / 0.14);
   --color-mk-on-ink-shadow: #c9c4ee;
