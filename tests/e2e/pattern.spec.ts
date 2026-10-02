@@ -48,6 +48,17 @@ for (const width of [360, 390, 768, 1280, 1440]) {
   });
 }
 
+for (const path of ['/vi/about/', '/vi/privacy/', '/en/terms/']) {
+  for (const width of [360, 1440]) {
+    test(`no horizontal scroll at ${path} ${width}px`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(path);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      expect(overflow).toBe(0);
+    });
+  }
+}
+
 test('hero shapes actually drift (transform changes over time)', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/vi/');

@@ -32,6 +32,7 @@ const MARKER_CS = /TODO|REPLACE|\[[A-Za-z][\w.]*\]/g;
 // that sentence, never a new marker that happens to share a word.
 const MARKER_ALLOW = [
   /hoặc danh sách chờ\)/g,                                            // "waitlist" (privacy §3.4)
+  /đánh dấu vào ô xác nhận tại bước đó/g,                              // terms §1 acceptance
   /yêu cầu bạn xác nhận đã giải thích cho con/g,                       // privacy §5, ages 7+
   /kể từ khi chúng tôi xác nhận yêu cầu/g,                             // privacy §8 deletion period
   /Chúng tôi xác nhận đã nhận yêu cầu trong vòng 72 giờ/g,             // privacy §10 response time

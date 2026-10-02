@@ -29,7 +29,7 @@ const i = t(locale).proof;
   .proof-foot { margin: 1rem 0 0; }
   @media (max-width: 640px) {
     .proof-grid { grid-template-columns: 1fr 1fr; }
-    .proof-item + .proof-item:nth-child(odd) { border-left: 0; }
+    .proof-item:nth-child(odd) { border-left: 0; }
     .proof-item:nth-child(n + 3) { border-top: 1px solid var(--color-mk-hairline); }
     /* Odd count (claim-gated items hidden): the last item takes the full row. */
     .proof-item:last-child:nth-child(odd) { grid-column: 1 / -1; }

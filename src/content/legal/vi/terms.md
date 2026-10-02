@@ -10,7 +10,7 @@ docType: terms
 
 Điều khoản sử dụng này (“Điều khoản”) điều chỉnh việc bạn truy cập và sử dụng trang giới thiệu Mathzle và ứng dụng Mathzle chạy trên trình duyệt (gọi chung là “Dịch vụ”).
 
-Bạn chấp nhận Điều khoản này và [Chính sách bảo mật](/vi/privacy/) bằng một thao tác rõ ràng trong Ứng dụng, như tại bước đồng ý (xem mục 5 của Chính sách bảo mật) hoặc thao tác đồng ý khi đăng ký tài khoản gia đình. Việc chỉ truy cập hoặc sử dụng Dịch vụ không được coi là chấp nhận Điều khoản. Nếu không đồng ý, vui lòng không tạo tài khoản.
+Khi Ứng dụng có bước đồng ý, bạn chấp nhận Điều khoản này bằng cách đánh dấu vào ô xác nhận tại bước đó (xem mục 5 [Chính sách bảo mật](/vi/privacy/)). Nếu bạn không đồng ý với Điều khoản, vui lòng không tạo tài khoản hoặc sử dụng Dịch vụ.
 
 Khi chấp nhận Điều khoản này để tạo hồ sơ cho con, bạn đồng ý thay mặt cho con với tư cách cha mẹ hoặc người giám hộ, và chịu trách nhiệm về việc con sử dụng Dịch vụ.
 

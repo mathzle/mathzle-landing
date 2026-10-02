@@ -18,7 +18,7 @@ const lastSpan = n % cols === 0 ? 1 : cols - (n % cols) + 1;
 ---
 <Section id="safety" tone="ink" pattern="dots" labelledby="safety-title">
   <SectionHeader id="safety-title" locale={locale} eyebrow={i.eyebrow} title={i.title} lead={i.lead} accent="var(--color-world-mint)" />
-  <ul class="sg" style={`--sg-cols:${cols};--sg-last:${lastSpan}`} data-count={n}>
+  <ul class="sg" style={`--sg-cols:${cols};--sg-last:${lastSpan}`}>
     {items.map((it) => (
       <li class="sg-item reveal">
         <span class="sg-icon"><Icon name={it.icon as IconName} size={24} /></span>
