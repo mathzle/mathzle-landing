@@ -1,14 +1,28 @@
 ---
 interface Props {
   id?: string;
-  tone?: 'canvas' | 'tint' | 'warm' | 'ink';
+  tone?: 'canvas' | 'tint' | 'mist' | 'ink';
   width?: 'content' | 'wide';
   class?: string;
   labelledby?: string;
+  /**
+   * Decorative background texture (D-024). Opt-in per section, not a tone
+   * default, so the page keeps a rhythm of textured / plain bands:
+   *   'grid' — faint "vở ô li" graph paper (light tones only)
+   *   'dots' — faint white dot grid (ink tone)
+   * Drawn on `::before` (z-index -1 inside an isolated section), so it never
+   * affects layout, pointer events or the contrast of the content above it.
+   *
+   * Home rhythm: hero (grid) → proof/pain plain → method (grid, tint) →
+   * worlds (grid, mist) → parents plain → safety (dots, ink) → story/voices/
+   * faq plain → final CTA (dots, ink). Textured bands alternate with quiet
+   * ones so the page breathes; sub-pages only texture their opening band.
+   */
+  pattern?: 'grid' | 'dots' | 'none';
 }
-const { id, tone = 'canvas', width = 'content', class: className, labelledby } = Astro.props;
+const { id, tone = 'canvas', width = 'content', class: className, labelledby, pattern = 'none' } = Astro.props;
 ---
-<section id={id} class:list={['mk-section', `mk-tone-${tone}`, className]} aria-labelledby={labelledby}>
+<section id={id} class:list={['mk-section', `mk-tone-${tone}`, pattern !== 'none' && ['mk-pattern', `mk-pattern-${pattern}`], className]} aria-labelledby={labelledby}>
   <div class:list={['mk-container', { 'mk-container--wide': width === 'wide' }]}>
     <slot />
   </div>

@@ -17,8 +17,8 @@
   /* Fonts */
   /* Same family for display and body — weight + size + tracking do
      the differentiation. See @layer base h1/h2/h3 below. */
-  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
+  --font-display: var(--font-stack);
+  --font-body: var(--font-stack);
 
   /* Brand */
   --color-primary: #5b6cff;
@@ -76,14 +76,14 @@
   --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* ---- Marketing layer (Feature 18). App tokens above stay untouched. ---- */
-  --color-mk-canvas: #fffcf8;
+  --color-mk-canvas: #ffffff;
   --color-mk-canvas-tint: #f5f4ff;
-  --color-mk-canvas-warm: #fff4ea;
+  --color-mk-canvas-mist: #f6f8fb; /* cool neutral band (D-021: no cream) */
   --color-mk-ink: #17152b;
   --color-mk-ink-surface: #221f3a;
   --color-mk-ink-text: #f4f2ff;
   --color-mk-ink-text-muted: #b9b5d6;
-  --color-mk-text-tertiary: #8c88ae; /* passes 4.5:1 on canvas; app tertiary does not */
+  --color-mk-text-tertiary: #6e6a92; /* 5.07:1 on canvas #fff, 4.77:1 on mist, 4.65:1 on tint (was #8c88ae ≈ 3.4:1) */
   --color-mk-hairline: rgb(45 42 74 / 0.08);
   --color-mk-hairline-strong: rgb(45 42 74 / 0.14);
   --color-mk-on-ink-shadow: #c9c4ee;
@@ -96,9 +96,25 @@
 }
 
 /* English copy averages differently → its own calibrated fallbacks (font-fallbacks.css). */
+:root {
+  --font-fallback: 'BVP Fallback Arial', 'BVP Fallback Roboto', system-ui, sans-serif;
+  --font-stack: var(--font-fallback);
+}
 :root:lang(en) {
-  --font-display: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
-  --font-body: 'Be Vietnam Pro', 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
+  --font-fallback: 'BVP Fallback Arial En', 'BVP Fallback Roboto En', system-ui, sans-serif;
+}
+/* Paint first, then Be Vietnam Pro. Until Base.astro's head script adds
+   `html.wf` (right after the first paint, or at once when this browser has
+   loaded BVP before), text uses only the metric-matched fallback, so the
+   first layout never requests a web font. Before this, the five or so
+   400–700 faces the full-page layout asked for raced the first paint; when
+   they won (locally ~half the runs) Lighthouse's simulation counted ~100 KB
+   of fonts as paint-blocking and LCP jumped ~450 ms (bimodal 2.4 s / 2.9 s
+   on /en/). On a real slow connection those faces arrive after first paint
+   anyway, and the swap is layout-neutral (font-fallbacks.css; hero CLS e2e).
+   The preloaded 800 face (hero h1) is fetched as before. No JS → BVP at once. */
+:root:is(.wf, :not(.js)) {
+  --font-stack: 'Be Vietnam Pro', var(--font-fallback);
 }
 
 /* ============================================================
@@ -237,12 +253,43 @@
   .mk-section { padding-block: clamp(80px, 10vw, 136px); padding-inline: 1.5rem; }
   .mk-tone-canvas { background: var(--color-mk-canvas); }
   .mk-tone-tint   { background: var(--color-mk-canvas-tint); }
-  .mk-tone-warm   { background: var(--color-mk-canvas-warm); }
+  .mk-tone-mist   { background: var(--color-mk-canvas-mist); }
   .mk-tone-ink    { background: var(--color-mk-ink); color: var(--color-mk-ink-text); }
   .mk-tone-ink .mk-lead, .mk-tone-ink .mk-body, .mk-tone-ink .mk-caption { color: var(--color-mk-ink-text-muted); }
   @media (min-width: 1024px) {
-    .mk-tone-tint, .mk-tone-warm, .mk-tone-ink { margin-inline: 1rem; border-radius: var(--radius-mk-band); }
+    .mk-tone-tint, .mk-tone-mist, .mk-tone-ink { margin-inline: 1rem; border-radius: var(--radius-mk-band); }
   }
+  /* Background texture (D-024) — math-themed, meant to be felt, not seen.
+     Pure CSS gradients (no requests), on a ::before at z-index -1 inside an
+     isolated section: below the content, above the band colour. A radial
+     mask fades it out toward the edges so it reads as a soft texture, not a
+     ruled sheet. Opt-in via <Section pattern="grid|dots">. */
+  .mk-pattern { position: relative; isolation: isolate; }
+  .mk-pattern::before {
+    content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    border-radius: inherit;
+    background-position: center top;
+    -webkit-mask-image: var(--mk-pattern-mask);
+    mask-image: var(--mk-pattern-mask);
+    --mk-pattern-mask: radial-gradient(ellipse 70% 75% at 50% 45%, #000 15%, transparent 100%);
+  }
+  /* "Vở ô li": 24px minor squares in ink, every 5th line (120px) in brand violet. */
+  .mk-pattern-grid::before {
+    --minor: rgb(23 21 43 / 0.045);
+    --major: rgb(91 108 255 / 0.07);
+    background-image:
+      linear-gradient(var(--major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--major) 1px, transparent 1px),
+      linear-gradient(var(--minor) 1px, transparent 1px),
+      linear-gradient(90deg, var(--minor) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  }
+  /* Ink bands: a white dot on every 24px grid intersection. */
+  .mk-pattern-dots::before {
+    background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.08) 1.25px, transparent 1.75px);
+    background-size: 24px 24px;
+  }
+
   .mk-container { max-width: 1200px; margin-inline: auto; }
   .mk-container--wide { max-width: 1320px; }
   @media (max-width: 640px) { .mk-section { padding-inline: 1rem; } }
@@ -291,15 +338,4 @@
       html.js .reveal:not(.is-in) { opacity: 0; transform: translateY(16px); }
     }
   }
-}
-
-/* Preview-only: unverified claims (src/data/claims.ts). Never reaches a
-   strict production build — that build fails instead. */
-/* Unverified claims (D-018): invisible by default so parents read clean copy.
-   Reviewers add `?claims` to the URL; Base.astro then sets html.show-claims. */
-.show-claims .claim-unverified {
-  background: color-mix(in srgb, var(--color-warning) 28%, transparent);
-  outline: 1px dashed var(--color-warning);
-  border-radius: 4px;
-  padding: 0 0.15em;
 }

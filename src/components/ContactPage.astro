@@ -1,0 +1,91 @@
+---
+/**
+ * Contact page (D-023). The message form is the official channel while no
+ * public email exists; email/Zalo show above it once set in site.ts.
+ */
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import Section from './Section.astro';
+import Icon from './Icon.astro';
+import Mascot from './Mascot.astro';
+import ContactForm from './islands/ContactForm';
+import { site } from '../data/site';
+import { copy } from '../lib/copy';
+import { t, type Locale } from '../utils/i18n';
+import { pageTitle } from '../lib/seo';
+import { MESSAGE_MAX, NAME_MAX } from '../lib/contact';
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const path = `/${locale}/contact/`;
+const c = t(locale).contact;
+const hasChannel = Boolean(site.contact.email || site.contact.zaloUrl);
+---
+<Base title={pageTitle(c.title)} description={c.description} locale={locale} path={path}>
+  <Nav locale={locale} path={path} />
+  <main>
+    <Section id="contact" tone="canvas" class="contact">
+      <Mascot state="wave" size={96} />
+      <h1 class="mk-display">{c.title}</h1>
+      <p class="mk-lead" set:html={copy(c.lead, locale)} />
+      {hasChannel && (
+        <ul class="ch">
+          {site.contact.email && (
+            <li class="mk-card"><Icon name="Mail" /><span class="mk-caption">{c.email}</span><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></li>
+          )}
+          {site.contact.zaloUrl && (
+            <li class="mk-card"><Icon name="MessageCircle" /><span class="mk-caption">{c.zalo}</span><a href={site.contact.zaloUrl} target="_blank" rel="noopener noreferrer">{c.zaloCta} →</a></li>
+          )}
+        </ul>
+      )}
+      <section class="cf-card mk-card" aria-labelledby="cf-title">
+        <h2 id="cf-title" class="mk-h3">{c.form.title}</h2>
+        <!-- client:only renders nothing on the server: the slot keeps the
+             form's final height so hydration causes no layout shift. -->
+        <div class="cf-slot">
+          <ContactForm locale={locale} text={c.form} max={MESSAGE_MAX} nameMax={NAME_MAX} client:only="preact" />
+        </div>
+      </section>
+      <p class="mk-body"><a href={`/${locale}/faq/`}>{c.faqHint}</a></p>
+    </Section>
+  </main>
+  <Footer locale={locale} path={path} />
+</Base>
+<style>
+  :global(.contact .mk-container) { display: grid; justify-items: center; text-align: center; gap: 1rem; max-width: 720px; }
+  .ch { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; width: 100%; }
+  .ch li { padding: 1.5rem; display: grid; justify-items: center; gap: 0.375rem; }
+  .ch a { font-weight: 700; color: var(--color-primary); }
+
+  .cf-card { width: 100%; margin: 1.5rem 0 0.5rem; padding: clamp(1.25rem, 4vw, 2rem); text-align: left; }
+  .cf-card h2 { margin-bottom: 1.25rem; }
+  /* Reserved height == rendered form height at each breakpoint (measured);
+     see tests/e2e/contact-form.spec.ts. */
+  .cf-slot { min-height: 458px; }
+  @media (max-width: 600px) { .cf-slot { min-height: 620px; } }
+
+  :global(.cf) { display: grid; gap: 1.125rem; }
+  :global(.cf-row) { display: grid; grid-template-columns: 1fr 1fr; gap: 1.125rem; }
+  @media (max-width: 600px) { :global(.cf-row) { grid-template-columns: 1fr; } }
+  :global(.cf-field) { display: grid; gap: 0.375rem; align-content: start; }
+  :global(.cf-field label) { font-weight: 600; font-size: 0.9375rem; }
+  :global(.cf-hint) { font-size: 0.8125rem; font-weight: 400; color: var(--color-text-secondary); }
+  :global(.cf-count) { display: flex; justify-content: space-between; gap: 1rem; font-variant-numeric: tabular-nums; }
+  :global(.cf input[type='text']), :global(.cf input[type='email']), :global(.cf textarea) {
+    width: 100%; box-sizing: border-box; padding: 0.75rem 0.875rem; border-radius: var(--radius-input);
+    border: 1.5px solid var(--color-mk-hairline-strong); background: var(--color-surface);
+    font: inherit; font-size: 1rem; color: var(--color-text-primary);
+  }
+  :global(.cf textarea) { resize: vertical; min-height: 8.5rem; line-height: 1.5; }
+  :global(.cf input:focus), :global(.cf textarea:focus) { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px var(--color-primary-light); }
+  :global(.cf [aria-invalid='true']) { border-color: var(--color-error); }
+  :global(.cf-consent) { display: flex; gap: 0.625rem; align-items: flex-start; font-size: 0.9375rem; line-height: 1.5; color: var(--color-text-secondary); cursor: pointer; }
+  :global(.cf-consent input) { width: 1.25rem; height: 1.25rem; margin: 0.125rem 0 0; flex: none; accent-color: var(--color-primary); }
+  :global(.cf-consent a) { color: var(--color-primary-dark); text-decoration: underline; text-underline-offset: 3px; }
+  :global(.cf-actions) { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; }
+  :global(.cf-actions .btn-push) { min-height: 52px; padding: 0.75rem 1.5rem; }
+  :global(.cf-error) { margin: 0; color: #b91c1c; font-size: 0.9375rem; font-weight: 500; }
+  :global(.cf-done) { margin: 0; padding: 1.25rem 1.25rem; border-radius: var(--radius-card); background: color-mix(in srgb, var(--color-success) 10%, white); color: #166534; font-weight: 600; }
+  @media (max-width: 600px) { :global(.cf-actions .btn-push) { width: 100%; } }
+</style>

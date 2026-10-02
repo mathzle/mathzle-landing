@@ -10,7 +10,7 @@ test('kit page is noindex and not in sitemap', async ({ page, request }) => {
 test('section tones paint distinct backgrounds', async ({ page }) => {
   await page.goto('/kit');
   const bg = (sel: string) => page.locator(sel).evaluate((el) => getComputedStyle(el).backgroundColor);
-  const tones = await Promise.all(['canvas', 'tint', 'warm', 'ink'].map((t) => bg(`#kit-tone-${t}`)));
+  const tones = await Promise.all(['canvas', 'tint', 'mist', 'ink'].map((t) => bg(`#kit-tone-${t}`)));
   expect(new Set(tones).size).toBe(4);
   expect(tones[3]).toBe('rgb(23, 21, 43)');
 });

@@ -2,7 +2,7 @@
 title: Terms of Use
 description: The terms for families using Mathzle during its free beta — accounts, acceptable use, responsibilities, and how complaints and disputes are handled.
 lead: These terms are the agreement between you and Mathzle when your family uses Mathzle. We have kept them as short and clear as we can; please read them before creating an account.
-updated: 2026-09-30
+updated: 2026-10-02
 docType: terms
 ---
 
@@ -10,18 +10,18 @@ docType: terms
 
 These Terms of Use (the “Terms”) govern your access to and use of the Mathzle website and the Mathzle app that runs in the browser (together, the “Service”).
 
-You accept these Terms and our [Privacy Policy](/en/privacy/) through an explicit action (for example, ticking a box confirming you have read and agree) at the consent step in the App. The App does not have this step yet; Mathzle will add it before inviting families into the beta and before the public launch (see section 5 of the Privacy Policy). Merely visiting or using the Service is not treated as accepting these Terms. If you do not agree, please do not create an account.
+When the App provides a consent step, you accept these Terms by ticking the box at that step (see section 5 of the [Privacy Policy](/en/privacy/)). If you do not agree with these Terms, please do not create an account or use the Service.
 
 When you accept these Terms in order to create a profile for your child, you accept them on your child's behalf as their parent or guardian, and you are responsible for your child's use of the Service.
 
 ## 2. Definitions
 
-- **“Mathzle”, “we”, “us”:** the provider of the Service, whose details appear under [Company details](#company-details).
+- **“Mathzle”, “we”, “us”:** the provider of the Service, whose details appear under [Operator details](#company-details).
 - **“You”, “parent”:** a person aged 18 or over who is a child's parent or legal guardian and who creates and manages the family account.
 - **“Child”:** a child who uses the Service through a profile created by a parent.
 - **“Family account”:** a parent's account together with its child profiles and any co-parents invited to it.
 - **“Content”:** the lessons, questions, games, images, characters, sounds, videos, text and software in the Service.
-- **“Beta”:** the period in which Mathzle is offered free of charge before its public launch, as described in section 4.
+- **“Beta”:** the period in which Mathzle is offered free of charge for testing, as described in section 4.
 
 ## 3. Who may use the Service and accounts
 
@@ -117,7 +117,7 @@ These Terms do **not** exclude or limit our liability where the law does not all
 
 ## 12. Complaints and dispute resolution
 
-**Complaints.** You can send complaints or feedback about the Service through the contact channel in section 15. From the time our official contact channel is published, we acknowledge receipt within 72 hours and respond with the outcome within 30 days at most, unless the law sets a shorter period.
+**Complaints.** You can send complaints or feedback about the Service through the contact channel in section 15. We acknowledge receipt within 72 hours and respond with the outcome within 30 days at most, unless the law sets a shorter period.
 
 **Ways to resolve disputes.** Under the 2023 Law on Protection of Consumer Rights, disputes between you and us may be resolved by:
 
@@ -144,4 +144,4 @@ We send notices to your family account's email address or show them in the App. 
 
 ## 15. Contact
 
-If you have questions about these Terms or want to make a complaint, please contact us through the channel under [Company details](#company-details) or our [Contact page](/en/contact/).
+If you have questions about these Terms or want to make a complaint, please contact us through our [Contact page](/en/contact/) or the channel under [Operator details](#company-details).

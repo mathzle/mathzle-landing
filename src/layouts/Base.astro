@@ -3,7 +3,9 @@ import '../styles/global.css';
 import SEO from '../components/SEO.astro';
 import { site } from '../data/site';
 // Preload the weight-800 Be Vietnam Pro faces used by the hero <h1> (.mk-display,
-// the LCP element on every marketing page) so the headline swaps to BVP early.
+// the LCP element on every marketing page) so the eventual swap to BVP (at
+// `wf`, with the rest of the text — see below) is instant: the font is
+// already in cache by the time the class is added, instead of blocking on it.
 // Locale-specific: vi needs latin + vietnamese (fonts.css declares vietnamese
 // last so it also covers ơ ư Đ — no latin-ext); en needs latin only.
 import bvp800Vietnamese from '@fontsource/be-vietnam-pro/files/be-vietnam-pro-vietnamese-800-normal.woff2?url';
@@ -27,7 +29,31 @@ const { title, description, locale, path, ogImage, noindex } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {fontPreloads[locale].map((href) => <link rel="preload" as="font" type="font/woff2" crossorigin href={href} />)}
-    <script is:inline>document.documentElement.classList.add('js');if(new URLSearchParams(location.search).has('claims'))document.documentElement.classList.add('show-claims');</script>
+    {/* `js` gates progressive enhancement. `wf` switches text to Be Vietnam Pro
+        (global.css, "Paint first"): right after the first paint — or at once
+        when this browser has loaded BVP before (cached: a swap would only
+        flicker) or the URL has a #fragment (a deep link scrolls at load; a swap
+        after that could move the target). Fallbacks: no paint timing → at once;
+        a tab loaded in the background never paints → at `load`; otherwise a 1s
+        safety net after `load` (not `load` itself: in Chrome it can fire before
+        the first frame is presented). */}
+    <script is:inline>(function (d) {
+      var c = d.classList, k = 'mz-wf';
+      function wf() {
+        if (c.contains('wf')) return;
+        c.add('wf');
+        try { localStorage.setItem(k, '1'); } catch (e) {}
+      }
+      c.add('js');
+      if (location.hash) return wf();
+      try { if (localStorage.getItem(k)) return wf(); } catch (e) {}
+      var P = window.PerformanceObserver;
+      if (!P || (P.supportedEntryTypes || []).indexOf('paint') < 0) return wf();
+      new P(function (l, o) { o.disconnect(); wf(); }).observe({ type: 'paint' });
+      addEventListener('load', function () {
+        if (document.visibilityState === 'hidden') wf(); else setTimeout(wf, 1000);
+      });
+    })(document.documentElement);</script>
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO

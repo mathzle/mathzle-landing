@@ -17,7 +17,7 @@ const steps = visible(i.steps).map((s, n) => {
   return { ...s, n: n + 1, color: world.color, image: screen(s.screen as ScreenName) ?? world.image, isScreen: !!screen(s.screen as ScreenName) };
 });
 ---
-<Section id="method" tone="tint" labelledby="method-title">
+<Section id="method" tone="tint" pattern="grid" labelledby="method-title">
   <SectionHeader id="method-title" locale={locale} eyebrow={i.eyebrow} title={i.title} lead={i.lead} />
   <div class="method" data-method>
     <ol class="method-steps">

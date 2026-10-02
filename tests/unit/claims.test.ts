@@ -17,7 +17,7 @@ describe('resolveClaim', () => {
     expect(resolveClaim('c' as never, true, reg).show).toBe(false);
     expect(resolveClaim('d' as never, true, reg).show).toBe(false);
   });
-  it('shows an unverified claim in preview builds, flagged', () => {
+  it('shows an unverified claim in preview builds', () => {
     expect(resolveClaim('b' as never, false, reg)).toEqual({ show: true, value: 12, verified: false });
   });
   it('hides an unverified claim with no value yet in preview builds (no [key] placeholder)', () => {

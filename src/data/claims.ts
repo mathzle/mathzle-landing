@@ -5,9 +5,8 @@
  * - verifiedBy: "<who> <YYYY-MM-DD>" once a human confirmed the value, else null.
  * - A verified claim with value null/false means "confirmed we don't offer
  *   this" — components hide it.
- * - Preview builds render unverified claims wrapped in `.claim-unverified`
- *   spans that are visually invisible by default; add `?claims` to any URL
- *   (e.g. /vi/?claims) to highlight them for review (D-018). `pnpm build:prod`
+ * - Preview builds render unverified claims as plain values with no review
+ *   markup (D-022 — public pages show only final content). `pnpm build:prod`
  *   (STRICT_CLAIMS=1) fails if any rendered claim is unverified.
  * - An unverified claim with value null ("not counted yet") is treated as not
  *   shown in preview builds, so gated copy/items disappear instead of

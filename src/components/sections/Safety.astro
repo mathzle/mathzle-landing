@@ -8,11 +8,18 @@ import { t, type Locale } from '../../utils/i18n';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const i = t(locale).safety;
+const items = visible(i.items);
+// Claim-gated items can be hidden, so the count varies. Pick the desktop
+// column count that fills every row (2 for 2/4/8, 3 for 3/6/9); when no count
+// divides evenly (5, 7) the last card stretches across the leftover tracks.
+const n = items.length;
+const cols = n <= 2 ? Math.max(n, 1) : n % 3 === 0 ? 3 : n % 2 === 0 ? 2 : 3;
+const lastSpan = n % cols === 0 ? 1 : cols - (n % cols) + 1;
 ---
-<Section id="safety" tone="ink" labelledby="safety-title">
+<Section id="safety" tone="ink" pattern="dots" labelledby="safety-title">
   <SectionHeader id="safety-title" locale={locale} eyebrow={i.eyebrow} title={i.title} lead={i.lead} accent="var(--color-world-mint)" />
-  <ul class="sg">
-    {visible(i.items).map((it) => (
+  <ul class="sg" style={`--sg-cols:${cols};--sg-last:${lastSpan}`}>
+    {items.map((it) => (
       <li class="sg-item reveal">
         <span class="sg-icon"><Icon name={it.icon as IconName} size={24} /></span>
         <h3 class="mk-h3" set:html={copy(it.title, locale)} />
@@ -23,14 +30,21 @@ const i = t(locale).safety;
   <a class="sg-link" href={`/${locale}/privacy/`}>{i.privacyLink} →</a>
 </Section>
 <style>
-  .sg { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  /* Hairlines come from the 1px gap showing the container background; every
+     track must hold a card or the background shows through as an empty cell. */
+  .sg { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--sg-cols, 3), minmax(0, 1fr)); gap: 1px;
     background: rgb(255 255 255 / 0.08); border-radius: var(--radius-card-lg); overflow: hidden; }
+  .sg-item:last-child { grid-column: span var(--sg-last, 1); }
   .sg-item { background: var(--color-mk-ink-surface); padding: 1.75rem; display: grid; gap: 0.625rem; align-content: start; }
   .sg-item :global(.mk-h3) { color: var(--color-mk-ink-text); font-size: 1.125rem; }
   .sg-item :global(.mk-body) { margin: 0; font-size: 0.9375rem; }
   .sg-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
     background: color-mix(in srgb, var(--color-world-mint) 18%, transparent); color: var(--color-world-mint); }
   .sg-link { display: inline-block; margin-top: 2rem; font-weight: 700; color: var(--color-mk-ink-text); text-underline-offset: 4px; }
-  @media (max-width: 900px) { .sg { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .sg { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) {
+    .sg { grid-template-columns: repeat(min(var(--sg-cols, 2), 2), minmax(0, 1fr)); }
+    .sg-item:last-child { grid-column: auto; }
+    .sg-item:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) { .sg { grid-template-columns: minmax(0, 1fr); } }
 </style>

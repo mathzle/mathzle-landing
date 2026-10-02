@@ -33,8 +33,12 @@ const quoteHtml = (q: string, h?: string) => (h ? esc(q).replace(esc(h), `<stron
     <div class="beta">
       <SectionHeader id="voices-title" locale={locale} eyebrow={v.beta.eyebrow} title={v.beta.title} align="center" />
       <p class="mk-body beta-body" set:html={copy(v.beta.body, locale)} />
-      <SignupForm locale={locale} source="beta" placeholder={v.beta.placeholder} button={v.beta.button}
-        success={v.beta.success} error={v.beta.error} invalid={v.beta.invalid} client:only="preact" />
+      {/* client:only renders nothing on the server: the slot keeps the
+          form's final height so hydration causes no layout shift. */}
+      <div class="beta-form">
+        <SignupForm locale={locale} source="beta" placeholder={v.beta.placeholder} button={v.beta.button}
+          success={v.beta.success} error={v.beta.error} invalid={v.beta.invalid} client:only="preact" />
+      </div>
     </div>
   )}
 </Section>
@@ -48,4 +52,8 @@ const quoteHtml = (q: string, h?: string) => (h ? esc(q).replace(esc(h), `<stron
   .beta { max-width: 640px; margin-inline: auto; text-align: center; display: grid; justify-items: center; gap: 1rem; }
   .beta-body { margin: 0 0 0.5rem; }
   .beta :global(.cta-form) { width: 100%; margin-inline: auto; }
+  /* Reserved height == rendered .cta-form height (global.css) at each
+     breakpoint (measured): single row above 540px, stacked at/below it. */
+  .beta-form { width: 100%; min-height: 56px; }
+  @media (max-width: 540px) { .beta-form { min-height: 118px; } }
 </style>

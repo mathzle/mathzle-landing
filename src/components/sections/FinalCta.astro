@@ -12,7 +12,7 @@ const { locale } = Astro.props;
 const d = t(locale);
 const f = d.final;
 ---
-<Section id="final-cta" tone="ink" labelledby="final-title">
+<Section id="final-cta" tone="ink" pattern="dots" labelledby="final-title">
   <div class="fc">
     <Mascot state="cheer" size={140} />
     <h2 id="final-title" class="mk-h2" set:html={copy(f.title, locale)} />
@@ -21,8 +21,13 @@ const f = d.final;
     <details class="fc-news">
       <summary>{f.newsletterToggle}</summary>
       <p class="mk-body">{f.newsletterBody}</p>
-      <SignupForm locale={locale} source="newsletter" placeholder={d.cta.placeholder} button={d.cta.button}
-        success={d.cta.success} error={d.cta.error} invalid={d.cta.invalid} variant="ink" client:only="preact" />
+      {/* client:only renders nothing on the server: the slot keeps the
+          form's final height so hydration causes no layout shift, including
+          when the <details> is opened by a fragment deep link on load. */}
+      <div class="fc-form">
+        <SignupForm locale={locale} source="newsletter" placeholder={d.cta.placeholder} button={d.cta.button}
+          success={d.cta.success} error={d.cta.error} invalid={d.cta.invalid} variant="ink" client:only="preact" />
+      </div>
     </details>
   </div>
 </Section>
@@ -34,4 +39,8 @@ const f = d.final;
   .fc-news summary { cursor: pointer; color: var(--color-mk-ink-text); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
   .fc-news[open] { display: grid; justify-items: center; gap: 1rem; }
   .fc-news :global(.cta-form) { width: 100%; justify-content: center; }
+  /* Reserved height == rendered .cta-form height (global.css) at each
+     breakpoint (measured): single row above 540px, stacked at/below it. */
+  .fc-form { width: 100%; min-height: 56px; }
+  @media (max-width: 540px) { .fc-form { min-height: 118px; } }
 </style>

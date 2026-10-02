@@ -2,7 +2,7 @@
 title: Privacy Policy
 description: What data Mathzle collects, why, who we share it with, how long we keep it, and how parents exercise their rights over their child's data.
 lead: This policy explains which data about you and your child Mathzle processes, why, for how long, and the rights you have over that data.
-updated: 2026-09-30
+updated: 2026-10-02
 docType: privacy
 ---
 
@@ -25,7 +25,7 @@ This Policy forms an integral part of our [Terms of Use](/en/terms/).
 
 Mathzle is the controller and processor of the personal data described in this Policy: we decide the purposes and means of processing, and we are accountable to you for it.
 
-Our legal entity details (company name, tax code, address) and official contact email are shown under [Company details](#company-details) at the end of this page; if that section does not show them yet, it means we have not published them yet and will do so there before Mathzle's public launch. Please send any question or request about personal data, including requests to exercise the rights in section 10, through our [Contact page](/en/contact/) or the channel shown in that section.
+Details of who operates Mathzle and our official contact channel are shown under [Operator details](#company-details) at the end of this page. Please send any question or request about personal data, including requests to exercise the rights in section 10, through our [Contact page](/en/contact/) or the channel shown in that section.
 
 ## 3. Data we collect
 
@@ -50,7 +50,7 @@ Children do not create their own accounts and do not need an email address. A pa
 
 We do **not** collect a child's date of birth, gender, school, address, phone number or location. Mathzle has no chat or messaging between users, so children cannot send personal information to strangers through the Service.
 
-**Feature not yet enabled: voice reading practice.** Mathzle is developing a reading practice feature in which the App may record your child reading aloud in order to score it and give feedback. This feature is **not enabled** during the beta, so Mathzle does not currently record your child's voice. If we enable it, we will first update this Policy — stating the data collected, how long it is kept and any external speech-to-text provider we use — and will only turn it on after a parent gives separate, explicit consent for this feature.
+**Voice reading practice.** The reading practice feature, in which the App records your child reading aloud in order to score it and give feedback, is **not enabled** during the beta; Mathzle does not record your child's voice. Before enabling it, we update this Policy — stating the data collected, how long it is kept and any external speech-to-text provider we use — and only turn it on after a parent gives separate, explicit consent for this feature.
 
 ### 3.3. Technical data collected automatically
 
@@ -59,9 +59,9 @@ We do **not** collect a child's date of birth, gender, school, address, phone nu
 - **Data stored in your browser:** the sign-in session stored by Firebase and the App's settings (see section 11).
 - **Website visit statistics:** we use Cloudflare Web Analytics to count page views in aggregate. It uses no cookies and does not build a tracking profile of individuals.
 
-### 3.4. Sign-ups on the Website
+### 3.4. Sign-ups and the contact form on the Website
 
-When you leave your email on the Website (for news, the beta program or a waitlist), we store: your email address, the language of the page you were on, the form you used (sign-up source), the time of sign-up, your browser identification string (user-agent) and the address of the page that referred you (referer). These forms are meant for adults; children should not sign up themselves.
+When you leave your email on the Website (for news, the beta program or a waitlist), we store: your email address, the language of the page you were on, the form you used (sign-up source), the time of sign-up, your browser identification string (user-agent) and the address of the page that referred you (referer). When you send a message through the form on our [Contact page](/en/contact/), we also store your name (if you give it) and the content of your message so that we can reply. These forms are meant for adults; children should not sign up or send messages themselves.
 
 ## 4. Purposes and legal bases
 
@@ -73,7 +73,7 @@ We only process data for the purposes below. If we need to process data for a ne
 | Create a child profile, let the child learn, save progress, XP and streaks | Child profile, learning data | Parent's consent (and the child's, from age 7 — see section 5) |
 | Adapt difficulty and suggest suitable lessons | Learning data | Parent's consent |
 | Report learning progress to parents | Learning data | Parent's consent |
-| Score and give feedback on reading practice (feature not enabled) | Voice recordings and scoring results | Not applicable yet — the feature is not enabled during the beta; it will only be turned on after a separate, explicit parental consent step (see section 3.2) |
+| Score and give feedback on reading practice (once the feature is enabled) | Voice recordings and scoring results | Separate, explicit parental consent for this feature (see section 3.2) |
 | Send push notifications (learning reminders, service notices) | Push token | Consent when you allow notifications on your device |
 | Send transactional emails (family invitations, account notices) | Email address | Performance of the agreement under the Terms of Use |
 | Send news and beta invitations | Website sign-up data | Consent when you sign up |
@@ -89,8 +89,8 @@ Difficulty adaptation is based on your child's learning results and runs inside 
 Mathzle is designed for children, so we apply the following principles:
 
 - **Parents register.** Only a person aged 18 or over who is the child's parent or legal guardian may create an account and child profiles. Children do not register themselves.
-- **Consent under applicable personal data protection law.** Processing a child's personal data requires the consent of a parent or guardian; for a child aged 7 or older, the child's own consent is also required. For a child aged 7 or older, the consent step described below will ask you to confirm that you have explained to your child, in age-appropriate words, what information Mathzle keeps, and that your child agrees to use Mathzle.
-- **How consent is recorded — current state and commitment.** The App currently has **no** consent step: a parent signs in with Google and then creates the family account and their child's profiles, and the App does not yet ask the parent or the child to confirm agreement to the Terms of Use or this Policy. Mathzle will add an explicit consent step — for the parent, and for a child aged 7 or older as the law requires — that records the time and the version of this Policy agreed to, before inviting families into the beta and before the public launch. Until that step is enabled, we only process data as far as needed for the App to work as described in this Policy, we do not enable any feature that needs separate consent (such as voice reading practice), and parents can ask us at any time to delete data under section 10.
+- **Consent under applicable personal data protection law.** Processing a child's personal data requires the consent of a parent or guardian; for a child aged 7 or older, the child's own consent is also required. For a child aged 7 or older, the consent step in the App (where it applies, see below) asks you to confirm that you have explained to your child, in age-appropriate words, what information Mathzle keeps, and that your child agrees to use Mathzle.
+- **How consent is recorded.** When the consent step is in place in the App, consent is recorded there — for the parent, and for a child aged 7 or older as the law requires — with the time and the version of this Policy agreed to. Until then, Mathzle processes data only as far as needed to provide the Service to the parent who created the account, does not use it for any other purpose, does not enable any feature that needs separate consent (such as voice reading practice), and parents can ask us at any time to delete data under section 10.
 - **Data minimisation.** We only require a nickname and an age to create a profile. You do not need to give your child's real name or photo.
 - **No ads, no marketing to children.** We do not show ads to children, do not use children's data to build marketing profiles, and do not send marketing emails to children.
 - **Parents are in control.** You can withdraw consent whenever you choose by sending a request as described in section 10. We will then stop processing and delete your child's profile within the periods in section 8. Withdrawing consent does not affect the lawfulness of processing carried out before.
@@ -99,7 +99,7 @@ If we learn that an account was created by a child without a parent or guardian,
 
 ## 6. Sharing and processors
 
-**We do not sell your or your child's personal data. We do not show ads to children. We do not share children's data with advertising or marketing companies or data brokers.** For the Google advertising library currently in the App, see “Google Mobile Ads library” below.
+**We do not sell your or your child's personal data. We do not show ads to children. We do not share children's data with advertising or marketing companies or data brokers.** For the Google advertising library in the App, see “Google Mobile Ads library” below.
 
 To run the Service we use a small number of service providers (processors). They may only process data on our instructions and for the purposes below.
 
@@ -108,11 +108,11 @@ To run the Service we use a small number of service providers (processors). They
 | Google (Firebase Authentication, Google Sign-In) | Parent sign-in and authentication | Email, name, Google profile photo, account identifier, technical sign-in data | United States and other countries where Google operates infrastructure |
 | Google (Firebase Cloud Messaging) | Push notifications | Push token, notification content | United States and other countries where Google operates infrastructure |
 | MailerSend | Transactional email (family invitations, account notices) | Recipient email address, email content | Outside Vietnam, per the provider's infrastructure |
-| Cloudflare | Hosting and delivering the Website and App, attack protection, storing Website sign-ups, cookieless statistics | IP address, access data, sign-up data | Cloudflare's global network |
-| Server infrastructure and cloud storage provider (to be named in section 8 before the public launch) | Storing the App's database and files such as avatars | Account data, child profiles, learning data, uploaded avatars | To be published in section 8 |
+| Cloudflare | Hosting and delivering the Website and App, attack protection, storing Website sign-ups and Contact page messages, cookieless statistics | IP address, access data, sign-up data, contact messages | Cloudflare's global network |
+| Server infrastructure and cloud storage provider | Storing the App's database and files such as avatars | Account data, child profiles, learning data, uploaded avatars | See section 8 |
 | YouTube (Google) | Playing lesson videos embedded in the App | IP address, browser information; YouTube may set cookies (see section 11) | United States and other countries where Google operates infrastructure |
 
-**Google Mobile Ads library.** The App currently initialises the Google Mobile Ads library when it runs, although it shows no ads and Mathzle does not use the library for ad targeting. Once the library is initialised, Google may collect data about the device under Google's own policies; on mobile devices this may include the device's advertising ID. Mathzle intends to remove this library before the public launch and will update this Policy when it does.
+**Google Mobile Ads library.** The App initialises the Google Mobile Ads library when it runs, although it shows no ads and Mathzle does not use the library for ad targeting. Once the library is initialised, Google may collect data about the device under Google's own policies; on mobile devices this may include the device's advertising ID. When this library is removed from the App, we update this Policy.
 
 Beyond these providers, data may only be shared:
 
@@ -130,22 +130,23 @@ When we transfer data abroad, we commit to:
 - transfer only the data needed for the relevant purpose;
 - choose providers with written data protection commitments and appropriate security measures.
 
-The cross-border transfers described here will be covered by the explicit consent step in section 5 and by the transfer impact assessment above. We do not treat merely continuing to use the Service as consent to these transfers.
+The cross-border transfers described here are covered by the transfer impact assessment above, and are set out in the consent step in the App where that step applies (see section 5). We do not treat merely continuing to use the Service as consent to these transfers.
 
 ## 8. Storage location and retention
 
-Account data, child profiles and learning data are stored on infrastructure operated by Mathzle and/or a cloud storage provider (for example, object storage for avatars and media files). The specific provider and the country where the servers are located will be published in this section before Mathzle's public launch; if the servers are outside Vietnam, that transfer follows section 7. Data handled by other providers is stored where section 6 indicates.
+Account data, child profiles and learning data are stored on infrastructure operated by Mathzle and/or a cloud storage provider (for example, object storage for avatars and media files). Information about our current infrastructure providers and the country where the servers are located is provided on request through our [Contact page](/en/contact/); if the servers are outside Vietnam, that transfer follows section 7. Data handled by other providers is stored where section 6 indicates.
 
 We keep data only as long as needed for the stated purposes:
 
 | Data | Retention period |
 |:---|:---|
 | Parent account, child profiles, learning data | While the account is active. When you ask for deletion, data is removed from our systems within 30 days of our confirming the request |
-| Inactive accounts | Not applied automatically — this function has not been built yet. Once it is in operation, the following will apply: if an account has not signed in for 24 consecutive months, we email you first, then delete the account if you do not respond within 30 days. Until then, you can ask for deletion at any time under section 10 |
+| Inactive accounts | Once automatic deletion of inactive accounts is enabled: if an account has not signed in for 24 consecutive months, we email you first, then delete the account if you do not respond within 30 days. You can always ask for deletion at any time under section 10 |
 | Photos uploaded by parents | Until you change the photo, delete your child's profile or delete the account; then deleted within 30 days |
-| Reading voice recordings | None at present (reading practice is not enabled). Once the feature is enabled, the following will apply: deleted automatically 30 days after recording; scoring results (score, words read incorrectly) are kept as learning data |
+| Reading voice recordings | Only arise once reading practice is enabled (see section 3.2): deleted automatically 30 days after recording; scoring results (score, words read incorrectly) are kept as learning data |
 | Push tokens | Until you sign out, turn off notifications or the token expires |
 | Website sign-up data | Until you unsubscribe; then deleted within 30 days |
+| Messages sent through the Contact page | As for requests and correspondence in the last row of this table |
 | Technical and security logs | Up to 12 months, unless the law requires longer |
 | Records of requests, complaints and correspondence | 24 months after the request is resolved |
 
@@ -167,8 +168,8 @@ No system is completely secure. You can help by keeping your Google account safe
 
 Despite the measures above, processing data can still lead to some unwanted consequences. We set them out plainly so you can weigh them:
 
-- **An uploaded avatar photo can be seen by others.** During the beta, anyone who has the direct link to the photo can view it without signing in (see section 3.2). *Mitigation:* use a built-in avatar instead of a real photo of your child; you can remove a photo by switching to a built-in avatar or by sending a request under section 10; we intend to move uploaded photos to access-controlled storage before the public launch.
-- **Cookies and data collected by third parties.** When your child watches a lesson video embedded from YouTube, or when the Google Mobile Ads library is initialised (see section 6), Google may set cookies or collect device data under Google's own policies, outside Mathzle's direct control. *Mitigation:* we do not send your child's profile or learning data to Google through these components; we intend to remove the Google Mobile Ads library before the public launch; you can clear cookies in your browser settings (see section 11).
+- **An uploaded avatar photo can be seen by others.** During the beta, anyone who has the direct link to the photo can view it without signing in (see section 3.2). *Mitigation:* use a built-in avatar instead of a real photo of your child; you can remove a photo by switching to a built-in avatar or by sending a request under section 10; when uploaded photos move to access-controlled storage, we update section 3.2.
+- **Cookies and data collected by third parties.** When your child watches a lesson video embedded from YouTube, or when the Google Mobile Ads library is initialised (see section 6), Google may set cookies or collect device data under Google's own policies, outside Mathzle's direct control. *Mitigation:* we do not send your child's profile or learning data to Google through these components; you can clear cookies in your browser settings (see section 11).
 - **Data breach or loss.** Despite our safeguards, data could still be accessed without authorisation, disclosed or lost through an attack, a system fault or a provider incident. *Mitigation:* we collect as little as possible (a nickname instead of a real name, no date of birth, no location), store the PIN as a hash, and handle incidents and notify you under section 13.
 - **Data processed abroad** may be subject to the laws of the country where the servers are, with a different level of protection from Vietnam. *Mitigation:* we only transfer the data needed and apply the commitments in section 7.
 
@@ -188,9 +189,9 @@ Under applicable personal data protection law, you (and your child, through you)
 10. **The right to claim compensation** for damage caused by a breach of personal data protection rules.
 11. **The right to self-protection** as provided by law.
 
-**How to exercise your rights.** During the beta, the App does not yet let you delete your account, delete your child's data or download data yourself. Please send your request through the contact channel in section 15, stating what you would like (for example: delete my child's profile, delete the whole account, send me a copy of my data) and the Google email address you sign in with. To protect your account, we may verify that the request comes from the account holder before acting on it.
+**How to exercise your rights.** During the beta, deleting your account, deleting your child's data and receiving a copy of your data are handled on request: please send your request through the contact channel in section 15, stating what you would like (for example: delete my child's profile, delete the whole account, send me a copy of my data) and the Google email address you sign in with. To protect your account, we may verify that the request comes from the account holder before acting on it.
 
-**Response times.** From the time our official contact channel is published, we acknowledge your request within 72 hours. We complete it within the time limit the law sets for that type of request; where the law sets no specific limit, within 30 days of receiving all the information we need. If we cannot fulfil part of a request for legal reasons, we will explain why.
+**Response times.** We acknowledge your request within 72 hours. We complete it within the time limit the law sets for that type of request; where the law sets no specific limit, within 30 days of receiving all the information we need. If we cannot fulfil part of a request for legal reasons, we will explain why.
 
 Exercising your rights is free of charge. We listen to children too: if your child no longer wants to use Mathzle, you can ask us to delete their profile as described above.
 
@@ -206,7 +207,7 @@ You can clear cookies and site data in your browser settings. If you clear the A
 
 We only send news or beta invitations to people who signed up to receive them. We do not send marketing emails to children, and we comply with the law on combating spam messages and emails.
 
-Mathzle does not yet send regular news or marketing emails. Once we start, every marketing email will include an unsubscribe link. You can unsubscribe whenever you like — even before the first email — by sending a request through the contact channel in section 15. We process unsubscribe requests within 72 hours of receiving them.
+Every marketing email from Mathzle includes an unsubscribe link. You can unsubscribe whenever you like — even before the first email — by sending a request through the contact channel in section 15. We process unsubscribe requests within 72 hours of receiving them.
 
 Transactional emails needed for your account (such as family invitations or notices of important changes to the Service) are not marketing and may still be sent while the account is active.
 
@@ -227,7 +228,7 @@ For material changes (for example, collecting a new type of data, using data for
 
 ## 15. Contact
 
-If you have questions about this Policy, want to exercise your or your child's rights, or want to complain about how we handle data, please contact us through the channel under [Company details](#company-details) or our [Contact page](/en/contact/).
+If you have questions about this Policy, want to exercise your or your child's rights, or want to complain about how we handle data, please contact us through our [Contact page](/en/contact/) or the channel under [Operator details](#company-details).
 
 If you believe your rights have not been properly addressed, you may complain to the Department of Cybersecurity and High-Tech Crime Prevention (Ministry of Public Security) or another competent authority under the law.
 

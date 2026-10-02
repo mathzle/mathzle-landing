@@ -2,7 +2,7 @@
 title: Chính sách bảo mật
 description: Mathzle thu thập dữ liệu gì, dùng vào việc gì, chia sẻ với ai, lưu bao lâu và phụ huynh thực hiện quyền với dữ liệu của con như thế nào.
 lead: Chính sách này giải thích rõ dữ liệu nào của phụ huynh và của con được Mathzle xử lý, vì sao, trong bao lâu, và bạn có những quyền gì với dữ liệu đó.
-updated: 2026-09-30
+updated: 2026-10-02
 docType: privacy
 ---
 
@@ -25,7 +25,7 @@ Chính sách này là một phần không tách rời của [Điều khoản s�
 
 Mathzle là bên kiểm soát và xử lý dữ liệu cá nhân được mô tả trong Chính sách này: chúng tôi quyết định mục đích và cách thức xử lý, và chịu trách nhiệm trước bạn về việc xử lý đó.
 
-Thông tin pháp nhân (tên doanh nghiệp, mã số thuế, địa chỉ) và địa chỉ email liên hệ chính thức được trình bày tại mục [Thông tin doanh nghiệp](#company-details) ở cuối trang; nếu mục đó chưa có các thông tin này, nghĩa là chúng tôi chưa công bố và sẽ công bố tại đó trước khi Mathzle ra mắt chính thức. Mọi câu hỏi hoặc yêu cầu về dữ liệu cá nhân, kể cả yêu cầu thực hiện quyền nêu tại mục 10, vui lòng gửi qua [trang Liên hệ](/vi/contact/) hoặc kênh nêu tại mục đó.
+Thông tin về đơn vị vận hành Mathzle và kênh liên hệ chính thức được trình bày tại mục [Đơn vị vận hành](#company-details) ở cuối trang. Mọi câu hỏi hoặc yêu cầu về dữ liệu cá nhân, kể cả yêu cầu thực hiện quyền nêu tại mục 10, vui lòng gửi qua [trang Liên hệ](/vi/contact/) hoặc kênh nêu tại mục đó.
 
 ## 3. Dữ liệu chúng tôi thu thập
 
@@ -50,7 +50,7 @@ Trẻ không tự tạo tài khoản và không cần email. Phụ huynh tạo h
 
 Chúng tôi **không** thu thập ngày sinh, giới tính, trường học, địa chỉ, số điện thoại hay vị trí của trẻ. Mathzle không có chức năng trò chuyện hay nhắn tin giữa người dùng, nên trẻ không thể gửi thông tin cá nhân cho người lạ qua Dịch vụ.
 
-**Tính năng chưa bật: luyện đọc bằng giọng nói.** Mathzle đang phát triển tính năng luyện đọc, trong đó Ứng dụng có thể ghi âm giọng con đọc để chấm và phản hồi. Tính năng này **chưa được bật** trong giai đoạn thử nghiệm, nên hiện Mathzle không ghi âm giọng nói của con. Nếu bật tính năng này, chúng tôi sẽ cập nhật Chính sách này trước, nêu rõ dữ liệu thu thập, thời hạn lưu và nhà cung cấp dịch vụ chuyển giọng nói thành văn bản bên ngoài (nếu có sử dụng), và chỉ bật sau khi phụ huynh đồng ý riêng, rõ ràng cho tính năng này.
+**Luyện đọc bằng giọng nói.** Tính năng luyện đọc, trong đó Ứng dụng ghi âm giọng con đọc để chấm và phản hồi, **không được bật** trong giai đoạn thử nghiệm; Mathzle không ghi âm giọng nói của con. Trước khi bật tính năng này, chúng tôi cập nhật Chính sách này, nêu rõ dữ liệu thu thập, thời hạn lưu và nhà cung cấp dịch vụ chuyển giọng nói thành văn bản bên ngoài (nếu có sử dụng), và chỉ bật sau khi phụ huynh đồng ý riêng, rõ ràng cho tính năng này.
 
 ### 3.3. Dữ liệu kỹ thuật được thu thập tự động
 
@@ -59,9 +59,9 @@ Chúng tôi **không** thu thập ngày sinh, giới tính, trường học, đ�
 - **Dữ liệu lưu trong trình duyệt:** phiên đăng nhập do Firebase lưu và các cài đặt của Ứng dụng (xem mục 11).
 - **Thống kê truy cập Trang giới thiệu:** chúng tôi dùng Cloudflare Web Analytics để đếm lượt xem ở dạng tổng hợp. Công cụ này không dùng cookie và không tạo hồ sơ theo dõi từng người.
 
-### 3.4. Đăng ký nhận tin trên Trang giới thiệu
+### 3.4. Đăng ký nhận tin và biểu mẫu liên hệ trên Trang giới thiệu
 
-Khi bạn để lại email trên Trang giới thiệu (nhận tin, tham gia chương trình thử nghiệm hoặc danh sách chờ), chúng tôi lưu: địa chỉ email, ngôn ngữ trang bạn đang xem, biểu mẫu bạn đã dùng (nguồn đăng ký), thời điểm đăng ký, chuỗi nhận dạng trình duyệt (user-agent) và địa chỉ trang dẫn bạn đến (referer). Biểu mẫu này dành cho người lớn; trẻ em không nên tự đăng ký.
+Khi bạn để lại email trên Trang giới thiệu (nhận tin, tham gia chương trình thử nghiệm hoặc danh sách chờ), chúng tôi lưu: địa chỉ email, ngôn ngữ trang bạn đang xem, biểu mẫu bạn đã dùng (nguồn đăng ký), thời điểm đăng ký, chuỗi nhận dạng trình duyệt (user-agent) và địa chỉ trang dẫn bạn đến (referer). Khi bạn gửi tin nhắn qua biểu mẫu trên [trang Liên hệ](/vi/contact/), chúng tôi lưu thêm tên của bạn (nếu bạn cung cấp) và nội dung tin nhắn để trả lời bạn. Các biểu mẫu này dành cho người lớn; trẻ em không nên tự đăng ký hay gửi tin nhắn.
 
 ## 4. Mục đích và cơ sở xử lý
 
@@ -73,7 +73,7 @@ Chúng tôi chỉ xử lý dữ liệu cho các mục đích dưới đây. Nế
 | Tạo hồ sơ cho con, cho con học, lưu tiến độ, XP và streak | Hồ sơ của con, dữ liệu học tập | Sự đồng ý của phụ huynh (và của trẻ từ đủ 7 tuổi, xem mục 5) |
 | Điều chỉnh độ khó và gợi ý bài học phù hợp với con | Dữ liệu học tập | Sự đồng ý của phụ huynh |
 | Báo cáo tiến độ học cho phụ huynh | Dữ liệu học tập | Sự đồng ý của phụ huynh |
-| Chấm và phản hồi phần luyện đọc (tính năng chưa bật) | Ghi âm giọng đọc và kết quả chấm | Chưa áp dụng — tính năng chưa bật trong giai đoạn thử nghiệm; chỉ bật sau bước đồng ý riêng, rõ ràng của phụ huynh (xem mục 3.2) |
+| Chấm và phản hồi phần luyện đọc (khi tính năng được bật) | Ghi âm giọng đọc và kết quả chấm | Sự đồng ý riêng, rõ ràng của phụ huynh cho tính năng này (xem mục 3.2) |
 | Gửi thông báo đẩy (nhắc lịch học, thông báo dịch vụ) | Mã thông báo đẩy | Sự đồng ý khi bạn cho phép thông báo trên thiết bị |
 | Gửi email giao dịch (lời mời thành viên gia đình, thông báo về tài khoản) | Địa chỉ email | Thực hiện thoả thuận theo Điều khoản sử dụng |
 | Gửi tin tức và lời mời tham gia thử nghiệm | Dữ liệu đăng ký nhận tin | Sự đồng ý khi bạn đăng ký |
@@ -89,8 +89,8 @@ Việc điều chỉnh độ khó dựa trên kết quả học tập của con 
 Mathzle được thiết kế cho trẻ em, vì vậy chúng tôi áp dụng các nguyên tắc sau:
 
 - **Phụ huynh là người đăng ký.** Chỉ người từ đủ 18 tuổi là cha mẹ hoặc người giám hộ hợp pháp mới được tạo tài khoản và hồ sơ cho trẻ. Trẻ không tự đăng ký.
-- **Sự đồng ý theo quy định pháp luật về bảo vệ dữ liệu cá nhân.** Việc xử lý dữ liệu cá nhân của trẻ em cần có sự đồng ý của cha mẹ hoặc người giám hộ; với trẻ từ đủ 7 tuổi, cần có thêm sự đồng ý của chính trẻ. Với con từ đủ 7 tuổi trở lên, bước đồng ý nêu dưới đây sẽ yêu cầu bạn xác nhận đã giải thích cho con, bằng lời lẽ phù hợp với lứa tuổi, về những thông tin Mathzle lưu lại, và con đồng ý sử dụng Mathzle.
-- **Cách ghi nhận sự đồng ý — hiện trạng và cam kết.** Hiện tại Ứng dụng **chưa có** bước ghi nhận sự đồng ý: phụ huynh đăng nhập bằng Google rồi tự tạo tài khoản gia đình và hồ sơ cho con, và Ứng dụng chưa yêu cầu phụ huynh hay trẻ xác nhận đồng ý với Điều khoản sử dụng hoặc Chính sách này. Mathzle sẽ bổ sung một bước đồng ý rõ ràng — của phụ huynh, và của trẻ từ đủ 7 tuổi theo quy định pháp luật — có lưu lại thời điểm và phiên bản Chính sách được đồng ý, trước khi mời các gia đình tham gia thử nghiệm và trước khi ra mắt chính thức. Cho đến khi bước này được bật, chúng tôi chỉ xử lý dữ liệu ở mức cần thiết để Ứng dụng hoạt động như mô tả trong Chính sách này, không bật tính năng nào cần sự đồng ý riêng (như luyện đọc bằng giọng nói), và phụ huynh có thể gửi yêu cầu xoá dữ liệu vào bất kỳ thời điểm nào theo mục 10.
+- **Sự đồng ý theo quy định pháp luật về bảo vệ dữ liệu cá nhân.** Việc xử lý dữ liệu cá nhân của trẻ em cần có sự đồng ý của cha mẹ hoặc người giám hộ; với trẻ từ đủ 7 tuổi, cần có thêm sự đồng ý của chính trẻ. Với con từ đủ 7 tuổi trở lên, bước đồng ý trong Ứng dụng (khi được áp dụng, xem đoạn dưới đây) yêu cầu bạn xác nhận đã giải thích cho con, bằng lời lẽ phù hợp với lứa tuổi, về những thông tin Mathzle lưu lại, và con đồng ý sử dụng Mathzle.
+- **Cách ghi nhận sự đồng ý.** Khi Ứng dụng có bước đồng ý, sự đồng ý được ghi nhận tại bước đó — của phụ huynh, và của trẻ từ đủ 7 tuổi theo quy định pháp luật — kèm thời điểm và phiên bản Chính sách được đồng ý. Khi chưa có bước này, Mathzle chỉ xử lý dữ liệu ở mức cần thiết để cung cấp Dịch vụ cho phụ huynh đã tạo tài khoản, không dùng dữ liệu cho mục đích nào khác, không bật tính năng nào cần sự đồng ý riêng (như luyện đọc bằng giọng nói), và phụ huynh có thể yêu cầu xoá dữ liệu vào bất kỳ thời điểm nào theo mục 10.
 - **Tối thiểu hoá dữ liệu.** Chúng tôi chỉ yêu cầu biệt danh và tuổi để tạo hồ sơ. Bạn không cần cung cấp họ tên thật hay ảnh thật của con.
 - **Không quảng cáo, không tiếp thị cho trẻ.** Chúng tôi không hiển thị quảng cáo cho trẻ, không dùng dữ liệu của trẻ để tạo hồ sơ tiếp thị và không gửi email tiếp thị cho trẻ.
 - **Phụ huynh kiểm soát.** Bạn có thể rút lại sự đồng ý bất kỳ lúc nào bằng cách gửi yêu cầu theo mục 10. Khi đó chúng tôi ngừng xử lý và xoá hồ sơ của con theo thời hạn tại mục 8. Việc rút lại sự đồng ý không ảnh hưởng đến tính hợp pháp của việc xử lý đã thực hiện trước đó.
@@ -99,7 +99,7 @@ Nếu chúng tôi biết một tài khoản được trẻ em tự tạo mà kh�
 
 ## 6. Chia sẻ dữ liệu và bên xử lý
 
-**Chúng tôi không bán dữ liệu cá nhân của bạn hay của con. Chúng tôi không hiển thị quảng cáo cho trẻ. Chúng tôi không chia sẻ dữ liệu của trẻ cho bên quảng cáo, tiếp thị hay môi giới dữ liệu.** Về thư viện quảng cáo của Google hiện có trong Ứng dụng, xem đoạn “Thư viện Google Mobile Ads” bên dưới.
+**Chúng tôi không bán dữ liệu cá nhân của bạn hay của con. Chúng tôi không hiển thị quảng cáo cho trẻ. Chúng tôi không chia sẻ dữ liệu của trẻ cho bên quảng cáo, tiếp thị hay môi giới dữ liệu.** Về thư viện quảng cáo của Google trong Ứng dụng, xem đoạn “Thư viện Google Mobile Ads” bên dưới.
 
 Để vận hành Dịch vụ, chúng tôi sử dụng một số nhà cung cấp dịch vụ (bên xử lý dữ liệu). Họ chỉ được xử lý dữ liệu theo chỉ dẫn của chúng tôi và cho mục đích nêu dưới đây.
 
@@ -108,11 +108,11 @@ Nếu chúng tôi biết một tài khoản được trẻ em tự tạo mà kh�
 | Google (Firebase Authentication, Google Sign-In) | Đăng nhập và xác thực phụ huynh | Email, họ tên, ảnh hồ sơ Google, mã định danh tài khoản, dữ liệu kỹ thuật khi đăng nhập | Hoa Kỳ và các quốc gia khác nơi Google đặt hạ tầng |
 | Google (Firebase Cloud Messaging) | Gửi thông báo đẩy | Mã thông báo đẩy, nội dung thông báo | Hoa Kỳ và các quốc gia khác nơi Google đặt hạ tầng |
 | MailerSend | Gửi email giao dịch (lời mời thành viên gia đình, thông báo tài khoản) | Địa chỉ email người nhận, nội dung email | Nước ngoài, theo hạ tầng của nhà cung cấp |
-| Cloudflare | Lưu trữ và phân phối Trang giới thiệu và Ứng dụng, chống tấn công, lưu danh sách đăng ký nhận tin, thống kê không cookie | Địa chỉ IP, dữ liệu truy cập, dữ liệu đăng ký nhận tin | Mạng máy chủ toàn cầu của Cloudflare |
-| Nhà cung cấp hạ tầng máy chủ và lưu trữ đám mây (tên sẽ được công bố tại mục 8 trước khi ra mắt chính thức) | Lưu cơ sở dữ liệu của Ứng dụng và tệp như ảnh đại diện | Dữ liệu tài khoản, hồ sơ trẻ, dữ liệu học tập, ảnh đại diện tải lên | Sẽ được công bố tại mục 8 |
+| Cloudflare | Lưu trữ và phân phối Trang giới thiệu và Ứng dụng, chống tấn công, lưu danh sách đăng ký nhận tin và tin nhắn gửi qua trang Liên hệ, thống kê không cookie | Địa chỉ IP, dữ liệu truy cập, dữ liệu đăng ký nhận tin, tin nhắn liên hệ | Mạng máy chủ toàn cầu của Cloudflare |
+| Nhà cung cấp hạ tầng máy chủ và lưu trữ đám mây | Lưu cơ sở dữ liệu của Ứng dụng và tệp như ảnh đại diện | Dữ liệu tài khoản, hồ sơ trẻ, dữ liệu học tập, ảnh đại diện tải lên | Xem mục 8 |
 | YouTube (Google) | Phát video bài học được nhúng trong Ứng dụng | Địa chỉ IP, thông tin trình duyệt; YouTube có thể đặt cookie (xem mục 11) | Hoa Kỳ và các quốc gia khác nơi Google đặt hạ tầng |
 
-**Thư viện Google Mobile Ads.** Hiện tại Ứng dụng có khởi tạo thư viện Google Mobile Ads khi chạy, dù không hiển thị quảng cáo nào và Mathzle không dùng thư viện này để nhắm mục tiêu quảng cáo. Khi thư viện được khởi tạo, Google có thể thu thập dữ liệu về thiết bị theo chính sách riêng của Google; trên thiết bị di động, dữ liệu này có thể bao gồm mã nhận dạng quảng cáo của thiết bị. Mathzle dự định gỡ thư viện này trước khi ra mắt chính thức và sẽ cập nhật Chính sách này khi gỡ.
+**Thư viện Google Mobile Ads.** Ứng dụng có khởi tạo thư viện Google Mobile Ads khi chạy, dù không hiển thị quảng cáo nào và Mathzle không dùng thư viện này để nhắm mục tiêu quảng cáo. Khi thư viện được khởi tạo, Google có thể thu thập dữ liệu về thiết bị theo chính sách riêng của Google; trên thiết bị di động, dữ liệu này có thể bao gồm mã nhận dạng quảng cáo của thiết bị. Khi thư viện này được gỡ khỏi Ứng dụng, chúng tôi cập nhật Chính sách này.
 
 Ngoài các nhà cung cấp trên, dữ liệu chỉ có thể được chia sẻ trong các trường hợp sau:
 
@@ -130,22 +130,23 @@ Khi chuyển dữ liệu ra nước ngoài, chúng tôi cam kết:
 - chỉ chuyển những dữ liệu cần thiết cho mục đích tương ứng;
 - chọn nhà cung cấp có cam kết bảo vệ dữ liệu bằng văn bản và biện pháp bảo mật phù hợp.
 
-Việc chuyển dữ liệu ra nước ngoài như mô tả tại đây sẽ được nêu trong bước đồng ý rõ ràng tại mục 5 và trong hồ sơ đánh giá tác động chuyển dữ liệu ra nước ngoài nêu trên. Chúng tôi không coi việc bạn chỉ tiếp tục sử dụng Dịch vụ là sự đồng ý với việc chuyển dữ liệu này.
+Việc chuyển dữ liệu ra nước ngoài như mô tả tại đây được nêu trong hồ sơ đánh giá tác động chuyển dữ liệu ra nước ngoài nêu trên, và được nêu rõ tại bước đồng ý trong Ứng dụng khi bước này được áp dụng (xem mục 5). Chúng tôi không coi việc bạn chỉ tiếp tục sử dụng Dịch vụ là sự đồng ý với việc chuyển dữ liệu này.
 
 ## 8. Nơi lưu trữ và thời hạn lưu trữ
 
-Dữ liệu tài khoản, hồ sơ trẻ và dữ liệu học tập được lưu trên hạ tầng do Mathzle vận hành và/hoặc của nhà cung cấp dịch vụ lưu trữ đám mây (ví dụ kho lưu trữ đối tượng cho ảnh đại diện và tệp đa phương tiện). Tên nhà cung cấp cụ thể và quốc gia đặt máy chủ sẽ được công bố tại mục này trước khi Mathzle ra mắt chính thức; nếu máy chủ đặt ngoài Việt Nam, việc chuyển dữ liệu đó tuân theo mục 7. Dữ liệu do các nhà cung cấp khác xử lý được lưu tại nơi nêu ở mục 6.
+Dữ liệu tài khoản, hồ sơ trẻ và dữ liệu học tập được lưu trên hạ tầng do Mathzle vận hành và/hoặc của nhà cung cấp dịch vụ lưu trữ đám mây (ví dụ kho lưu trữ đối tượng cho ảnh đại diện và tệp đa phương tiện). Thông tin về các nhà cung cấp hạ tầng hiện hành và quốc gia đặt máy chủ được cung cấp khi bạn yêu cầu qua [trang Liên hệ](/vi/contact/); nếu máy chủ đặt ngoài Việt Nam, việc chuyển dữ liệu đó tuân theo mục 7. Dữ liệu do các nhà cung cấp khác xử lý được lưu tại nơi nêu ở mục 6.
 
 Chúng tôi chỉ lưu dữ liệu trong thời gian cần thiết cho mục đích đã nêu:
 
 | Loại dữ liệu | Thời hạn lưu trữ |
 |:---|:---|
 | Tài khoản phụ huynh, hồ sơ trẻ, dữ liệu học tập | Trong thời gian tài khoản hoạt động. Khi bạn yêu cầu xoá, dữ liệu được xoá khỏi hệ thống trong tối đa 30 ngày kể từ khi chúng tôi xác nhận yêu cầu |
-| Tài khoản không hoạt động | Chưa áp dụng tự động — chức năng này chưa được xây dựng. Khi được đưa vào vận hành, sẽ áp dụng: nếu tài khoản không đăng nhập trong 24 tháng liên tục, chúng tôi gửi email báo trước, sau đó xoá tài khoản nếu bạn không phản hồi trong 30 ngày. Trước đó, bạn có thể yêu cầu xoá bất kỳ lúc nào theo mục 10 |
+| Tài khoản không hoạt động | Khi chức năng tự động xoá tài khoản không hoạt động được bật: nếu tài khoản không đăng nhập trong 24 tháng liên tục, chúng tôi gửi email báo trước, sau đó xoá tài khoản nếu bạn không phản hồi trong 30 ngày. Bạn luôn có thể yêu cầu xoá bất kỳ lúc nào theo mục 10 |
 | Ảnh đại diện do phụ huynh tải lên | Đến khi bạn đổi ảnh, xoá hồ sơ của con hoặc xoá tài khoản; sau đó xoá trong tối đa 30 ngày |
-| Ghi âm giọng đọc | Hiện không có (tính năng luyện đọc chưa bật). Khi tính năng được bật, sẽ áp dụng: tự động xoá sau 30 ngày kể từ khi ghi; kết quả chấm (điểm, từ đọc chưa đúng) được giữ như dữ liệu học tập |
+| Ghi âm giọng đọc | Chỉ phát sinh khi tính năng luyện đọc được bật (xem mục 3.2): tự động xoá sau 30 ngày kể từ khi ghi; kết quả chấm (điểm, từ đọc chưa đúng) được giữ như dữ liệu học tập |
 | Mã thông báo đẩy | Đến khi bạn đăng xuất, tắt thông báo hoặc mã hết hiệu lực |
 | Dữ liệu đăng ký nhận tin | Đến khi bạn huỷ đăng ký; sau đó xoá trong tối đa 30 ngày |
+| Tin nhắn gửi qua trang Liên hệ | Như hồ sơ yêu cầu và thư từ ở dòng cuối bảng này |
 | Nhật ký kỹ thuật và bảo mật | Tối đa 12 tháng, trừ khi pháp luật yêu cầu lưu lâu hơn |
 | Hồ sơ yêu cầu, khiếu nại và thư từ với chúng tôi | 24 tháng kể từ khi yêu cầu được giải quyết xong |
 
@@ -167,8 +168,8 @@ Không có hệ thống nào an toàn tuyệt đối. Bạn có thể góp phầ
 
 Dù đã áp dụng các biện pháp trên, việc xử lý dữ liệu vẫn có thể dẫn đến một số hậu quả không mong muốn. Chúng tôi nêu rõ để bạn cân nhắc:
 
-- **Ảnh đại diện tải lên có thể bị người khác xem.** Trong giai đoạn thử nghiệm, bất kỳ ai có đường dẫn trực tiếp đến ảnh đều có thể xem ảnh mà không cần đăng nhập (xem mục 3.2). *Cách giảm thiểu:* dùng hình đại diện có sẵn thay cho ảnh thật của con; bạn có thể gỡ ảnh bằng cách đổi sang hình có sẵn hoặc gửi yêu cầu theo mục 10; chúng tôi dự định chuyển ảnh tải lên sang kho lưu trữ có kiểm soát truy cập trước khi ra mắt chính thức.
-- **Cookie và dữ liệu do bên thứ ba thu thập.** Khi con xem video bài học nhúng từ YouTube, hoặc khi thư viện Google Mobile Ads được khởi tạo (xem mục 6), Google có thể đặt cookie hoặc thu thập dữ liệu thiết bị theo chính sách riêng của Google, ngoài sự kiểm soát trực tiếp của Mathzle. *Cách giảm thiểu:* chúng tôi không gửi hồ sơ hay dữ liệu học tập của con cho Google qua các thành phần này; chúng tôi dự định gỡ thư viện Google Mobile Ads trước khi ra mắt chính thức; bạn có thể xoá cookie trong cài đặt trình duyệt (xem mục 11).
+- **Ảnh đại diện tải lên có thể bị người khác xem.** Trong giai đoạn thử nghiệm, bất kỳ ai có đường dẫn trực tiếp đến ảnh đều có thể xem ảnh mà không cần đăng nhập (xem mục 3.2). *Cách giảm thiểu:* dùng hình đại diện có sẵn thay cho ảnh thật của con; bạn có thể gỡ ảnh bằng cách đổi sang hình có sẵn hoặc gửi yêu cầu theo mục 10; khi ảnh tải lên được chuyển sang kho lưu trữ có kiểm soát truy cập, chúng tôi cập nhật mục 3.2.
+- **Cookie và dữ liệu do bên thứ ba thu thập.** Khi con xem video bài học nhúng từ YouTube, hoặc khi thư viện Google Mobile Ads được khởi tạo (xem mục 6), Google có thể đặt cookie hoặc thu thập dữ liệu thiết bị theo chính sách riêng của Google, ngoài sự kiểm soát trực tiếp của Mathzle. *Cách giảm thiểu:* chúng tôi không gửi hồ sơ hay dữ liệu học tập của con cho Google qua các thành phần này; bạn có thể xoá cookie trong cài đặt trình duyệt (xem mục 11).
 - **Sự cố lộ hoặc mất dữ liệu.** Dù có các biện pháp bảo mật, dữ liệu vẫn có thể bị truy cập trái phép, bị lộ hoặc bị mất do tấn công, lỗi hệ thống hoặc sự cố của nhà cung cấp. *Cách giảm thiểu:* chúng tôi chỉ thu thập dữ liệu tối thiểu (biệt danh thay vì tên thật, không ngày sinh, không vị trí), lưu mã PIN dưới dạng băm, và xử lý sự cố, thông báo cho bạn theo mục 13.
 - **Dữ liệu được xử lý ở nước ngoài** có thể chịu sự điều chỉnh của pháp luật nơi đặt máy chủ, với mức bảo vệ khác Việt Nam. *Cách giảm thiểu:* chúng tôi chỉ chuyển dữ liệu cần thiết và thực hiện các cam kết tại mục 7.
 
@@ -188,9 +189,9 @@ Theo quy định pháp luật về bảo vệ dữ liệu cá nhân, bạn (và 
 10. **Quyền yêu cầu bồi thường thiệt hại** khi có vi phạm quy định về bảo vệ dữ liệu cá nhân.
 11. **Quyền tự bảo vệ** theo quy định của pháp luật.
 
-**Cách thực hiện.** Trong giai đoạn thử nghiệm, Ứng dụng chưa có chức năng tự xoá tài khoản, xoá dữ liệu của con hay tải xuống dữ liệu. Vì vậy, bạn gửi yêu cầu qua kênh liên hệ tại mục 15, ghi rõ yêu cầu (ví dụ: xoá hồ sơ của con, xoá toàn bộ tài khoản, nhận bản sao dữ liệu) và địa chỉ email Google bạn dùng để đăng nhập. Để bảo vệ tài khoản, chúng tôi có thể xác minh rằng yêu cầu đến từ chủ tài khoản trước khi thực hiện.
+**Cách thực hiện.** Trong giai đoạn thử nghiệm, việc xoá tài khoản, xoá dữ liệu của con hay nhận bản sao dữ liệu được thực hiện theo yêu cầu: bạn gửi yêu cầu qua kênh liên hệ tại mục 15, ghi rõ yêu cầu (ví dụ: xoá hồ sơ của con, xoá toàn bộ tài khoản, nhận bản sao dữ liệu) và địa chỉ email Google bạn dùng để đăng nhập. Để bảo vệ tài khoản, chúng tôi có thể xác minh rằng yêu cầu đến từ chủ tài khoản trước khi thực hiện.
 
-**Thời hạn phản hồi.** Kể từ khi kênh liên hệ chính thức được công bố, chúng tôi xác nhận đã nhận yêu cầu trong vòng 72 giờ. Chúng tôi hoàn tất yêu cầu trong thời hạn pháp luật quy định cho từng loại yêu cầu; nếu pháp luật không quy định thời hạn cụ thể, chậm nhất trong 30 ngày kể từ khi nhận đủ thông tin. Nếu không thể thực hiện một phần yêu cầu vì lý do pháp lý, chúng tôi sẽ giải thích lý do.
+**Thời hạn phản hồi.** Chúng tôi xác nhận đã nhận yêu cầu trong vòng 72 giờ. Chúng tôi hoàn tất yêu cầu trong thời hạn pháp luật quy định cho từng loại yêu cầu; nếu pháp luật không quy định thời hạn cụ thể, chậm nhất trong 30 ngày kể từ khi nhận đủ thông tin. Nếu không thể thực hiện một phần yêu cầu vì lý do pháp lý, chúng tôi sẽ giải thích lý do.
 
 Việc thực hiện quyền là miễn phí. Chúng tôi lắng nghe ý kiến của con: nếu con không muốn tiếp tục dùng Mathzle, bạn có thể yêu cầu xoá hồ sơ của con theo cách trên.
 
@@ -206,7 +207,7 @@ Bạn có thể xoá cookie và dữ liệu trang web trong cài đặt trình d
 
 Chúng tôi chỉ gửi email tin tức hoặc lời mời tham gia thử nghiệm cho người đã tự đăng ký nhận. Chúng tôi không gửi email tiếp thị cho trẻ em và tuân thủ pháp luật về chống tin nhắn rác, thư điện tử rác.
 
-Hiện Mathzle chưa gửi email tin tức hay tiếp thị định kỳ. Khi bắt đầu gửi, mỗi email tiếp thị sẽ có đường liên kết huỷ đăng ký. Bạn có thể huỷ đăng ký bất kỳ lúc nào — kể cả trước khi nhận email đầu tiên — bằng cách gửi yêu cầu qua kênh liên hệ tại mục 15. Chúng tôi xử lý yêu cầu huỷ đăng ký trong vòng 72 giờ kể từ khi nhận được.
+Mỗi email tiếp thị của Mathzle có đường liên kết huỷ đăng ký. Bạn có thể huỷ đăng ký bất kỳ lúc nào — kể cả trước khi nhận email đầu tiên — bằng cách gửi yêu cầu qua kênh liên hệ tại mục 15. Chúng tôi xử lý yêu cầu huỷ đăng ký trong vòng 72 giờ kể từ khi nhận được.
 
 Email giao dịch cần thiết cho tài khoản (như lời mời thành viên gia đình hoặc thông báo thay đổi quan trọng về Dịch vụ) không phải là email tiếp thị và vẫn có thể được gửi khi tài khoản còn hoạt động.
 
@@ -227,7 +228,7 @@ Với thay đổi quan trọng (ví dụ thu thập loại dữ liệu mới, d�
 
 ## 15. Liên hệ
 
-Nếu bạn có câu hỏi về Chính sách này, muốn thực hiện quyền với dữ liệu của mình hoặc của con, hoặc muốn khiếu nại về việc xử lý dữ liệu, vui lòng liên hệ qua kênh nêu tại mục [Thông tin doanh nghiệp](#company-details) hoặc [trang Liên hệ](/vi/contact/).
+Nếu bạn có câu hỏi về Chính sách này, muốn thực hiện quyền với dữ liệu của mình hoặc của con, hoặc muốn khiếu nại về việc xử lý dữ liệu, vui lòng liên hệ qua [trang Liên hệ](/vi/contact/) hoặc kênh nêu tại mục [Đơn vị vận hành](#company-details).
 
 Nếu bạn cho rằng quyền của mình chưa được giải quyết thoả đáng, bạn có quyền gửi khiếu nại đến Cục An ninh mạng và phòng, chống tội phạm sử dụng công nghệ cao (Bộ Công an) hoặc cơ quan nhà nước có thẩm quyền khác theo quy định pháp luật.
 

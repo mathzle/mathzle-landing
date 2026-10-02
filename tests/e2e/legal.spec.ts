@@ -2,25 +2,25 @@ import { test, expect } from '@playwright/test';
 import { site } from '../../src/data/site';
 
 // D-019: full Privacy Policy + Terms of Use from the `legal` content collection.
-const FORBIDDEN = [/không có advertising ID/i, /xoá dữ liệu bất kỳ lúc nào/i, /xóa dữ liệu bất kỳ lúc nào/i, /no advertising ID/i, /delete (your child's )?data (at )?any ?time/i, /TODO/, /REPLACE/];
+const FORBIDDEN = [/không có advertising ID/i, /xoá dữ liệu bất kỳ lúc nào/i, /xóa dữ liệu bất kỳ lúc nào/i, /no advertising ID/i, /delete (your child's )?data (at )?any ?time/i, /TODO/, /REPLACE/,
+  // D-022: no pending/placeholder wording.
+  /sẽ được công bố|trước khi (Mathzle )?ra mắt|dự thảo|đang chờ/i, /to be published|will be published|before (Mathzle's |the )?public launch|awaiting/i];
 
 for (const locale of ['vi', 'en'] as const) {
   for (const doc of ['privacy', 'terms'] as const) {
     const path = `/${locale}/${doc}/`;
 
-    test(`${path}: one h1, at least 12 sections, draft status while unreviewed`, async ({ page }) => {
+    test(`${path}: one h1, at least 12 sections, a plain "last updated" line (D-022)`, async ({ page }) => {
       await page.goto(path);
       await expect(page.locator('h1')).toHaveCount(1);
       expect(await page.locator('.legal-prose h2').count()).toBeGreaterThanOrEqual(12);
       const status = page.locator('.legal-status');
-      if (site.legal.policiesReviewedOn) {
-        await expect(status).toHaveAttribute('data-status', 'reviewed');
-        await expect(status).toContainText(site.legal.policiesReviewedOn.slice(0, 4));
-      } else {
-        await expect(status).toHaveAttribute('data-status', 'draft');
-        await expect(status).toContainText(locale === 'vi' ? 'Bản dự thảo — đang chờ luật sư rà soát' : 'Draft — awaiting legal review');
-        await expect(status).toContainText('2026');
-      }
+      await expect(status).toContainText(locale === 'vi' ? 'Cập nhật lần cuối:' : 'Last updated:');
+      const iso = await status.locator('time').getAttribute('datetime');
+      expect(iso).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      if (site.legal.policiesReviewedOn) expect(iso).toBe(site.legal.policiesReviewedOn);
+      await expect(page.locator('.legal-badge, [data-status]')).toHaveCount(0);
+      await expect(page.locator('main')).not.toContainText(locale === 'vi' ? /dự thảo|rà soát/i : /draft|legal review/i);
     });
 
     test(`${path}: parent summary only on privacy`, async ({ page }) => {
@@ -36,6 +36,10 @@ for (const locale of ['vi', 'en'] as const) {
 
     test(`${path}: table of contents matches the headings and scrolls there`, async ({ page }, info) => {
       await page.goto(path);
+      // Let the paint-first font swap (Base.astro, html.wf) finish: it re-wraps
+      // the long prose, and a jump taken mid-swap can land off target.
+      await expect(page.locator('html')).toHaveClass(/\bwf\b/);
+      await page.evaluate(() => document.fonts.ready);
       const ids = await page.locator('.legal-prose h2').evaluateAll((els) => els.map((e) => e.id));
       expect(ids.every(Boolean)).toBe(true);
       const mobile = info.project.name.startsWith('mobile');
@@ -49,14 +53,15 @@ for (const locale of ['vi', 'en'] as const) {
       await expect(target).toBeInViewport();
     });
 
-    test(`${path}: company details are honest while entity data is missing`, async ({ page }) => {
+    test(`${path}: operator details name Mathzle and the Contact page, with nothing "to be published"`, async ({ page }) => {
       await page.goto(path);
       const box = page.locator('#company-details');
       await expect(box).toBeVisible();
       if (!site.legal.companyName) {
-        await expect(box.locator(`a[href="/${locale}/contact/"]`)).toHaveCount(1);
-        await expect(box).toContainText(locale === 'vi' ? 'trước khi Mathzle ra mắt chính thức' : "before Mathzle's public launch");
+        await expect(box).toContainText(locale === 'vi' ? 'Mathzle là thương hiệu và đơn vị vận hành' : 'Mathzle is the brand and operator');
       }
+      if (!site.contact.email) await expect(box.locator(`a[href="/${locale}/contact/"]`)).toHaveCount(1);
+      await expect(box).not.toContainText(locale === 'vi' ? /công bố|ra mắt/ : /publish|launch/i);
       if (!site.contact.email) await expect(page.locator('main a[href^="mailto:"]')).toHaveCount(0);
     });
 
