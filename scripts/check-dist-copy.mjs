@@ -27,14 +27,18 @@ const pricingPublic = flag[1] === 'true';
 // catches an unresolved i18n/claim key placeholder.
 const MARKER = /dự thảo|bản nháp|\bnháp\b|chờ|rà soát|xác minh|xác nhận|phê duyệt|approv\w*|review\w*|pending|draft|unverified|sẽ được công bố|trước khi ra mắt|awaiting|to be published|before (?:the |our |its |mathzle's )?public launch/gi;
 const MARKER_CS = /TODO|REPLACE|\[[A-Za-z][\w.]*\]/g;
-// Legitimate phrases that contain a marker word (judged one by one).
+// Legitimate phrases that contain a marker word, judged one by one. Each entry
+// is the exact known-good phrase (anchored on both sides) so it can only mask
+// that sentence, never a new marker that happens to share a word.
 const MARKER_ALLOW = [
-  /danh sách chờ/gi,                               // "waitlist" (privacy §3.4)
-  /xác nhận (?:đã|yêu cầu)/gi,                     // "we acknowledge receipt…", "confirm you explained…"
-  /ô xác nhận/gi,                                  // "a confirmation checkbox"
-  /xác minh rằng yêu cầu/gi,                       // identity check before acting on a request
-  /spaced review/gi,                               // product feature (Method section)
-  /reviewing our security measures/gi,             // privacy §9
+  /hoặc danh sách chờ\)/g,                                            // "waitlist" (privacy §3.4)
+  /yêu cầu bạn xác nhận đã giải thích cho con/g,                       // privacy §5, ages 7+
+  /kể từ khi chúng tôi xác nhận yêu cầu/g,                             // privacy §8 deletion period
+  /Chúng tôi xác nhận đã nhận yêu cầu trong vòng 72 giờ/g,             // privacy §10 response time
+  /Chúng tôi xác nhận đã nhận trong vòng 72 giờ/g,                     // terms §12 complaints
+  /chúng tôi có thể xác minh rằng yêu cầu đến từ chủ tài khoản/g,      // privacy §10 identity check
+  /Spaced review is how the brain keeps knowledge/g,                   // Method section (product feature)
+  /reviewing our security measures when the Service changes/g,         // privacy §9
 ];
 const MARKUP = /class="[^"]*\bclaim-[\w-]*|data-claim=|data-status="(?:draft|pending)"|show-claims/g;
 // Internal pages that never ship to users (component kit, OG image renderers).
