@@ -1,0 +1,29 @@
+src/components/sections/ProofStrip.astro
+  s_6a8dd77299ee2b::t_a204cf2c3bbb67 32
+src/content/legal/vi/terms.md
+  s_6a8dd77299ee2b::t_6b815acfd87697 13
+src/content/legal/en/terms.md
+  s_6a8dd77299ee2b::t_01f0931cd0199b 13
+tests/e2e/pattern.spec.ts
+  s_6a8dd77299ee2b::t_1ba412e1e65268 51-61
+src/components/sections/Safety.astro
+  s_6a8dd77299ee2b::t_d00a473f25a801 21
+scripts/check-dist-copy.mjs
+  s_6a8dd77299ee2b::t_b557db670a971d 35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6afcefa1ab74c06a1fea820846e5aee22f25fc1d",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
