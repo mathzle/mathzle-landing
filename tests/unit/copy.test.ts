@@ -32,10 +32,8 @@ describe('copy()', () => {
     expect(copy('{claim:worlds} thế giới, {claim:levels} màn', 'vi')).toBe('6 thế giới, 1.240 màn');
     expect(copy('{claim:levels} levels', 'en')).toBe('1,240 levels');
   });
-  it('flags unverified claims in preview builds', () => {
-    expect(copy('{claim:pending} kỹ năng', 'vi')).toBe(
-      '<span class="claim-unverified" data-claim="pending" title="Unverified claim: pending">12</span> kỹ năng',
-    );
+  it('renders unverified claims plainly in preview builds (no review markup, D-022)', () => {
+    expect(copy('{claim:pending} kỹ năng', 'vi')).toBe('12 kỹ năng');
   });
   it('renders an unverified claim with no value as nothing (no [key] placeholder)', () => {
     expect(copy('A{claim:empty}B', 'vi')).toBe('AB');
@@ -60,10 +58,8 @@ describe('{if:key} sections', () => {
   it('drops the text for a claim confirmed absent', () => {
     expect(copy('Có{if:gone} báo cáo{/if}.', 'vi')).toBe('Có.');
   });
-  it('flags the text for an unverified claim in preview', () => {
-    expect(copy('A{if:pending} B{/if}', 'vi')).toBe(
-      'A<span class="claim-unverified" data-claim="pending" title="Unverified claim: pending"> B</span>',
-    );
+  it('keeps the text for an unverified claim in preview, with no review markup', () => {
+    expect(copy('A{if:pending} B{/if}', 'vi')).toBe('A B');
   });
   it('throws in strict builds when the condition is unverified', () => {
     expect(() => copy('{if:pending}x{/if}', 'vi', true)).toThrow(/Unverified claim "pending"/);
@@ -84,11 +80,12 @@ describe('claimHtml()', () => {
   it('returns null when the claim is confirmed absent', () => {
     expect(claimHtml('gone' as never, String)).toBeNull();
   });
-  it('flags unverified values and hides ones with no value yet', () => {
-    expect(claimHtml('pending' as never, String)).toContain('claim-unverified');
+  it('renders unverified values plainly and hides ones with no value yet', () => {
+    expect(claimHtml('pending' as never, String)).toBe('12');
     expect(claimHtml('empty' as never, String)).toBeNull();
   });
   it('throws in strict builds on an unverified value', () => {
+    expect(() => claimHtml('pending' as never, String, true)).toThrow(/Unverified claim "pending"/);
     expect(() => claimHtml('empty' as never, String, true)).toThrow(/Unverified claim "empty"/);
   });
 });

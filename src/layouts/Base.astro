@@ -27,7 +27,7 @@ const { title, description, locale, path, ogImage, noindex } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {fontPreloads[locale].map((href) => <link rel="preload" as="font" type="font/woff2" crossorigin href={href} />)}
-    <script is:inline>document.documentElement.classList.add('js');if(new URLSearchParams(location.search).has('claims'))document.documentElement.classList.add('show-claims');</script>
+    <script is:inline>document.documentElement.classList.add('js');</script>
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <SEO

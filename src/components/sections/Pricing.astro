@@ -7,7 +7,7 @@ import SignupForm from '../islands/SignupForm';
 import { site } from '../../data/site';
 import { resolveClaim, type ClaimKey } from '../../data/claims';
 import { currencyFor, formatPrice, perDay, savingsPct } from '../../data/pricing';
-import { copy, claimHtml, visible, flag, escapeHtml } from '../../lib/copy';
+import { copy, claimHtml, visible, escapeHtml } from '../../lib/copy';
 import { t, type Locale } from '../../utils/i18n';
 
 interface Props { locale: Locale }
@@ -25,13 +25,10 @@ const m = monthlyClaim.value;
 const y = yearlyClaim.value;
 const numeric = typeof m === 'number' && typeof y === 'number';
 const perDayHtml = numeric ? claimHtml(k('Yearly'), () => p.perDay.replace('{price}', formatPrice(perDay(y as number, cur), cur))) : null;
-// Savings % is derived from *both* the monthly and yearly claims — claimHtml
-// only checks one key, so flag it ourselves if either is still unverified.
+// Savings % is derived from both price claims; strict builds already throw
+// above (claimHtml) if either is unverified.
 const saveHtml = numeric
-  ? (() => {
-      const text = escapeHtml(p.save.replace('{pct}', String(savingsPct(m as number, y as number))));
-      return monthlyClaim.verified && yearlyClaim.verified ? text : flag(k('Yearly'), text);
-    })()
+  ? escapeHtml(p.save.replace('{pct}', String(savingsPct(m as number, y as number))))
   : null;
 const anchor = copy(p.anchor, locale);
 const refund = copy(p.refund, locale);
