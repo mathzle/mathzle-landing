@@ -1,0 +1,21 @@
+tests/unit/signup.test.ts
+  s_6a8dd77299ee2b::t_3d28da00307043 55,61,63,65,67,75-79
+src/pages/api/signup.ts
+  s_6a8dd77299ee2b::t_3d28da00307043 71-72
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "157df9cd7ecbc53664c25e74ecaf4fa7fb464eda",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
