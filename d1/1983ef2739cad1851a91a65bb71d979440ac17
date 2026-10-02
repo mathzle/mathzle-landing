@@ -1,0 +1,33 @@
+src/data/claims.ts
+  s_6a8dd77299ee2b::t_b2c28053dbda55 8-9
+tests/unit/copy.test.ts
+  s_6a8dd77299ee2b::t_b2c28053dbda55 35-36,61-62,83-84,88
+src/lib/copy.ts
+  s_6a8dd77299ee2b::t_0eac5b755048cc 16-20,22,27,30,36,40,51,70
+src/components/sections/Pricing.astro
+  s_6a8dd77299ee2b::t_0eac5b755048cc 10,28-29,31
+tests/e2e/pricing.spec.ts
+  s_6a8dd77299ee2b::t_9d96a799027da2 26,28
+src/layouts/Base.astro
+  s_6a8dd77299ee2b::t_b2c28053dbda55 30
+tests/e2e/sections-proof-pain.spec.ts
+  s_6a8dd77299ee2b::t_95fadd03336c55 3,11-12
+tests/unit/claims.test.ts
+  s_6a8dd77299ee2b::t_b2c28053dbda55 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "d11983ef2739cad1851a91a65bb71d979440ac17",
+  "prompts": {},
+  "sessions": {
+    "s_6a8dd77299ee2b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "60e3a134-b9d4-406c-a2c1-aa9f5ff2b3a1",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Huy Pham <huypq6@outlook.com.vn>"
+    }
+  }
+}
