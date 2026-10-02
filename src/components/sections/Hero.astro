@@ -24,7 +24,24 @@ const tryProps = {
   mascot: { idle: '/mascot/blob-idle.svg', cheer: '/mascot/blob-cheer.svg', think: '/mascot/blob-think.svg' },
 };
 ---
-<Section id="hero" tone="canvas" width="wide" labelledby="hero-title" class="hero">
+<Section id="hero" tone="canvas" pattern="grid" width="wide" labelledby="hero-title" class="hero">
+  {/* Decorative layer (D-024): a few soft geometric shapes in world colours
+      plus math glyphs, drifting slowly. Pure inline SVG + CSS — no requests,
+      no JS. Kept to the edges and the empty band above the visual so they
+      never sit on the headline/CTA. */}
+  <div class="hero-deco" aria-hidden="true">
+    <span class="hd hd-ring"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" /></svg></span>
+    <span class="hd hd-square"><svg viewBox="0 0 100 100"><rect x="8" y="8" width="84" height="84" rx="22" /></svg></span>
+    <span class="hd hd-tri"><svg viewBox="0 0 100 100"><path d="M50 8 94 88H6Z" stroke-linejoin="round" /></svg></span>
+    <span class="hd hd-slice"><svg viewBox="0 0 100 100"><path d="M50 50V4a46 46 0 0 1 46 46Z" /><circle cx="50" cy="50" r="46" /></svg></span>
+    <span class="hd hd-dot"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" /></svg></span>
+    <span class="hd hd-half"><svg viewBox="0 0 100 100"><path d="M4 50a46 46 0 0 1 92 0Z" /></svg></span>
+    <span class="hd hg hg-plus"><svg viewBox="0 0 24 24"><path d="M12 4v16M4 12h16" /></svg></span>
+    <span class="hd hg hg-times"><svg viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg></span>
+    <span class="hd hg hg-div"><svg viewBox="0 0 24 24"><path d="M4 12h16" /><circle cx="12" cy="5.5" r="1.6" /><circle cx="12" cy="18.5" r="1.6" /></svg></span>
+    <span class="hd hg hg-eq"><svg viewBox="0 0 24 24"><path d="M5 9h14M5 15h14" /></svg></span>
+    <span class="hd hg hg-minus"><svg viewBox="0 0 24 24"><path d="M5 12h14" /></svg></span>
+  </div>
   <div class="hero-grid">
     <div class="hero-copy">
       <Eyebrow><Fragment set:html={copy(i.eyebrow, locale)} /></Eyebrow>
@@ -66,7 +83,7 @@ const tryProps = {
 
 <style>
   /* `.hero` sits on the Section root (another component) → must be global. */
-  /* `overflow-x: clip` contains the visual's right bleed and its glow without
+  /* `overflow-x: clip` contains the visual's right bleed without
      making the section a scroll container (no horizontal page scroll). */
   :global(.hero) { padding-block: clamp(3rem, 6vw, 5.5rem) clamp(4rem, 8vw, 7rem); overflow-x: clip; }
   /* Top-aligned + a fixed (viewport-relative) drop instead of
@@ -87,10 +104,6 @@ const tryProps = {
   .hero-reassure li { display: inline-flex; align-items: center; gap: 0.375rem; font-size: 0.9375rem; font-weight: 500; color: var(--color-text-secondary); }
   .hero-reassure :global(.icon) { color: var(--color-success); }
   .hero-visual { position: relative; margin-right: -2.5rem; margin-top: clamp(3rem, 8vw, 7rem); }
-  .hero-visual::before {
-    content: ''; position: absolute; inset: -12% -8%; z-index: -1;
-    background: radial-gradient(closest-side, color-mix(in srgb, var(--color-primary) 10%, transparent), transparent);
-  }
   /* The stage lives in the frame's 16:10 body, but the card is taller than
      16:10 on narrow screens: make the body a grid so the in-flow stage can
      grow it (aspect-ratio keeps min-height:auto), and the card never clips. */
@@ -99,12 +112,62 @@ const tryProps = {
   .hero-stage :global(.hero-stage-bg) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
   /* Reserve the card's height before the client:only island mounts (CLS 0). */
   .hero-stage-slot { position: relative; width: 100%; min-height: var(--tap-min-h); display: grid; place-items: center; }
+  /* ---- Decorative shapes (D-024) ----
+     Sits at z-index -1 in the section's isolated stacking context (set by
+     `.mk-pattern`): above the graph paper, below every piece of content.
+     Low opacity, solid fills or thin outlines — no blur, no gradients.
+     Only `transform` animates (compositor-only, no layout → no CLS); each
+     shape has its own 22–38s ease-in-out alternate drift with a negative
+     delay so they're desynchronised from the first frame. Off-screen
+     compositor animations are cheap, so there's no JS pause; under
+     reduced-motion the animation is never declared. */
+  .hero-deco { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .hd { position: absolute; display: block; color: var(--c); opacity: var(--o, 0.1); }
+  .hd svg { display: block; width: 100%; height: 100%; overflow: visible; }
+  .hd svg :is(circle, rect, path) { fill: currentColor; }
+  .hd-ring svg circle, .hd-half svg path { fill: none; stroke: currentColor; stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+  .hd-slice svg circle { fill: none; stroke: currentColor; stroke-width: 1.5px; vector-effect: non-scaling-stroke; }
+  .hg svg :is(path) { fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; }
+
+  /* Desktop placement: the edges, and the empty band above the visual
+     (the visual starts ~7rem below the copy). */
+  .hd-ring   { --c: var(--color-world-ocean);  --o: 0.32; width: 320px; aspect-ratio: 1; top: -110px; right: -70px;  --dx: -14px; --dy: 18px; --r: 10deg; --t: 34s; --d: -6s; }
+  .hd-square { --c: var(--color-world-sunset); --o: 0.12; width: 150px; aspect-ratio: 1; bottom: -36px; left: -72px;  rotate: 14deg; --dx: 12px; --dy: -16px; --r: 8deg; --t: 28s; --d: -14s; }
+  .hd-tri    { --c: var(--color-world-sky);    --o: 0.08; width: 100px; aspect-ratio: 1; top: 7%;    left: 52%;    rotate: -10deg; --dx: 16px; --dy: 10px; --r: -10deg; --t: 31s; --d: -3s; }
+  .hd-slice  { --c: var(--color-world-berry);  --o: 0.12; width: 190px; aspect-ratio: 1; bottom: -54px; right: 9%; --dx: -10px; --dy: -14px; --r: 14deg; --t: 38s; --d: -20s; }
+  .hd-dot    { --c: var(--color-world-forest); --o: 0.16; width: 40px;  aspect-ratio: 1; top: 12%;   left: 68%;    --dx: 10px; --dy: -12px; --r: 0deg; --t: 22s; --d: -9s; }
+  .hd-half   { --c: var(--color-world-mint);   --o: 0.30; width: 120px; aspect-ratio: 2 / 1; bottom: 3%; left: 27%; rotate: 180deg; --dx: -8px; --dy: 12px; --r: -6deg; --t: 26s; --d: -12s; }
+  .hg        { --o: 0.32; width: 26px; aspect-ratio: 1; }
+  .hg-plus   { --c: var(--color-world-sunset); top: 14%;  left: 43%;   --dx: 8px;  --dy: 10px;  --r: 30deg;  --t: 24s; --d: -4s; }
+  .hg-times  { --c: var(--color-world-sky);    top: 6%;   left: 84%;   --dx: -6px; --dy: 12px;  --r: -25deg; --t: 27s; --d: -16s; }
+  .hg-div    { --c: var(--color-world-berry);  bottom: 12%; right: 30%; --dx: 10px; --dy: -8px; --r: 20deg;  --t: 30s; --d: -8s; }
+  .hg-eq     { --c: var(--color-world-ocean);  bottom: 5%;  left: 44%;  --dx: 6px; --dy: -12px; --r: -12deg; --t: 25s; --d: -18s; }
+  .hg-minus  { --c: var(--color-world-mint);   bottom: 16%; right: 3%;  --dx: -8px; --dy: 10px;  --r: 18deg;  --t: 29s; --d: -11s; }
+
+  @keyframes hd-drift {
+    from { transform: translate3d(0, 0, 0) rotate(0deg); }
+    to   { transform: translate3d(var(--dx), var(--dy), 0) rotate(var(--r)); }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .hd { animation: hd-drift var(--t) ease-in-out var(--d) infinite alternate; }
+  }
+
+  /* Stacked layout: copy spans the full width, so keep only shapes that
+     live on the outer edges / below the fold of the copy, and shrink them. */
+  @media (max-width: 980px) {
+    .hd-tri, .hd-half, .hd-dot, .hg-plus, .hg-div { display: none; }
+    .hd-ring   { width: 220px; top: -96px; right: -96px; }
+    .hd-square { width: 104px; left: -52px; bottom: 34%; }
+    .hd-slice  { width: 140px; right: -40px; bottom: -40px; }
+    .hg-times  { top: 2%; left: auto; right: 22%; }
+    .hg-eq     { bottom: 46%; left: auto; right: 3%; }
+    .hg-minus  { top: auto; bottom: 3%; right: auto; left: 6%; }
+  }
   .hero-sticker { position: absolute; left: -2rem; bottom: -2.5rem; width: min(300px, 70%); min-height: var(--tap-min-h); }
   @media (max-width: 980px) {
     .hero-grid { grid-template-columns: 1fr; }
-    /* `.hero-sticker` goes static below — nothing else needs the bleed room
-       any more, so contain the decorative glow (`::before`) instead of
-       letting it push the page into horizontal scroll. */
+    /* `.hero-sticker` goes static below — nothing needs the bleed room any
+       more, so clip the visual to its column (no horizontal scroll). */
     .hero-visual { margin-right: 0; margin-top: 0; overflow: hidden; }
     .hero-sticker { position: static; width: 100%; margin-top: 1rem; }
   }
