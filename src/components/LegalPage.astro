@@ -32,7 +32,10 @@ const fmt = (iso: string) =>
   new Date(`${iso}T00:00:00Z`).toLocaleDateString(locale === 'vi' ? 'vi-VN' : 'en-GB', {
     timeZone: 'UTC', day: '2-digit', month: locale === 'vi' ? '2-digit' : 'long', year: 'numeric',
   });
-const reviewedOn = site.legal.policiesReviewedOn;
+// D-022: one neutral "Last updated" line — the lawyer sign-off date once set,
+// else the document's own `updated` date. Review status stays internal
+// (launch:check + legal-review-checklist.md), never on the page.
+const updatedOn = site.legal.policiesReviewedOn ?? entry.data.updated;
 
 const toc = [
   ...headings.filter((h) => h.depth === 2).map((h) => ({ slug: h.slug, text: h.text })),
@@ -45,7 +48,7 @@ const facts = [
   { label: l.address, value: site.legal.address },
 ].filter((f) => f.value);
 const contactHref = `/${locale}/contact/`;
-const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
+const [contactBefore, contactAfter] = l.companyContact.split('{link}');
 ---
 <Base title={pageTitle(entry.data.title)} description={entry.data.description} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
@@ -54,16 +57,7 @@ const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
       <Eyebrow>{l.eyebrow}</Eyebrow>
       <h1 class="legal-title">{entry.data.title}</h1>
       <p class="mk-lead">{entry.data.lead}</p>
-      <p class="legal-status" data-status={reviewedOn ? 'reviewed' : 'draft'}>
-        {reviewedOn ? (
-          <span>{l.updated.replace('{date}', fmt(reviewedOn))}</span>
-        ) : (
-          <>
-            <span class="legal-badge">{l.draft}</span>
-            <span class="legal-status-date">{l.draftDate.replace('{date}', fmt(entry.data.updated))}</span>
-          </>
-        )}
-      </p>
+      <p class="legal-status"><time datetime={updatedOn}>{l.updated.replace('{date}', fmt(updatedOn))}</time></p>
     </Section>
 
     <div class="legal-layout">
@@ -96,8 +90,9 @@ const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
               {site.contact.email && <div><dt>{l.email}</dt><dd><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></dd></div>}
             </dl>
           )}
-          {(!site.legal.companyName || !site.contact.email) && (
-            <p class="company-pending">{pendingBefore}<a href={contactHref}>{l.contactPage}</a>{pendingAfter}</p>
+          {!site.legal.companyName && <p class="company-note">{l.companyBrand}</p>}
+          {!site.contact.email && (
+            <p class="company-note">{contactBefore}<a href={contactHref}>{l.contactPage}</a>{contactAfter}</p>
           )}
         </section>
       </div>
@@ -147,11 +142,6 @@ const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
     font-weight: 800; margin: 0 0 1rem; text-wrap: balance;
   }
   .legal-status { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; margin: 1.5rem 0 0; font-size: 0.9375rem; color: var(--color-text-secondary); }
-  .legal-badge {
-    display: inline-flex; align-items: center; padding: 0.375rem 0.75rem; border-radius: var(--radius-pill);
-    background: var(--color-mk-canvas-warm); color: #8a3a12; font-weight: 700; font-size: 0.875rem;
-    border: 1px solid rgb(255 120 73 / 0.35);
-  }
 
   .legal-layout {
     display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 4rem;
@@ -205,7 +195,8 @@ const [pendingBefore, pendingAfter] = l.companyPending.split('{link}');
   .company dl div { display: grid; grid-template-columns: 10rem 1fr; gap: 1rem; }
   .company dt { color: var(--color-text-secondary); }
   .company dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
-  .company-pending { margin: 0; line-height: 1.65; color: var(--color-text-primary); }
+  .company-note { margin: 0; line-height: 1.65; color: var(--color-text-primary); }
+  .company-note + .company-note { margin-top: 0.5rem; }
   .company a { color: var(--color-primary-dark); text-decoration: underline; text-underline-offset: 3px; }
 
   /* Contact strip */

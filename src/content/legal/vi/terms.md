@@ -2,7 +2,7 @@
 title: Điều khoản sử dụng
 description: Các điều khoản khi gia đình bạn sử dụng Mathzle trong giai đoạn thử nghiệm miễn phí — tài khoản, quy tắc sử dụng, trách nhiệm và giải quyết khiếu nại.
 lead: Điều khoản này là thoả thuận giữa bạn và Mathzle khi gia đình bạn sử dụng Mathzle. Chúng tôi viết ngắn gọn và rõ ràng nhất có thể; vui lòng đọc kỹ trước khi tạo tài khoản.
-updated: 2026-09-30
+updated: 2026-10-02
 docType: terms
 ---
 
@@ -10,18 +10,18 @@ docType: terms
 
 Điều khoản sử dụng này (“Điều khoản”) điều chỉnh việc bạn truy cập và sử dụng trang giới thiệu Mathzle và ứng dụng Mathzle chạy trên trình duyệt (gọi chung là “Dịch vụ”).
 
-Bạn chấp nhận Điều khoản này và [Chính sách bảo mật](/vi/privacy/) bằng một thao tác rõ ràng (ví dụ đánh dấu ô xác nhận đã đọc và đồng ý) tại bước đồng ý trong Ứng dụng. Hiện Ứng dụng chưa có bước này; Mathzle sẽ bổ sung trước khi mời các gia đình tham gia thử nghiệm và trước khi ra mắt chính thức (xem mục 5 của Chính sách bảo mật). Việc chỉ truy cập hoặc sử dụng Dịch vụ không được coi là chấp nhận Điều khoản. Nếu không đồng ý, vui lòng không tạo tài khoản.
+Bạn chấp nhận Điều khoản này và [Chính sách bảo mật](/vi/privacy/) bằng một thao tác rõ ràng (ví dụ đánh dấu ô xác nhận đã đọc và đồng ý) tại bước đồng ý trong Ứng dụng (xem mục 5 của Chính sách bảo mật). Việc chỉ truy cập hoặc sử dụng Dịch vụ không được coi là chấp nhận Điều khoản. Nếu không đồng ý, vui lòng không tạo tài khoản.
 
 Khi chấp nhận Điều khoản này để tạo hồ sơ cho con, bạn đồng ý thay mặt cho con với tư cách cha mẹ hoặc người giám hộ, và chịu trách nhiệm về việc con sử dụng Dịch vụ.
 
 ## 2. Định nghĩa
 
-- **“Mathzle”, “chúng tôi”:** đơn vị cung cấp Dịch vụ, có thông tin tại mục [Thông tin doanh nghiệp](#company-details).
+- **“Mathzle”, “chúng tôi”:** đơn vị cung cấp Dịch vụ, có thông tin tại mục [Đơn vị vận hành](#company-details).
 - **“Bạn”, “phụ huynh”:** người từ đủ 18 tuổi là cha mẹ hoặc người giám hộ hợp pháp của trẻ, tạo và quản lý tài khoản gia đình.
 - **“Trẻ”, “con”:** trẻ em sử dụng Dịch vụ thông qua hồ sơ do phụ huynh tạo.
 - **“Tài khoản gia đình”:** tài khoản của phụ huynh cùng các hồ sơ trẻ và các phụ huynh cùng quản lý được mời vào.
 - **“Nội dung”:** bài học, câu hỏi, trò chơi, hình ảnh, nhân vật, âm thanh, video, văn bản và phần mềm trong Dịch vụ.
-- **“Giai đoạn thử nghiệm”:** giai đoạn Mathzle được cung cấp miễn phí trước khi ra mắt chính thức, như mô tả tại mục 4.
+- **“Giai đoạn thử nghiệm”:** giai đoạn Mathzle được cung cấp miễn phí để thử nghiệm, như mô tả tại mục 4.
 
 ## 3. Ai được sử dụng và tài khoản
 
@@ -117,7 +117,7 @@ Trong phạm vi pháp luật cho phép, chúng tôi không chịu trách nhiệm
 
 ## 12. Khiếu nại và giải quyết tranh chấp
 
-**Tiếp nhận khiếu nại.** Bạn có thể gửi khiếu nại, phản ánh về Dịch vụ qua kênh liên hệ tại mục 15. Kể từ khi kênh liên hệ chính thức được công bố, chúng tôi xác nhận đã nhận trong vòng 72 giờ và phản hồi kết quả xử lý trong thời hạn tối đa 30 ngày, trừ khi pháp luật quy định thời hạn ngắn hơn.
+**Tiếp nhận khiếu nại.** Bạn có thể gửi khiếu nại, phản ánh về Dịch vụ qua kênh liên hệ tại mục 15. Chúng tôi xác nhận đã nhận trong vòng 72 giờ và phản hồi kết quả xử lý trong thời hạn tối đa 30 ngày, trừ khi pháp luật quy định thời hạn ngắn hơn.
 
 **Phương thức giải quyết.** Theo Luật Bảo vệ quyền lợi người tiêu dùng 2023, tranh chấp giữa bạn và chúng tôi có thể được giải quyết bằng các phương thức sau:
 
@@ -144,4 +144,4 @@ Chúng tôi gửi thông báo đến địa chỉ email của tài khoản gia �
 
 ## 15. Liên hệ
 
-Nếu bạn có câu hỏi về Điều khoản này hoặc muốn gửi khiếu nại, vui lòng liên hệ qua kênh nêu tại mục [Thông tin doanh nghiệp](#company-details) hoặc [trang Liên hệ](/vi/contact/).
+Nếu bạn có câu hỏi về Điều khoản này hoặc muốn gửi khiếu nại, vui lòng liên hệ qua [trang Liên hệ](/vi/contact/) hoặc kênh nêu tại mục [Đơn vị vận hành](#company-details).
