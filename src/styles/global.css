@@ -76,9 +76,9 @@
   --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* ---- Marketing layer (Feature 18). App tokens above stay untouched. ---- */
-  --color-mk-canvas: #fffcf8;
+  --color-mk-canvas: #ffffff;
   --color-mk-canvas-tint: #f5f4ff;
-  --color-mk-canvas-warm: #fff4ea;
+  --color-mk-canvas-mist: #f6f8fb; /* cool neutral band (D-021: no cream) */
   --color-mk-ink: #17152b;
   --color-mk-ink-surface: #221f3a;
   --color-mk-ink-text: #f4f2ff;
@@ -237,11 +237,11 @@
   .mk-section { padding-block: clamp(80px, 10vw, 136px); padding-inline: 1.5rem; }
   .mk-tone-canvas { background: var(--color-mk-canvas); }
   .mk-tone-tint   { background: var(--color-mk-canvas-tint); }
-  .mk-tone-warm   { background: var(--color-mk-canvas-warm); }
+  .mk-tone-mist   { background: var(--color-mk-canvas-mist); }
   .mk-tone-ink    { background: var(--color-mk-ink); color: var(--color-mk-ink-text); }
   .mk-tone-ink .mk-lead, .mk-tone-ink .mk-body, .mk-tone-ink .mk-caption { color: var(--color-mk-ink-text-muted); }
   @media (min-width: 1024px) {
-    .mk-tone-tint, .mk-tone-warm, .mk-tone-ink { margin-inline: 1rem; border-radius: var(--radius-mk-band); }
+    .mk-tone-tint, .mk-tone-mist, .mk-tone-ink { margin-inline: 1rem; border-radius: var(--radius-mk-band); }
   }
   .mk-container { max-width: 1200px; margin-inline: auto; }
   .mk-container--wide { max-width: 1320px; }

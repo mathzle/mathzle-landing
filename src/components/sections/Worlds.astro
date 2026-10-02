@@ -10,7 +10,7 @@ const { locale, featured = 'ocean' } = Astro.props;
 const w = t(locale).worlds;
 const ordered = [...WORLDS].sort((a, b) => (a.id === featured ? -1 : b.id === featured ? 1 : 0));
 ---
-<Section id="worlds" tone="warm" width="wide" labelledby="worlds-title">
+<Section id="worlds" tone="mist" width="wide" labelledby="worlds-title">
   <SectionHeader id="worlds-title" locale={locale} eyebrow={w.eyebrow} title={w.title} lead={w.lead} accent="var(--color-world-sunset)" />
   <ul class="bento" aria-label={w.carouselLabel}>
     {ordered.map((world, n) => (
