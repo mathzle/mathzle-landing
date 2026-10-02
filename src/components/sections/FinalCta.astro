@@ -12,7 +12,7 @@ const { locale } = Astro.props;
 const d = t(locale);
 const f = d.final;
 ---
-<Section id="final-cta" tone="ink" labelledby="final-title">
+<Section id="final-cta" tone="ink" pattern="dots" labelledby="final-title">
   <div class="fc">
     <Mascot state="cheer" size={140} />
     <h2 id="final-title" class="mk-h2" set:html={copy(f.title, locale)} />

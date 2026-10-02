@@ -243,6 +243,37 @@
   @media (min-width: 1024px) {
     .mk-tone-tint, .mk-tone-mist, .mk-tone-ink { margin-inline: 1rem; border-radius: var(--radius-mk-band); }
   }
+  /* Background texture (D-024) — math-themed, meant to be felt, not seen.
+     Pure CSS gradients (no requests), on a ::before at z-index -1 inside an
+     isolated section: below the content, above the band colour. A radial
+     mask fades it out toward the edges so it reads as a soft texture, not a
+     ruled sheet. Opt-in via <Section pattern="grid|dots">. */
+  .mk-pattern { position: relative; isolation: isolate; }
+  .mk-pattern::before {
+    content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    border-radius: inherit;
+    background-position: center top;
+    -webkit-mask-image: var(--mk-pattern-mask);
+    mask-image: var(--mk-pattern-mask);
+    --mk-pattern-mask: radial-gradient(ellipse 70% 75% at 50% 45%, #000 15%, transparent 100%);
+  }
+  /* "Vở ô li": 24px minor squares in ink, every 5th line (120px) in brand violet. */
+  .mk-pattern-grid::before {
+    --minor: rgb(23 21 43 / 0.045);
+    --major: rgb(91 108 255 / 0.07);
+    background-image:
+      linear-gradient(var(--major) 1px, transparent 1px),
+      linear-gradient(90deg, var(--major) 1px, transparent 1px),
+      linear-gradient(var(--minor) 1px, transparent 1px),
+      linear-gradient(90deg, var(--minor) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  }
+  /* Ink bands: a white dot on every 24px grid intersection. */
+  .mk-pattern-dots::before {
+    background-image: radial-gradient(circle at 1px 1px, rgb(255 255 255 / 0.08) 1.25px, transparent 1.75px);
+    background-size: 24px 24px;
+  }
+
   .mk-container { max-width: 1200px; margin-inline: auto; }
   .mk-container--wide { max-width: 1320px; }
   @media (max-width: 640px) { .mk-section { padding-inline: 1rem; } }

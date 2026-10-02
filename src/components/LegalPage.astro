@@ -53,7 +53,7 @@ const [contactBefore, contactAfter] = l.companyContact.split('{link}');
 <Base title={pageTitle(entry.data.title)} description={entry.data.description} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main class="legal" data-doc={doc}>
-    <Section id="legal-hero" tone="tint" class="legal-hero">
+    <Section id="legal-hero" tone="tint" pattern="grid" class="legal-hero">
       <Eyebrow>{l.eyebrow}</Eyebrow>
       <h1 class="legal-title">{entry.data.title}</h1>
       <p class="mk-lead">{entry.data.lead}</p>

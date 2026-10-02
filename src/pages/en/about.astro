@@ -17,7 +17,7 @@ const a = t(locale).about;
 <Base title={pageTitle(a.title)} description={copyText(a.description, locale)} locale={locale} path={path}>
   <Nav locale={locale} path={path} />
   <main>
-    <Section id="about-hero" tone="canvas" class="about-hero">
+    <Section id="about-hero" tone="canvas" pattern="grid" class="about-hero">
       <Mascot state="wave" size={112} />
       <h1 class="mk-display">{a.title}</h1>
       <p class="mk-lead">{a.lead}</p>

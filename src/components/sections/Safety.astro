@@ -9,7 +9,7 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const i = t(locale).safety;
 ---
-<Section id="safety" tone="ink" labelledby="safety-title">
+<Section id="safety" tone="ink" pattern="dots" labelledby="safety-title">
   <SectionHeader id="safety-title" locale={locale} eyebrow={i.eyebrow} title={i.title} lead={i.lead} accent="var(--color-world-mint)" />
   <ul class="sg">
     {visible(i.items).map((it) => (
