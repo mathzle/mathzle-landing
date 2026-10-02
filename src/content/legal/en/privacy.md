@@ -89,8 +89,8 @@ Difficulty adaptation is based on your child's learning results and runs inside 
 Mathzle is designed for children, so we apply the following principles:
 
 - **Parents register.** Only a person aged 18 or over who is the child's parent or legal guardian may create an account and child profiles. Children do not register themselves.
-- **Consent under applicable personal data protection law.** Processing a child's personal data requires the consent of a parent or guardian; for a child aged 7 or older, the child's own consent is also required. For a child aged 7 or older, the consent step described below will ask you to confirm that you have explained to your child, in age-appropriate words, what information Mathzle keeps, and that your child agrees to use Mathzle.
-- **How consent is recorded.** Consent is recorded through an explicit consent step in the App — for the parent, and for a child aged 7 or older as the law requires — that records the time and the version of this Policy agreed to. For family accounts created while the App did not yet show this step, we only process data as far as needed for the App to work as described in this Policy, we do not enable any feature that needs separate consent (such as voice reading practice), and parents can ask us at any time to delete data under section 10.
+- **Consent under applicable personal data protection law.** Processing a child's personal data requires the consent of a parent or guardian; for a child aged 7 or older, the child's own consent is also required. For a child aged 7 or older, the consent step in the App (where it applies, see below) asks you to confirm that you have explained to your child, in age-appropriate words, what information Mathzle keeps, and that your child agrees to use Mathzle.
+- **How consent is recorded.** When the consent step is in place in the App, consent is recorded there — for the parent, and for a child aged 7 or older as the law requires — with the time and the version of this Policy agreed to. Until then, Mathzle processes data only as far as needed to provide the Service to the parent who created the account, does not use it for any other purpose, does not enable any feature that needs separate consent (such as voice reading practice), and parents can ask us at any time to delete data under section 10.
 - **Data minimisation.** We only require a nickname and an age to create a profile. You do not need to give your child's real name or photo.
 - **No ads, no marketing to children.** We do not show ads to children, do not use children's data to build marketing profiles, and do not send marketing emails to children.
 - **Parents are in control.** You can withdraw consent whenever you choose by sending a request as described in section 10. We will then stop processing and delete your child's profile within the periods in section 8. Withdrawing consent does not affect the lawfulness of processing carried out before.
@@ -130,7 +130,7 @@ When we transfer data abroad, we commit to:
 - transfer only the data needed for the relevant purpose;
 - choose providers with written data protection commitments and appropriate security measures.
 
-The cross-border transfers described here are covered by the explicit consent step in section 5 and by the transfer impact assessment above. We do not treat merely continuing to use the Service as consent to these transfers.
+The cross-border transfers described here are covered by the transfer impact assessment above, and are set out in the consent step in the App where that step applies (see section 5). We do not treat merely continuing to use the Service as consent to these transfers.
 
 ## 8. Storage location and retention
 

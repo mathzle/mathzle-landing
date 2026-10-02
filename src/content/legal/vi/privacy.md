@@ -89,8 +89,8 @@ Việc điều chỉnh độ khó dựa trên kết quả học tập của con 
 Mathzle được thiết kế cho trẻ em, vì vậy chúng tôi áp dụng các nguyên tắc sau:
 
 - **Phụ huynh là người đăng ký.** Chỉ người từ đủ 18 tuổi là cha mẹ hoặc người giám hộ hợp pháp mới được tạo tài khoản và hồ sơ cho trẻ. Trẻ không tự đăng ký.
-- **Sự đồng ý theo quy định pháp luật về bảo vệ dữ liệu cá nhân.** Việc xử lý dữ liệu cá nhân của trẻ em cần có sự đồng ý của cha mẹ hoặc người giám hộ; với trẻ từ đủ 7 tuổi, cần có thêm sự đồng ý của chính trẻ. Với con từ đủ 7 tuổi trở lên, bước đồng ý nêu dưới đây yêu cầu bạn xác nhận đã giải thích cho con, bằng lời lẽ phù hợp với lứa tuổi, về những thông tin Mathzle lưu lại, và con đồng ý sử dụng Mathzle.
-- **Cách ghi nhận sự đồng ý.** Sự đồng ý được ghi nhận bằng một bước đồng ý rõ ràng trong Ứng dụng — của phụ huynh, và của trẻ từ đủ 7 tuổi theo quy định pháp luật — có lưu lại thời điểm và phiên bản Chính sách được đồng ý. Với tài khoản gia đình được tạo khi Ứng dụng chưa hiển thị bước này, chúng tôi chỉ xử lý dữ liệu ở mức cần thiết để Ứng dụng hoạt động như mô tả trong Chính sách này, không bật tính năng nào cần sự đồng ý riêng (như luyện đọc bằng giọng nói), và phụ huynh có thể gửi yêu cầu xoá dữ liệu vào bất kỳ thời điểm nào theo mục 10.
+- **Sự đồng ý theo quy định pháp luật về bảo vệ dữ liệu cá nhân.** Việc xử lý dữ liệu cá nhân của trẻ em cần có sự đồng ý của cha mẹ hoặc người giám hộ; với trẻ từ đủ 7 tuổi, cần có thêm sự đồng ý của chính trẻ. Với con từ đủ 7 tuổi trở lên, bước đồng ý trong Ứng dụng (khi được áp dụng, xem đoạn dưới đây) yêu cầu bạn xác nhận đã giải thích cho con, bằng lời lẽ phù hợp với lứa tuổi, về những thông tin Mathzle lưu lại, và con đồng ý sử dụng Mathzle.
+- **Cách ghi nhận sự đồng ý.** Khi Ứng dụng có bước đồng ý, sự đồng ý được ghi nhận tại bước đó — của phụ huynh, và của trẻ từ đủ 7 tuổi theo quy định pháp luật — kèm thời điểm và phiên bản Chính sách được đồng ý. Khi chưa có bước này, Mathzle chỉ xử lý dữ liệu ở mức cần thiết để cung cấp Dịch vụ cho phụ huynh đã tạo tài khoản, không dùng dữ liệu cho mục đích nào khác, không bật tính năng nào cần sự đồng ý riêng (như luyện đọc bằng giọng nói), và phụ huynh có thể yêu cầu xoá dữ liệu vào bất kỳ thời điểm nào theo mục 10.
 - **Tối thiểu hoá dữ liệu.** Chúng tôi chỉ yêu cầu biệt danh và tuổi để tạo hồ sơ. Bạn không cần cung cấp họ tên thật hay ảnh thật của con.
 - **Không quảng cáo, không tiếp thị cho trẻ.** Chúng tôi không hiển thị quảng cáo cho trẻ, không dùng dữ liệu của trẻ để tạo hồ sơ tiếp thị và không gửi email tiếp thị cho trẻ.
 - **Phụ huynh kiểm soát.** Bạn có thể rút lại sự đồng ý bất kỳ lúc nào bằng cách gửi yêu cầu theo mục 10. Khi đó chúng tôi ngừng xử lý và xoá hồ sơ của con theo thời hạn tại mục 8. Việc rút lại sự đồng ý không ảnh hưởng đến tính hợp pháp của việc xử lý đã thực hiện trước đó.
@@ -130,7 +130,7 @@ Khi chuyển dữ liệu ra nước ngoài, chúng tôi cam kết:
 - chỉ chuyển những dữ liệu cần thiết cho mục đích tương ứng;
 - chọn nhà cung cấp có cam kết bảo vệ dữ liệu bằng văn bản và biện pháp bảo mật phù hợp.
 
-Việc chuyển dữ liệu ra nước ngoài như mô tả tại đây được nêu trong bước đồng ý rõ ràng tại mục 5 và trong hồ sơ đánh giá tác động chuyển dữ liệu ra nước ngoài nêu trên. Chúng tôi không coi việc bạn chỉ tiếp tục sử dụng Dịch vụ là sự đồng ý với việc chuyển dữ liệu này.
+Việc chuyển dữ liệu ra nước ngoài như mô tả tại đây được nêu trong hồ sơ đánh giá tác động chuyển dữ liệu ra nước ngoài nêu trên, và được nêu rõ tại bước đồng ý trong Ứng dụng khi bước này được áp dụng (xem mục 5). Chúng tôi không coi việc bạn chỉ tiếp tục sử dụng Dịch vụ là sự đồng ý với việc chuyển dữ liệu này.
 
 ## 8. Nơi lưu trữ và thời hạn lưu trữ
 

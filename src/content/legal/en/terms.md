@@ -10,7 +10,7 @@ docType: terms
 
 These Terms of Use (the “Terms”) govern your access to and use of the Mathzle website and the Mathzle app that runs in the browser (together, the “Service”).
 
-You accept these Terms and our [Privacy Policy](/en/privacy/) through an explicit action (for example, ticking a box confirming you have read and agree) at the consent step in the App (see section 5 of the Privacy Policy). Merely visiting or using the Service is not treated as accepting these Terms. If you do not agree, please do not create an account.
+You accept these Terms and our [Privacy Policy](/en/privacy/) through an explicit action in the App, such as the consent step (see section 5 of the Privacy Policy) or the confirmation when you sign up for a family account. Merely visiting or using the Service is not treated as accepting these Terms. If you do not agree, please do not create an account.
 
 When you accept these Terms in order to create a profile for your child, you accept them on your child's behalf as their parent or guardian, and you are responsible for your child's use of the Service.
 
